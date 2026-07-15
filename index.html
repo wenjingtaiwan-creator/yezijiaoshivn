@@ -3,91 +3,243 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>葉子教室越南語</title>
+    <title>葉子教室越南語 - 最道地的越南語線上學習品牌</title>
     <style>
+        :root {
+            --primary-color: #2E7D32; /* 品牌葉子綠 */
+            --secondary-color: #81C784; /* 淺綠 */
+            --accent-color: #FF9800; /* 亮眼橘（互動按鈕用） */
+            --text-color: #2C3E50;
+            --bg-light: #F9FBFA; /* 舒服的淺米綠底色 */
+        }
+
         body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
+            font-family: 'PingFang TC', 'Microsoft JhengHei', sans-serif;
+            line-height: 1.8;
             margin: 0;
             padding: 0;
-            color: #333;
+            color: var(--text-color);
+            background-color: var(--bg-light);
         }
+
         header {
-            background-color: #2E7D32; /* 葉子綠色 */
-            color: white;
-            padding: 1rem;
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
             position: sticky;
             top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(5px);
         }
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin-right: 15px;
+
+        .nav-container {
+            max-width: 1100px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
+
+        .logo {
+            font-size: 1.4rem;
             font-weight: bold;
+            color: var(--primary-color);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
         }
+
+        nav a {
+            color: var(--text-color);
+            text-decoration: none;
+            margin-left: 25px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
         nav a:hover {
-            text-decoration: underline;
+            color: var(--primary-color);
         }
+
+        /* 首頁主視覺區塊 */
+        .hero {
+            background: linear-gradient(135deg, #E8F5E9 0%, #C8E6C9 100%);
+            padding: 100px 20px;
+            text-align: center;
+        }
+
+        .hero h2 {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto 30px auto;
+            color: #555;
+        }
+
+        .btn {
+            background-color: var(--accent-color);
+            color: white;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(255, 152, 0, 0.3);
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: inline-block;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 152, 0, 0.4);
+        }
+
         section {
-            padding: 60px 20px;
-            border-bottom: 1px solid #eee;
+            padding: 80px 20px;
         }
+
         .container {
-            max-width: 800px;
+            max-width: 1000px;
             margin: auto;
         }
-        footer {
-            background-color: #f4f4f4;
+
+        .section-title {
             text-align: center;
-            padding: 10px;
-            margin-top: 20px;
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            background-color: var(--accent-color);
+            margin: 10px auto 0 auto;
+        }
+
+        /* 卡片式排版 */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+            border-top: 4px solid var(--primary-color);
+            transition: translateY 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        /* 資源列表樣式 */
+        .resource-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .resource-list li {
+            background: white;
+            margin-bottom: 15px;
+            padding: 15px 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+        }
+
+        .resource-list a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .resource-list a:hover {
+            color: var(--primary-color);
+        }
+
+        /* 聯絡資訊 */
+        .contact-info {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            text-align: center;
+            max-width: 600px;
+            margin: auto;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+        }
+
+        footer {
+            background-color: #2C3E50;
+            color: #A0AAB5;
+            text-align: center;
+            padding: 20px;
+            font-size: 0.9rem;
         }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="container">
-            <h1>葉子教室越南語</h1>
+        <div class="nav-container">
+            <a href="#" class="logo">🍃 葉子教室越南語</a>
             <nav>
                 <a href="#home">首頁</a>
-                <a href="#teaching">教學</a>
-                <a href="#learning">學習</a>
+                <a href="#teaching">教學特色</a>
+                <a href="#learning">學習資源</a>
                 <a href="#contact">聯絡我們</a>
             </nav>
         </div>
     </header>
 
-    <!-- 首頁區塊 -->
-    <section id="home">
-        <div class="container">
-            <h2>歡迎來到葉子教室</h2>
-            <p>在這裡，我們用最輕鬆、有趣的方式，帶你一步步認識越南語的發音、詞彙與日常對話。</p>
-        </div>
+    <!-- 首頁區塊 (Hero) -->
+    <section id="home" class="hero">
+        <h2>想學最道地的越南語？</h2>
+        <p>在這裡，我們用最輕鬆、有趣且系統化的方式，帶你一步步從零基礎走向流利溝通，開啟你的東南亞新視野！</p>
+        <a href="#contact" class="btn">立即預約試聽</a>
     </section>
 
     <!-- 教學區塊 -->
     <section id="teaching">
         <div class="container">
-            <h2>教學特色</h2>
-            <p>我們的教學方針：</p>
-            <ul>
-                <li>母語專業師資，發音最標準</li>
-                <li>系統化課程設計，從零基礎到流利溝通</li>
-                <li>情境式互動教學，學了馬上就能用</li>
-            </ul>
+            <h3 class="section-title">教學特色</h3>
+            <div class="grid">
+                <div class="card">
+                    <h4>💡 母語專業師資</h4>
+                    <p>標準北越/南越發音，糾正台灣學生最容易搞混的六個聲調，讓你開口就驚艷越南在地人。</p>
+                </div>
+                <div class="card">
+                    <h4>📈 系統化課程</h4>
+                    <p>從字母發音、日常實用會話到商務越南語，循序漸進設計，拒絕碎片化學習。</p>
+                </div>
+                <div class="card">
+                    <h4>🎯 情境式互動</h4>
+                    <p>拒絕死記硬背！融入真實旅遊與職場情境，搭配互動練習，讓你學了當天就能用。</p>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- 學習區塊 -->
-    <section id="learning">
+    <section id="learning" style="background-color: #F0F4F1;">
         <div class="container">
-            <h2>學習資源</h2>
-            <p>點擊下方主題開始你的越南語學習之旅：</p>
-            <ul>
-                <li><a href="#">越南語字母與發音</a></li>
-                <li><a href="#">常用日常實用會話</a></li>
-                <li><a href="#">越南文化與旅遊小常識</a></li>
+            <h3 class="section-title">學習資源</h3>
+            <ul class="resource-list">
+                <li><a href="#"><span>📚 基礎篇：越南語字母與發音小秘笈</span> <span>➔</span></a></li>
+                <li><a href="#"><span>🗣 實用篇：日常必備 50 句實用會話</span> <span>➔</span></a></li>
+                <li><a href="#"><span>✈️ 文化篇：越南旅遊必知的小常識與禁忌</span> <span>➔</span></a></li>
             </ul>
         </div>
     </section>
@@ -95,10 +247,15 @@
     <!-- 聯絡我們區塊 -->
     <section id="contact">
         <div class="container">
-            <h2>聯絡我們</h2>
-            <p>有任何課程疑問或想了解更多嗎？歡迎透過以下方式與我們聯絡：</p>
-            <p>📧 電子郵件：your-email@example.com</p>
-            <p>📱 官方 LINE：@yezijiaoshi</p>
+            <h3 class="section-title">聯絡我們</h3>
+            <div class="contact-info">
+                <p>有任何課程疑問或想了解客製化教學嗎？歡迎隨時與我們聯繫！</p>
+                <p style="font-size: 1.1rem; margin: 20px 0;">
+                    📧 電子郵件：<a href="mailto:your-email@example.com" style="color: var(--primary-color);">your-email@example.com</a><br><br>
+                    📱 官方 LINE：<strong style="color: var(--primary-color);">@yezijiaoshi</strong>
+                </p>
+                <p style="color: #888; font-size: 0.9rem;">（我們通常會在 24 小時內回覆您）</p>
+            </div>
         </div>
     </section>
 
