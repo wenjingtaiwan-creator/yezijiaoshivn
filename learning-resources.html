@@ -41,23 +41,20 @@
             text-align: center;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             border: 1px solid #e0e0e0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
         .book-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 8px 20px rgba(46, 125, 50, 0.15);
         }
+        /* 書本封面圖片設定 */
         .book-cover {
             width: 100%;
             height: 280px;
-            background-color: #e8f5e9;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #2e7d32;
-            font-weight: bold;
-            font-size: 1.1rem;
+            object-fit: cover;
             border-bottom: 1px solid #eee;
-            /* 提示：之後有封面圖片網址，可直接替換成 img 標籤 */
         }
         .book-info {
             padding: 15px;
@@ -87,49 +84,171 @@
 
 <div class="container">
     <h1>🍃 教育部越南語電子教材 (第1-18冊)</h1>
-    <p class="subtitle">點擊下方各冊按鈕，即可直接開啟教育部官方線上電子書進行閱讀與學習！</p>
+    <p class="subtitle">點擊下方各冊封面或按鈕，即可直接開啟教育部官方線上電子書進行閱讀與學習！</p>
 
     <div class="grid-container">
         
         <!-- 第 1 冊 -->
         <div class="book-card">
-            <div class="book-cover">📕 越南語 第 1 冊</div>
+            <img src="https://mkm.k12ea.gov.tw/upload/mat/1663047800a4a042cf4fd6bfb47701cbc8a1653ada.jpeg" alt="越南語第一冊" class="book-cover">
             <div class="book-info">
                 <h3 class="book-title">第一冊</h3>
-                <a href="https://mkm.k12ea.gov.tw/textbook/material/1?type=1" target="_blank" class="read-btn">線上閱讀 ➔</a>
+                <a href="https://mkm.k12ea.gov.tw/upload/ebook_app/Vietnam/1/index.html" target="_blank" class="read-btn">線上閱讀 ➔</a>
             </div>
         </div>
 
         <!-- 第 2 冊 -->
         <div class="book-card">
-            <div class="book-cover">📗 越南語 第 2 冊</div>
+            <img src="https://mkm.k12ea.gov.tw/upload/mat/166304776331fefc0e570cb3860f2a6d4b38c6490d.jpeg" alt="越南語第二冊" class="book-cover">
             <div class="book-info">
                 <h3 class="book-title">第二冊</h3>
-                <a href="https://mkm.k12ea.gov.tw/textbook/material/1?type=1" target="_blank" class="read-btn">線上閱讀 ➔</a>
+                <a href="https://mkm.k12ea.gov.tw/upload/ebook_app/Vietnam/2/index.html" target="_blank" class="read-btn">線上閱讀 ➔</a>
             </div>
         </div>
 
         <!-- 第 3 冊 -->
         <div class="book-card">
-            <div class="book-cover">📘 越南語 第 3 冊</div>
+            <img src="https://mkm.k12ea.gov.tw/upload/mat/16630476999b8619251a19057cff70779273e95aa6.jpeg" alt="越南語第三冊" class="book-cover">
             <div class="book-info">
                 <h3 class="book-title">第三冊</h3>
-                <a href="https://mkm.k12ea.gov.tw/textbook/material/1?type=1" target="_blank" class="read-btn">線上閱讀 ➔</a>
+                <a href="https://mkm.k12ea.gov.tw/upload/ebook_app/Vietnam/3/index.html" target="_blank" class="read-btn">線上閱讀 ➔</a>
             </div>
         </div>
 
-        <!-- 您可以複製上方的「book-card」結構，一路貼到第 18 冊 -->
-        <!-- 以下為您預留其餘冊數的結構範例，您只需替換裡面的數字與連結即可 -->
-        
+        <!-- 第 4 冊 -->
         <div class="book-card">
-            <div class="book-cover">📙 越南語 第 4 冊</div>
+            <img src="https://mkm.k12ea.gov.tw/upload/mat/166304762865ded5353c5ee48d0b7d48c591b8f430.jpeg" alt="越南語第四冊" class="book-cover">
             <div class="book-info">
                 <h3 class="book-title">第四冊</h3>
-                <a href="https://mkm.k12ea.gov.tw/textbook/material/1?type=1" target="_blank" class="read-btn">線上閱讀 ➔</a>
+                <a href="https://mkm.k12ea.gov.tw/upload/ebook_app/Vietnam/4/index.html" target="_blank" class="read-btn">線上閱讀 ➔</a>
             </div>
         </div>
 
-        <!-- ... 依此類推複製到第 18 冊 ... -->
+        <!-- 第 5 冊 -->
+        <div class="book-card">
+            <img src="https://mkm.k12ea.gov.tw/upload/mat/1663042194bd4c9ab730f5513206b999ec0d90d1fb.jpeg" alt="越南語第五冊" class="book-cover">
+            <div class="book-info">
+                <h3 class="book-title">第五冊</h3>
+                <a href="https://mkm.k12ea.gov.tw/upload/ebook_app/Vietnam/5/index.html" target="_blank" class="read-btn">線上閱讀 ➔</a>
+            </div>
+        </div>
+
+        <!-- 第 6 冊 -->
+        <div class="book-card">
+            <img src="https://mkm.k12ea.gov.tw/upload/mat/1663042236a2557a7b2e94197ff767970b67041697.jpeg" alt="越南語第六冊" class="book-cover">
+            <div class="book-info">
+                <h3 class="book-title">第六冊</h3>
+                <a href="https://mkm.k12ea.gov.tw/upload/ebook_app/Vietnam/6/index.html" target="_blank" class="read-btn">線上閱讀 ➔</a>
+            </div>
+        </div>
+
+        <!-- 第 7 冊 -->
+        <div class="book-card">
+            <img src="https://mkm.k12ea.gov.tw/upload/mat/166304226992d5395a1a1b1ec43922d56c22cb9a6e.jpeg" alt="越南語第七冊" class="book-cover">
+            <div class="book-info">
+                <h3 class="book-title">第七冊</h3>
+                <a href="https://mkm.k12ea.gov.tw/upload/ebook_app/Vietnam/7/index.html" target="_blank" class="read-btn">線上閱讀 ➔</a>
+            </div>
+        </div>
+
+        <!-- 第 8 冊 -->
+        <div class="book-card">
+            <img src="https://mkm.k12ea.gov.tw/upload/mat/16630423089602492f254502d99d3f114cbe392762.jpeg" alt="越南語第八冊" class="book-cover">
+            <div class="book-info">
+                <h3 class="book-title">第八冊</h3>
+                <a href="https://mkm.k12ea.gov.tw/upload/ebook_app/Vietnam/8/index.html" target="_blank" class="read-btn">線上閱讀 ➔</a>
+            </div>
+        </div>
+
+        <!-- 第 9 冊 -->
+        <div class="book-card">
+            <img src="https://mkm.k12ea.gov.tw/upload/mat/1663042364cfa976fe70be466f2c3d59e3557d1f56.jpeg" alt="越南語第九冊" class="book-cover">
+            <div class="book-info">
+                <h3 class="book-title">第九冊</h3>
+                <a href="https://mkm.k12ea.gov.tw/upload/ebook_app/Vietnam/9/index.html" target="_blank" class="read-btn">線上閱讀 ➔</a>
+            </div>
+        </div>
+
+        <!-- 第 10 冊 -->
+        <div class="book-card">
+            <img src="https://mkm.k12ea.gov.tw/upload/mat/166304239273c528f804ccba5ea3ea3eb010e9fcb9.jpeg" alt="越南語第十冊" class="book-cover">
+            <div class="book-info">
+                <h3 class="book-title">第十冊</h3>
+                <a href="https://mkm.k12ea.gov.tw/upload/ebook_app/Vietnam/10/index.html" target="_blank" class="read-btn">線上閱讀 ➔</a>
+            </div>
+        </div>
+
+        <!-- 第 11 冊 -->
+        <div class="book-card">
+            <img src="https://mkm.k12ea.gov.tw/upload/mat/1663042426bf764f69ea63a1396a8be413f17d7488.jpeg" alt="越南語第十一冊" class="book-cover">
+            <div class="book-info">
+                <h3 class="book-title">第十一冊</h3>
+                <a href="https://mkm.k12ea.gov.tw/upload/ebook_app/Vietnam/11/index.html" target="_blank" class="read-btn">線上閱讀 ➔</a>
+            </div>
+        </div>
+
+        <!-- 第 12 冊 -->
+        <div class="book-card">
+            <img src="https://mkm.k12ea.gov.tw/upload/mat/166304245648fdf807604f32655bf9366e6ae55590.jpeg" alt="越南語第十二冊" class="book-cover">
+            <div class="book-info">
+                <h3 class="book-title">第十二冊</h3>
+                <a href="https://mkm.k12ea.gov.tw/upload/ebook_app/Vietnam/12/index.html" target="_blank" class="read-btn">線上閱讀 ➔</a>
+            </div>
+        </div>
+
+        <!-- 第 13 冊 -->
+        <div class="book-card">
+            <img src="https://mkm.k12ea.gov.tw/upload/mat/1663042490da2925b68233df0e768ea0fc43fcafc3.jpeg" alt="越南語第十三冊" class="book-cover">
+            <div class="book-info">
+                <h3 class="book-title">第十三冊</h3>
+                <a href="https://mkm.k12ea.gov.tw/upload/ebook_app/Vietnam/13/index.html" target="_blank" class="read-btn">線上閱讀 ➔</a>
+            </div>
+        </div>
+
+        <!-- 第 14 冊 -->
+        <div class="book-card">
+            <img src="https://mkm.k12ea.gov.tw/upload/mat/16630425164d1f27a3c3e664ce9c2943ebdf1ef849.jpeg" alt="越南語第十四冊" class="book-cover">
+            <div class="book-info">
+                <h3 class="book-title">第十四冊</h3>
+                <a href="https://mkm.k12ea.gov.tw/upload/ebook_app/Vietnam/14/index.html" target="_blank" class="read-btn">線上閱讀 ➔</a>
+            </div>
+        </div>
+
+        <!-- 第 15 冊 -->
+        <div class="book-card">
+            <img src="https://mkm.k12ea.gov.tw/upload/mat/1663042542a1296ee974c0f83733a1e2858b992170.jpeg" alt="越南語第十五冊" class="book-cover">
+            <div class="book-info">
+                <h3 class="book-title">第十五冊</h3>
+                <a href="https://mkm.k12ea.gov.tw/upload/ebook_app/Vietnam/15/index.html" target="_blank" class="read-btn">線上閱讀 ➔</a>
+            </div>
+        </div>
+
+        <!-- 第 16 冊 -->
+        <div class="book-card">
+            <img src="https://mkm.k12ea.gov.tw/upload/mat/1663042566ec4811a7c78440eb65f12e8486940be6.jpeg" alt="越南語第十六冊" class="book-cover">
+            <div class="book-info">
+                <h3 class="book-title">第十六冊</h3>
+                <a href="https://mkm.k12ea.gov.tw/upload/ebook_app/Vietnam/16/index.html" target="_blank" class="read-btn">線上閱讀 ➔</a>
+            </div>
+        </div>
+
+        <!-- 第 17 冊 -->
+        <div class="book-card">
+            <img src="https://mkm.k12ea.gov.tw/upload/mat/166304259586144e5bcbe632b779a544b80695029c.jpeg" alt="越南語第十七冊" class="book-cover">
+            <div class="book-info">
+                <h3 class="book-title">第十七冊</h3>
+                <a href="https://mkm.k12ea.gov.tw/upload/ebook_app/Vietnam/17/index.html" target="_blank" class="read-btn">線上閱讀 ➔</a>
+            </div>
+        </div>
+
+        <!-- 第 18 冊 -->
+        <div class="book-card">
+            <img src="https://mkm.k12ea.gov.tw/upload/mat/166304261895a298be5b7f6fa2c1f51c140df9eb7c.jpeg" alt="越南語第十八冊" class="book-cover">
+            <div class="book-info">
+                <h3 class="book-title">第十八冊</h3>
+                <a href="https://mkm.k12ea.gov.tw/upload/ebook_app/Vietnam/18/index.html" target="_blank" class="read-btn">線上閱讀 ➔</a>
+            </div>
+        </div>
 
     </div>
 </div>
