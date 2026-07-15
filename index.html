@@ -138,6 +138,9 @@
             box-shadow: 0 5px 15px rgba(0,0,0,0.03);
             border-top: 4px solid var(--primary-color);
             transition: translateY 0.3s;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
         .card:hover {
@@ -216,26 +219,37 @@
         <div class="container">
             <h3 class="section-title">教學資源</h3>
             <div class="grid">
+                
+                <!-- 新住民語文教學資源卡片（已優化） -->
                 <div class="card">
-                    <h4>💡 教育部新住民語文教學資源</h4>
-            <p>「如果您或您的小孩想學習越南語，歡迎透過國小、國中或高中的學校管道報名越南語課程喔！」</p>
-<div style="margin-top: 15px; border-top: 1px dashed #ddd; padding-top: 10px;">
-    <strong style="color: #555; font-size: 0.9rem;">📌 相關新聞稿與資源：</strong>
-    <ul style="list-style: none; padding: 0; margin: 5px 0 0 0; font-size: 0.95rem;">
-        <li style="margin-bottom: 5px;">
-            📰 <a href="https://www.edu.tw/" target="_blank" style="color: #2E7D32; text-decoration: underline;">教育部全球資訊網 - 新住民語文選課資源說明</a>
-        </li>
-    </ul>
-</div>
+                    <div>
+                        <h4>💡 教育部新住民語文教學資源</h4>
+                        <p>「如果您或您的小孩想學習越南語，歡迎透過國小、國中或高中的學校管道報名校內越南語課程喔！」</p>
+                    </div>
+                    <div style="margin-top: 15px; border-top: 1px dashed #ddd; padding-top: 10px;">
+                        <strong style="color: #555; font-size: 0.9rem;">📌 相關新聞稿與資源：</strong>
+                        <ul style="list-style: none; padding: 0; margin: 5px 0 0 0; font-size: 0.95rem;">
+                            <li style="margin-bottom: 5px;">
+                                📰 <a href="https://www.edu.tw/" target="_blank" style="color: #2E7D32; text-decoration: underline;">教育部全球資訊網 - 新住民語文選課資源說明</a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
+
                 <div class="card">
-                    <h4>📈 系統化課程</h4>
-                    <p>從字母發音、日常實用會話到商務越南語，循序漸進設計，拒絕碎片化學習。</p>
+                    <div>
+                        <h4>📈 系統化課程</h4>
+                        <p>從字母發音、日常實用會話到商務越南語，循序漸進設計，拒絕碎片化學習。</p>
+                    </div>
                 </div>
+
                 <div class="card">
-                    <h4>🎯 情境式互動</h4>
-                    <p>拒絕死記硬背！融入真實旅遊與職場情境，搭配互動練習，讓你學了當天就能用。</p>
+                    <div>
+                        <h4>🎯 情境式互動</h4>
+                        <p>拒絕死記硬背！融入真實旅遊與職場情境，搭配互動練習，讓你學了當天就能用。</p>
+                    </div>
                 </div>
+
             </div>
         </div>
     </section>
