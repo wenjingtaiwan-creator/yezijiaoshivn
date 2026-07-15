@@ -39,7 +39,27 @@
         <a href="index.html" class="back-link">➔ 返回首頁</a>
         <h1>🍃 葉老師教學資源庫</h1>
         <p class="subtitle">這裡彙整了葉老師親自製作的精美教學簡報、圖解海報，歡迎配合課程點擊使用！</p>
-        
+        <!-- 新增的按鈕 -->
+<button onclick="checkPassword()" style="padding: 10px 20px; font-size: 16px; cursor: pointer;">
+  中科實驗中學教學資源
+</button>
+
+<script>
+function checkPassword() {
+  // 這裡設定你的自訂密碼（例如：n科實中2026）
+  var correctPassword = "nehs"; 
+  
+  var input = prompt("請輸入密碼以觀看中科實驗中學教學資源：", "");
+  
+  if (input === correctPassword) {
+    // 密碼正確，跳轉到我們準備好的隱藏頁面
+    window.location.href = "nehs-resources.html";
+  } else if (input !== null) {
+    // 訪客輸入錯誤（且不是按取消）
+    alert("密碼錯誤，無法瀏覽該頁面！");
+  }
+}
+</script>
         <div class="grid-container">
             <!-- 資源 1：簡報 -->
             <div class="resource-card">
