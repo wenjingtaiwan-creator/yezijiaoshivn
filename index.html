@@ -49,6 +49,11 @@
             align-items: center;
         }
 
+        nav {
+            display: flex;
+            align-items: center;
+        }
+
         nav a {
             color: var(--text-color);
             text-decoration: none;
@@ -59,6 +64,15 @@
 
         nav a:hover {
             color: var(--primary-color);
+        }
+
+        /* 導覽列專用強調樣式 */
+        nav a.highlight-nav {
+            color: #e91e63;
+            font-weight: bold;
+        }
+        nav a.highlight-nav:hover {
+            color: #c2185b;
         }
 
         /* 首頁主視覺區塊 */
@@ -125,7 +139,6 @@
         }
 
         /* 卡片式排版 */
-      
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -138,7 +151,7 @@
             border-radius: 12px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.03);
             border-top: 4px solid var(--primary-color);
-            transition: translateY 0.3s;
+            transition: transform 0.3s, box-shadow 0.3s;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -146,6 +159,7 @@
 
         .card:hover {
             transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
         }
 
         /* 專門給葉老師卡片按鈕用的樣式 */
@@ -223,6 +237,8 @@
                 <a href="#teaching">教學資源</a>
                 <a href="#learning">學習資源</a>
                 <a href="#contact">聯絡我們</a>
+                <!-- ✨ 導覽列新增的線上白板連結，設計了專屬的粉紅強調色 -->
+                <a href="https://harmonica80.github.io/interactive-whiteboard-2026/?dbUrl=https%3A%2F%2Fsaiyaclass-default-rtdb.asia-southeast1.firebasedatabase.app%2F" target="_blank" class="highlight-nav">📋 線上白板</a>
             </nav>
         </div>
     </header>
@@ -233,15 +249,7 @@
         <p>在這裡，我們用最輕鬆、有趣的方式，帶你一步步從零基礎走向流利溝通，開啟你的東南亞新視野！</p>
         <a href="#contact" class="btn">有任何疑問，歡迎聯絡葉老師</a>
     </section>
-  <!-- 🎨 新增的線上白板卡片（放進 grid-container 裡面） -->
-<div class="resource-card" style="border-left-color: #e91e63;">
-    <div>
-        <span class="resource-type" style="color: #e91e63;">TOOL</span>
-        <h3 class="resource-title">互動式線上白板</h3>
-        <p class="resource-desc">提供即時同步的線上畫布，方便課堂上進行即時塗鴉、單字演練與互動教學。</p>
-    </div>
-    <a href="https://harmonica80.github.io/interactive-whiteboard-2026/?dbUrl=https%3A%2F%2Fsaiyaclass-default-rtdb.asia-southeast1.firebasedatabase.app%2F" target="_blank" class="action-btn" style="background-color: #e91e63;">開啟線上白板 ➔</a>
-</div>
+
     <!-- 教學區塊 -->
     <section id="teaching">
         <div class="container">
@@ -251,7 +259,7 @@
                 <!-- 新住民語文教學資源卡片 -->
                 <div class="card">
                     <div>
-                        <h4>💡 教育部新住民語文教學資源</h4>
+                        <h4 style="margin-top: 0; color: var(--primary-color);">💡 教育部新住民語文教學資源</h4>
                         <p>「如果您或您的小孩想學習越南語，歡迎透過國小、國中或高中的學校管道報名校內越南語課程喔！」</p>
                     </div>
                     <div style="margin-top: 15px; border-top: 1px dashed #ddd; padding-top: 10px;">
@@ -272,7 +280,7 @@
                 <!-- 第二區塊：葉老師教學資源 -->
                 <div class="card">
                     <div>
-                        <h4>📚 葉老師教學資源</h4>
+                        <h4 style="margin-top: 0; color: var(--primary-color);">📚 葉老師教學資源</h4>
                         <p>本區塊彙整了葉老師精心編寫與設計的教學簡報、課程海報以及實用補充教材。點擊下方按鈕即可進入專屬資源頁面。</p>
                     </div>
                     <div>
@@ -280,10 +288,24 @@
                     </div>
                 </div>
 
-                <!-- 第三區塊 -->
+                <!-- ✨ 第三區塊（重新整理）：互動式線上白板卡片 -->
+                <!-- 這裡使用與網站一致的卡片架構，但利用粉紅頂線 (--border-top) 與專屬粉色按鈕，既突顯特色又不突兀 -->
+                <div class="card" style="border-top-color: #e91e63;">
+                    <div>
+                        <h4 style="margin-top: 0; color: #e91e63;">🎨 互動式線上白板</h4>
+                        <p>提供即時同步的線上畫布，方便課堂上進行即時塗鴉、單字演練與互動教學，增添遠距與實體課堂趣味！</p>
+                    </div>
+                    <div>
+                        <a href="https://harmonica80.github.io/interactive-whiteboard-2026/?dbUrl=https%3A%2F%2Fsaiyaclass-default-rtdb.asia-southeast1.firebasedatabase.app%2F" target="_blank" class="card-action-btn" style="background-color: #e91e63;">
+                            開啟線上白板 ➔
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 第四區塊：情境式互動 -->
                 <div class="card">
                     <div>
-                        <h4>🎯 情境式互動</h4>
+                        <h4 style="margin-top: 0; color: var(--primary-color);">🎯 情境式互動</h4>
                         <p>拒絕死記硬背！融入真實旅遊與職場情境，搭配互動練習，讓你學了當天就能用。</p>
                     </div>
                 </div>
