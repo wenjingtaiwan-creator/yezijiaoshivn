@@ -147,6 +147,25 @@
             transform: translateY(-5px);
         }
 
+        /* 專門給葉老師卡片按鈕用的樣式 */
+        .card-action-btn {
+            background-color: #2E7D32;
+            color: white;
+            text-decoration: none;
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-weight: bold;
+            margin-top: 20px;
+            display: inline-block;
+            transition: 0.3s;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .card-action-btn:hover {
+            background-color: #1B5E20;
+        }
+
         /* 資源列表樣式 */
         .resource-list {
             list-style: none;
@@ -220,7 +239,7 @@
             <h3 class="section-title">教學資源</h3>
             <div class="grid">
                 
-                <!-- 新住民語文教學資源卡片（已優化） -->
+                <!-- 新住民語文教學資源卡片 -->
                 <div class="card">
                     <div>
                         <h4>💡 教育部新住民語文教學資源</h4>
@@ -232,23 +251,27 @@
                             <li style="margin-bottom: 5px;">
                                 📰 <a href="https://www.edu.tw/" target="_blank" style="color: #2E7D32; text-decoration: underline;">教育部全球資訊網 - 新住民語文選課資源說明</a>
                             </li>
-                            <!-- 「開始學習」按鈕區 -->
-<div style="margin-top: 25px;">
-  <a href="learning-resources.html" target="_blank" style="background-color: #2e7d32; color: white; padding: 12px 24px; text-decoration: none; border-radius: 30px; display: inline-block; font-weight: bold; box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: 0.3s;">
-    開始學習 ➔
-  </a>
-</div>
+                            <div style="margin-top: 25px;">
+                              <a href="learning-resources.html" target="_blank" style="background-color: #2e7d32; color: white; padding: 12px 24px; text-decoration: none; border-radius: 30px; display: inline-block; font-weight: bold; box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: 0.3s;">
+                                開始學習 ➔
+                              </a>
+                            </div>
                         </ul>
                     </div>
                 </div>
 
+                <!-- 第二區塊：葉老師教學資源 -->
                 <div class="card">
                     <div>
-                        <h4>📈 系統化課程</h4>
-                        <p>從字母發音、日常實用會話到商務越南語，循序漸進設計，拒絕碎片化學習。</p>
+                        <h4>📚 葉老師教學資源</h4>
+                        <p>本區塊彙整了葉老師精心編寫與設計的教學簡報、課程海報以及實用補充教材。點擊下方按鈕即可進入專屬資源頁面。</p>
+                    </div>
+                    <div>
+                        <a href="teacher-resources.html" class="card-action-btn">開始上課 ➔</a>
                     </div>
                 </div>
 
+                <!-- 第三區塊 -->
                 <div class="card">
                     <div>
                         <h4>🎯 情境式互動</h4>
@@ -279,7 +302,7 @@
             <div class="contact-info">
                 <p>有任何課程疑問或想了解客製化教學嗎？歡迎隨時與我們聯繫！</p>
                 <p style="font-size: 1.1rem; margin: 20px 0;">
-                    📧 電子郵件：<a href="mailto:your-email@example.com" style="color: var(--primary-color);">wenjingtaiwan@gmail.com</a><br><br>
+                    📧 電子郵件：<a href="mailto:wenjingtaiwan@gmail.com" style="color: var(--primary-color);">wenjingtaiwan@gmail.com</a><br><br>
                     📱 官方 LINE：<strong style="color: var(--primary-color);">@133huelw</strong>
                 </p>
                 <p style="color: #888; font-size: 0.9rem;">（我們通常會在 24 小時內回覆您）</p>
