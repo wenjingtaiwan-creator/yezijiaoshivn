@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <title>中科實驗中學教學資源</title>
+    <script>
+      // 二次驗證：防止有人直接輸入網址偷看
+      // 訪客必須重新輸入密碼，或者你可以不加這段，單靠網址隱蔽性
+      var input = prompt("安全驗證：請再次輸入密碼：", "");
+      if (input !== "nehs") {
+        alert("驗證失敗！");
+        window.location.href = "teacher-resources.html";
+      }
+    </script>
+</head>
+<body>
+
+    <h1>中科實驗中學教學資源</h1>
+    <hr>
+
+    <!-- 國中部分 -->
+    <h2>區域一：國中教學簡報</h2>
+    <ul>
+        <li><a href="你的國中簡報連結1.pdf" target="_blank">國中越南語第一冊簡報</a></li>
+        <li><a href="你的國中簡報連結2.pdf" target="_blank">國中越南語第二冊簡報</a></li>
+    </ul>
+
+    <br>
+
+    <!-- 高中部分 -->
+    <h2>區域二：高中教學簡報</h2>
+    <ul>
+        <li><a href="你的高中簡報連結1.pdf" target="_blank">高中越南語基礎核心簡報</a></li>
+        <li><a href="你的高中簡報連結2.pdf" target="_blank">高中越南語進階選修簡報</a></li>
+    </ul>
+
+    <br>
+    <a href="teacher-resources.html">返回教師資源首頁</a>
+
+</body>
+</html>
