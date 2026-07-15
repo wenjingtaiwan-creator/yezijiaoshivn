@@ -2,10 +2,27 @@
 <html lang="zh-TW">
 <head>
     <meta charset="UTF-8">
-    <title>中科實驗中學教學資源</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>中科實驗中學教學資源 - 葉子教室</title>
+    <style>
+        body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; background-color: #f4f7f4; color: #333; margin: 0; padding: 40px 20px; }
+        .container { max-width: 1000px; margin: 0 auto; }
+        .back-link { text-decoration: none; color: #2e7d32; font-weight: bold; display: inline-block; margin-bottom: 20px; }
+        h1 { color: #2e7d32; text-align: center; margin-bottom: 10px; }
+        .subtitle { text-align: center; color: #666; margin-bottom: 40px; }
+        .grid-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
+        .resource-card { background: white; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); padding: 25px; border-left: 5px solid #2e7d32; display: flex; flex-direction: column; justify-content: space-between; }
+        .resource-type { font-size: 0.85rem; color: #ff9800; font-weight: bold; margin-bottom: 5px; }
+        .resource-title { font-size: 1.4rem; margin: 0 0 15px 0; color: #333; border-bottom: 1px solid #eee; padding-bottom: 10px; }
+        
+        /* 專屬列表樣式 */
+        .resource-list { list-style: none; padding: 0; margin: 0; }
+        .resource-list li { margin-bottom: 12px; }
+        .resource-list a { display: block; color: #444; text-decoration: none; padding: 10px 15px; background: #f9f9f9; border-radius: 6px; transition: all 0.2s; border: 1px solid #eee; }
+        .resource-list a:hover { background: #e8f5e9; color: #2e7d32; border-color: #c8e6c9; transform: translateX(5px); }
+    </style>
     <script>
-      // 二次驗證：防止有人直接輸入網址偷看
-      // 訪客必須重新輸入密碼，或者你可以不加這段，單靠網址隱蔽性
+      // 密碼驗證邏輯
       var input = prompt("安全驗證：請再次輸入密碼：", "");
       if (input !== "nehs") {
         alert("驗證失敗！");
@@ -14,28 +31,36 @@
     </script>
 </head>
 <body>
+    <div class="container">
+        <a href="teacher-resources.html" class="back-link">➔ 返回教師資源首頁</a>
+        <h1>🏫 中科實驗中學專屬教學資源</h1>
+        <p class="subtitle">歡迎中科實中的同學們！請點擊下方對應學制的連結開始線上學習。</p>
+        
+        <div class="grid-container">
+            <!-- 國中部分卡片 -->
+            <div class="resource-card" style="border-left-color: #ff9800;">
+                <div>
+                    <span class="resource-type" style="color: #ff9800;">JUNIOR HIGH</span>
+                    <h3 class="resource-title">區域一：國中教學簡報</h3>
+                    <ul class="resource-list">
+                        <li><a href="你的國中簡報連結1.pdf" target="_blank">📖 國中越南語第一冊簡報 ➔</a></li>
+                        <li><a href="你的國中簡報連結2.pdf" target="_blank">📖 國中越南語第二冊簡報 ➔</a></li>
+                    </ul>
+                </div>
+            </div>
 
-    <h1>中科實驗中學教學資源</h1>
-    <hr>
-
-    <!-- 國中部分 -->
-    <h2>區域一：國中教學簡報</h2>
-    <ul>
-        <li><a href="你的國中簡報連結1.pdf" target="_blank">國中越南語第一冊簡報</a></li>
-        <li><a href="你的國中簡報連結2.pdf" target="_blank">國中越南語第二冊簡報</a></li>
-    </ul>
-
-    <br>
-
-    <!-- 高中部分 -->
-    <h2>區域二：高中教學簡報</h2>
-    <ul>
-        <li><a href="你的高中簡報連結1.pdf" target="_blank">高中越南語基礎核心簡報</a></li>
-        <li><a href="你的高中簡報連結2.pdf" target="_blank">高中越南語進階選修簡報</a></li>
-    </ul>
-
-    <br>
-    <a href="teacher-resources.html">返回教師資源首頁</a>
-
+            <!-- 高中部分卡片 -->
+            <div class="resource-card" style="border-left-color: #2e7d32;">
+                <div>
+                    <span class="resource-type" style="color: #2e7d32;">SENIOR HIGH</span>
+                    <h3 class="resource-title">區域二：高中教學簡報</h3>
+                    <ul class="resource-list">
+                        <li><a href="你的高中簡報連結1.pdf" target="_blank">📚 高中越南語基礎核心簡報 ➔</a></li>
+                        <li><a href="你的高中簡報連結2.pdf" target="_blank">📚 高中越南語進階選修簡報 ➔</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
