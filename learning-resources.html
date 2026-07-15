@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>越南語電子書資源 - 葉子教室</title>
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            background-color: #f4f7f4;
+            color: #333;
+            margin: 0;
+            padding: 40px 20px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        h1 {
+            color: #2e7d32;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 40px;
+        }
+        /* 網格排版：讓 18 冊書本整齊排列 */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 25px;
+        }
+        /* 書本卡片樣式 */
+        .book-card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            overflow: hidden;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #e0e0e0;
+        }
+        .book-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(46, 125, 50, 0.15);
+        }
+        .book-cover {
+            width: 100%;
+            height: 280px;
+            background-color: #e8f5e9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #2e7d32;
+            font-weight: bold;
+            font-size: 1.1rem;
+            border-bottom: 1px solid #eee;
+            /* 提示：之後有封面圖片網址，可直接替換成 img 標籤 */
+        }
+        .book-info {
+            padding: 15px;
+        }
+        .book-title {
+            font-size: 1.1rem;
+            margin: 0 0 12px 0;
+            color: #333;
+            font-weight: bold;
+        }
+        .read-btn {
+            display: inline-block;
+            background-color: #2e7d32;
+            color: white;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            transition: background-color 0.2s;
+        }
+        .read-btn:hover {
+            background-color: #1b5e20;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>🍃 教育部越南語電子教材 (第1-18冊)</h1>
+    <p class="subtitle">點擊下方各冊按鈕，即可直接開啟教育部官方線上電子書進行閱讀與學習！</p>
+
+    <div class="grid-container">
+        
+        <!-- 第 1 冊 -->
+        <div class="book-card">
+            <div class="book-cover">📕 越南語 第 1 冊</div>
+            <div class="book-info">
+                <h3 class="book-title">第一冊</h3>
+                <a href="https://mkm.k12ea.gov.tw/textbook/material/1?type=1" target="_blank" class="read-btn">線上閱讀 ➔</a>
+            </div>
+        </div>
+
+        <!-- 第 2 冊 -->
+        <div class="book-card">
+            <div class="book-cover">📗 越南語 第 2 冊</div>
+            <div class="book-info">
+                <h3 class="book-title">第二冊</h3>
+                <a href="https://mkm.k12ea.gov.tw/textbook/material/1?type=1" target="_blank" class="read-btn">線上閱讀 ➔</a>
+            </div>
+        </div>
+
+        <!-- 第 3 冊 -->
+        <div class="book-card">
+            <div class="book-cover">📘 越南語 第 3 冊</div>
+            <div class="book-info">
+                <h3 class="book-title">第三冊</h3>
+                <a href="https://mkm.k12ea.gov.tw/textbook/material/1?type=1" target="_blank" class="read-btn">線上閱讀 ➔</a>
+            </div>
+        </div>
+
+        <!-- 您可以複製上方的「book-card」結構，一路貼到第 18 冊 -->
+        <!-- 以下為您預留其餘冊數的結構範例，您只需替換裡面的數字與連結即可 -->
+        
+        <div class="book-card">
+            <div class="book-cover">📙 越南語 第 4 冊</div>
+            <div class="book-info">
+                <h3 class="book-title">第四冊</h3>
+                <a href="https://mkm.k12ea.gov.tw/textbook/material/1?type=1" target="_blank" class="read-btn">線上閱讀 ➔</a>
+            </div>
+        </div>
+
+        <!-- ... 依此類推複製到第 18 冊 ... -->
+
+    </div>
+</div>
+
+</body>
+</html>
