@@ -17,6 +17,21 @@
         .resource-desc { color: #666; font-size: 0.95rem; margin-bottom: 20px; }
         .action-btn { display: inline-block; background-color: #2e7d32; color: white; text-decoration: none; padding: 8px 16px; border-radius: 20px; font-size: 0.9rem; text-align: center; transition: background-color 0.2s; }
         .action-btn:hover { background-color: #1b5e20; }
+        
+        /* 讓 Canva 卡片在寬螢幕時可以漂亮置中滿寬的樣式 */
+        .full-width-card {
+            grid-column: 1 / -1;
+        }
+        .canva-author {
+            margin-top: 15px;
+            text-align: right;
+            font-size: 0.85rem;
+            color: #777;
+        }
+        .canva-author a {
+            color: #2e7d32;
+            text-decoration: none;
+        }
     </style>
 </head>
 <body>
@@ -45,6 +60,27 @@
                 </div>
                 <a href="#" target="_blank" class="action-btn">查看高解析度海報 ➔</a>
             </div>
+
+            <!-- 新增資源 3：Canva 線上互動簡報（滿寬設計） -->
+            <div class="resource-card full-width-card" style="border-left-color: #9c27b0;">
+                <div>
+                    <span class="resource-type" style="color: #9c27b0;">Canva 線上互動簡報</span>
+                    <h3 class="resource-title">高中-網頁正式版</h3>
+                    <p class="resource-desc">免下載！直接在下方即可線上翻閱葉老師精心設計的精美互動課程投影片。</p>
+                    
+                    <!-- 你的 Canva 嵌入區塊 -->
+                    <div style="position: relative; width: 100%; height: 0; padding-top: 56.2500%; padding-bottom: 0; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden; border-radius: 8px; will-change: transform;">
+                      <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0; margin: 0;"
+                        src="https://www.canva.com/design/DAGUBnyWbm8/JmpSMyPEsMM3fXBzOUUOPA/view?embed" allowfullscreen="allowfullscreen" allow="fullscreen">
+                      </iframe>
+                    </div>
+                    
+                    <div class="canva-author">
+                        葉文靜 設計的 <a href="https://www.canva.com/design/DAGUBnyWbm8/JmpSMyPEsMM3fXBzOUUOPA/view?utm_content=DAGUBnyWbm8&amp;utm_campaign=designshare&amp;utm_medium=embeds&amp;utm_source=link" target="_blank" rel="noopener">高中-網頁正式版</a>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
 </body>
