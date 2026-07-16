@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>互動遊戲資源區</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f7f6;
+            color: #333;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .game-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .game-card {
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+        }
+        .game-card h3 {
+            margin-top: 0;
+            color: #2c3e50;
+        }
+        .iframe-wrapper {
+            position: relative;
+            width: 100%;
+            padding-top: 56.25%; /* 16:9 顯示比例 */
+            background: #ddd;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        .iframe-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        .game-desc {
+            margin-top: 10px;
+            font-size: 0.9em;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>🎮 嵌入式互動遊戲資源</h1>
+        <p>歡迎來到遊戲區，點擊或直接在下方畫面中操作即可開始遊玩！</p>
+    </header>
+
+    <main class="game-container">
+        
+        <!-- 遊戲卡片 1 -->
+        <div class="game-card">
+            <h3>互動遊戲範例一</h3>
+            <div class="iframe-wrapper">
+                <!-- 請將下方 src 的網址替換成你的遊戲嵌入連結 -->
+                <iframe src="https://example.com/game1" allowfullscreen></iframe>
+            </div>
+            <p class="game-desc">這是第一個遊戲的簡介說明，可以在這裡寫上遊玩規則或教學目標。</p>
+        </div>
+
+        <!-- 遊戲卡片 2 -->
+        <div class="game-card">
+            <h3>互動遊戲範例二</h3>
+            <div class="iframe-wrapper">
+                <!-- 請將下方 src 的網址替換成你的遊戲嵌入連結 -->
+                <iframe src="https://example.com/game2" allowfullscreen></iframe>
+            </div>
+            <p class="game-desc">這是第二個遊戲的簡介說明，適合放不同類型的互動內容。</p>
+        </div>
+
+    </main>
+
+</body>
+</html>
