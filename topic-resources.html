@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>主題教學資源 - 葉子教室</title>
+    <style>
+        /* 1. 全域樣式 (承襲葉子教室風格) */
+        :root {
+            --primary-color: #2E7D32;    /* 品牌葉子綠 */
+            --secondary-color: #81C784;  /* 淺綠 */
+            --accent-color: #FFB300;     /* 亮眼芒果黃 */
+            --text-color: #2C3E50;
+            --bg-light: #F9FBFA;         /* 舒服的淺米綠底色 */
+        }
+
+        body {
+            font-family: 'PingFang TC', 'Microsoft JhengHei', sans-serif;
+            line-height: 1.8;
+            margin: 0;
+            padding: 0;
+            color: var(--text-color);
+            background-color: var(--bg-light);
+        }
+
+        /* 2. 上方選項 (導覽列) - 完整保留 */
+        header {
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(5px);
+        }
+
+        .nav-container {
+            max-width: 1100px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+        }
+
+        nav a {
+            color: var(--text-color);
+            text-decoration: none;
+            margin-left: 25px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--primary-color);
+        }
+
+        nav a.highlight-nav {
+            color: #e91e63;
+            font-weight: bold;
+        }
+
+        nav a.highlight-nav:hover {
+            color: #c2185b;
+        }
+
+        /* 3. 大橫幅 (Hero Section) - 完整保留 */
+        .hero {
+            background-image: url('ChatGPT Image 2026年7月17日 上午09_43_39.png');
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+            height: 55vw;
+            max-height: 500px;
+            min-height: 250px;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* 4. 主題教學頁面專屬 CSS */
+        .container {
+            max-width: 1000px; /* 縮小最大寬度，讓雙欄排版在電腦螢幕上看起來更精緻 */
+            margin: 0 auto;
+            padding: 80px 20px;
+        }
+
+        h1 {
+            color: var(--primary-color);
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 60px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* 網格排版：電腦螢幕一排 2 個，手機自動變一排 1 個 */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 40px; /* 卡片間距稍微加大，看起來更舒服 */
+        }
+
+        /* 主題卡片樣式 (與 learning-resources 風格一致) */
+        .topic-card {
+            background: #ffffff;
+            border-radius: 16px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+            overflow: hidden;
+            border: 1px solid #e0e0e0;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .topic-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(46, 125, 50, 0.12);
+        }
+
+        /* 教學海報容器 */
+        .poster-wrapper {
+            position: relative;
+            width: 100%;
+            padding-top: 56.25%; /* 16:9 黃金比例，你可以視情況改為 75%(4:3) 或 100%(1:1) */
+            background-color: #f0f3f1;
+            cursor: pointer;
+            overflow: hidden;
+        }
+
+        .poster-img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .poster-wrapper:hover .poster-img {
+            transform: scale(1.05); /* 懸停時圖片微微放大，提示可點擊 */
+        }
+
+        /* 圖片點擊提示覆蓋層 */
+        .poster-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(46, 125, 50, 0.15);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .poster-wrapper:hover .poster-overlay {
+            opacity: 1;
+        }
+
+        .overlay-icon {
+            background: rgba(255, 255, 255, 0.9);
+            color: var(--primary-color);
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        /* 卡片文字與按鈕區 */
+        .topic-info {
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            justify-content: space-between;
+            text-align: center;
+        }
+
+        .topic-title {
+            font-size: 1.3rem;
+            margin: 0 0 15px 0;
+            color: var(--text-color);
+            font-weight: bold;
+        }
+
+        /* Canva 簡報按鈕樣式 */
+        .canva-btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: #ffffff;
+            text-decoration: none;
+            padding: 12px 25px;
+            border-radius: 25px;
+            font-size: 0.95rem;
+            font-weight: bold;
+            transition: background-color 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 10px rgba(46, 125, 50, 0.3);
+            align-self: center; /* 讓按鈕寬度適中不強行撐滿 */
+        }
+
+        .canva-btn:hover {
+            background-color: #1b5e20;
+            box-shadow: 0 6px 15px rgba(46, 125, 50, 0.4);
+        }
+
+        /* 5. 全螢幕燈箱 (Lightbox) 樣式 */
+        .lightbox {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9); /* 極深的半透明背景，突顯圖片 */
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .lightbox.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .lightbox-img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
+        }
+
+        .lightbox.active .lightbox-img {
+            transform: scale(1);
+        }
+
+        /* 關閉按鈕 */
+        .lightbox-close {
+            position: absolute;
+            top: 25px;
+            right: 35px;
+            color: #ffffff;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.2s;
+            user-select: none;
+        }
+
+        .lightbox-close:hover {
+            color: var(--secondary-color);
+        }
+
+        footer {
+            background-color: #2C3E50;
+            color: #A0AAB5;
+            text-align: center;
+            padding: 20px;
+            font-size: 0.9rem;
+            margin-top: 80px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 導覽列 (與 learning-resources.html 一致) -->
+    <header>
+        <div class="nav-container">
+            <a href="index.html" class="logo">🍃 葉子教室越南語</a>
+            <nav>
+                <a href="index.html#home">首頁</a>
+                <a href="index.html#teaching">教學資源</a>
+                <a href="index.html#learning">學習資源</a>
+                <a href="index.html#contact">聯絡我們</a>
+                <a href="https://harmonica80.github.io/interactive-whiteboard-2026/?dbUrl=https%3A%2F%2Fsaiyaclass-default-rtdb.asia-southeast1.firebasedatabase.app%2F" target="_blank" class="highlight-nav">📋 線上白板</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 橫幅 (與 learning-resources.html 一致) -->
+    <section id="home" class="hero"></section>
+
+    <div class="container">
+        <h1>🌱 越南語主題教學資源</h1>
+        <p class="subtitle">點擊下方教學海報可開啟全螢幕預覽，或點選按鈕直接進入 Canva 線上教學簡報！</p>
+
+        <div class="grid-container">
+
+            <!-- 主題 1 -->
+            <div class="topic-card">
+                <div class="poster-wrapper" onclick="openLightbox('https://picsum.photos/800/450?random=1')">
+                    <!-- 圖片連結暫用隨機圖佔位，日後可替換為實體路徑，如 "images/poster-1.jpg" -->
+                    <img src="https://picsum.photos/800/450?random=1" alt="主題一：問候與自我介紹" class="poster-img">
+                    <div class="poster-overlay">
+                        <span class="overlay-icon">🔍 點擊看大圖</span>
+                    </div>
+                </div>
+                <div class="topic-info">
+                    <h3 class="topic-title">第一課：問候與自我介紹</h3>
+                    <!-- 點擊進入 Canva 連結 -->
+                    <a href="https://www.canva.com" target="_blank" class="canva-btn">Canva 教學簡報 ➔</a>
+                </div>
+            </div>
+
+            <!-- 主題 2 -->
+            <div class="topic-card">
+                <div class="poster-wrapper" onclick="openLightbox('https://picsum.photos/800/450?random=2')">
+                    <img src="https://picsum.photos/800/450?random=2" alt="主題二：數字與日期" class="poster-img">
+                    <div class="poster-overlay">
+                        <span class="overlay-icon">🔍 點擊看大圖</span>
+                    </div>
+                </div>
+                <div class="topic-info">
+                    <h3 class="topic-title">第二課：數字與日期</h3>
+                    <a href="https://www.canva.com" target="_blank" class="canva-btn">Canva 教學簡報 ➔</a>
+                </div>
+            </div>
+
+            <!-- 主題 3 -->
+            <div class="topic-card">
+                <div class="poster-wrapper" onclick="openLightbox('https://picsum.photos/800/450?random=3')">
+                    <img src="https://picsum.photos/800/450?random=3" alt="主題三" class="poster-img">
+                    <div class="poster-overlay">
+                        <span class="overlay-icon">🔍 點擊看大圖</span>
+                    </div>
+                </div>
+                <div class="topic-info">
+                    <h3 class="topic-title">第三課：家庭與成員</h3>
+                    <a href="https://www.canva.com" target="_blank" class="canva-btn">Canva 教學簡報 ➔</a>
+                </div>
+            </div>
+
+            <!-- 主題 4 -->
+            <div class="topic-card">
+                <div class="poster-wrapper" onclick="openLightbox('https://picsum.photos/800/450?random=4')">
+                    <img src="https://picsum.photos/800/450?random=4" alt="主題四" class="poster-img">
+                    <div class="poster-overlay">
+                        <span class="overlay-icon">🔍 點擊看大圖</span>
+                    </div>
+                </div>
+                <div class="topic-info">
+                    <h3 class="topic-title">第四課：日常水果與食物</h3>
+                    <a href="https://www.canva.com" target="_blank" class="canva-btn">Canva 教學簡報 ➔</a>
+                </div>
+            </div>
+
+            <!-- 主題 5 -->
+            <div class="topic-card">
+                <div class="poster-wrapper" onclick="openLightbox('https://picsum.photos/800/450?random=5')">
+                    <img src="https://picsum.photos/800/450?random=5" alt="主題五" class="poster-img">
+                    <div class="poster-overlay">
+                        <span class="overlay-icon">🔍 點擊看大圖</span>
+                    </div>
+                </div>
+                <div class="topic-info">
+                    <h3 class="topic-title">第五課：常見動物名稱</h3>
+                    <a href="https://www.canva.com" target="_blank" class="canva-btn">Canva 教學簡報 ➔</a>
+                </div>
+            </div>
+
+            <!-- 主題 6 -->
+            <div class="topic-card">
+                <div class="poster-wrapper" onclick="openLightbox('https://picsum.photos/800/450?random=6')">
+                    <img src="https://picsum.photos/800/450?random=6" alt="主題六" class="poster-img">
+                    <div class="poster-overlay">
+                        <span class="overlay-icon">🔍 點擊看大圖</span>
+                    </div>
+                </div>
+                <div class="topic-info">
+                    <h3 class="topic-title">第六課：顏色與文具</h3>
+                    <a href="https://www.canva.com" target="_blank" class="canva-btn">Canva 教學簡報 ➔</a>
+                </div>
+            </div>
+
+            <!-- 主題 7 -->
+            <div class="topic-card">
+                <div class="poster-wrapper" onclick="openLightbox('https://picsum.photos/800/450?random=7')">
+                    <img src="https://picsum.photos/800/450?random=7" alt="主題七" class="poster-img">
+                    <div class="poster-overlay">
+                        <span class="overlay-icon">🔍 點擊看大圖</span>
+                    </div>
+                </div>
+                <div class="topic-info">
+                    <h3 class="topic-title">第七課：天氣與季節</h3>
+                    <a href="https://www.canva.com" target="_blank" class="canva-btn">Canva 教學簡報 ➔</a>
+                </div>
+            </div>
+
+            <!-- 主題 8 -->
+            <div class="topic-card">
+                <div class="poster-wrapper" onclick="openLightbox('https://picsum.photos/800/450?random=8')">
+                    <img src="https://picsum.photos/800/450?random=8" alt="主題八" class="poster-img">
+                    <div class="poster-overlay">
+                        <span class="overlay-icon">🔍 點擊看大圖</span>
+                    </div>
+                </div>
+                <div class="topic-info">
+                    <h3 class="topic-title">第八課：身體部位與服飾</h3>
+                    <a href="https://www.canva.com" target="_blank" class="canva-btn">Canva 教學簡報 ➔</a>
+                </div>
+            </div>
+
+            <!-- 主題 9 -->
+            <div class="topic-card">
+                <div class="poster-wrapper" onclick="openLightbox('https://picsum.photos/800/450?random=9')">
+                    <img src="https://picsum.photos/800/450?random=9" alt="主題九" class="poster-img">
+                    <div class="poster-overlay">
+                        <span class="overlay-icon">🔍 點擊看大圖</span>
+                    </div>
+                </div>
+                <div class="topic-info">
+                    <h3 class="topic-title">第九課：交通工具</h3>
+                    <a href="https://www.canva.com" target="_blank" class="canva-btn">Canva 教學簡報 ➔</a>
+                </div>
+            </div>
+
+            <!-- 主題 10 -->
+            <div class="topic-card">
+                <div class="poster-wrapper" onclick="openLightbox('https://picsum.photos/800/450?random=10')">
+                    <img src="https://picsum.photos/800/450?random=10" alt="主題十" class="poster-img">
+                    <div class="poster-overlay">
+                        <span class="overlay-icon">🔍 點擊看大圖</span>
+                    </div>
+                </div>
+                <div class="topic-info">
+                    <h3 class="topic-title">第十課：常用生活短句</h3>
+                    <a href="https://www.canva.com" target="_blank" class="canva-btn">Canva 教學簡報 ➔</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- 燈箱 (Lightbox) 主結構 -->
+    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+        <span class="lightbox-close">&times;</span>
+        <img id="lightbox-img" class="lightbox-img" src="" alt="全螢幕預覽" onclick="event.stopPropagation()">
+    </div>
+
+    <footer>
+        <p>&copy; 2026 葉子教室越南語. All rights reserved.</p>
+    </footer>
+
+    <!-- 燈箱互動 JavaScript -->
+    <script>
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+
+        function openLightbox(imgSrc) {
+            lightboxImg.src = imgSrc;
+            lightbox.classList.add('active');
+            // 防止底層網頁在彈出全螢幕時還能滾動
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            lightbox.classList.remove('active');
+            // 恢復網頁滾動功能
+            document.body.style.overflow = 'auto';
+            // 延遲清空 src 避免關閉時有殘影
+            setTimeout(() => {
+                lightboxImg.src = '';
+            }, 300);
+        }
+
+        // 支援鍵盤 ESC 鍵關閉全螢幕
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeLightbox();
+            }
+        });
+    </script>
+</body>
+</html>
