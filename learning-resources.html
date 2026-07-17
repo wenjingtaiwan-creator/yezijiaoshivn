@@ -5,33 +5,125 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>越南語電子書資源 - 葉子教室</title>
     <style>
-        body {
-            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-            background-color: #f4f7f4;
-            color: #333;
-            margin: 0;
-            padding: 40px 20px;
+        /* 1. 基礎設定 & 色彩系統（與首頁一致） */
+        :root {
+            --primary-color: #2E7D32; /* 品牌葉子綠 */
+            --secondary-color: #81C784; /* 淺綠 */
+            --accent-color: #FFB300; /* 亮眼芒果黃 */
+            --text-color: #2C3E50;
+            --bg-light: #F9FBFA; /* 舒服的淺米綠底色 */
         }
+
+        body {
+            font-family: 'PingFang TC', 'Microsoft JhengHei', sans-serif;
+            line-height: 1.8;
+            margin: 0;
+            padding: 0;
+            color: var(--text-color);
+            background-color: var(--bg-light);
+        }
+
+        /* 2. 上方選項 (導覽列) 樣式 */
+        header {
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(5px);
+        }
+
+        .nav-container {
+            max-width: 1100px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+        }
+
+        nav a {
+            color: var(--text-color);
+            text-decoration: none;
+            margin-left: 25px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--primary-color);
+        }
+
+        /* 導覽列專用強調樣式 */
+        nav a.highlight-nav {
+            color: #e91e63;
+            font-weight: bold;
+        }
+
+        nav a.highlight-nav:hover {
+            color: #c2185b;
+        }
+
+        /* 3. ✅ 首頁大橫幅 (Hero Section) 樣式 - 自動應用你上傳的圖檔 */
+        .hero {
+            background-image: url('ChatGPT Image 2026年7月17日 上午09_43_39.png');
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+            
+            /* 控制大橫幅在不同螢幕上的合適高度 */
+            height: 55vw; 
+            max-height: 500px;
+            min-height: 250px;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* 4. 電子書頁面專屬 CSS 樣式 */
         .container {
             max-width: 1200px;
             margin: 0 auto;
+            padding: 80px 20px; /* 增加上下留白，讓畫面呼吸 */
         }
+
         h1 {
-            color: #2e7d32;
+            color: var(--primary-color);
             text-align: center;
+            font-size: 2.2rem;
             margin-bottom: 10px;
         }
+
         .subtitle {
             text-align: center;
             color: #666;
-            margin-bottom: 40px;
+            margin-bottom: 60px; /* 增加與書本列表的距離 */
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
         }
+
         /* 網格排版：讓 18 冊書本整齊排列 */
         .grid-container {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
             gap: 25px;
         }
+
         /* 書本卡片樣式 */
         .book-card {
             background: white;
@@ -45,10 +137,12 @@
             flex-direction: column;
             justify-content: space-between;
         }
+
         .book-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 8px 20px rgba(46, 125, 50, 0.15);
         }
+
         /* 書本封面圖片設定 */
         .book-cover {
             width: 100%;
@@ -56,34 +150,68 @@
             object-fit: cover;
             border-bottom: 1px solid #eee;
         }
+
         .book-info {
             padding: 15px;
         }
+
         .book-title {
             font-size: 1.1rem;
             margin: 0 0 12px 0;
-            color: #333;
+            color: var(--text-color);
             font-weight: bold;
         }
+
+        /* 閱讀按鈕樣式 - 點綴活力芒果黃 */
         .read-btn {
             display: inline-block;
-            background-color: #2e7d32;
-            color: white;
+            background-color: var(--accent-color);
+            color: #2C3E50; /* 按鈕文字用深色，形成對比 */
             text-decoration: none;
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            transition: background-color 0.2s;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 0.95rem;
+            font-weight: bold;
+            transition: background-color 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 10px rgba(255, 179, 0, 0.3);
         }
+
         .read-btn:hover {
-            background-color: #1b5e20;
+            background-color: #FFA000;
+            box-shadow: 0 6px 15px rgba(255, 179, 0, 0.4);
+        }
+
+        footer {
+            background-color: #2C3E50;
+            color: #A0AAB5;
+            text-align: center;
+            padding: 20px;
+            font-size: 0.9rem;
+            margin-top: 80px;
         }
     </style>
 </head>
 <body>
 
+<header>
+    <div class="nav-container">
+        <a href="index.html" class="logo">🍃 葉子教室越南語</a>
+        <nav>
+            <!-- ✨ 修改連結指向 index.html 的對應錨點 -->
+            <a href="index.html#home">首頁</a>
+            <a href="index.html#teaching">教學資源</a>
+            <a href="index.html#learning">學習資源</a>
+            <a href="index.html#contact">聯絡我們</a>
+            <a href="https://harmonica80.github.io/interactive-whiteboard-2026/?dbUrl=https%3A%2F%2Fsaiyaclass-default-rtdb.asia-southeast1.firebasedatabase.app%2F" target="_blank" class="highlight-nav">📋 線上白板</a>
+        </nav>
+    </div>
+</header>
+
+<!-- ✨ ✅ 大橫幅 (Hero Section) - 自動應用你上傳的圖檔 -->
+<section id="home" class="hero"></section>
+
 <div class="container">
-    <h1>🍃 教育部越南語電子教材 (第1-18冊)</h1>
+    <h1>🌱 教育部越南語電子教材 (第1-18冊)</h1>
     <p class="subtitle">點擊下方各冊封面或按鈕，即可直接開啟教育部官方線上電子書進行閱讀與學習！</p>
 
     <div class="grid-container">
@@ -252,6 +380,10 @@
 
     </div>
 </div>
+
+<footer>
+    <p>&copy; 2026 葉子教室越南語. All rights reserved.</p>
+</footer>
 
 </body>
 </html>
