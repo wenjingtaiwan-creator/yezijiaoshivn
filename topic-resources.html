@@ -97,7 +97,17 @@
             margin: 0 auto;
             padding: 80px 20px;
         }
-
+.poster-img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            /* ⬇️ 新增這行，讓圖片靠上對齊 */
+            object-position: top; 
+            transition: transform 0.5s ease;
+        }
         h1 {
             color: var(--primary-color);
             text-align: center;
