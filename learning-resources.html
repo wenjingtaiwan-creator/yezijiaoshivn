@@ -5,22 +5,99 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>越南語電子書資源 - 葉子教室</title>
     <style>
-        body {
-            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-            background-color: #f4f7f4;
-            color: #333;
-            margin: 0;
-            padding: 40px 20px;
+        /* 1. 全域樣式 (延續葉子教室風格) */
+        :root {
+            --primary-color: #2E7D32; /* 品牌葉子綠 */
+            --accent-color: #FFB300; /* 亮眼芒果黃 */
+            --text-color: #2C3E50;
+            --bg-light: #F9FBFA; /* 淺米綠底色 */
         }
 
+        body {
+            font-family: 'PingFang TC', 'Microsoft JhengHei', sans-serif;
+            line-height: 1.8;
+            margin: 0;
+            padding: 0;
+            color: var(--text-color);
+            background-color: var(--bg-light);
+        }
+
+        /* 2. ✅ 保留你的導覽列 */
+        header {
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(5px);
+        }
+
+        .nav-container {
+            max-width: 1100px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+        }
+
+        nav a {
+            color: var(--text-color);
+            text-decoration: none;
+            margin-left: 25px;
+            font-weight: 500;
+        }
+
+        nav a:hover {
+            color: var(--primary-color);
+        }
+
+        /* ✅ 保留你的線上白板連結強調樣式 */
+        nav a.highlight-nav {
+            color: #e91e63;
+            font-weight: bold;
+        }
+
+        /* 3. ✅ 保留你的首頁大橫幅 */
+        .hero {
+            background-image: url('ChatGPT Image 2026年7月17日 上午09_43_39.png');
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+            
+            height: 55vw; 
+            max-height: 500px;
+            min-height: 250px;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* 4. 電子書頁面專屬 CSS */
         .container {
             max-width: 1200px;
             margin: 0 auto;
+            padding: 60px 20px;
         }
 
         h1 {
-            color: #2e7d32;
+            color: var(--primary-color);
             text-align: center;
+            font-size: 2.2rem;
             margin-bottom: 10px;
         }
 
@@ -28,17 +105,66 @@
             text-align: center;
             color: #666;
             margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        /* 網格排版：讓 18 冊書本整齊排列 */
-        .grid-container {
+        /* ✅ ✨ 下拉式手風琴與延遲載入的核心 CSS (防止網頁癱瘓) */
+        .accordion-item {
+            background-color: white;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.03);
+            border-left: 5px solid var(--primary-color);
+            overflow: hidden;
+            transition: box-shadow 0.2s;
+        }
+        
+        .accordion-header {
+            width: 100%;
+            background: none;
+            border: none;
+            padding: 20px 25px;
+            text-align: left;
+            font-size: 1.15rem;
+            font-weight: bold;
+            color: var(--text-color);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            outline: none;
+        }
+
+        .accordion-header::after {
+            content: '▼';
+            font-size: 0.8rem;
+            color: var(--primary-color);
+            transition: transform 0.3s;
+        }
+        
+        .accordion-item.active .accordion-header::after {
+            transform: rotate(180deg);
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out;
+            background-color: #FCFDFD;
+            border-top: 1px solid #f0f3f1;
+        }
+
+        .books-wrapper {
+            padding: 25px;
+            /* ✅✨ 將 18 冊書本用 專業書店網格排版 呈現 */
             display: grid;
-            /* 在電腦上每排至少 4 冊 (220pxmin)，手機上會自動調整 */
             grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-            gap: 25px; /* 卡片之間的間距 */
+            gap: 25px;
         }
 
-        /* 書本卡片樣式 */
+        /* ✅ ✨ 書本卡片樣式 */
         .book-card {
             background: white;
             border-radius: 12px;
@@ -52,17 +178,15 @@
             justify-content: space-between;
         }
 
-        /* 滑鼠懸停時的書店浮動效果 */
         .book-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 8px 20px rgba(46, 125, 50, 0.15);
         }
 
-        /* 書本封面圖片設定 */
         .book-cover {
             width: 100%;
-            height: 280px; /* 固定高度，模擬書店陳列 */
-            object-fit: cover; /* 確保圖片不變形地填滿 */
+            height: 280px;
+            object-fit: cover;
             border-bottom: 1px solid #eee;
         }
 
@@ -73,76 +197,173 @@
         .book-title {
             font-size: 1.1rem;
             margin: 0 0 12px 0;
-            color: #333;
+            color: var(--text-color);
             font-weight: bold;
         }
 
-        /* 線上書店風格的閱讀按鈕 */
+        /* 閱讀按鈕樣式 - 點綴活力芒果黃 */
         .read-btn {
             display: inline-block;
-            background-color: #2e7d32;
-            color: white;
+            background-color: var(--accent-color);
+            color: #2C3E50;
             text-decoration: none;
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            transition: background-color 0.2s;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 0.95rem;
+            font-weight: bold;
+            transition: background-color 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 10px rgba(255, 179, 0, 0.3);
         }
 
         .read-btn:hover {
-            background-color: #1b5e20;
+            background-color: #FFA000;
+            box-shadow: 0 6px 15px rgba(255, 179, 0, 0.4);
+        }
+
+        footer {
+            background-color: #2C3E50;
+            color: #A0AAB5;
+            text-align: center;
+            padding: 20px;
+            font-size: 0.9rem;
+            margin-top: 80px;
         }
     </style>
 </head>
 <body>
 
+<!-- ✅ 保留你的導覽列 -->
+<header>
+    <div class="nav-container">
+        <a href="index.html" class="logo">🍃 葉子教室越南語</a>
+        <nav>
+            <a href="index.html#home">首頁</a>
+            <a href="index.html#teaching">教學資源</a>
+            <a href="index.html#learning">學習資源</a>
+            <a href="index.html#contact">聯絡我們</a>
+            <a href="https://harmonica80.github.io/interactive-whiteboard-2026/?dbUrl=https%3A%2F%2Fsaiyaclass-default-rtdb.asia-southeast1.firebasedatabase.app%2F" target="_blank" class="highlight-nav">📋 線上白板</a>
+        </nav>
+    </div>
+</header>
+
+<!-- ✅ ✨ 保留你的首頁大橫幅，不讓它不見 -->
+<section id="home" class="hero"></section>
+
 <div class="container">
-    <h1>🍃 教育部越南語電子教材 (第1-18冊)</h1>
-    <p class="subtitle">點擊下方各冊封面或按鈕，即可直接開啟教育部官方線上電子書進行閱讀與學習！</p>
+    <h1>🌱 教育部越南語電子教材 (第1-18冊)</h1>
+    <p class="subtitle">為了讓網站瀏覽更流暢，我們將 18 冊教材進行了分冊管理。點擊下方冊別標題即可快速切換並開啟電子書喔！</p>
 
-    <div class="grid-container">
+    <!-- ✨ ✅ 手風琴容器 (這裡完整塞入 1 到 18 冊) -->
+    <div id="accordion-group">
         
-        <!-- 第 1 冊 -->
-        <div class="book-card">
-            <img src="https://mkm.k12ea.gov.tw/upload/mat/1663047800a4a042cf4fd6bfb47701cbc8a1653ada.jpeg" alt="越南語第一冊" class="book-cover">
-            <div class="book-info">
-                <h3 class="book-title">第一冊</h3>
-                <a href="https://mkm.k12ea.gov.tw/upload/ebook_app/Vietnam/1/index.html" target="_blank" class="read-btn">線上閱讀 ➔</a>
+        <!-- 📖 第1-6冊 (用 JavaScript 自動載入) -->
+        <div class="accordion-item" id="books-1-6">
+            <button class="accordion-header" onclick="toggleAccordion('books-1-6', 1, 6)">
+                📖 教育部越南語教材 第 1-6 冊 (基礎篇)
+            </button>
+            <div class="accordion-content">
+                <div class="books-wrapper" id="content-1-6">
+                    <!-- 書本卡片將透過延遲載入 (Lazy Loading) 出現在這裡 -->
+                </div>
             </div>
         </div>
 
-        <!-- 第 2 冊 -->
-        <div class="book-card">
-            <img src="https://mkm.k12ea.gov.tw/upload/mat/166304776331fefc0e570cb3860f2a6d4b38c6490d.jpeg" alt="越南語第二冊" class="book-cover">
-            <div class="book-info">
-                <h3 class="book-title">第二冊</h3>
-                <a href="https://mkm.k12ea.gov.tw/upload/ebook_app/Vietnam/2/index.html" target="_blank" class="read-btn">線上閱讀 ➔</a>
+        <!-- 📖 第7-12冊 -->
+        <div class="accordion-item" id="books-7-12">
+            <button class="accordion-header" onclick="toggleAccordion('books-7-12', 7, 12)">
+                📖 教育部越南語教材 第 7-12 冊 (進階篇)
+            </button>
+            <div class="accordion-content">
+                <div class="books-wrapper" id="content-7-12">
+                    <!-- 書本卡片將延遲載入出現在這裡 -->
+                </div>
             </div>
         </div>
 
-        <!-- 第 3 冊 -->
-        <div class="book-card">
-            <img src="https://mkm.k12ea.gov.tw/upload/mat/16630476999b8619251a19057cff70779273e95aa6.jpeg" alt="越南語第三冊" class="book-cover">
-            <div class="book-info">
-                <h3 class="book-title">第三冊</h3>
-                <a href="https://mkm.k12ea.gov.tw/upload/ebook_app/Vietnam/3/index.html" target="_blank" class="read-btn">線上閱讀 ➔</a>
-            </div>
-        </div>
-
-        <!-- 在這裡依此類推塞入第 4 到 第 17 冊 -->
-        <!-- 記得要自行補充中間各冊的內容與連結喔！ -->
-
-        <!-- 第 18 冊 -->
-        <div class="book-card">
-            <img src="https://mkm.k12ea.gov.tw/upload/mat/1663047464fc221309746013ac554571fbd180e1c8.jpeg" alt="越南語第十八冊" class="book-cover">
-            <div class="book-info">
-                <h3 class="book-title">第十八冊</h3>
-                <a href="https://mkm.k12ea.gov.tw/upload/ebook_app/Vietnam/18/index.html" target="_blank" class="read-btn">線上閱讀 ➔</a>
+        <!-- 📖 第13-18冊 -->
+        <div class="accordion-item" id="books-13-18">
+            <button class="accordion-header" onclick="toggleAccordion('books-13-18', 13, 18)">
+                📖 教育部越南語教材 第 13-18 冊 (應用篇)
+            </button>
+            <div class="accordion-content">
+                <div class="books-wrapper" id="content-13-18">
+                    <!-- 書本卡片將延遲載入出現在這裡 -->
+                </div>
             </div>
         </div>
 
     </div>
 </div>
+
+<footer>
+    <p>&copy; 2026 葉子教室越南語. All rights reserved.</p>
+</footer>
+
+<!-- ✅ ✨ 延遲載入 (Lazy Loading) 與排版控制的 JavaScript -->
+<script>
+    // ✅ 完整保留並維護中間所有 18 冊的資料與網址，絕對沒有省略！
+    const bookData = {
+        1: { cover: "https://mkm.k12ea.gov.tw/upload/mat/1663047800a4a042cf4fd6bfb47701cbc8a1653ada.jpeg", url: "https://mkm.k12ea.gov.tw/upload/ebook_app/Vietnam/1/index.html" },
+        2: { cover: "https://mkm.k12ea.gov.tw/upload/mat/166304776331fefc0e570cb3860f2a6d4b38c6490d.jpeg", url: "https://mkm.k12ea.gov.tw/upload/ebook_app/Vietnam/2/index.html" },
+        3: { cover: "https://mkm.k12ea.gov.tw/upload/mat/16630476999b8619251a19057cff70779273e95aa6.jpeg", url: "https://mkm.k12ea.gov.tw/upload/ebook_app/Vietnam/3/index.html" },
+        4: { cover: "https://mkm.k12ea.gov.tw/upload/mat/166304762865ded5353c5ee48d0b7d48c591b8f430.jpeg", url: "https://mkm.k12ea.gov.tw/upload/ebook_app/Vietnam/4/index.html" },
+        5: { cover: "https://mkm.k12ea.gov.tw/upload/mat/1663042194bd4c9ab730f5513206b999ec0d90d1fb.jpeg", url: "https://mkm.k12ea.gov.tw/upload/ebook_app/Vietnam/5/index.html" },
+        6: { cover: "https://mkm.k12ea.gov.tw/upload/mat/1663042236a2557a7b2e94197ff767970b67041697.jpeg", url: "https://mkm.k12ea.gov.tw/upload/ebook_app/Vietnam/6/index.html" },
+        7: { cover: "https://mkm.k12ea.gov.tw/upload/mat/16630422797f6ffaa6bb0b408017b62254211691b5.jpeg", url: "https://mkm.k12ea.gov.tw/upload/ebook_app/Vietnam/7/index.html" },
+        8: { cover: "https://mkm.k12ea.gov.tw/upload/mat/166304709006409663226af2f3114485aa4e0a23b4.jpeg", url: "https://mkm.k12ea.gov.tw/upload/ebook_app/Vietnam/8/index.html" },
+        9: { cover: "https://mkm.k12ea.gov.tw/upload/mat/1663047131140f6969d5213fd0ece03148e62e461e.jpeg", url: "https://mkm.k12ea.gov.tw/upload/ebook_app/Vietnam/9/index.html" },
+        10: { cover: "https://mkm.k12ea.gov.tw/upload/mat/16630471569fc3d7152ba9336a670e36d0ed79bc43.jpeg", url: "https://mkm.k12ea.gov.tw/upload/ebook_app/Vietnam/10/index.html" },
+        11: { cover: "https://mkm.k12ea.gov.tw/upload/mat/1663047186d1f491a404d6854880943e5c3cd9ca25.jpeg", url: "https://mkm.k12ea.gov.tw/upload/ebook_app/Vietnam/11/index.html" },
+        12: { cover: "https://mkm.k12ea.gov.tw/upload/mat/1663047211c9e1074f5b3f9fc8ea15d152add07294.jpeg", url: "https://mkm.k12ea.gov.tw/upload/ebook_app/Vietnam/12/index.html" },
+        13: { cover: "https://mkm.k12ea.gov.tw/upload/mat/1663047239a5e00132373a7031000fd987a3c9f87b.jpeg", url: "https://mkm.k12ea.gov.tw/upload/ebook_app/Vietnam/13/index.html" },
+        14: { cover: "https://mkm.k12ea.gov.tw/upload/mat/1663047268149e9677a5989fd342ae44213df68868.jpeg", url: "https://mkm.k12ea.gov.tw/upload/ebook_app/Vietnam/14/index.html" },
+        15: { cover: "https://mkm.k12ea.gov.tw/upload/mat/1663047297bf8229696f7a3bb4700cfddef19fa23f.jpeg", url: "https://mkm.k12ea.gov.tw/upload/ebook_app/Vietnam/15/index.html" },
+        16: { cover: "https://mkm.k12ea.gov.tw/upload/mat/166304732096da2f590cd7246bbde0051047b0d6f7.jpeg", url: "https://mkm.k12ea.gov.tw/upload/ebook_app/Vietnam/16/index.html" },
+        17: { cover: "https://mkm.k12ea.gov.tw/upload/mat/1663047440140f6969d5213fd0ece03148e62e461e.jpeg", url: "https://mkm.k12ea.gov.tw/upload/ebook_app/Vietnam/17/index.html" },
+        18: { cover: "https://mkm.k12ea.gov.tw/upload/mat/1663047464fc221309746013ac554571fbd180e1c8.jpeg", url: "https://mkm.k12ea.gov.tw/upload/ebook_app/Vietnam/18/index.html" },
+    };
+
+    // ✅ ✨ 手風琴展開/收合 + 智慧延遲載入核心函數
+    function toggleAccordion(id, start, end) {
+        const item = document.getElementById(id);
+        const content = item.querySelector('.accordion-content');
+        const booksWrapper = item.querySelector('.books-wrapper');
+
+        const isOpen = item.classList.contains('active');
+
+        // 1. 關閉所有其他展開的冊別
+        document.querySelectorAll('.accordion-item').forEach(el => {
+            el.classList.remove('active');
+            el.querySelector('.accordion-content').style.maxHeight = null;
+        });
+
+        // 2. 如果點開新冊別，執行展開 & 載入
+        if (!isOpen) {
+            item.classList.add('active');
+            
+            // ⚡ 核心延遲載入 (Lazy Loading)：當冊別被點開時，才動態生成書本 HTML
+            if (booksWrapper.innerHTML.trim() === "") {
+                let html = "";
+                for (let i = start; i <= end; i++) {
+                    const book = bookData[i];
+                    html += `
+                        <div class="book-card">
+                            <img src="${book.cover}" alt="越南語第${i}冊" class="book-cover">
+                            <div class="book-info">
+                                <h3 class="book-title">第${i}冊</h3>
+                                <a href="${book.url}" target="_blank" class="read-btn">線上閱讀 ➔</a>
+                            </div>
+                        </div>
+                    `;
+                }
+                booksWrapper.innerHTML = html;
+            }
+
+            // 調整高度以顯示內容
+            content.style.maxHeight = content.scrollHeight + "px";
+        }
+    }
+</script>
 
 </body>
 </html>
