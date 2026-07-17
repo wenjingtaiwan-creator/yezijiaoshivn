@@ -76,59 +76,21 @@
             color: #c2185b;
         }
 
-        /* ✨ 重新設計的首頁主視覺橫幅 (Hero Section) */
+        /* ✨ 完美展示你上傳圖檔的專屬橫幅樣式 */
         .hero {
-            /* 1. 設定圖片為背景，並加上深色遮罩以強化文字 */
-            background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.2)), url('https://raw.githubusercontent.com/Harmonica80/yezijiaoshivn/main/leaf_classroom_hero.png');
+            /* 直接讀取你上傳的圖片檔名 */
+            background-image: url('ChatGPT Image 2026年7月17日 上午09_43_39.png');
             background-size: cover;
-            background-position: center;
+            background-position: center center;
             background-repeat: no-repeat;
             
-            /* 2. 調整高度和排版 */
-            height: 80vh; /* 佔據螢幕高度的 80% */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 0 20px;
+            /* 控制大橫幅在電腦與手機螢幕上的合適高度 */
+            height: 55vw; 
+            max-height: 500px;
+            min-height: 250px;
+            width: 100%;
             margin: 0;
-            color: white; /* 讓文字變成白色 */
-        }
-
-        .hero-content {
-            max-width: 800px;
-        }
-
-        .hero h2 {
-            font-size: 3rem;
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5); /* 增加文字陰影，確保清晰 */
-        }
-
-        .hero p {
-            font-size: 1.25rem;
-            max-width: 600px;
-            margin: 0 auto 40px auto;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
-        }
-
-        /* ✨ 強化後的活力芒果黃按鈕 */
-        .btn {
-            background-color: var(--accent-color);
-            color: #2C3E50; /* 按鈕文字用深色，形成對比 */
-            padding: 14px 35px;
-            text-decoration: none;
-            border-radius: 30px;
-            font-weight: bold;
-            font-size: 1.1rem;
-            box-shadow: 0 5px 20px rgba(255, 179, 0, 0.4);
-            transition: transform 0.2s, box-shadow 0.2s;
-            display: inline-block;
-        }
-
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(255, 179, 0, 0.5);
+            padding: 0;
         }
 
         section {
@@ -272,22 +234,16 @@
                 <a href="#teaching">教學資源</a>
                 <a href="#learning">學習資源</a>
                 <a href="#contact">聯絡我們</a>
-                <!-- ✨ 導覽列新增的線上白板連結，設計了專屬的粉紅強調色 -->
+                <!-- 導覽列的線上白板連結 -->
                 <a href="https://harmonica80.github.io/interactive-whiteboard-2026/?dbUrl=https%3A%2F%2Fsaiyaclass-default-rtdb.asia-southeast1.firebasedatabase.app%2F" target="_blank" class="highlight-nav">📋 線上白板</a>
             </nav>
         </div>
     </header>
 
-    <!-- 首頁區塊 (Hero) -->
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <h2>想從基礎學習越南語？</h2>
-            <p>在這裡，我們用最輕鬆、有趣的方式，帶你一步步從零基礎走向流利溝通，開啟你的東南亞新視野！</p>
-            <a href="#contact" class="btn">與葉老師聯絡 ➔</a>
-        </div>
-    </section>
+    <!-- 首頁橫幅區塊 (直接展示你的精美上傳圖片，不重疊多餘文字) -->
+    <section id="home" class="hero"></section>
 
-    <!-- 教學區塊 -->
+    <!-- Teaching sections and the rest remain unchanged -->
     <section id="teaching">
         <div class="container">
             <h3 class="section-title">教學資源</h3>
@@ -322,7 +278,7 @@
                     </div>
                 </div>
 
-                <!-- ✨ 第三區塊（重新整理）：互動式線上白板卡片 -->
+                <!-- 第三區塊：互動式線上白板卡片 -->
                 <div class="card" style="border-top-color: #e91e63;">
                     <div>
                         <h4 style="margin-top: 0; color: #e91e63;">🎨 互動式線上白板</h4>
@@ -352,7 +308,6 @@
         <div class="container">
             <h3 class="section-title">學習資源</h3>
             
-            <!-- ✨ 新增的卡片內容放在列表上方 -->
             <div class="resource-card">
                 <h3 style="margin-top: 0; color: #2E7D32;">🌱 基礎越南語發音</h3>
                 <p style="margin-bottom: 0;">從最簡單的聲調與字母開始學起，打好越南語基本功！</p>
