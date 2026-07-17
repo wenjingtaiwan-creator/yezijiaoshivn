@@ -301,6 +301,309 @@
 
 <!-- ✅ ✨ 延遲載入 (Lazy Loading) 與排版控制的 JavaScript -->
 <script>
+    // ✅ ✨ ✨ 這次完整補齊並保留所有 18 冊的資料與網址，絕對沒有留白！<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>越南語電子書資源 - 葉子教室</title>
+    <style>
+        /* 1. 全域樣式 (延續葉子教室風格) */
+        :root {
+            --primary-color: #2E7D32; /* 品牌葉子綠 */
+            --accent-color: #FFB300; /* 亮眼芒果黃 */
+            --text-color: #2C3E50;
+            --bg-light: #F9FBFA; /* 淺米綠底色 */
+        }
+
+        body {
+            font-family: 'PingFang TC', 'Microsoft JhengHei', sans-serif;
+            line-height: 1.8;
+            margin: 0;
+            padding: 0;
+            color: var(--text-color);
+            background-color: var(--bg-light);
+        }
+
+        /* 2. ✅ 保留你的導覽列 */
+        header {
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(5px);
+        }
+
+        .nav-container {
+            max-width: 1100px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+        }
+
+        nav a {
+            color: var(--text-color);
+            text-decoration: none;
+            margin-left: 25px;
+            font-weight: 500;
+        }
+
+        nav a:hover {
+            color: var(--primary-color);
+        }
+
+        /* ✅ 保留你的線上白板連結強調樣式 */
+        nav a.highlight-nav {
+            color: #e91e63;
+            font-weight: bold;
+        }
+
+        /* 3. ✅ 保留你的首頁大橫幅 */
+        .hero {
+            background-image: url('ChatGPT Image 2026年7月17日 上午09_43_39.png');
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+            
+            height: 55vw; 
+            max-height: 500px;
+            min-height: 250px;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* 4. 電子書頁面專屬 CSS */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        h1 {
+            color: var(--primary-color);
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* ✅ ✨ 下拉式手風琴與延遲載入的核心 CSS (防止網頁癱瘓) */
+        .accordion-item {
+            background-color: white;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.03);
+            border-left: 5px solid var(--primary-color);
+            overflow: hidden;
+            transition: box-shadow 0.2s;
+        }
+        
+        .accordion-header {
+            width: 100%;
+            background: none;
+            border: none;
+            padding: 20px 25px;
+            text-align: left;
+            font-size: 1.15rem;
+            font-weight: bold;
+            color: var(--text-color);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            outline: none;
+        }
+
+        .accordion-header::after {
+            content: '▼';
+            font-size: 0.8rem;
+            color: var(--primary-color);
+            transition: transform 0.3s;
+        }
+        
+        .accordion-item.active .accordion-header::after {
+            transform: rotate(180deg);
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out;
+            background-color: #FCFDFD;
+            border-top: 1px solid #f0f3f1;
+        }
+
+        .books-wrapper {
+            padding: 25px;
+            /* ✅✨ 將 18 冊書本用 專業書店網格排版 呈現 */
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 25px;
+        }
+
+        /* ✅ ✨ 書本卡片樣式 */
+        .book-card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            overflow: hidden;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #e0e0e0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .book-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(46, 125, 50, 0.15);
+        }
+
+        .book-cover {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            border-bottom: 1px solid #eee;
+        }
+
+        .book-info {
+            padding: 15px;
+        }
+
+        .book-title {
+            font-size: 1.1rem;
+            margin: 0 0 12px 0;
+            color: var(--text-color);
+            font-weight: bold;
+        }
+
+        /* 閱讀按鈕樣式 - 點綴活力芒果黃 */
+        .read-btn {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: #2C3E50;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 0.95rem;
+            font-weight: bold;
+            transition: background-color 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 10px rgba(255, 179, 0, 0.3);
+        }
+
+        .read-btn:hover {
+            background-color: #FFA000;
+            box-shadow: 0 6px 15px rgba(255, 179, 0, 0.4);
+        }
+
+        footer {
+            background-color: #2C3E50;
+            color: #A0AAB5;
+            text-align: center;
+            padding: 20px;
+            font-size: 0.9rem;
+            margin-top: 80px;
+        }
+    </style>
+</head>
+<body>
+
+<!-- ✅ 保留你的導覽列 -->
+<header>
+    <div class="nav-container">
+        <a href="index.html" class="logo">🍃 葉子教室越南語</a>
+        <nav>
+            <a href="index.html#home">首頁</a>
+            <a href="index.html#teaching">教學資源</a>
+            <a href="index.html#learning">學習資源</a>
+            <a href="index.html#contact">聯絡我們</a>
+            <a href="https://harmonica80.github.io/interactive-whiteboard-2026/?dbUrl=https%3A%2F%2Fsaiyaclass-default-rtdb.asia-southeast1.firebasedatabase.app%2F" target="_blank" class="highlight-nav">📋 線上白板</a>
+        </nav>
+    </div>
+</header>
+
+<!-- ✅ ✨ 保留你的首頁大橫幅，不讓它不見 -->
+<section id="home" class="hero"></section>
+
+<div class="container">
+    <h1>🌱 教育部越南語電子教材 (第1-18冊)</h1>
+    <p class="subtitle">點擊下方冊別標題即可快速切換並開啟電子書喔！</p>
+
+    <!-- ✨ ✅ 手風琴容器 (這裡完整塞入 1 到 18 冊) -->
+    <div id="accordion-group">
+        
+        <!-- 📖 第1-6冊 (用 JavaScript 自動載入) -->
+        <div class="accordion-item" id="books-1-6">
+            <button class="accordion-header" onclick="toggleAccordion('books-1-6', 1, 6)">
+                📖 教育部越南語教材 第 1-6 冊 
+            </button>
+            <div class="accordion-content">
+                <div class="books-wrapper" id="content-1-6">
+                    <!-- 書本卡片將透過延遲載入 (Lazy Loading) 出現在這裡 -->
+                </div>
+            </div>
+        </div>
+
+        <!-- 📖 第7-12冊 -->
+        <div class="accordion-item" id="books-7-12">
+            <button class="accordion-header" onclick="toggleAccordion('books-7-12', 7, 12)">
+                📖 教育部越南語教材 第 7-12 冊 
+            </button>
+            <div class="accordion-content">
+                <div class="books-wrapper" id="content-7-12">
+                    <!-- 書本卡片將延遲載入出現在這裡 -->
+                </div>
+            </div>
+        </div>
+
+        <!-- 📖 第13-18冊 -->
+        <div class="accordion-item" id="books-13-18">
+            <button class="accordion-header" onclick="toggleAccordion('books-13-18', 13, 18)">
+                📖 教育部越南語教材 第 13-18 冊 
+            </button>
+            <div class="accordion-content">
+                <div class="books-wrapper" id="content-13-18">
+                    <!-- 書本卡片將延遲載入出現在這裡 -->
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2026 葉子教室越南語. All rights reserved.</p>
+</footer>
+
+<!-- ✅ ✨ 延遲載入 (Lazy Loading) 與排版控制的 JavaScript -->
+<script>
     // ✅ 完整保留並維護中間所有 18 冊的資料與網址，絕對沒有省略！
     const bookData = {
         1: { cover: "https://mkm.k12ea.gov.tw/upload/mat/1663047800a4a042cf4fd6bfb47701cbc8a1653ada.jpeg", url: "https://mkm.k12ea.gov.tw/upload/ebook_app/Vietnam/1/index.html" },
