@@ -3,20 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- ✨ 關鍵修改 1：修改網頁標題，完整包含關鍵字「葉子教室越南語」 -->
     <title>葉子教室越南語 - 快樂學習越南語、探索越南文化</title>
-    
-    <!-- ✨ 關鍵修改 2：加入網頁簡介描述，這是 Google 搜尋結果會顯示的摘要 -->
     <meta name="description" content="歡迎來到葉子教室越南語！我們提供教育部越南語電子教材、實用的越南語學習資源、線上白板與趣味情境式互動，帶您輕鬆、快樂地從零基礎學好越南語。">
-    
     <style>
         :root {
-            --primary-color: #2E7D32; /* 品牌葉子綠 */
-            --secondary-color: #81C784; /* 淺綠 */
-            --accent-color: #FFB300; /* 亮眼芒果黃（互動按鈕用） */
+            --primary-color: #2E7D32;    /* 品牌葉子綠 */
+            --secondary-color: #81C784;  /* 淺綠 */
+            --accent-color: #FFB300;     /* 亮眼芒果黃 */
             --text-color: #2C3E50;
-            --bg-light: #F9FBFA; /* 舒服的淺米綠底色 */
+            --bg-light: #F9FBFA;         /* 舒服的淺米綠底色 */
         }
 
         body {
@@ -72,7 +67,6 @@
             color: var(--primary-color);
         }
 
-        /* 導覽列專用強調樣式 */
         nav a.highlight-nav {
             color: #e91e63;
             font-weight: bold;
@@ -82,21 +76,47 @@
             color: #c2185b;
         }
 
-        /* ✨ 完美展示你上傳圖檔的專屬橫幅樣式 */
         .hero {
-            /* 直接讀取你上傳的圖片檔名 */
             background-image: url('ChatGPT Image 2026年7月17日 上午09_43_39.png');
             background-size: cover;
             background-position: center center;
             background-repeat: no-repeat;
-            
-            /* 控制大橫幅在電腦與手機螢幕上的合適高度 */
-            height: 55vw; 
+            height: 55vw;
             max-height: 500px;
             min-height: 250px;
             width: 100%;
             margin: 0;
             padding: 0;
+        }
+
+        /* 🌟 Canva 嵌入專屬區塊樣式 */
+        .canva-section {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 50px 20px 20px 20px;
+            text-align: center;
+        }
+
+        .canva-section h3 {
+            color: var(--primary-color);
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+        }
+
+        .canva-credits {
+            font-size: 0.9rem;
+            color: #666;
+            margin-top: 8px;
+        }
+
+        .canva-credits a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .canva-credits a:hover {
+            text-decoration: underline;
         }
 
         section {
@@ -125,7 +145,6 @@
             margin: 10px auto 0 auto;
         }
 
-        /* 卡片式排版 */
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -149,7 +168,6 @@
             box-shadow: 0 8px 25px rgba(0,0,0,0.08);
         }
 
-        /* 專門給葉老師卡片按鈕用的樣式 */
         .card-action-btn {
             background-color: #2E7D32;
             color: white;
@@ -168,7 +186,6 @@
             background-color: #1B5E20;
         }
 
-        /* 資源列表樣式 */
         .resource-list {
             list-style: none;
             padding: 0;
@@ -194,7 +211,6 @@
             color: var(--primary-color);
         }
 
-        /* 聯絡資訊 */
         .contact-info {
             background: white;
             padding: 40px;
@@ -213,25 +229,24 @@
             font-size: 0.9rem;
         }
 
-        /* 資源卡片樣式 */
         .resource-card {
-            background-color: #f1f8e9; /* 溫和的淺綠色背景 */
-            border-left: 5px solid #8bc34a; /* 左側綠色強調邊框 */
+            background-color: #f1f8e9;
+            border-left: 5px solid #8bc34a;
             padding: 20px;
             margin: 0 0 25px 0;
-            border-radius: 8px; /* 圓角 */
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05); /* 微微的陰影，增加立體感 */
-            transition: transform 0.2s ease; /* 滑過時的過渡動畫 */
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s ease;
         }
 
-        /* 滑鼠懸停效果 */
         .resource-card:hover {
-            transform: translateY(-3px); /* 輕微往上飄，增加互動感 */
+            transform: translateY(-3px);
             background-color: #e8f5e9;
         }
     </style>
 </head>
 <body>
+
     <header>
         <div class="nav-container">
             <a href="#" class="logo">🍃 葉子教室越南語</a>
@@ -240,7 +255,6 @@
                 <a href="#teaching">教學資源</a>
                 <a href="#learning">學習資源</a>
                 <a href="#contact">聯絡我們</a>
-                <!-- 導覽列的線上白板連結 -->
                 <a href="https://harmonica80.github.io/interactive-whiteboard-2026/?dbUrl=https%3A%2F%2Fsaiyaclass-default-rtdb.asia-southeast1.firebasedatabase.app%2F" target="_blank" class="highlight-nav">📋 線上白板</a>
             </nav>
         </div>
@@ -249,6 +263,18 @@
     <!-- 首頁橫幅區塊 -->
     <section id="home" class="hero"></section>
 
+    <!-- 🌟 新增：Canva 越南文化簡報介紹區塊 -->
+    <div class="canva-section">
+        <h3>🇻🇳 探索越南文化</h3>
+        <div style="position: relative; width: 100%; height: 0; padding-top: 56.2500%; padding-bottom: 0; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden; border-radius: 8px; will-change: transform;">
+            <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0; margin: 0;" src="https://www.canva.com/design/DAHPnq4Wpwo/8WvypBFb6gkZYgK-DOXSqg/view?embed" allowfullscreen="allowfullscreen" allow="fullscreen"></iframe>
+        </div>
+        <div class="canva-credits">
+            葉文靜 設計的 <a href="https://www.canva.com/design/DAHPnq4Wpwo/8WvypBFb6gkZYgK-DOXSqg/view?utm_content=DAHPnq4Wpwo&amp;utm_campaign=designshare&amp;utm_medium=embeds&amp;utm_source=link" target="_blank" rel="noopener">介紹越南</a>
+        </div>
+    </div>
+
+    <!-- 教學資源區塊 -->
     <section id="teaching">
         <div class="container">
             <h3 class="section-title">教學資源</h3>
@@ -312,12 +338,10 @@
     <section id="learning" style="background-color: #F0F4F1;">
         <div class="container">
             <h3 class="section-title">學習資源</h3>
-            
             <div class="resource-card">
                 <h3 style="margin-top: 0; color: #2E7D32;">🌱 基礎越南語發音</h3>
                 <p style="margin-bottom: 0;">從最簡單的聲調與字母開始學起，打好越南語基本功！</p>
             </div>
-
             <ul class="resource-list">
                 <li><a href="#"><span>📚 基礎篇：越南語字母與發音小秘笈</span> <span>➔</span></a></li>
                 <li><a href="#"><span>🗣 實用篇：日常必備 50 句實用會話</span> <span>➔</span></a></li>
@@ -344,5 +368,6 @@
     <footer>
         <p>&copy; 2026 葉子教室越南語. All rights reserved.</p>
     </footer>
+
 </body>
 </html>
