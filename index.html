@@ -71,6 +71,7 @@
             color: #e91e63;
             font-weight: bold;
         }
+
         nav a.highlight-nav:hover {
             color: #c2185b;
         }
@@ -225,10 +226,26 @@
             padding: 20px;
             font-size: 0.9rem;
         }
+
+        /* ✨ 新增的資源卡片樣式 */
+        .resource-card {
+            background-color: #f1f8e9; /* 溫和的淺綠色背景 */
+            border-left: 5px solid #8bc34a; /* 左側綠色強調邊框 */
+            padding: 20px;
+            margin: 0 0 25px 0;
+            border-radius: 8px; /* 圓角 */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05); /* 微微的陰影，增加立體感 */
+            transition: transform 0.2s ease; /* 滑過時的過渡動畫 */
+        }
+
+        /* 新增的滑鼠懸停效果 */
+        .resource-card:hover {
+            transform: translateY(-3px); /* 輕微往上飄，增加互動感 */
+            background-color: #e8f5e9;
+        }
     </style>
 </head>
 <body>
-
     <header>
         <div class="nav-container">
             <a href="#" class="logo">🍃 葉子教室越南語</a>
@@ -255,7 +272,6 @@
         <div class="container">
             <h3 class="section-title">教學資源</h3>
             <div class="grid">
-                
                 <!-- 新住民語文教學資源卡片 -->
                 <div class="card">
                     <div>
@@ -269,9 +285,7 @@
                                 📰 <a href="https://www.edu.tw/" target="_blank" style="color: #2E7D32; text-decoration: underline;">教育部全球資訊網 - 新住民語文選課資源說明</a>
                             </li>
                             <div style="margin-top: 25px;">
-                              <a href="learning-resources.html" target="_blank" style="background-color: #2e7d32; color: white; padding: 12px 24px; text-decoration: none; border-radius: 30px; display: inline-block; font-weight: bold; box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: 0.3s;">
-                                電子書 ➔
-                              </a>
+                                <a href="learning-resources.html" target="_blank" style="background-color: #2e7d32; color: white; padding: 12px 24px; text-decoration: none; border-radius: 30px; display: inline-block; font-weight: bold; box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: 0.3s;">電子書 ➔</a>
                             </div>
                         </ul>
                     </div>
@@ -289,16 +303,13 @@
                 </div>
 
                 <!-- ✨ 第三區塊（重新整理）：互動式線上白板卡片 -->
-                <!-- 這裡使用與網站一致的卡片架構，但利用粉紅頂線 (--border-top) 與專屬粉色按鈕，既突顯特色又不突兀 -->
                 <div class="card" style="border-top-color: #e91e63;">
                     <div>
                         <h4 style="margin-top: 0; color: #e91e63;">🎨 互動式線上白板</h4>
                         <p>提供即時同步的線上畫布，方便課堂上進行即時塗鴉、單字演練與互動教學，增添遠距與實體課堂趣味！</p>
                     </div>
                     <div>
-                        <a href="https://harmonica80.github.io/interactive-whiteboard-2026/?dbUrl=https%3A%2F%2Fsaiyaclass-default-rtdb.asia-southeast1.firebasedatabase.app%2F" target="_blank" class="card-action-btn" style="background-color: #e91e63;">
-                            開啟線上白板 ➔
-                        </a>
+                        <a href="https://harmonica80.github.io/interactive-whiteboard-2026/?dbUrl=https%3A%2F%2Fsaiyaclass-default-rtdb.asia-southeast1.firebasedatabase.app%2F" target="_blank" class="card-action-btn" style="background-color: #e91e63;">開啟線上白板 ➔</a>
                     </div>
                 </div>
 
@@ -308,11 +319,10 @@
                         <h4 style="margin-top: 0; color: var(--primary-color);">🎯 情境式互動</h4>
                         <p>拒絕死記硬背！融入真實旅遊與職場情境，搭配互動練習，讓你學了當天就能用。</p>
                     </div>
-                     <div>
+                    <div>
                         <a href="game-resources.html" class="card-action-btn">一起玩 ➔</a>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
@@ -321,6 +331,13 @@
     <section id="learning" style="background-color: #F0F4F1;">
         <div class="container">
             <h3 class="section-title">學習資源</h3>
+            
+            <!-- ✨ 新增的卡片內容放在列表上方 -->
+            <div class="resource-card">
+                <h3 style="margin-top: 0; color: #2E7D32;">🌱 基礎越南語發音</h3>
+                <p style="margin-bottom: 0;">從最簡單的聲調與字母開始學起，打好越南語基本功！</p>
+            </div>
+
             <ul class="resource-list">
                 <li><a href="#"><span>📚 基礎篇：越南語字母與發音小秘笈</span> <span>➔</span></a></li>
                 <li><a href="#"><span>🗣 實用篇：日常必備 50 句實用會話</span> <span>➔</span></a></li>
@@ -347,6 +364,5 @@
     <footer>
         <p>&copy; 2026 葉子教室越南語. All rights reserved.</p>
     </footer>
-
 </body>
 </html>
