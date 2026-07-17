@@ -8,7 +8,7 @@
         :root {
             --primary-color: #2E7D32; /* 品牌葉子綠 */
             --secondary-color: #81C784; /* 淺綠 */
-            --accent-color: #FF9800; /* 亮眼橘（互動按鈕用） */
+            --accent-color: #FFB300; /* 亮眼芒果黃（互動按鈕用） */
             --text-color: #2C3E50;
             --bg-light: #F9FBFA; /* 舒服的淺米綠底色 */
         }
@@ -76,41 +76,59 @@
             color: #c2185b;
         }
 
-        /* 首頁主視覺區塊 */
+        /* ✨ 重新設計的首頁主視覺橫幅 (Hero Section) */
         .hero {
-            background: linear-gradient(135deg, #E8F5E9 0%, #C8E6C9 100%);
-            padding: 100px 20px;
+            /* 1. 設定圖片為背景，並加上深色遮罩以強化文字 */
+            background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.2)), url('https://raw.githubusercontent.com/Harmonica80/yezijiaoshivn/main/leaf_classroom_hero.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            
+            /* 2. 調整高度和排版 */
+            height: 80vh; /* 佔據螢幕高度的 80% */
+            display: flex;
+            align-items: center;
+            justify-content: center;
             text-align: center;
+            padding: 0 20px;
+            margin: 0;
+            color: white; /* 讓文字變成白色 */
+        }
+
+        .hero-content {
+            max-width: 800px;
         }
 
         .hero h2 {
-            font-size: 2.5rem;
-            color: var(--primary-color);
+            font-size: 3rem;
             margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5); /* 增加文字陰影，確保清晰 */
         }
 
         .hero p {
-            font-size: 1.2rem;
+            font-size: 1.25rem;
             max-width: 600px;
-            margin: 0 auto 30px auto;
-            color: #555;
+            margin: 0 auto 40px auto;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
         }
 
+        /* ✨ 強化後的活力芒果黃按鈕 */
         .btn {
             background-color: var(--accent-color);
-            color: white;
-            padding: 12px 30px;
+            color: #2C3E50; /* 按鈕文字用深色，形成對比 */
+            padding: 14px 35px;
             text-decoration: none;
-            border-radius: 25px;
+            border-radius: 30px;
             font-weight: bold;
-            box-shadow: 0 4px 15px rgba(255, 152, 0, 0.3);
+            font-size: 1.1rem;
+            box-shadow: 0 5px 20px rgba(255, 179, 0, 0.4);
             transition: transform 0.2s, box-shadow 0.2s;
             display: inline-block;
         }
 
         .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(255, 152, 0, 0.4);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 179, 0, 0.5);
         }
 
         section {
@@ -135,7 +153,7 @@
             display: block;
             width: 50px;
             height: 3px;
-            background-color: var(--accent-color);
+            background-color: #FFB300;
             margin: 10px auto 0 auto;
         }
 
@@ -227,7 +245,7 @@
             font-size: 0.9rem;
         }
 
-        /* ✨ 新增的資源卡片樣式 */
+        /* 資源卡片樣式 */
         .resource-card {
             background-color: #f1f8e9; /* 溫和的淺綠色背景 */
             border-left: 5px solid #8bc34a; /* 左側綠色強調邊框 */
@@ -238,7 +256,7 @@
             transition: transform 0.2s ease; /* 滑過時的過渡動畫 */
         }
 
-        /* 新增的滑鼠懸停效果 */
+        /* 滑鼠懸停效果 */
         .resource-card:hover {
             transform: translateY(-3px); /* 輕微往上飄，增加互動感 */
             background-color: #e8f5e9;
@@ -262,9 +280,11 @@
 
     <!-- 首頁區塊 (Hero) -->
     <section id="home" class="hero">
-        <h2>想從基礎學習越南語？</h2>
-        <p>在這裡，我們用最輕鬆、有趣的方式，帶你一步步從零基礎走向流利溝通，開啟你的東南亞新視野！</p>
-        <a href="#contact" class="btn">有任何疑問，歡迎聯絡葉老師</a>
+        <div class="hero-content">
+            <h2>想從基礎學習越南語？</h2>
+            <p>在這裡，我們用最輕鬆、有趣的方式，帶你一步步從零基礎走向流利溝通，開啟你的東南亞新視野！</p>
+            <a href="#contact" class="btn">與葉老師聯絡 ➔</a>
+        </div>
     </section>
 
     <!-- 教學區塊 -->
