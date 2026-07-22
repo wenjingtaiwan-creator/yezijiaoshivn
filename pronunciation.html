@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>越南語基礎發音教學 - 葉子教室</title>
+    <style>
+        :root {
+            --primary-color: #2E7D32;    /* 品牌葉子綠 */
+            --secondary-color: #81C784;  /* 淺綠 */
+            --accent-color: #FFB300;     /* 亮眼芒果黃 */
+            --text-color: #2C3E50;
+            --bg-light: #F9FBFA;         /* 舒服的淺米綠底色 */
+            --north-color: #1565C0;      /* 北越音顏色 (藍) */
+            --south-color: #C62828;      /* 南越音顏色 (紅) */
+        }
+
+        body {
+            font-family: 'PingFang TC', 'Microsoft JhengHei', sans-serif;
+            line-height: 1.8;
+            margin: 0;
+            padding: 0;
+            color: var(--text-color);
+            background-color: var(--bg-light);
+        }
+
+        header {
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(5px);
+        }
+
+        .nav-container {
+            max-width: 1100px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+
+        nav a {
+            color: var(--text-color);
+            text-decoration: none;
+            margin-left: 25px;
+            font-weight: 500;
+        }
+
+        /* 橫幅區塊 */
+        .hero-section {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .hero-section h1 {
+            margin: 0 0 15px 0;
+            font-size: 2.5rem;
+        }
+
+        .hero-section p {
+            margin: 0;
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* 主內容區 */
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            color: var(--primary-color);
+            font-size: 1.8rem;
+            margin-bottom: 40px;
+        }
+
+        /* 字母網格 */
+        .alphabet-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 25px;
+        }
+
+        /* 字母卡片 */
+        .alphabet-card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.04);
+            padding: 30px;
+            text-align: center;
+            border: 1px solid #eee;
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .alphabet-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+        }
+
+        .char-display {
+            font-size: 4rem;
+            font-weight: bold;
+            color: var(--text-color);
+            margin-bottom: 20px;
+            font-family: 'Times New Roman', serif; /* 使用襯線體更清晰 */
+        }
+
+        /* 按鈕容器 */
+        .audio-btns {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        /* 通用按鈕樣式 */
+        .audio-btn {
+            border: none;
+            padding: 10px 15px;
+            border-radius: 25px;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+            transition: opacity 0.2s;
+        }
+
+        .audio-btn:hover {
+            opacity: 0.9;
+        }
+
+        .audio-btn:active {
+            transform: scale(0.98);
+        }
+
+        /* 北越音按鈕 */
+        .btn-north {
+            background-color: var(--north-color);
+        }
+
+        /* 南越音按鈕 */
+        .btn-south {
+            background-color: var(--south-color);
+        }
+
+        /* 播放時的樣式 (可選) */
+        .audio-btn.playing {
+            animation: pulse 1s infinite;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.2); }
+            70% { box-shadow: 0 0 0 10px rgba(0, 0, 0, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(0, 0, 0, 0); }
+        }
+
+        footer {
+            background-color: #2C3E50;
+            color: #A0AAB5;
+            text-align: center;
+            padding: 20px;
+            font-size: 0.9rem;
+            margin-top: 60px;
+        }
+
+        /* 響應式調整 */
+        @media (max-width: 600px) {
+            .char-display {
+                font-size: 3rem;
+            }
+            .hero-section h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <a href="index.html" class="logo">🍃 葉子教室越南語</a>
+            <nav>
+                <a href="index.html">返回首頁</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero-section">
+        <div class="container">
+            <h1>🇻🇳 越南語基礎發音</h1>
+            <p>點擊卡片上的按鈕，聽聽看北越語和南越語的標準字母發音吧！</p>
+        </div>
+    </section>
+
+    <main class="container">
+        <h2 class="section-title">29 個越南語字母 (Bảng chữ cái)</h2>
+        <div class="alphabet-grid" id="alphabetGrid">
+            <!-- 字母卡片將由 JavaScript 動態生成 -->
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 葉子教室越南語. 音訊資源由葉老師提供.</p>
+    </footer>
+
+    <script>
+        // 1. 定義 29 個字母資料
+        // 'char': 顯示用, 'file': 音訊檔名用 (處理特殊字符)
+        const alphabetData = [
+            { char: 'Aa', file: 'a' }, { char: 'Ăă', file: 'aw' }, { char: 'Ââ', file: 'aa' },
+            { char: 'Bb', file: 'b' }, { char: 'Cc', file: 'c' }, { char: 'Dd', file: 'd' },
+            { char: 'Đđ', file: 'dd' }, { char: 'Ee', file: 'e' }, { char: 'Êê', file: 'ee' },
+            { char: 'Gg', file: 'g' }, { char: 'Hh', file: 'h' }, { char: 'Ii', file: 'i' },
+            { char: 'Kk', file: 'k' }, { char: 'Ll', file: 'l' }, { char: 'Mm', file: 'm' },
+            { char: 'Nn', file: 'n' }, { char: 'Oo', file: 'o' }, { char: 'Ôô', file: 'oo' },
+            { char: 'Ơơ', file: 'ow' }, { char: 'Pp', file: 'p' }, { char: 'Qq', file: 'q' },
+            { char: 'Rr', file: 'r' }, { char: 'Ss', file: 's' }, { char: 'Tt', file: 't' },
+            { char: 'Uu', file: 'u' }, { char: 'Ưư', file: 'uw' }, { char: 'Vv', file: 'v' },
+            { char: 'Xx', file: 'x' }, { char: 'Yy', file: 'y' }
+        ];
+
+        // 2. 獲取網格容器
+        const grid = document.getElementById('alphabetGrid');
+
+        // 3. 用於播放音訊的全局 Audio 對象
+        let currentAudio = null;
+
+        // 4. 動態生成卡片
+        alphabetData.forEach(item => {
+            // 創建卡片元素
+            const card = document.createElement('div');
+            card.className = 'alphabet-card';
+
+            // 字母顯示
+            const charDisplay = document.createElement('div');
+            charDisplay.className = 'char-display';
+            charDisplay.textContent = item.char;
+
+            // 按鈕容器
+            const btnContainer = document.createElement('div');
+            btnContainer.className = 'audio-btns';
+
+            // --- 北越音按鈕 ---
+            const northBtn = document.createElement('button');
+            northBtn.className = 'audio-btn btn-north';
+            northBtn.innerHTML = '🔊 北越音';
+            // 點擊事件：播放 北越音檔 (e.g., a_n.mp3)
+            northBtn.onclick = () => playAudio(`${item.file}_n.mp3`, northBtn);
+
+            // --- 南越音按鈕 ---
+            const southBtn = document.createElement('button');
+            southBtn.className = 'audio-btn btn-south';
+            southBtn.innerHTML = '🔊 南越音';
+            // 點擊事件：播放 南越音檔 (e.g., a_s.mp3)
+            southBtn.onclick = () => playAudio(`${item.file}_s.mp3`, southBtn);
+
+            // 組合元素
+            btnContainer.appendChild(northBtn);
+            btnContainer.appendChild(southBtn);
+            card.appendChild(charDisplay);
+            card.appendChild(btnContainer);
+            grid.appendChild(card);
+        });
+
+        // 5. 播放音訊的函式
+        function playAudio(fileName, clickedBtn) {
+            // 如果有正在播放的聲音，先停止並移除樣式
+            if (currentAudio) {
+                currentAudio.pause();
+                currentAudio.currentTime = 0;
+                // 移除所有按鈕的 playing 樣式
+                document.querySelectorAll('.audio-btn').forEach(btn => btn.classList.remove('playing'));
+            }
+
+            // 創建新的 Audio 對象 (假設音訊檔與 HTML 在同一資料夾)
+            currentAudio = new Audio(fileName);
+
+            // 當開始播放時，給按鈕加上樣式
+            currentAudio.onplay = () => {
+                clickedBtn.classList.add('playing');
+            };
+
+            // 當播放結束時，移除樣式
+            currentAudio.onended = () => {
+                clickedBtn.classList.remove('playing');
+                currentAudio = null; // 清空對象
+            };
+
+            // 當播放發生錯誤時 (例如找不到檔案)
+            currentAudio.onerror = () => {
+                console.error(`無法載入音訊檔: ${fileName}`);
+                clickedBtn.classList.remove('playing');
+                clickedBtn.innerHTML = '❌ 讀取失敗';
+                setTimeout(() => {
+                    // 恢復按鈕原本文字
+                    clickedBtn.innerHTML = clickedBtn.classList.contains('btn-north') ? '🔊 北越音' : '🔊 南越音';
+                }, 2000);
+                currentAudio = null;
+            };
+
+            // 開始播放
+            currentAudio.play();
+        }
+    </script>
+</body>
+</html>
