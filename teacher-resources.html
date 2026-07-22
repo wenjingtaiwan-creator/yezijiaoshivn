@@ -3,128 +3,231 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>葉老師教學資源 - 葉子教室</title>
+    <title>葉老師教學資源 - 葉子教室越南語</title>
     <style>
-        /* 頂部橫幅與導覽列樣式 */
-.main-header {
-    background-color: #2e7d32;
-    color: white;
-    padding: 15px 0;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    margin-bottom: 30px;
-}
+        :root {
+            --primary-color: #2E7D32;    /* 品牌葉子綠 */
+            --secondary-color: #81C784;  /* 淺綠 */
+            --accent-color: #FFB300;     /* 亮眼芒果黃 */
+            --text-color: #2C3E50;
+            --bg-light: #F9FBFA;         /* 舒服的淺米綠底色 */
+        }
 
-.header-container {
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 0 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
+        body {
+            font-family: 'PingFang TC', 'Microsoft JhengHei', sans-serif;
+            line-height: 1.8;
+            margin: 0;
+            padding: 0;
+            color: var(--text-color);
+            background-color: var(--bg-light);
+        }
 
-.logo a {
-    color: white;
-    font-size: 1.5rem;
-    font-weight: bold;
-    text-decoration: none;
-}
+        /* 🟢 主頁選單 (Header & Nav) 樣式 */
+        header {
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(5px);
+        }
 
-.main-nav a {
-    color: rgba(255, 255, 255, 0.85);
-    text-decoration: none;
-    margin-left: 20px;
-    font-weight: 500;
-    transition: color 0.2s;
-}
+        .nav-container {
+            max-width: 1100px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
 
-.main-nav a:hover,
-.main-nav a.active {
-    color: #ffffff;
-    border-bottom: 2px solid #ffffff;
-    padding-bottom: 4px;
-}
-        body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; background-color: #f4f7f4; color: #333; margin: 0; padding: 40px 20px; }
-        .container { max-width: 1000px; margin: 0 auto; }
-        .back-link { text-decoration: none; color: #2e7d32; font-weight: bold; display: inline-block; margin-bottom: 20px; }
-        h1 { color: #2e7d32; text-align: center; margin-bottom: 10px; }
-        .subtitle { text-align: center; color: #666; margin-bottom: 40px; }
-        .grid-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
-        .resource-card { background: white; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); padding: 25px; border-left: 5px solid #2e7d32; display: flex; flex-direction: column; justify-content: space-between; }
-        .resource-type { font-size: 0.85rem; color: #ff9800; font-weight: bold; margin-bottom: 5px; }
-        .resource-title { font-size: 1.2rem; margin: 0 0 10px 0; color: #333; }
-        .resource-desc { color: #666; font-size: 0.95rem; margin-bottom: 20px; }
-        .action-btn { display: inline-block; background-color: #2e7d32; color: white; text-decoration: none; padding: 8px 16px; border-radius: 20px; font-size: 0.9rem; text-align: center; transition: background-color 0.2s; border: none; cursor: pointer; width: fit-content; }
-        .action-btn:hover { background-color: #1b5e20; }
+        .logo {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+        }
+
+        nav a {
+            color: var(--text-color);
+            text-decoration: none;
+            margin-left: 25px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--primary-color);
+        }
+
+        nav a.highlight-nav {
+            color: #e91e63;
+            font-weight: bold;
+        }
+
+        nav a.highlight-nav:hover {
+            color: #c2185b;
+        }
+
+        /* 🟢 主頁橫幅 (Hero) 樣式 */
+        .hero {
+            background-image: url('ChatGPT Image 2026年7月17日 上午09_43_39.png');
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+            height: 55vw;
+            max-height: 500px;
+            min-height: 250px;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* 📄 內容頁面與卡片網格樣式 */
+        .container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            background-color: #FFB300;
+            margin: 10px auto 0 auto;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+            border-top: 4px solid var(--primary-color);
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+        }
+
+        .card-action-btn {
+            background-color: #2E7D32;
+            color: white;
+            text-decoration: none;
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-weight: bold;
+            margin-top: 20px;
+            display: inline-block;
+            transition: 0.3s;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .card-action-btn:hover {
+            background-color: #1B5E20;
+        }
+
+        footer {
+            background-color: #2C3E50;
+            color: #A0AAB5;
+            text-align: center;
+            padding: 20px;
+            font-size: 0.9rem;
+            margin-top: 60px;
+        }
     </style>
 </head>
 <body>
-    <!-- 頂部橫幅與導覽選單 -->
-    <header class="main-header">
-        <div class="header-container">
-            <div class="logo">
-                <a href="index.html">🍃 葉子教室</a>
-            </div>
-            <nav class="main-nav">
-                <a href="index.html">首頁</a>
-                <a href="teacher-resources.html" class="active">教學資源</a>
-                <a href="topic-resources.html">主題教學</a>
-                <a href="slides.html">簡報全集</a>
+
+    <!-- 1. 頂部選單列 -->
+    <header>
+        <div class="nav-container">
+            <a href="index.html" class="logo">🍃 葉子教室越南語</a>
+            <nav>
+                <a href="index.html#home">首頁</a>
+                <a href="index.html#teaching">教學資源</a>
+                <a href="index.html#learning">學習資源</a>
+                <a href="index.html#contact">聯絡我們</a>
+                <a href="https://harmonica80.github.io/interactive-whiteboard-2026/?dbUrl=https%3A%2F%2Fsaiyaclass-default-rtdb.asia-southeast1.firebasedatabase.app%2F" target="_blank" class="highlight-nav">📋 線上白板</a>
             </nav>
         </div>
     </header>
-    
-    <div class="container">
-        <a href="index.html" class="back-link">➔ 返回首頁</a>
-        <h1>🍃 葉老師教學資源庫</h1>
-        <p class="subtitle">這裡彙整了葉老師親自製作的精美教學簡報、圖解海報，歡迎配合課程點擊使用！</p>
+
+    <!-- 2. 頂部圖片橫幅區塊 -->
+    <section class="hero"></section>
+
+    <!-- 3. teacher-resources 主要內容區塊 -->
+    <main class="container">
+        <h2 class="section-title">📚 葉老師教學資源</h2>
         
-        <div class="grid-container">
-            <!-- 🔑 加密資源按鈕卡片 -->
-            <div class="resource-card" style="border-left-color: #0076a3;">
+        <div class="grid">
+            <!-- 區域 1：中科實驗中學專區 -->
+            <div class="card">
                 <div>
-                    <span class="resource-type" style="color: #0076a3;">🔒 受保護的資源</span>
-                    <h3 class="resource-title">中科實驗中學教學資源</h3>
-                    <p class="resource-desc">此區域包含國中與高中的專屬教學簡報，僅供中科實中學生與特定教師瀏覽，需輸入密碼解鎖。</p>
+                    <h3 style="margin-top: 0; color: var(--primary-color);">🏫 中科實驗中學</h3>
+                    <p>專為中科實驗中學生設計的越南語課程教材、課堂投影片及補充學習資源。</p>
                 </div>
-                <button onclick="checkPassword()" class="action-btn" style="background-color: #0076a3;">解鎖專屬資源 ➔</button>
+                <div>
+                    <a href="nehs-resources.html" class="card-action-btn">查看課程資源 ➔</a>
+                </div>
             </div>
 
-            <!-- 資源 1：1-18冊簡報 -->
-            <div class="resource-card">
+            <!-- 區域 2：教育部課程簡報 -->
+            <div class="card">
                 <div>
-                    <span class="resource-type">教學簡報</span>
-                    <h3 class="resource-title">1-18冊 教學簡報全集</h3>
-                    <p class="resource-desc">收錄第一冊至第十八冊所有單元的完整互動課堂簡報，點擊即可依冊數展開學習。</p>
+                    <h3 style="margin-top: 0; color: var(--primary-color);">📘 教育部課程簡報</h3>
+                    <p>彙整教育部新住民語文越南語教材之各冊授課簡報與簡報下載。</p>
                 </div>
-                <a href="slides.html" class="action-btn">上課了 ➔</a>
+                <div>
+                    <a href="slides.html" class="card-action-btn">進入簡報全集 ➔</a>
+                </div>
             </div>
 
-            <!-- 資源 2：主題式學習 (已更換連結至 topic-resources.html) -->
-            <div class="resource-card" style="border-left-color: #ff9800;">
+            <!-- 區域 3：主題越南語教學 -->
+            <div class="card">
                 <div>
-                    <span class="resource-type">主題教學</span>
-                    <h3 class="resource-title">日常主題式越南語教學</h3>
-                    <p class="resource-desc">實用情境會話，包含交通、餐飲、購物等不同主題教學。</p>
+                    <h3 style="margin-top: 0; color: var(--primary-color);">🎯 主題越南語教學</h3>
+                    <p>包含節慶文化、日常生活會話、旅遊實用主題等情境式教學資源。</p>
                 </div>
-                <a href="topic-resources.html" class="action-btn" style="background-color: #ff9800;">開始吧 ➔</a>
+                <div>
+                    <a href="topic-resources.html" class="card-action-btn">探索主題教學 ➔</a>
+                </div>
             </div>
-
         </div>
-    </div>
+    </main>
 
-    <!-- 密碼驗證邏輯指令碼 -->
-    <script>
-    function checkPassword() {
-      var correctPassword = "nehs"; 
-      var input = prompt("請輸入密碼以觀看中科實驗中學教學資源：", "");
-      
-      if (input === correctPassword) {
-        window.location.href = "nehs-resources.html";
-      } else if (input !== null) {
-        alert("密碼錯誤，無法瀏覽該頁面！");
-      }
-    }
-    </script>
+    <!-- 4. 頁尾 -->
+    <footer>
+        <p>&copy; 2026 葉子教室越南語. All rights reserved.</p>
+    </footer>
+
 </body>
 </html>
