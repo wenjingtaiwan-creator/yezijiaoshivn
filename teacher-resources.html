@@ -5,6 +5,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>葉老師教學資源 - 葉子教室</title>
     <style>
+        /* 頂部橫幅與導覽列樣式 */
+.main-header {
+    background-color: #2e7d32;
+    color: white;
+    padding: 15px 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    margin-bottom: 30px;
+}
+
+.header-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo a {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.main-nav a {
+    color: rgba(255, 255, 255, 0.85);
+    text-decoration: none;
+    margin-left: 20px;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.main-nav a:hover,
+.main-nav a.active {
+    color: #ffffff;
+    border-bottom: 2px solid #ffffff;
+    padding-bottom: 4px;
+}
         body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; background-color: #f4f7f4; color: #333; margin: 0; padding: 40px 20px; }
         .container { max-width: 1000px; margin: 0 auto; }
         .back-link { text-decoration: none; color: #2e7d32; font-weight: bold; display: inline-block; margin-bottom: 20px; }
@@ -20,6 +59,21 @@
     </style>
 </head>
 <body>
+    <!-- 頂部橫幅與導覽選單 -->
+    <header class="main-header">
+        <div class="header-container">
+            <div class="logo">
+                <a href="index.html">🍃 葉子教室</a>
+            </div>
+            <nav class="main-nav">
+                <a href="index.html">首頁</a>
+                <a href="teacher-resources.html" class="active">教學資源</a>
+                <a href="topic-resources.html">主題教學</a>
+                <a href="slides.html">簡報全集</a>
+            </nav>
+        </div>
+    </header>
+    
     <div class="container">
         <a href="index.html" class="back-link">➔ 返回首頁</a>
         <h1>🍃 葉老師教學資源庫</h1>
