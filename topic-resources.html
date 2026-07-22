@@ -97,17 +97,7 @@
             margin: 0 auto;
             padding: 80px 20px;
         }
-.poster-img {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            /* ⬇️ 新增這行，讓圖片靠上對齊 */
-            object-position: top; 
-            transition: transform 0.5s ease;
-        }
+
         h1 {
             color: var(--primary-color);
             text-align: center;
@@ -165,6 +155,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+            object-position: top; /* 確保圖片靠上對齊，露出主要內容 */
             transition: transform 0.5s ease;
         }
 
@@ -218,7 +209,7 @@
             font-weight: bold;
         }
 
-        /* Canva 簡報按鈕樣式 */
+        /* Canva 簡報按鈕樣式 (此頁面代碼未使用此樣式，保留以供未來擴充) */
         .canva-btn {
             display: inline-block;
             background-color: var(--primary-color);
@@ -324,7 +315,7 @@
 
         <div class="grid-container">
 
-         <!-- 主題 1 -->
+            <!-- 主題 1 -->
             <div class="topic-card">
                 <div class="poster-wrapper" onclick="openLightbox('topic1-chaohoi.png')">
                     <img src="topic1-chaohoi.png" alt="主題一：打招呼" class="poster-img">
@@ -345,7 +336,7 @@
                 </div>
             </div>
 
-       <!-- 主題 2 -->
+            <!-- 主題 2 -->
             <div class="topic-card">
                 <div class="poster-wrapper" onclick="openLightbox('Topic2-Gioi%20thieu.png')">
                     <img src="Topic2-Gioi%20thieu.png" alt="主題二：自我介紹" class="poster-img">
@@ -365,11 +356,10 @@
                     </div>
                 </div>
             </div>
-          <!-- 主題 3 -->
+
+            <!-- 主題 3 -->
             <div class="topic-card">
-                <!-- ⬇️ 這裡的 openLightbox 參數已修改為你的新圖片檔名 'topic3-giadinh.png' -->
                 <div class="poster-wrapper" onclick="openLightbox('topic3-giadinh.png')">
-                    <!-- ⬇️ 這裡的 src 已修改為你的新圖片檔名 'topic3-giadinh.png' -->
                     <img src="topic3-giadinh.png" alt="主題三：家庭" class="poster-img">
                     <div class="poster-overlay">
                         <span class="overlay-icon">🔍 點擊看大圖</span>
@@ -388,18 +378,21 @@
                 </div>
             </div>
             
-           <!-- 主題 4 -->
+            <!-- 主題 4 -->
             <div class="topic-card">
-                <div class="poster-wrapper" onclick="openLightbox('https://picsum.photos/800/450?random=4')">
-                    <img src="https://picsum.photos/800/450?random=4" alt="主題四" class="poster-img">
+                <!-- ⬇️ 這裡的 openLightbox 參數已修改為你的新圖片檔名 'topic4-nghenghiep.png' -->
+                <div class="poster-wrapper" onclick="openLightbox('topic4-nghenghiep.png')">
+                    <!-- ⬇️ 這裡的 src 已修改為你的新圖片檔名 'topic4-nghenghiep.png' -->
+                    <img src="topic4-nghenghiep.png" alt="主題四：職業" class="poster-img">
                     <div class="poster-overlay">
                         <span class="overlay-icon">🔍 點擊看大圖</span>
                     </div>
                 </div>
                 <div class="topic-info">
-                    <h3 class="topic-title" style="margin-bottom: 5px;">第四課：日常水果與食物</h3>
+                    <!-- 🌟 標題已同步更新為符合職業主題的文字 -->
+                    <h3 class="topic-title" style="margin-bottom: 5px;">第四課：職業與工作</h3>
                     
-                    <!-- 🌟 嵌入主題四 Canva 簡報 -->
+                    <!-- 🌟 嵌入主題四 Canva 簡報 (保留原本連結，因為您未提供簡報連結) -->
                     <div style="position: relative; width: 100%; height: 0; padding-top: 56.2500%; padding-bottom: 0; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 0.5em; margin-bottom: 0.5em; overflow: hidden; border-radius: 8px; will-change: transform;">
                         <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0; margin: 0;" src="https://www.canva.com/design/DAHPnyBjmyY/47H-CZkSFLTNDkm6jy9CVg/view?embed" allowfullscreen="allowfullscreen" allow="fullscreen"></iframe>
                     </div>
@@ -409,7 +402,7 @@
                 </div>
             </div>
             
-          <!-- 主題 5 -->
+            <!-- 主題 5 -->
             <div class="topic-card">
                 <div class="poster-wrapper" onclick="openLightbox('https://picsum.photos/800/450?random=5')">
                     <img src="https://picsum.photos/800/450?random=5" alt="主題五" class="poster-img">
