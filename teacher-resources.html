@@ -155,6 +155,32 @@
             background-color: #1B5E20;
         }
 
+        /* 🟢 嵌入簡報專用區域樣式 */
+        .presentation-section {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+            border-top: 4px solid var(--primary-color);
+            margin-top: 40px;
+        }
+
+        .presentation-caption {
+            text-align: right;
+            margin-top: 10px;
+            font-size: 0.9rem;
+        }
+
+        .presentation-caption a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .presentation-caption a:hover {
+            text-decoration: underline;
+        }
+
         footer {
             background-color: #2C3E50;
             color: #A0AAB5;
@@ -222,6 +248,19 @@
                 </div>
             </div>
         </div>
+
+        <!-- 區域 4：線上互動教學簡報 (嵌入 Canva) -->
+        <section class="presentation-section">
+            <h3 style="margin-top: 0; color: var(--primary-color);">🎬 示範教學簡報：Aa 拼讀</h3>
+            <div style="position: relative; width: 100%; height: 0; padding-top: 70.7071%; padding-bottom: 0; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden; border-radius: 8px; will-change: transform;">
+                <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0;margin: 0;"
+                  src="https://www.canva.com/design/DAHQOULxUZA/YiiJ2Bwql6LJDRetrFZYtA/watch?embed" allowfullscreen="allowfullscreen" allow="fullscreen">
+                </iframe>
+            </div>
+            <div class="presentation-caption">
+                葉文靜 設計的 <a href="https://www.canva.com/design/DAHQOULxUZA/YiiJ2Bwql6LJDRetrFZYtA/watch?utm_content=DAHQOULxUZA&amp;utm_campaign=designshare&amp;utm_medium=embeds&amp;utm_source=link" target="_blank" rel="noopener">Aa 拼讀-教學簡報</a>
+            </div>
+        </section>
     </main>
 
     <!-- 4. 頁尾 -->
