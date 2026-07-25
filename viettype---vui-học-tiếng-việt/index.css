@@ -1,9 +1,0 @@
-/* Index CSS */
-@layer utilities {
-  .text-glow-indigo {
-    text-shadow: 0 0 20px rgba(99, 102, 241, 0.5);
-  }
-  .text-glow-emerald {
-    text-shadow: 0 0 20px rgba(16, 185, 129, 0.5);
-  }
-}

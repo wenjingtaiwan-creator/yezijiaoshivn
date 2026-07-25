@@ -1,8 +1,0 @@
-{
-  "name": "VietType - 越南語打字與單字學習平台",
-  "description": "商業級越南語教學與打字練習系統，結合主題詞彙圖卡、實用句型、Telex與VNI輸入法教學、標準真人語音朗讀與動態AI考題生成。",
-  "requestFramePermissions": [],
-  "majorCapabilities": [
-    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
-  ]
-}
