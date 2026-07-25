@@ -366,7 +366,7 @@
             </div>
         </div>
     </section>
-   <!-- 🇻🇳 越南地圖區塊 -->
+ <!-- 🇻🇳 越南地圖區塊 -->
 <section id="vietnam-map" style="background-color: #ffffff; padding: 50px 20px; text-align: center;">
     <div style="max-width: 1000px; margin: 0 auto;">
         <h2 style="color: #2E7D32; margin-bottom: 20px;">🇻🇳 越南行政區劃地圖</h2>
@@ -443,7 +443,7 @@
     background-color: #424242;
 }
 
-/* 地圖檢視區域 (支援上下左右自由滾動與滑鼠拖曳) */
+/* 地圖檢視區域 (修正左側無法拉動問題) */
 .map-viewport {
     width: 100%;
     height: 600px;
@@ -459,18 +459,21 @@
     cursor: grabbing;
 }
 .map-container {
-    display: inline-block;
-    padding: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px;
     min-width: 100%;
+    min-height: 100%;
     box-sizing: border-box;
 }
 #mapImage {
-    transform-origin: center center;
+    /* 🔑 關鍵修正：縮放錨點設為左上角，避免縮放後溢出到左側負區域 */
+    transform-origin: top left;
     transition: transform 0.25s ease-out;
     max-width: 100%;
     height: auto;
     display: block;
-    margin: 0 auto;
     user-select: none;
 }
 </style>
@@ -497,7 +500,6 @@ function updateMapZoom() {
 }
 
 function changeZoom(direction) {
-    // direction: +1 代表放大，-1 代表縮小
     const newIndex = currentLevelIndex + direction;
     if (newIndex >= 0 && newIndex < zoomLevels.length) {
         currentLevelIndex = newIndex;
@@ -534,13 +536,12 @@ viewport.addEventListener('mousemove', (e) => {
     e.preventDefault();
     const x = e.pageX - viewport.offsetLeft;
     const y = e.pageY - viewport.offsetTop;
-    const walkX = (x - startX) * 1.5; // 拖曳敏感度
+    const walkX = (x - startX) * 1.5;
     const walkY = (y - startY) * 1.5;
     viewport.scrollLeft = scrollLeft - walkX;
     viewport.scrollTop = scrollTop - walkY;
 });
 </script>
-
     <footer>
         <p>&copy; 2026 葉子教室越南語. All rights reserved.</p>
     </footer>
