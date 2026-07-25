@@ -366,64 +366,180 @@
             </div>
         </div>
     </section>
-    <!-- 🇻🇳 越南地圖區塊 -->
-    <section id="vietnam-map" style="background-color: #ffffff; padding: 50px 20px; text-align: center;">
-        <div style="max-width: 1000px; margin: 0 auto;">
-            <h2 style="color: #2E7D32; margin-bottom: 20px;">🇻🇳 越南行政區劃地圖</h2>
-            
-            <!-- 放大縮小 5 階段控制按鈕 -->
-            <div style="margin-bottom: 20px; display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; align-items: center;">
-                <button type="button" onclick="zoomMap(0.6)" class="zoom-btn">Level 1 (60%)</button>
-                <button type="button" onclick="zoomMap(0.8)" class="zoom-btn">Level 2 (80%)</button>
-                <button type="button" onclick="zoomMap(1.0)" class="zoom-btn active-btn">Level 3 (100%)</button>
-                <button type="button" onclick="zoomMap(1.3)" class="zoom-btn">Level 4 (130%)</button>
-                <button type="button" onclick="zoomMap(1.6)" class="zoom-btn">Level 5 (160%)</button>
-                <button type="button" onclick="zoomMap(1.0)" class="zoom-btn reset-btn">🔄 重設</button>
-            </div>
+   <!-- 🇻🇳 越南地圖區塊 -->
+<section id="vietnam-map" style="background-color: #ffffff; padding: 50px 20px; text-align: center;">
+    <div style="max-width: 1000px; margin: 0 auto;">
+        <h2 style="color: #2E7D32; margin-bottom: 20px;">🇻🇳 越南行政區劃地圖</h2>
+        
+        <!-- 簡潔的 - / + 控制列 -->
+        <div class="map-controls">
+            <button type="button" onclick="changeZoom(-1)" class="zoom-btn-icon" title="縮小">➖</button>
+            <span id="zoomLevelText" class="zoom-level-tag">Level 3 (100%)</span>
+            <button type="button" onclick="changeZoom(1)" class="zoom-btn-icon" title="放大">➕</button>
+            <button type="button" onclick="resetMap()" class="zoom-btn-reset" title="重設地圖">🔄 重設</button>
+        </div>
 
-            <!-- 地圖容器（支援捲動） -->
-            <div style="width: 100%; height: 600px; overflow: auto; border: 2px solid #81C784; border-radius: 12px; background-color: #f4f4f4; box-shadow: 0 4px 12px rgba(0,0,0,0.1); position: relative;">
-                <div style="display: inline-block; padding: 20px; min-width: 100%;">
-                    <img id="mapImage" src="map%20png%20ro%20net.png" alt="越南行政區劃地圖" style="transform-origin: top center; transition: transform 0.3s ease; max-width: 100%; display: block; margin: 0 auto;">
-                </div>
+        <!-- 可拖曳與捲動的地圖視窗容器 -->
+        <div id="mapViewport" class="map-viewport">
+            <div id="mapContainer" class="map-container">
+                <img id="mapImage" src="map%20png%20ro%20net.png" alt="越南行政區劃地圖" draggable="false">
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- 樣式與控制腳本 -->
-    <style>
-    .zoom-btn {
-        background-color: #e8f5e9;
-        color: #2E7D32;
-        border: 1px solid #81C784;
-        padding: 8px 16px;
-        border-radius: 20px;
-        font-weight: bold;
-        cursor: pointer;
-        transition: all 0.2s ease;
-    }
-    .zoom-btn:hover, .zoom-btn.active-btn {
-        background-color: #2E7D32;
-        color: white;
-    }
-    .reset-btn {
-        background-color: #757575;
-        color: white;
-        border-color: #616161;
-    }
-    .reset-btn:hover {
-        background-color: #424242;
-    }
-    </style>
+<!-- 樣式與互動腳本 -->
+<style>
+/* 控制按鈕樣式 */
+.map-controls {
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+}
+.zoom-btn-icon {
+    background-color: #e8f5e9;
+    color: #2E7D32;
+    border: 2px solid #81C784;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+.zoom-btn-icon:hover {
+    background-color: #2E7D32;
+    color: white;
+    transform: scale(1.05);
+}
+.zoom-level-tag {
+    background-color: #f1f8e9;
+    color: #2E7D32;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-weight: bold;
+    border: 1px solid #C8E6C9;
+    min-width: 120px;
+    display: inline-block;
+}
+.zoom-btn-reset {
+    background-color: #757575;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+.zoom-btn-reset:hover {
+    background-color: #424242;
+}
 
-    <script>
-    function zoomMap(scale) {
-        const img = document.getElementById('mapImage');
-        img.style.transform = `scale(${scale})`;
-        const container = img.closest('div[style*="overflow: auto"]');
-        if (container) container.scrollTop = 0;
+/* 地圖檢視區域 (支援上下左右自由滾動與滑鼠拖曳) */
+.map-viewport {
+    width: 100%;
+    height: 600px;
+    overflow: auto;
+    border: 2px solid #81C784;
+    border-radius: 12px;
+    background-color: #f4f4f4;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    position: relative;
+    cursor: grab;
+}
+.map-viewport:active {
+    cursor: grabbing;
+}
+.map-container {
+    display: inline-block;
+    padding: 30px;
+    min-width: 100%;
+    box-sizing: border-box;
+}
+#mapImage {
+    transform-origin: center center;
+    transition: transform 0.25s ease-out;
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    user-select: none;
+}
+</style>
+
+<script>
+// 5 階段放大倍率設定
+const zoomLevels = [
+    { scale: 0.6, label: "Level 1 (60%)" },
+    { scale: 0.8, label: "Level 2 (80%)" },
+    { scale: 1.0, label: "Level 3 (100%)" },
+    { scale: 1.3, label: "Level 4 (130%)" },
+    { scale: 1.6, label: "Level 5 (160%)" }
+];
+
+let currentLevelIndex = 2; // 預設為 Level 3 (100%)
+
+function updateMapZoom() {
+    const img = document.getElementById('mapImage');
+    const labelText = document.getElementById('zoomLevelText');
+    const current = zoomLevels[currentLevelIndex];
+    
+    img.style.transform = `scale(${current.scale})`;
+    labelText.innerText = current.label;
+}
+
+function changeZoom(direction) {
+    // direction: +1 代表放大，-1 代表縮小
+    const newIndex = currentLevelIndex + direction;
+    if (newIndex >= 0 && newIndex < zoomLevels.length) {
+        currentLevelIndex = newIndex;
+        updateMapZoom();
     }
-    </script>
+}
+
+function resetMap() {
+    currentLevelIndex = 2;
+    updateMapZoom();
+    const viewport = document.getElementById('mapViewport');
+    viewport.scrollTop = 0;
+    viewport.scrollLeft = 0;
+}
+
+// 🖐️ 滑鼠抓取拖曳查看周圍 (Mouse Drag to Pan) 功能
+const viewport = document.getElementById('mapViewport');
+let isDown = false;
+let startX, startY, scrollLeft, scrollTop;
+
+viewport.addEventListener('mousedown', (e) => {
+    isDown = true;
+    startX = e.pageX - viewport.offsetLeft;
+    startY = e.pageY - viewport.offsetTop;
+    scrollLeft = viewport.scrollLeft;
+    scrollTop = viewport.scrollTop;
+});
+
+viewport.addEventListener('mouseleave', () => { isDown = false; });
+viewport.addEventListener('mouseup', () => { isDown = false; });
+
+viewport.addEventListener('mousemove', (e) => {
+    if (!isDown) return;
+    e.preventDefault();
+    const x = e.pageX - viewport.offsetLeft;
+    const y = e.pageY - viewport.offsetTop;
+    const walkX = (x - startX) * 1.5; // 拖曳敏感度
+    const walkY = (y - startY) * 1.5;
+    viewport.scrollLeft = scrollLeft - walkX;
+    viewport.scrollTop = scrollTop - walkY;
+});
+</script>
 
     <footer>
         <p>&copy; 2026 葉子教室越南語. All rights reserved.</p>
