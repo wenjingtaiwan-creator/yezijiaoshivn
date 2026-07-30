@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Give or Keep - 送出還是留著</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DynaPuff:wght@400;700&family=Press+Start+2P&family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --team-1-color: #2e86de;
+            --team-2-color: #ee5253;
+            --arcade-font: 'Press Start 2P', cursive;
+            --cute-font: 'DynaPuff', cursive;
+            --body-font: 'Comic Neue', cursive;
+        }
+
+        * {
+            box-sizing: border-box;
+            font-family: var(--body-font);
+        }
+
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden; 
+            background-image: url('background image.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-color: #000;
+        }
+
+        .game-wrapper {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .screen {
+            display: none;
+            width: 100%;
+            height: 100%;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+        .screen.active { display: flex; }
+
+        #screenTitle.screen.active {
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        h2 { 
+            font-family: var(--cute-font); 
+            font-size: 3rem; 
+            color: #ffffff; 
+            text-shadow: 4px 4px 0px #000000, -2px -2px 0px #000000, 2px -2px 0px #000000, -2px 2px 0px #000000;
+            margin: 10px 0; 
+        }
+        .arcade-text { font-family: var(--arcade-font); font-size: 1.5rem; }
+
+        .btn {
+            background: linear-gradient(135deg, #FF6B6B, #EE5253);
+            color: white;
+            border: 4px solid #fff;
+            padding: 14px 35px;
+            font-size: 1.4rem;
+            font-weight: bold;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 8px 0 #b33939, 0 10px 20px rgba(0,0,0,0.5);
+            transition: all 0.1s ease;
+            margin: 12px;
+            display: inline-block;
+            text-decoration: none;
+            text-transform: uppercase;
+            text-shadow: 2px 2px 0px #000;
+        }
+        .btn:active { transform: translateY(6px); box-shadow: 0 2px 0 #b33939, 0 5px 10px rgba(0,0,0,0.4); }
+        .btn-blue { background: linear-gradient(135deg, #54a0ff, #2e86de); box-shadow: 0 8px 0 #227093; }
+        .btn-orange { background: linear-gradient(135deg, #ff9f43, #ee5253); box-shadow: 0 8px 0 #cd6133; }
+        .btn-green { background: linear-gradient(135deg, #2ecc71, #27ae60); box-shadow: 0 8px 0 #1e7e43; }
+
+        /* Play and Setup buttons much larger */
+        .title-action-panel .btn-giant {
+            padding: 22px 60px;
+            font-size: 2.2rem;
+            border-width: 6px;
+            box-shadow: 0 12px 0 #b33939, 0 15px 30px rgba(0,0,0,0.6);
+        }
+        .title-action-panel .btn-giant.btn-blue { box-shadow: 0 12px 0 #227093; }
+        
+        .title-action-panel .btn-giant:active { 
+            transform: translateY(8px); 
+            box-shadow: 0 4px 0 #b33939, 0 6px 12px rgba(0,0,0,0.4); 
+        }
+        .title-action-panel .btn-giant.btn-blue:active { box-shadow: 0 4px 0 #227093; }
+
+        /* Hub button significantly smaller */
+        .title-action-panel .btn-mini {
+            padding: 8px 20px;
+            font-size: 1.0rem;
+            border-width: 3px;
+            box-shadow: 0 5px 0 #cd6133, 0 6px 12px rgba(0,0,0,0.4);
+            align-self: center;
+        }
+        .title-action-panel .btn-mini:active {
+            transform: translateY(3px);
+            box-shadow: 0 2px 0 #cd6133, 0 4px 6px rgba(0,0,0,0.3);
+        }
+
+        .title-image-box {
+            width: 100%;
+            height: 80%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+        .title-image-box img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            border-radius: 20px;
+            filter: drop-shadow(0 12px 24px rgba(0,0,0,0.7));
+        }
+        .title-action-panel {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            background: none !important;
+            box-shadow: none !important;
+            border: none !important;
+        }
+
+        .grid-az { display: grid; grid-template-columns: repeat(7, 1fr); gap: 15px; width: 95%; height: 65vh; }
+        .letter-box {
+            background: linear-gradient(135deg, #ffffff, #eccc68); 
+            border: 5px solid #2f3542; 
+            border-radius: 20px;
+            display: flex; justify-content: center; align-items: center;
+            font-size: 3.5rem; font-family: var(--cute-font); color: #2f3542; cursor: pointer;
+            box-shadow: 0 10px 0 #2f3542; transition: 0.1s;
+            text-shadow: 2px 2px 0px rgba(255,255,255,0.5);
+        }
+        .letter-box:not(.disabled):hover {
+            background: linear-gradient(135deg, #fffae6, #ff7f50);
+            color: #fff;
+            text-shadow: 2px 2px 0px #000;
+        }
+        .letter-box.disabled { 
+            background: #747d8c !important; 
+            color: #a4b0be !important;
+            opacity: 0.5; 
+            box-shadow: none !important; 
+            cursor: not-allowed; 
+            transform: scale(0.92);
+            text-shadow: none;
+        }
+
+        .scoreboard {
+            display: flex; justify-content: space-around; width: 95%;
+            background: rgba(0, 0, 0, 0.9); padding: 15px; border-radius: 25px; border: 4px solid #fff;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.6);
+            margin-bottom: 10px;
+        }
+        .team-box { 
+            font-family: var(--arcade-font); 
+            font-size: 1.4rem; 
+            padding: 5px 25px; 
+            color: #fff; 
+            text-shadow: 3px 3px 0px #000; 
+            transition: all 0.3s ease;
+        }
+        .team-box span {
+            font-size: 2.2rem;
+            margin-left: 5px;
+        }
+        .team-a { color: #54a0ff; }
+        .team-b { color: #ff6b6b; }
+        
+        .team-a.active-team-turn-indicator { 
+            border-bottom: 5px solid #ff9f43; 
+            transform: scale(1.05);
+            text-shadow: 0 0 10px #54a0ff, 0 0 20px #54a0ff, 3px 3px 0px #000;
+        }
+        .team-b.active-team-turn-indicator { 
+            border-bottom: 5px solid #ff9f43; 
+            transform: scale(1.05);
+            text-shadow: 0 0 10px #ff6b6b, 0 0 20px #ff6b6b, 3px 3px 0px #000;
+        }
+        
+        .turn-container {
+            display: flex; align-items: center; justify-content: center; gap: 15px; margin-bottom: 15px;
+            background: rgba(0, 0, 0, 0.7); padding: 10px 30px; border-radius: 40px; border: 2px solid rgba(255,255,255,0.3);
+        }
+        .turn-dot { height: 25px; width: 25px; border-radius: 50%; display: inline-block; box-shadow: 0 0 10px rgba(0,0,0,0.8); border: 2px solid #fff; }
+
+        .content-card {
+            background: rgba(255, 255, 255, 0.98); width: 95%; height: 78vh; border-radius: 35px;
+            border: 8px solid var(--team-1-color); padding: 15px; display: flex; flex-direction: column;
+            justify-content: space-between; align-items: center; box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+            position: relative;
+        }
+        
+        .q-scroll-body {
+            width: 100%;
+            flex: 1;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+            gap: 15px;
+        }
+        
+        .question-text { font-size: 2.3rem; color: #1e272e; font-weight: bold; margin: 5px; word-break: break-word; transition: font-size 0.2s ease; }
+        .options-container { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; width: 90%; }
+        .options-container .btn { text-transform: none !important; margin: 5px; padding: 12px 20px; font-size: 1.2rem; transition: all 0.2s ease; }
+
+        .q-scroll-body.no-image-layout {
+            gap: 30px;
+        }
+        .q-scroll-body.no-image-layout .question-text {
+            font-size: 3.4rem;
+            margin-bottom: 15px;
+        }
+        .q-scroll-body.no-image-layout .options-container {
+            width: 95%;
+            gap: 20px;
+        }
+        .q-scroll-body.no-image-layout .options-container .btn {
+            padding: 20px 30px;
+            font-size: 1.6rem;
+        }
+        .q-scroll-body.no-image-layout #idAns {
+            font-size: 3.8rem !important;
+        }
+
+        .settings-panel { background: #fff; border-radius: 25px; padding: 30px; width: 95%; height: 85vh; overflow-y: auto; color: #333; border: 5px solid #2f3542; }
+        .settings-panel h2, .settings-panel h3 { text-shadow: none; color: #2f3542; }
+        .q-row { border: 3px solid #ced6e0; padding: 20px; margin-bottom: 20px; border-radius: 16px; border-left: 10px solid var(--team-1-color); background: #f1f2f6; }
+        .correct-radio { transform: scale(1.6); cursor: pointer; margin-right: 8px; }
+        .opt-input-row { display: flex; align-items: center; gap: 10px; width: 100%; margin-top: 5px; }
+        input[type="text"], select { padding: 10px; font-size: 1.1rem; border-radius: 8px; border: 2px solid #ced6e0; font-weight: bold; }
+        
+        .volume-control-box {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 15px;
+            background: #fff;
+            padding: 15px;
+            border-radius: 10px;
+            border: 1px solid #ced6e0;
+        }
+        .volume-row {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-weight: bold;
+        }
+        .volume-row input[type="range"] {
+            flex: 1;
+        }
+
+        .q-nav-header {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 10px;
+            margin-bottom: 5px;
+            flex-shrink: 0;
+        }
+        .nav-icon-btn {
+            background: none;
+            border: none;
+            font-size: 2.2rem;
+            cursor: pointer;
+            transition: transform 0.1s;
+        }
+        .nav-icon-btn:hover { transform: scale(1.15); }
+
+        .mystery-overlay {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.85);
+            border-radius: 27px;
+            z-index: 10;
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .gif-box-wrapper {
+            height: 50vh;
+            width: 100%;
+            max-width: 350px;
+            cursor: pointer;
+            margin-bottom: 25px;
+            animation: floatAnim 1.8s ease-in-out infinite alternate;
+            transition: transform 0.2s;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .gif-box-wrapper:hover {
+            transform: scale(1.08);
+        }
+        .gif-box-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        @keyframes floatAnim {
+            0% { transform: translateY(0px); }
+            100% { transform: translateY(-15px); }
+        }
+        
+        .box-reward-reveal {
+            font-family: var(--cute-font);
+            font-size: 5.5rem;
+            color: #2ecc71;
+            text-shadow: 4px 4px 0 #000, 0 0 30px #2ecc71;
+            display: none;
+            animation: bounceIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        @keyframes bounceIn {
+            0% { transform: scale(0.3); opacity: 0; }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="game-wrapper">
+        <audio id="bgMusic" loop src="background music.mp3"></audio>
+        <audio id="sndClick" src="click.wav"></audio>
+        <audio id="sndAdd" src="add.wav"></audio>
+        <audio id="sndMinus" src="minus.wav"></audio>
+        <audio id="sndSwap" src="swap points.wav"></audio>
+        <audio id="sndLose" src="lose all points.wav"></audio>
+        <audio id="sndReveal" src="reveal.wav"></audio>
+
+        <div id="globalScoreboard" class="scoreboard" style="display:none;">
+            <div id="boxTeamA" class="team-box team-a">隊伍 1 / Đội 1: <span id="scoreA">0</span></div>
+            <div id="boxTeamB" class="team-box team-b">隊伍 2 / Đội 2: <span id="scoreB">0</span></div>
+        </div>
+
+        <div id="screenTitle" class="screen active">
+            <div class="title-image-box">
+                <img src="titlepage.gif" alt="Game Logo Graphic">
+            </div>
+            <div class="title-action-panel">
+                <button class="btn btn-giant" onclick="changeScreen('screenRules')">開始遊戲 / Chơi</button>
+                <a href="https://teacherkhenlearninghub.blogspot.com/" target="_blank" class="btn btn-orange btn-mini">HUB</a>
+                <button class="btn btn-blue btn-giant" onclick="changeScreen('screenSettings')">設定 / Cài đặt</button>
+            </div>
+        </div>
+
+        <div id="screenRules" class="screen">
+            <div style="background:rgba(255,255,255,0.98); padding:40px; border-radius:30px; border: 6px solid #ff9f43; max-width:850px; color:#1e272e; box-shadow: 0 20px 40px rgba(0,0,0,0.5);">
+                <h2 style="color:#2f3542; text-shadow: none; margin-top:0;">📜 遊戲規則 / Cách chơi!</h2>
+                <ul style="text-align:left; font-size:1.5rem; font-weight:bold; line-height: 1.6; padding-left: 25px;">
+                    <li>與隊友合作，解答字母寶箱的挑戰！<br><small style="color:#57606f;">Cùng đội của bạn giải thử thách hộp chữ!</small></li>
+                    <li>選擇 <strong>留著 / giữ lại</strong> 即可為己方鎖定驚喜獎勵！<br><small style="color:#57606f;">Chọn GIỮ LẠI để giữ phần thưởng cho đội mình.</small></li>
+                    <li>選擇 <strong>送出 / tặng đi</strong> 將神秘禮物丟給對手！<br><small style="color:#57606f;">Chọn TẶNG ĐI để chuyển gói quà bí ẩn cho đối thủ!</small></li>
+                    <li>若答錯，出現的 <strong>神秘寶箱 / Hộp Bí Ẩn</strong> 會把額外分數送給對方！<br><small style="color:#57606f;">Nếu trả lời sai, Hộp Bí Ẩn sẽ xuất hiện và cộng điểm cho đội bạn!</small></li>
+                    <li>努力拿高分！分數最低只會到 0 分，不會變成負數！<br><small style="color:#57606f;">Điểm số sẽ không bao giờ giảm xuống dưới 0 điểm!</small></li>
+                </ul>
+                <button class="btn btn-green" onclick="startGame()">開啟遊戲面板 🎮 / Mở Bảng Trò Chơi</button>
+            </div>
+        </div>
+
+        <div id="screenMain" class="screen">
+            <div class="turn-container">
+                <span id="turnDot" class="turn-dot"></span>
+                <h2 id="turnIndicator" style="margin:0;">隊伍 1 的回合 / Lượt Đội 1</h2>
+            </div>
+            <div id="azGrid" class="grid-az"></div>
+        </div>
+
+        <div id="screenQuestion" class="screen">
+            <div class="content-card" id="qCardShell">
+                <div class="q-nav-header">
+                    <button class="nav-icon-btn" onclick="goToGridScreen()" title="回到字母頁面 / Trở về trang chữ">🏠</button>
+                    <button class="nav-icon-btn" style="color:#ee5253; font-weight:bold;" onclick="triggerWrongAnswerSequence()" title="標記為答錯 / Đánh dấu sai">❌</button>
+                </div>
+
+                <div id="qScrollArea" class="q-scroll-body">
+                    <div id="qText" class="question-text"></div>
+                    <img id="qImg" src="" style="max-height:22vh; object-fit:contain; border-radius:15px; border:4px solid #2f3542; display:none;">
+                    
+                    <div id="qOptions" class="options-container"></div>
+                    
+                    <div id="qIdArea" style="display:none; width:100%;">
+                        <button id="btnRevealId" class="btn btn-orange" onclick="revealIdAnswer()">顯示答案 / Hiện Đáp Án</button>
+                        <p id="idAns" style="font-size:2.5rem; color:#2ecc71; font-weight:bold; text-shadow: 2px 2px 0px #000; margin: 10px 0 0 0; text-transform: none;"></p>
+                    </div>
+                </div>
+
+                <div style="border-top:5px dashed #ced6e0; padding-top:10px; width:100%; flex-shrink:0;">
+                    <button class="btn btn-green" onclick="handleDecision('keep')">🤲 留著 / GIỮ LẠI</button>
+                    <button class="btn btn-orange" onclick="handleDecision('give')">🎁 送出 / TẶNG ĐI</button>
+                </div>
+
+                <div id="mysteryOverlay" class="mystery-overlay">
+                    <h2 id="mysteryTitle" style="font-size:3.5rem; margin-bottom:15px;">神秘寶箱 🎁 Hộp Bí Ẩn</h2>
+                    
+                    <div id="gifBoxWrapper" class="gif-box-wrapper" onclick="revealMysteryGift()">
+                        <img src="mystery box.gif" alt="Mystery Gift Box Graphic Target">
+                    </div>
+                    
+                    <div id="mysteryRewardDisplay" class="box-reward-reveal"></div>
+                    <button id="btnMysteryClose" class="btn btn-blue" style="display:none; margin-top:20px;" onclick="closeMysterySequence()">繼續 ➡️ / Tiếp tục</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="screenOutcome" class="screen">
+            <div class="content-card" style="height:60vh; justify-content:center; border-color:#ff9f43;">
+                <h2 style="color:#2f3542; text-shadow:none; font-size:2.8rem; margin:0;">神秘寶箱內容... / Nội dung Hộp Bí Ẩn...</h2>
+                <div id="outcomeText" style="font-size:5rem; color:#ee5253; font-weight:bold; margin:30px 0; text-shadow: 3px 3px 0px #000;"></div>
+                <button class="btn btn-blue" onclick="nextTurn()">下一回合 ➡️ / Lượt Tiếp Theo</button>
+            </div>
+        </div>
+
+        <div id="screenSettings" class="screen">
+            <div class="settings-panel">
+                <h2>⚙️ 設定與題目管理 / Cấu hình Terminal</h2>
+                
+                <div style="background:#f1f2f6; padding:20px; border-radius:15px; margin-bottom:20px; border:2px solid #ced6e0;">
+                    <h3>📂 資料備份與音效設定 / Sao lưu & Âm thanh</h3>
+                    <div style="margin-bottom: 15px; display: flex; gap: 10px; flex-wrap: wrap;">
+                        <button class="btn btn-small btn-green" style="padding:8px 20px; font-size:1rem;" onclick="exportData()">📥 匯出題庫 / Xuất file (.json)</button>
+                        <button class="btn btn-small btn-blue" style="padding:8px 20px; font-size:1rem;" onclick="document.getElementById('fileIn').click()">📤 匯入題庫 / Tải file sao lưu</button>
+                        <input type="file" id="fileIn" style="display:none;" accept=".json" onchange="importData(event)">
+                        <button id="btnMusicToggle" class="btn btn-small btn-orange" style="padding:8px 20px; font-size:1rem;" onclick="toggleMusic()">🎵 音樂: 開 / NHẠC: BẬT</button>
+                    </div>
+
+                    <div class="volume-control-box">
+                        <div class="volume-row">
+                            <span>🎵 背景音樂音量 / Âm lượng nhạc nền:</span>
+                            <input type="range" id="volMusic" min="0" max="1" step="0.1" value="0.3" oninput="updateVolumes()">
+                        </div>
+                        <div class="volume-row">
+                            <span>🔊 音效音量 / Âm lượng hiệu ứng:</span>
+                            <input type="range" id="volSFX" min="0" max="1" step="0.1" value="0.9" oninput="updateVolumes()">
+                        </div>
+                    </div>
+                </div>
+
+                <h3>編輯題目內容 (26 個關卡) / Chỉnh sửa nội dung (26 Ô)</h3>
+                <div id="setupList"></div>
+                <div style="text-align:center; padding:20px 0;">
+                    <button class="btn btn-green" onclick="saveData()">💾 儲存設定 / LƯU CÀI ĐẶT</button>
+                    <button class="btn btn-blue" onclick="changeScreen('screenTitle')">關閉面板 / ĐÓNG PANELS</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let scores = { A: 0, B: 0 };
+        let currentTeam = 'A';
+        let questions = [];
+        let mapping = [];
+        let used = new Array(26).fill(false);
+        let activeIdx = null;
+        let isMusicPlaying = true;
+        let isAnswerLocked = false; 
+        let pendingWrongPoints = 0;
+
+        const outcomes = ["+5", "+10", "+20", "+30", "+50", "-5", "-10", "-25", "-20", "-30", "swap score", "lose all points"];
+
+        window.onload = () => {
+            loadData();
+            buildSetup();
+            shuffle();
+            updateVolumes();
+        };
+
+        function changeScreen(id) {
+            document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+            document.getElementById(id).classList.add('active');
+            document.getElementById('globalScoreboard').style.display = (['screenMain', 'screenQuestion', 'screenOutcome'].includes(id)) ? 'flex' : 'none';
+        }
+
+        function loadData() {
+            let data = localStorage.getItem('give_keep_v3');
+            if (data) {
+                questions = JSON.parse(data);
+            } else {
+                questions = [];
+                for (let i = 0; i < 26; i++) {
+                    questions.push({ 
+                        text: `題目內容 #${i+1} / Câu hỏi #${i+1}`, 
+                        type: 'id', 
+                        options: ['選項 A / Lựa chọn A', '選項 B / Lựa chọn B', '選項 C / Lựa chọn C', '選項 D / Lựa chọn D'], 
+                        correct: 0, 
+                        answer: '正確答案 / Đáp án đúng', 
+                        image: '', 
+                        outcome: outcomes[i % outcomes.length] 
+                    });
+                }
+            }
+        }
+
+        function buildSetup() {
+            const list = document.getElementById('setupList');
+            list.innerHTML = '';
+            questions.forEach((q, i) => {
+                let optsHTML = [0,1,2,3].map(oi => `
+                    <div class="opt-input-row">
+                        <input type="radio" name="correct_radio_${i}" class="correct-radio" ${q.correct == oi ? 'checked' : ''} value="${oi}" id="radio_${i}_${oi}">
+                        <input type="text" id="q${i}_o${oi}" value="${q.options[oi] || ''}" placeholder="選項內容 ${oi+1} / Lựa chọn ${oi+1}" style="flex:1;">
+                    </div>
+                `).join('');
+
+                list.insertAdjacentHTML('beforeend', `
+                    <div class="q-row">
+                        <strong>題目卡片區塊 #${i+1} / Ô câu hỏi #${i+1}</strong>
+                        <input type="text" id="qText_${i}" value="${q.text}" style="width:100%; margin: 8px 0;" placeholder="請輸入題目內容 / Nhập câu hỏi">
+                        <div style="display:flex; gap:15px; margin-bottom:8px;">
+                            <select id="qType_${i}" onchange="toggleType(${i}, this.value)">
+                                <option value="id" ${q.type=='id'?'selected':''}>簡答題模式 / Chế độ Tự luận</option>
+                                <option value="multiple" ${q.type=='multiple'?'selected':''}>選擇題模式 / Chế độ Trắc nghiệm</option>
+                            </select>
+                            <select id="qOut_${i}">${outcomes.map(o => `<option value="${o}" ${q.outcome==o?'selected':''}>${o}</option>`).join('')}</select>
+                        </div>
+                        <div id="paste_${i}" style="border:3px dashed #747d8c; padding:15px; font-weight:bold; text-align:center; background:#fff; margin:8px 0; color:#57606f;" onpaste="handlePaste(event, ${i})">
+                            ${q.image ? `<img src="${q.image}" style="height:65px; border-radius:5px;">` : '點擊此處並按 Ctrl+V 貼上圖片 / Bấm vào đây và Ctrl+V để dán ảnh'}
+                        </div>
+                        <div id="mc_${i}" style="display:${q.type=='multiple'?'block':'none'}; background:#fff; padding:10px; border-radius:8px; border:1px solid #ced6e0;">
+                            <span style="font-size:0.9rem; font-weight:bold; color:#747d8c;">請點選正確答案的單選鈕 / Chọn ô tròn trước đáp án đúng:</span>
+                            ${optsHTML}
+                        </div>
+                        <input type="text" id="qAns_${i}" value="${q.answer}" style="display:${q.type=='id'?'block':'none'}; width:100%;" placeholder="輸入正確答案詳細說明 / Nhập đáp án đúng">
+                    </div>
+                `);
+            });
+        }
+
+        function toggleType(i, type) {
+            document.getElementById(`mc_${i}`).style.display = type == 'multiple' ? 'block' : 'none';
+            document.getElementById(`qAns_${i}`).style.display = type == 'id' ? 'block' : 'none';
+        }
+
+        function handlePaste(e, i) {
+            const items = (e.clipboardData || e.originalEvent.clipboardData).items;
+            for (let item of items) {
+                if (item.type.indexOf("image") !== -1) {
+                    const reader = new FileReader();
+                    reader.onload = (event) => {
+                        questions[i].image = event.target.result;
+                        buildSetup();
+                    };
+                    reader.readAsDataURL(item.getAsFile());
+                }
+            }
+        }
+
+        function toggleMusic() {
+            const music = document.getElementById('bgMusic');
+            const btn = document.getElementById('btnMusicToggle');
+            if (isMusicPlaying) {
+                music.pause();
+                btn.innerText = "🎵 音樂: 關 / NHẠC: TẮT";
+                isMusicPlaying = false;
+            } else {
+                music.play().catch(()=>{});
+                btn.innerText = "🎵 音樂: 開 / NHẠC: BẬT";
+                isMusicPlaying = true;
+            }
+        }
+
+        function updateVolumes() {
+            const musicVol = document.getElementById('volMusic').value;
+            const sfxVol = document.getElementById('volSFX').value;
+            
+            document.getElementById('bgMusic').volume = musicVol;
+            
+            document.getElementById('sndClick').volume = sfxVol;
+            document.getElementById('sndAdd').volume = sfxVol;
+            document.getElementById('sndMinus').volume = sfxVol;
+            document.getElementById('sndSwap').volume = sfxVol;
+            document.getElementById('sndLose').volume = sfxVol;
+            document.getElementById('sndReveal').volume = sfxVol;
+        }
+
+        function saveData() {
+            questions.forEach((q, i) => {
+                q.text = document.getElementById(`qText_${i}`).value;
+                q.type = document.getElementById(`qType_${i}`).value;
+                q.outcome = document.getElementById(`qOut_${i}`).value;
+                q.answer = document.getElementById(`qAns_${i}`).value;
+                q.options = [0,1,2,3].map(oi => document.getElementById(`q${i}_o${oi}`).value);
+                
+                let radios = document.getElementsByName(`correct_radio_${i}`);
+                for(let r = 0; r < radios.length; r++) {
+                    if(radios[r].checked) {
+                        q.correct = parseInt(radios[r].value);
+                        break;
+                    }
+                }
+            });
+            localStorage.setItem('give_keep_v3', JSON.stringify(questions));
+            alert("設定已成功儲存至快取！ / Đã lưu cài đặt thành công!");
+            changeScreen('screenTitle');
+        }
+
+        function exportData() {
+            const str = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(questions));
+            const dl = document.createElement('a');
+            dl.setAttribute("href", str);
+            dl.setAttribute("download", "give_or_keep_game_backup.json");
+            document.body.appendChild(dl);
+            dl.click();
+            dl.remove();
+        }
+
+        function importData(e) {
+            const fr = new FileReader();
+            fr.onload = (event) => {
+                try {
+                    const parsed = JSON.parse(event.target.result);
+                    if (Array.isArray(parsed) && parsed.length === 26) {
+                        questions = parsed;
+                        localStorage.setItem('give_keep_v3', JSON.stringify(questions));
+                        buildSetup();
+                        alert("題庫資料載入成功！ / Tải gói dữ liệu thành công!");
+                    } else { alert("資料結構不符。 / Cấu trúc dữ liệu không phù hợp."); }
+                } catch(err) { alert("無法讀取目標檔案。 / Tải file thất bại."); }
+            };
+            fr.readAsText(e.target.files[0]);
+        }
+
+        function shuffle() {
+            mapping = Array.from({length: 26}, (_, i) => i).sort(() => Math.random() - 0.5);
+            buildGrid();
+        }
+
+        function buildGrid() {
+            const grid = document.getElementById('azGrid');
+            grid.innerHTML = '';
+            "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split('').forEach((l, i) => {
+                let qi = mapping[i];
+                let div = document.createElement('div');
+                div.className = `letter-box ${used[qi] ? 'disabled' : ''}`;
+                div.innerText = l;
+                if (!used[qi]) {
+                    div.onclick = () => launch(l, qi);
+                }
+                grid.appendChild(div);
+            });
+        }
+
+        function launch(l, qi) {
+            playSound('sndClick');
+            activeIdx = qi;
+            let q = questions[qi];
+            isAnswerLocked = false; 
+            
+            document.getElementById('mysteryOverlay').style.display = 'none';
+            document.getElementById('gifBoxWrapper').style.display = 'flex';
+            document.getElementById('mysteryRewardDisplay').style.display = 'none';
+            document.getElementById('btnMysteryClose').style.display = 'none';
+            document.getElementById('mysteryTitle').style.display = 'block';
+
+            let shell = document.getElementById('qCardShell');
+            shell.style.borderColor = (currentTeam === 'A') ? 'var(--team-1-color)' : 'var(--team-2-color)';
+
+            document.getElementById('qText').innerText = q.text;
+            
+            let scrollArea = document.getElementById('qScrollArea');
+            let img = document.getElementById('qImg');
+            if(q.image) { 
+                img.src = q.image; 
+                img.style.display = 'block'; 
+                scrollArea.classList.remove('no-image-layout');
+            } else { 
+                img.style.display = 'none'; 
+                scrollArea.classList.add('no-image-layout');
+            }
+            
+            let opts = document.getElementById('qOptions');
+            let idArea = document.getElementById('qIdArea');
+            opts.innerHTML = '';
+            document.getElementById('idAns').innerText = '';
+
+            if (q.type == 'multiple') {
+                idArea.style.display = 'none';
+                opts.style.display = 'grid';
+                q.options.forEach((opt, idx) => {
+                    let btn = document.createElement('button');
+                    btn.className = 'btn btn-blue';
+                    btn.innerText = opt;
+                    btn.onclick = () => checkOption(idx, q.correct, btn);
+                    opts.appendChild(btn);
+                });
+            } else {
+                opts.style.display = 'none';
+                idArea.style.display = 'block';
+            }
+
+            changeScreen('screenQuestion');
+        }
+
+        function checkOption(selected, correct, btn) {
+            if (isAnswerLocked) return;
+            
+            if (selected === correct) {
+                btn.style.background = '#2ecc71';
+                playSound('sndAdd');
+                isAnswerLocked = true;
+            } else {
+                btn.style.background = '#ee5253';
+                playSound('sndMinus');
+                triggerWrongAnswerSequence();
+            }
+        }
+
+        function revealIdAnswer() {
+            let q = questions[activeIdx];
+            document.getElementById('idAns').innerText = q.answer;
+            playSound('sndReveal');
+        }
+
+        function triggerWrongAnswerSequence() {
+            playSound('sndLose');
+            document.getElementById('mysteryOverlay').style.display = 'flex';
+        }
+
+        function revealMysteryGift() {
+            playSound('sndReveal');
+            let q = questions[activeIdx];
+            document.getElementById('gifBoxWrapper').style.display = 'none';
+            document.getElementById('mysteryTitle').style.display = 'none';
+            
+            let display = document.getElementById('mysteryRewardDisplay');
+            display.innerText = q.outcome;
+            display.style.display = 'block';
+            
+            document.getElementById('btnMysteryClose').style.display = 'inline-block';
+        }
+
+        function closeMysterySequence() {
+            let otherTeam = (currentTeam === 'A') ? 'B' : 'A';
+            applyPoints(otherTeam, questions[activeIdx].outcome);
+            used[activeIdx] = true;
+            buildGrid();
+            nextTurn();
+        }
+
+        function handleDecision(type) {
+            let q = questions[activeIdx];
+            let targetTeam = (type === 'keep') ? currentTeam : ((currentTeam === 'A') ? 'B' : 'A');
+            
+            applyPoints(targetTeam, q.outcome);
+            
+            document.getElementById('outcomeText').innerText = q.outcome;
+            used[activeIdx] = true;
+            buildGrid();
+            changeScreen('screenOutcome');
+        }
+
+        function applyPoints(team, outcome) {
+            if (outcome === 'swap score') {
+                playSound('sndSwap');
+                let temp = scores.A;
+                scores.A = scores.B;
+                scores.B = temp;
+            } else if (outcome === 'lose all points') {
+                playSound('sndLose');
+                scores[team] = 0;
+            } else {
+                let val = parseInt(outcome);
+                if (!isNaN(val)) {
+                    if (val > 0) playSound('sndAdd');
+                    else playSound('sndMinus');
+                    scores[team] += val;
+                    if (scores[team] < 0) scores[team] = 0;
+                }
+            }
+            updateScores();
+        }
+
+        function updateScores() {
+            document.getElementById('scoreA').innerText = scores.A;
+            document.getElementById('scoreB').innerText = scores.B;
+        }
+
+        function startGame() {
+            if (isMusicPlaying) {
+                document.getElementById('bgMusic').play().catch(()=>{});
+            }
+            changeScreen('screenMain');
+            updateTurnUI();
+        }
+
+        function nextTurn() {
+            currentTeam = (currentTeam === 'A') ? 'B' : 'A';
+            updateTurnUI();
+            changeScreen('screenMain');
+        }
+
+        function updateTurnUI() {
+            let indicator = document.getElementById('turnIndicator');
+            let dot = document.getElementById('turnDot');
+            let boxA = document.getElementById('boxTeamA');
+            let boxB = document.getElementById('boxTeamB');
+
+            if (currentTeam === 'A') {
+                indicator.innerText = "隊伍 1 的回合 / Lượt Đội 1";
+                dot.style.background = "var(--team-1-color)";
+                boxA.classList.add('active-team-turn-indicator');
+                boxB.classList.remove('active-team-turn-indicator');
+            } else {
+                indicator.innerText = "隊伍 2 的回合 / Lượt Đội 2";
+                dot.style.background = "var(--team-2-color)";
+                boxB.classList.add('active-team-turn-indicator');
+                boxA.classList.remove('active-team-turn-indicator');
+            }
+        }
+
+        function goToGridScreen() {
+            changeScreen('screenMain');
+        }
+
+        function playSound(id) {
+            let audio = document.getElementById(id);
+            if (audio) {
+                audio.currentTime = 0;
+                audio.play().catch(()=>{});
+            }
+        }
+    </script>
+</body>
+</html>
