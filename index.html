@@ -6,49 +6,50 @@
     <title>葉子教室越南語 - 快樂學習越南語、探索越南文化</title>
     <meta name="description" content="歡迎來到葉子教室越南語！我們提供教育部越南語電子教材、實用的越南語學習資源、線上白板與趣味情境式互動，帶您輕鬆、快樂地從零基礎學好越南語。">
     <style>
- /* 置中與吸睛動態效果按鈕 */
-.typing-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    background: linear-gradient(135deg, #2E7D32, #4CAF50); /* 質感綠色漸層 */
-    color: white;
-    padding: 14px 32px;
-    font-size: 1.2rem;
-    font-weight: bold;
-    text-decoration: none;
-    border-radius: 50px;
-    box-shadow: 0 6px 15px rgba(46, 125, 50, 0.3);
-    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    animation: pulse-glow 2.5s infinite; /* 呼吸脈衝效果 */
-    position: relative;
-    overflow: hidden;
-}
+        /* 置中與吸睛動態效果按鈕 */
+        .typing-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #2E7D32, #4CAF50); /* 質感綠色漸層 */
+            color: white;
+            padding: 14px 32px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 50px;
+            box-shadow: 0 6px 15px rgba(46, 125, 50, 0.3);
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            animation: pulse-glow 2.5s infinite; /* 呼吸脈衝效果 */
+            position: relative;
+            overflow: hidden;
+        }
 
-/* 滑鼠移上去時的滑順放大與提升效果 */
-.typing-btn:hover {
-    background: linear-gradient(135deg, #1B5E20, #388E3C);
-    transform: translateY(-4px) scale(1.05);
-    box-shadow: 0 10px 25px rgba(46, 125, 50, 0.5);
-}
+        /* 滑鼠移上去時的滑順放大與提升效果 */
+        .typing-btn:hover {
+            background: linear-gradient(135deg, #1B5E20, #388E3C);
+            transform: translateY(-4px) scale(1.05);
+            box-shadow: 0 10px 25px rgba(46, 125, 50, 0.5);
+        }
 
-/* 按下時的反饋 */
-.typing-btn:active {
-    transform: translateY(-1px) scale(0.98);
-}
+        /* 按下時的反饋 */
+        .typing-btn:active {
+            transform: translateY(-1px) scale(0.98);
+        }
 
-/* 🌟 吸引目光的柔和脈衝光芒動畫 */
-@keyframes pulse-glow {
-    0% {
-        box-shadow: 0 0 0 0 rgba(76, 175, 80, 0.6);
-    }
-    70% {
-        box-shadow: 0 0 0 18px rgba(76, 175, 80, 0);
-    }
-    100% {
-        box-shadow: 0 0 0 0 rgba(76, 175, 80, 0);
-    }
-}
+        /* 🌟 吸引目光的柔和脈衝光芒動畫 */
+        @keyframes pulse-glow {
+            0% {
+                box-shadow: 0 0 0 0 rgba(76, 175, 80, 0.6);
+            }
+            70% {
+                box-shadow: 0 0 0 18px rgba(76, 175, 80, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(76, 175, 80, 0);
+            }
+        }
+
         :root {
             --primary-color: #2E7D32;    /* 品牌葉子綠 */
             --secondary-color: #81C784;  /* 淺綠 */
@@ -118,15 +119,12 @@
         nav a.highlight-nav:hover {
             color: #c2185b;
         }
-        <nav>
-  <a href="#home">首頁</a>
-  <a href="#teaching">教學資源</a>
-  <a href="#learning">學習資源</a>
-  <a href="#contact">聯絡我們</a>
-  <a href="https://harmonica80.github.io/interactive-whiteboard-2026/?dbUrl=https%3A%2F%2Fsaiyaclass-default-rtdb.asia-southeast1.firebasedatabase.app%2F" target="_blank" class="highlight-nav">📋 線上白板</a>
-  <!-- 新增：老師點名按鈕 -->
-  <a href="javascript:void(0);" onclick="checkRollCallPassword()" style="color: #2E7D32; font-weight: bold;">📝 老師點名</a>
-</nav>
+
+        nav a.roll-call-nav {
+            color: #2E7D32;
+            font-weight: bold;
+            cursor: pointer;
+        }
 
         .hero {
             background-image: url('ChatGPT Image 2026年7月17日 上午09_43_39.png');
@@ -295,6 +293,100 @@
             transform: translateY(-3px);
             background-color: #e8f5e9;
         }
+
+        /* 地圖控制按鈕樣式 */
+        .map-controls {
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .zoom-btn-icon {
+            background-color: #e8f5e9;
+            color: #2E7D32;
+            border: 2px solid #81C784;
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .zoom-btn-icon:hover {
+            background-color: #2E7D32;
+            color: white;
+            transform: scale(1.05);
+        }
+
+        .zoom-level-tag {
+            background-color: #f1f8e9;
+            color: #2E7D32;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-weight: bold;
+            border: 1px solid #C8E6C9;
+            min-width: 120px;
+            display: inline-block;
+        }
+
+        .zoom-btn-reset {
+            background-color: #757575;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .zoom-btn-reset:hover {
+            background-color: #424242;
+        }
+
+        /* 地圖檢視區域 */
+        .map-viewport {
+            width: 100%;
+            height: 600px;
+            overflow: auto;
+            border: 2px solid #81C784;
+            border-radius: 12px;
+            background-color: #f4f4f4;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            position: relative;
+            cursor: grab;
+        }
+
+        .map-viewport:active {
+            cursor: grabbing;
+        }
+
+        .map-container {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 20px;
+            min-width: 100%;
+            min-height: 100%;
+            box-sizing: border-box;
+        }
+
+        #mapImage {
+            transform-origin: top left;
+            transition: transform 0.25s ease-out;
+            max-width: 100%;
+            height: auto;
+            display: block;
+            user-select: none;
+        }
     </style>
 </head>
 <body>
@@ -308,6 +400,7 @@
                 <a href="#learning">學習資源</a>
                 <a href="#contact">聯絡我們</a>
                 <a href="https://harmonica80.github.io/interactive-whiteboard-2026/?dbUrl=https%3A%2F%2Fsaiyaclass-default-rtdb.asia-southeast1.firebasedatabase.app%2F" target="_blank" class="highlight-nav">📋 線上白板</a>
+                <a href="javascript:void(0);" onclick="checkRollCallPassword()" class="roll-call-nav">📝 老師點名</a>
             </nav>
         </div>
     </header>
@@ -343,10 +436,10 @@
                             <li style="margin-bottom: 5px;">
                                 📰 <a href="https://www.edu.tw/" target="_blank" style="color: #2E7D32; text-decoration: underline;">教育部全球資訊網 - 新住民語文選課資源說明</a>
                             </li>
-                            <div style="margin-top: 25px;">
-                                <a href="learning-resources.html" target="_blank" style="background-color: #2e7d32; color: white; padding: 12px 24px; text-decoration: none; border-radius: 30px; display: inline-block; font-weight: bold; box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: 0.3s;">電子書 ➔</a>
-                            </div>
                         </ul>
+                        <div style="margin-top: 25px;">
+                            <a href="learning-resources.html" target="_blank" style="background-color: #2e7d32; color: white; padding: 12px 24px; text-decoration: none; border-radius: 30px; display: inline-block; font-weight: bold; box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: 0.3s;">電子書 ➔</a>
+                        </div>
                     </div>
                 </div>
 
@@ -384,217 +477,60 @@
                 </div>
             </div>
         </div>
-    </section
-      
+    </section>
 
-<!-- 學習區塊 -->
-<section id="learning" style="background-color: #F0F4F1;">
-    <div class="container">
-        <h3 class="section-title">學習資源</h3>
-        <div class="resource-card">
-            <h3 style="margin-top: 0; color: #2E7D32;">🌱 基礎越南語發音</h3>
-            <p style="margin-bottom: 0;">從最簡單的聲調與字母開始學起，打好越南語基本功！</p>
+    <!-- 學習區塊 -->
+    <section id="learning" style="background-color: #F0F4F1;">
+        <div class="container">
+            <h3 class="section-title">學習資源</h3>
+            <div class="resource-card">
+                <h3 style="margin-top: 0; color: #2E7D32;">🌱 基礎越南語發音</h3>
+                <p style="margin-bottom: 0;">從最簡單的聲調與字母開始學起，打好越南語基本功！</p>
+            </div>
+            <ul class="resource-list">
+                <li><a href="pronunciation.html"><span>📚 基礎篇：越南語字母與發音小秘笈</span> <span>➔</span></a></li>
+                <li><a href="#"><span>🗣 實用篇：日常必備 50 句實用會話</span> <span>➔</span></a></li>
+                <li><a href="#"><span>✈️ 文化篇：越南旅遊必知的小常識與禁忌</span> <span>➔</span></a></li>
+                <!-- 🌟 新增：外部學習網站連結 -->
+                <li>
+                    <a href="https://emhoctiengviet.vn/lesson" target="_blank" rel="noopener noreferrer">
+                        <span>🌐 推薦外網：Em Học Tiếng Việt (線上越南語課程資源)</span> 
+                        <span>➔</span>
+                    </a>
+                </li>
+            </ul>
         </div>
-        <ul class="resource-list">
-            <li><a href="pronunciation.html"><span>📚 基礎篇：越南語字母與發音小秘笈</span> <span>➔</span></a></li>
-            <li><a href="#"><span>🗣 實用篇：日常必備 50 句實用會話</span> <span>➔</span></a></li>
-            <li><a href="#"><span>✈️ 文化篇：越南旅遊必知的小常識與禁忌</span> <span>➔</span></a></li>
-            
-            <!-- 🌟 新增：外部學習網站連結 -->
-            <li>
-                <a href="https://emhoctiengviet.vn/lesson" target="_blank" rel="noopener noreferrer">
-                    <span>🌐 推薦外網：Em Học Tiếng Việt (線上越南語課程資源)</span> 
-                    <span>➔</span>
-                </a>
-            </li>
-        </ul>
+    </section>
+
+    <!-- 置中的打字網按鈕區塊 -->
+    <div style="text-align: center; margin: 40px 0;">
+        <a href="https://viettype-vui-h-c-ti-ng-vi-t.ai.studio/" target="_blank" rel="noopener noreferrer" class="typing-btn">
+            ⌨️ 點我體驗：越南語打字練習網 ➔
+        </a>
     </div>
-</section>
-    
-<!-- 置中的打字網按鈕區塊 -->
-<div style="text-align: center; margin: 40px 0;">
-    <a href="https://viettype-vui-h-c-ti-ng-vi-t.ai.studio/" target="_blank" rel="noopener noreferrer" class="typing-btn">
-        ⌨️ 點我體驗：越南語打字練習網 ➔
-    </a>
-</div>
- 
- <!-- 🇻🇳 越南地圖區塊 -->
-<section id="vietnam-map" style="background-color: #ffffff; padding: 50px 20px; text-align: center;">
-    <div style="max-width: 1000px; margin: 0 auto;">
-        <h2 style="color: #2E7D32; margin-bottom: 20px;">🇻🇳 越南行政區劃地圖</h2>
-        
-        <!-- 簡潔的 - / + 控制列 -->
-        <div class="map-controls">
-            <button type="button" onclick="changeZoom(-1)" class="zoom-btn-icon" title="縮小">➖</button>
-            <span id="zoomLevelText" class="zoom-level-tag">Level 3 (100%)</span>
-            <button type="button" onclick="changeZoom(1)" class="zoom-btn-icon" title="放大">➕</button>
-            <button type="button" onclick="resetMap()" class="zoom-btn-reset" title="重設地圖">🔄 重設</button>
-        </div>
 
-        <!-- 可拖曳與捲動的地圖視窗容器 -->
-        <div id="mapViewport" class="map-viewport">
-            <div id="mapContainer" class="map-container">
-                <img id="mapImage" src="map%20png%20ro%20net.png" alt="越南行政區劃地圖" draggable="false">
+    <!-- 🇻🇳 越南地圖區塊 -->
+    <section id="vietnam-map" style="background-color: #ffffff; padding: 50px 20px; text-align: center;">
+        <div style="max-width: 1000px; margin: 0 auto;">
+            <h2 style="color: #2E7D32; margin-bottom: 20px;">🇻🇳 越南行政區劃地圖</h2>
+            <!-- 簡潔的 - / + 控制列 -->
+            <div class="map-controls">
+                <button type="button" onclick="changeZoom(-1)" class="zoom-btn-icon" title="縮小">➖</button>
+                <span id="zoomLevelText" class="zoom-level-tag">Level 3 (100%)</span>
+                <button type="button" onclick="changeZoom(1)" class="zoom-btn-icon" title="放大">➕</button>
+                <button type="button" onclick="resetMap()" class="zoom-btn-reset" title="重設地圖">🔄 重設</button>
+            </div>
+
+            <!-- 可拖曳與捲動的地圖視窗容器 -->
+            <div id="mapViewport" class="map-viewport">
+                <div id="mapContainer" class="map-container">
+                    <img id="mapImage" src="map%20png%20ro%20net.png" alt="越南行政區劃地圖" draggable="false">
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- 樣式與互動腳本 -->
-<style>
-/* 控制按鈕樣式 */
-.map-controls {
-    margin-bottom: 15px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 12px;
-}
-.zoom-btn-icon {
-    background-color: #e8f5e9;
-    color: #2E7D32;
-    border: 2px solid #81C784;
-    width: 42px;
-    height: 42px;
-    border-radius: 50%;
-    font-size: 1.2rem;
-    font-weight: bold;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.2s ease;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-.zoom-btn-icon:hover {
-    background-color: #2E7D32;
-    color: white;
-    transform: scale(1.05);
-}
-.zoom-level-tag {
-    background-color: #f1f8e9;
-    color: #2E7D32;
-    padding: 6px 16px;
-    border-radius: 20px;
-    font-weight: bold;
-    border: 1px solid #C8E6C9;
-    min-width: 120px;
-    display: inline-block;
-}
-.zoom-btn-reset {
-    background-color: #757575;
-    color: white;
-    border: none;
-    padding: 8px 16px;
-    border-radius: 20px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background 0.2s;
-}
-.zoom-btn-reset:hover {
-    background-color: #424242;
-}
-
-/* 地圖檢視區域 (修正左側無法拉動問題) */
-.map-viewport {
-    width: 100%;
-    height: 600px;
-    overflow: auto;
-    border: 2px solid #81C784;
-    border-radius: 12px;
-    background-color: #f4f4f4;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    position: relative;
-    cursor: grab;
-}
-.map-viewport:active {
-    cursor: grabbing;
-}
-.map-container {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    padding: 20px;
-    min-width: 100%;
-    min-height: 100%;
-    box-sizing: border-box;
-}
-#mapImage {
-    /* 🔑 關鍵修正：縮放錨點設為左上角，避免縮放後溢出到左側負區域 */
-    transform-origin: top left;
-    transition: transform 0.25s ease-out;
-    max-width: 100%;
-    height: auto;
-    display: block;
-    user-select: none;
-}
-</style>
-
-<script>
-// 5 階段放大倍率設定
-const zoomLevels = [
-    { scale: 0.6, label: "Level 1 (60%)" },
-    { scale: 0.8, label: "Level 2 (80%)" },
-    { scale: 1.0, label: "Level 3 (100%)" },
-    { scale: 1.3, label: "Level 4 (130%)" },
-    { scale: 1.6, label: "Level 5 (160%)" }
-];
-
-let currentLevelIndex = 2; // 預設為 Level 3 (100%)
-
-function updateMapZoom() {
-    const img = document.getElementById('mapImage');
-    const labelText = document.getElementById('zoomLevelText');
-    const current = zoomLevels[currentLevelIndex];
-    
-    img.style.transform = `scale(${current.scale})`;
-    labelText.innerText = current.label;
-}
-
-function changeZoom(direction) {
-    const newIndex = currentLevelIndex + direction;
-    if (newIndex >= 0 && newIndex < zoomLevels.length) {
-        currentLevelIndex = newIndex;
-        updateMapZoom();
-    }
-}
-
-function resetMap() {
-    currentLevelIndex = 2;
-    updateMapZoom();
-    const viewport = document.getElementById('mapViewport');
-    viewport.scrollTop = 0;
-    viewport.scrollLeft = 0;
-}
-
-// 🖐️ 滑鼠抓取拖曳查看周圍 (Mouse Drag to Pan) 功能
-const viewport = document.getElementById('mapViewport');
-let isDown = false;
-let startX, startY, scrollLeft, scrollTop;
-
-viewport.addEventListener('mousedown', (e) => {
-    isDown = true;
-    startX = e.pageX - viewport.offsetLeft;
-    startY = e.pageY - viewport.offsetTop;
-    scrollLeft = viewport.scrollLeft;
-    scrollTop = viewport.scrollTop;
-});
-
-viewport.addEventListener('mouseleave', () => { isDown = false; });
-viewport.addEventListener('mouseup', () => { isDown = false; });
-
-viewport.addEventListener('mousemove', (e) => {
-    if (!isDown) return;
-    e.preventDefault();
-    const x = e.pageX - viewport.offsetLeft;
-    const y = e.pageY - viewport.offsetTop;
-    const walkX = (x - startX) * 1.5;
-    const walkY = (y - startY) * 1.5;
-    viewport.scrollLeft = scrollLeft - walkX;
-    viewport.scrollTop = scrollTop - walkY;
-});
-</script>
-       <!-- 聯絡我們區塊 -->
+    <!-- 聯絡我們區塊 -->
     <section id="contact">
         <div class="container">
             <h3 class="section-title">聯絡我們</h3>
@@ -608,18 +544,86 @@ viewport.addEventListener('mousemove', (e) => {
             </div>
         </div>
     </section>
+
     <footer>
         <p>&copy; 2026 葉子教室越南語. All rights reserved.</p>
     </footer>
-<script>
-function checkRollCallPassword() {
-  const password = prompt("請輸入老師點名系統密碼：");
-  if (password === "cothuan") {
-    window.open("https://pos-775650670978.asia-southeast1.run.app", "_blank");
-  } else if (password !== null) {
-    alert("密碼錯誤，無法開啟頁面！");
-  }
-}
-</script>
+
+    <!-- 腳本區域 -->
+    <script>
+    // 老師點名密碼驗證
+    function checkRollCallPassword() {
+        const password = prompt("請輸入老師點名系統密碼：");
+        if (password === "cothuan") {
+            window.open("https://pos-775650670978.asia-southeast1.run.app", "_blank");
+        } else if (password !== null) {
+            alert("密碼錯誤，無法開啟頁面！");
+        }
+    }
+
+    // 地圖縮放與拖曳腳本
+    const zoomLevels = [
+        { scale: 0.6, label: "Level 1 (60%)" },
+        { scale: 0.8, label: "Level 2 (80%)" },
+        { scale: 1.0, label: "Level 3 (100%)" },
+        { scale: 1.3, label: "Level 4 (130%)" },
+        { scale: 1.6, label: "Level 5 (160%)" }
+    ];
+
+    let currentLevelIndex = 2; // 預設為 Level 3 (100%)
+
+    function updateMapZoom() {
+        const img = document.getElementById('mapImage');
+        const labelText = document.getElementById('zoomLevelText');
+        const current = zoomLevels[currentLevelIndex];
+        img.style.transform = `scale(${current.scale})`;
+        labelText.innerText = current.label;
+    }
+
+    function changeZoom(direction) {
+        const newIndex = currentLevelIndex + direction;
+        if (newIndex >= 0 && newIndex < zoomLevels.length) {
+            currentLevelIndex = newIndex;
+            updateMapZoom();
+        }
+    }
+
+    function resetMap() {
+        currentLevelIndex = 2;
+        updateMapZoom();
+        const viewport = document.getElementById('mapViewport');
+        viewport.scrollTop = 0;
+        viewport.scrollLeft = 0;
+    }
+
+    // 滑鼠拖曳查看地圖
+    const viewport = document.getElementById('mapViewport');
+    let isDown = false;
+    let startX, startY, scrollLeft, scrollTop;
+
+    if (viewport) {
+        viewport.addEventListener('mousedown', (e) => {
+            isDown = true;
+            startX = e.pageX - viewport.offsetLeft;
+            startY = e.pageY - viewport.offsetTop;
+            scrollLeft = viewport.scrollLeft;
+            scrollTop = viewport.scrollTop;
+        });
+
+        viewport.addEventListener('mouseleave', () => { isDown = false; });
+        viewport.addEventListener('mouseup', () => { isDown = false; });
+
+        viewport.addEventListener('mousemove', (e) => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - viewport.offsetLeft;
+            const y = e.pageY - viewport.offsetTop;
+            const walkX = (x - startX) * 1.5;
+            const walkY = (y - startY) * 1.5;
+            viewport.scrollLeft = scrollLeft - walkX;
+            viewport.scrollTop = scrollTop - walkY;
+        });
+    }
+    </script>
 </body>
 </html>
