@@ -118,6 +118,15 @@
         nav a.highlight-nav:hover {
             color: #c2185b;
         }
+        <nav>
+  <a href="#home">首頁</a>
+  <a href="#teaching">教學資源</a>
+  <a href="#learning">學習資源</a>
+  <a href="#contact">聯絡我們</a>
+  <a href="https://harmonica80.github.io/interactive-whiteboard-2026/?dbUrl=https%3A%2F%2Fsaiyaclass-default-rtdb.asia-southeast1.firebasedatabase.app%2F" target="_blank" class="highlight-nav">📋 線上白板</a>
+  <!-- 新增：老師點名按鈕 -->
+  <a href="javascript:void(0);" onclick="checkRollCallPassword()" style="color: #2E7D32; font-weight: bold;">📝 老師點名</a>
+</nav>
 
         .hero {
             background-image: url('ChatGPT Image 2026年7月17日 上午09_43_39.png');
@@ -602,6 +611,15 @@ viewport.addEventListener('mousemove', (e) => {
     <footer>
         <p>&copy; 2026 葉子教室越南語. All rights reserved.</p>
     </footer>
-
+<script>
+function checkRollCallPassword() {
+  const password = prompt("請輸入老師點名系統密碼：");
+  if (password === "cothuan") {
+    window.open("https://pos-775650670978.asia-southeast1.run.app", "_blank");
+  } else if (password !== null) {
+    alert("密碼錯誤，無法開啟頁面！");
+  }
+}
+</script>
 </body>
 </html>
