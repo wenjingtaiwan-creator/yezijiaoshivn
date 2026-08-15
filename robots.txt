@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://wenjingtaiwan-creator.github.io/yezijiaoshivn/sitemap.xml
