@@ -1,339 +1,343 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>全新越南語教學簡報庫 - 葉子教室</title>
-    <style>
-        /* 1. 基礎設定 & 色彩系統（與首頁一致） */
-        :root {
-            --primary-color: #2E7D32; /* 品牌葉子綠 */
-            --secondary-color: #81C784; /* 淺綠 */
-            --accent-color: #FFB300; /* 亮眼芒果黃 */
-            --text-color: #2C3E50;
-            --bg-light: #F9FBFA; /* 舒服的淺米綠底色 */
-        }
-
-        body {
-            font-family: 'PingFang TC', 'Microsoft JhengHei', sans-serif;
-            line-height: 1.8;
-            margin: 0;
-            padding: 0;
-            color: var(--text-color);
-            background-color: var(--bg-light);
-        }
-
-        /* 2. 上方選項 (導覽列) 樣式 */
-        header {
-            background-color: rgba(255, 255, 255, 0.95);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            backdrop-filter: blur(5px);
-        }
-
-        .nav-container {
-            max-width: 1100px;
-            margin: auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 20px;
-        }
-
-        .logo {
-            font-size: 1.4rem;
-            font-weight: bold;
-            color: var(--primary-color);
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-        }
-
-        nav {
-            display: flex;
-            align-items: center;
-        }
-
-        nav a {
-            color: var(--text-color);
-            text-decoration: none;
-            margin-left: 25px;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-
-        nav a:hover {
-            color: var(--primary-color);
-        }
-
-        /* 導覽列專用強調樣式 */
-        nav a.highlight-nav {
-            color: #e91e63;
-            font-weight: bold;
-        }
-
-        nav a.highlight-nav:hover {
-            color: #c2185b;
-        }
-
-        /* 3. ✅ 首頁大橫幅 (Hero Section) 樣式 - 自動應用你上傳的圖檔 */
-        .hero {
-            background-image: url('ChatGPT Image 2026年7月17日 上午09_43_39.png');
-            background-size: cover;
-            background-position: center center;
-            background-repeat: no-repeat;
-            
-            /* 控制大橫幅在不同螢幕上的合適高度 */
-            height: 55vw; 
-            max-height: 500px;
-            min-height: 250px;
-            width: 100%;
-            margin: 0;
-            padding: 0;
-        }
-
-        /* 4. 簡報頁面專屬 CSS 樣式 */
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 60px 20px; /* 調整上下留白 */
-        }
-
-        .back-link {
-            text-decoration: none;
-            color: var(--primary-color);
-            font-weight: bold;
-            display: inline-block;
-            margin-bottom: 20px;
-            transition: transform 0.2s;
-        }
-        .back-link:hover {
-            transform: translateX(-5px);
-        }
-
-        h1 {
-            color: var(--primary-color);
-            text-align: center;
-            font-size: 2.2rem;
-            margin-bottom: 10px;
-        }
-
-        .subtitle {
-            text-align: center;
-            color: #666;
-            margin-bottom: 40px;
-        }
-
-        /* 下拉式手風琴外殼 */
-        .accordion-item {
-            background-color: white;
-            border-radius: 8px;
-            margin-bottom: 15px;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.03);
-            border-left: 5px solid var(--primary-color);
-            overflow: hidden;
-            transition: box-shadow 0.2s;
-        }
-        .accordion-item:hover {
-            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-        }
-
-        /* 每一冊的標題欄 (按鈕) */
-        .accordion-header {
-            width: 100%;
-            background: none;
-            border: none;
-            padding: 20px 25px;
-            text-align: left;
-            font-size: 1.15rem;
-            font-weight: bold;
-            color: var(--text-color);
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            outline: none;
-        }
-
-        /* 右側旋轉箭頭 */
-        .accordion-header::after {
-            content: '▼';
-            font-size: 0.8rem;
-            color: var(--primary-color);
-            transition: transform 0.3s;
-        }
-        .accordion-item.active .accordion-header::after {
-            transform: rotate(180deg);
-        }
-
-        /* 下拉收合內容區區塊 */
-        .accordion-content {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.4s ease-out;
-            background-color: #FCFDFD;
-            border-top: 1px solid #f0f3f1;
-        }
-
-        .slides-wrapper {
-            padding: 25px;
-        }
-
-        /* 單個簡報的容器樣式 */
-        .slide-box {
-            margin-bottom: 35px;
-            background: white;
-            border: 1px solid #eef2f0;
-            border-radius: 8px;
-            padding: 15px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
-        }
-        .slide-box h4 {
-            margin: 0 0 15px 0;
-            color: var(--primary-color);
-            font-size: 1.05rem;
-            border-left: 4px solid var(--accent-color); /* 改為亮眼芒果黃點綴 */
-            padding-left: 10px;
-        }
-
-        /* Canva 內嵌框架容器（黃金比例 16:9） */
-        .canva-container {
-            position: relative;
-            width: 100%;
-            height: 0;
-            padding-top: 56.25%;
-            overflow: hidden;
-            border-radius: 6px;
-            background: #f0f0f0; /* 未載入時的灰色底色 */
-        }
-        .canva-container iframe {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            border: none;
-        }
-
-        footer {
-            background-color: #2C3E50;
-            color: #A0AAB5;
-            text-align: center;
-            padding: 20px;
-            font-size: 0.9rem;
-            margin-top: 80px;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>全新越南語教學簡報庫 - 葉子教室</title>
+  <style>
+    /* 1. 基礎設定 & 色彩系統 */
+    :root {
+      --primary-color: #2E7D32; /* 品牌葉子綠 */
+      --secondary-color: #81C784; /* 淺綠 */
+      --accent-color: #FFB300; /* 亮眼芒果黃 */
+      --text-color: #2C3E50;
+      --bg-light: #F9FBFA; /* 舒服的淺米綠底色 */
+    }
+    body {
+      font-family: 'PingFang TC', 'Microsoft JhengHei', sans-serif;
+      line-height: 1.8;
+      margin: 0;
+      padding: 0;
+      color: var(--text-color);
+      background-color: var(--bg-light);
+    }
+    /* 2. 上方選項 (導覽列) 樣式 */
+    header {
+      background-color: rgba(255, 255, 255, 0.95);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      backdrop-filter: blur(5px);
+    }
+    .nav-container {
+      max-width: 1100px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 20px;
+    }
+    .logo {
+      font-size: 1.4rem;
+      font-weight: bold;
+      color: var(--primary-color);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+    }
+    nav {
+      display: flex;
+      align-items: center;
+    }
+    nav a {
+      color: var(--text-color);
+      text-decoration: none;
+      margin-left: 25px;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+    nav a:hover {
+      color: var(--primary-color);
+    }
+    /* 導覽列專用強調樣式 */
+    nav a.highlight-nav {
+      color: #e91e63;
+      font-weight: bold;
+    }
+    nav a.highlight-nav:hover {
+      color: #c2185b;
+    }
+    /* 3. 首頁大橫幅 (Hero Section) 樣式 */
+    .hero {
+      background-image: url('ChatGPT Image 2026年7月17日 上午09_43_39.png');
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+      height: 55vw;
+      max-height: 500px;
+      min-height: 250px;
+      width: 100%;
+      margin: 0;
+      padding: 0;
+    }
+    /* 4. 簡報頁面專屬 CSS 樣式 */
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 60px 20px;
+    }
+    .back-link {
+      text-decoration: none;
+      color: var(--primary-color);
+      font-weight: bold;
+      display: inline-block;
+      margin-bottom: 20px;
+      transition: transform 0.2s;
+    }
+    .back-link:hover {
+      transform: translateX(-5px);
+    }
+    h1 {
+      color: var(--primary-color);
+      text-align: center;
+      font-size: 2.2rem;
+      margin-bottom: 10px;
+    }
+    .subtitle {
+      text-align: center;
+      color: #666;
+      margin-bottom: 40px;
+    }
+    /* 下拉式手風琴外殼 */
+    .accordion-item {
+      background-color: white;
+      border-radius: 8px;
+      margin-bottom: 15px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.03);
+      border-left: 5px solid var(--primary-color);
+      overflow: hidden;
+      transition: box-shadow 0.2s;
+    }
+    .accordion-item:hover {
+      box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    }
+    /* 每一冊的標題欄 (按鈕) */
+    .accordion-header {
+      width: 100%;
+      background: none;
+      border: none;
+      padding: 20px 25px;
+      text-align: left;
+      font-size: 1.15rem;
+      font-weight: bold;
+      color: var(--text-color);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      outline: none;
+    }
+    /* 右側旋轉箭頭 */
+    .accordion-header::after {
+      content: '▼';
+      font-size: 0.8rem;
+      color: var(--primary-color);
+      transition: transform 0.3s;
+    }
+    .accordion-item.active .accordion-header::after {
+      transform: rotate(180deg);
+    }
+    /* 下拉收合內容區區塊 */
+    .accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease-out;
+      background-color: #FCFDFD;
+      border-top: 1px solid #f0f3f1;
+    }
+    .slides-wrapper {
+      padding: 25px;
+    }
+    /* 單個簡報的容器樣式 */
+    .slide-box {
+      margin-bottom: 35px;
+      background: white;
+      border: 1px solid #eef2f0;
+      border-radius: 8px;
+      padding: 15px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+    }
+    .slide-box h4 {
+      margin: 0 0 15px 0;
+      color: var(--primary-color);
+      font-size: 1.05rem;
+      border-left: 4px solid var(--accent-color);
+      padding-left: 10px;
+    }
+    /* Canva 內嵌框架容器 */
+    .canva-container {
+      position: relative;
+      width: 100%;
+      height: 0;
+      padding-top: 55.8342%;
+      overflow: hidden;
+      border-radius: 8px;
+      background: #f0f0f0;
+      box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16);
+      margin-top: 1em;
+      margin-bottom: 0.5em;
+    }
+    .canva-container iframe {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      border: none;
+      padding: 0;
+      margin: 0;
+    }
+    .canva-credits {
+      font-size: 0.85rem;
+      color: #666;
+      margin-top: 6px;
+    }
+    .canva-credits a {
+      color: var(--primary-color);
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .canva-credits a:hover {
+      text-decoration: underline;
+    }
+    footer {
+      background-color: #2C3E50;
+      color: #A0AAB5;
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9rem;
+      margin-top: 80px;
+    }
+  </style>
 </head>
 <body>
-
-<header>
+  <header>
     <div class="nav-container">
-        <a href="index.html" class="logo">🍃 葉子教室越南語</a>
-        <nav>
-            <a href="index.html#home">首頁</a>
-            <a href="index.html#teaching">教學資源</a>
-            <a href="index.html#learning">學習資源</a>
-            <a href="index.html#contact">聯絡我們</a>
-            <a href="https://harmonica80.github.io/interactive-whiteboard-2026/?dbUrl=https%3A%2F%2Fsaiyaclass-default-rtdb.asia-southeast1.firebasedatabase.app%2F" target="_blank" class="highlight-nav">📋 線上白板</a>
-        </nav>
+      <a href="index.html" class="logo">🍃 葉子教室越南語</a>
+      <nav>
+        <a href="index.html#home">首頁</a>
+        <a href="index.html#teaching">教學資源</a>
+        <a href="index.html#learning">學習資源</a>
+        <a href="index.html#contact">聯絡我們</a>
+        <a href="https://harmonica80.github.io/interactive-whiteboard-2026/?dbUrl=https%3A%2F%2Fsaiyaclass-default-rtdb.asia-southeast1.firebasedatabase.app%2F" target="_blank" class="highlight-nav">📋 線上白板</a>
+      </nav>
     </div>
-</header>
+  </header>
 
-<!-- ✨ ✅ 大橫幅 (Hero Section) - 自動應用你上傳的圖檔 -->
-<section id="home" class="hero"></section>
+  <!-- 大橫幅 -->
+  <section id="home" class="hero"></section>
 
-<div class="container">
+  <div class="container">
     <a href="index.html#teaching" class="back-link">➔ 返回首頁教師資源</a>
     <h1>📚 1-18冊 越南語互動簡報全集</h1>
     <p class="subtitle">點擊下方各冊標題即可展開瀏覽。為了維持載入流暢，簡報將於展開時自動載入。</p>
 
     <!-- 手風琴容器 -->
-    <div id="accordion-group">
-        <!-- 程式碼會在這裡自動動態產生 1 到 18 冊，你不用手寫 18 遍！ -->
-    </div>
-</div>
+    <div id="accordion-group"></div>
+  </div>
 
-<footer>
+  <footer>
     <p>&copy; 2026 葉子教室越南語. All rights reserved.</p>
-</footer>
+  </footer>
 
-<script>
-    // 🌟 請在這裡填入你每一冊對應的 5 個 Canva 簡報嵌入網址 (src 內的 view?embed 網址)
+  <script>
+    // 預設 Canva 嵌入網址
     const defaultCanvaUrl = "https://www.canva.com/design/DAGUBnyWbm8/JmpSMyPEsMM3fXBzOUUOPA/view?embed";
+
+    // 專屬簡報資料庫：格式為 "第幾冊-第幾課"
+    const slideConfig = {
+      "1-1": {
+        embedUrl: "https://www.canva.com/design/DAHSdsZ-Ib8/1ISUZaTe8z7W9odXNNIGMA/view?embed",
+        shareUrl: "https://www.canva.com/design/DAHSdsZ-Ib8/1ISUZaTe8z7W9odXNNIGMA/view?utm_content=DAHSdsZ-Ib8&utm_campaign=designshare&utm_medium=embeds&utm_source=link",
+        title: "國小PPT-01"
+      }
+      // 未來新增其他課時，只需在此添加，例如：
+      // "1-2": { embedUrl: "...", shareUrl: "...", title: "國小PPT-02" }
+    };
 
     // 動態生成 1 至 18 冊的 HTML
     const accordionGroup = document.getElementById('accordion-group');
-    
     for (let volume = 1; volume <= 18; volume++) {
-        let itemHTML = `
-            <div class="accordion-item" id="vol-${volume}">
-                <button class="accordion-header" onclick="toggleAccordion(${volume})">
-                    📖 第 ${volume} 冊 越南語教學簡報
-                </button>
-                <div class="accordion-content" id="content-${volume}">
-                    <div class="slides-wrapper">
-        `;
+      let itemHTML = `
+        <div class="accordion-item" id="vol-${volume}">
+          <button class="accordion-header" onclick="toggleAccordion(${volume})">
+            📖 第 ${volume} 冊 越南語教學簡報
+          </button>
+          <div class="accordion-content" id="content-${volume}">
+            <div class="slides-wrapper">
+      `;
 
-        // 每一冊動態塞入 5 個簡報區塊
-        for (let lesson = 1; lesson <= 5; lesson++) {
-            itemHTML += `
-                <div class="slide-box">
-                    <h4>第 ${lesson} 單元 互動簡報</h4>
-                    <!-- data-src 存放真正的 Canva 連結，點開時才轉變為真正的 iframe 載入，防止網頁癱瘓 -->
-                    <div class="canva-container" data-src="${defaultCanvaUrl}">
-                        <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: #888;">
-                            ⏳ 點擊展開此冊後將載入簡報...
-                        </div>
-                    </div>
-                </div>
-            `;
-        }
+      // 每一冊動態塞入 5 個簡報區塊
+      for (let lesson = 1; lesson <= 5; lesson++) {
+        const key = `${volume}-${lesson}`;
+        const slideData = slideConfig[key];
+        const targetEmbed = slideData ? slideData.embedUrl : defaultCanvaUrl;
+        const shareLinkHTML = slideData 
+          ? `<div class="canva-credits">葉文靜 設計的 <a href="${slideData.shareUrl}" target="_blank" rel="noopener">${slideData.title}</a></div>`
+          : '';
 
         itemHTML += `
-                    </div>
-                </div>
+          <div class="slide-box">
+            <h4>第 ${lesson} 單元 互動簡報</h4>
+            <div class="canva-container" data-src="${targetEmbed}">
+              <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: #888;">
+                ⏳ 點擊展開此冊後將載入簡報...
+              </div>
             </div>
+            ${shareLinkHTML}
+          </div>
         `;
-        accordionGroup.innerHTML += itemHTML;
+      }
+
+      itemHTML += `
+            </div>
+          </div>
+        </div>
+      `;
+      accordionGroup.innerHTML += itemHTML;
     }
 
     // 手風琴展開與收合 + 智慧延遲載入控制
     function toggleAccordion(volNum) {
-        const item = document.getElementById(`vol-${volNum}`);
-        const content = document.getElementById(`content-${volNum}`);
-        
-        // 判斷當前是否已經展開
-        const isOpen = item.classList.contains('active');
+      const item = document.getElementById(`vol-${volNum}`);
+      const content = document.getElementById(`content-${volNum}`);
+      const isOpen = item.classList.contains('active');
 
-        // 關閉所有其他已打開的冊數（如果你希望一次只開一冊，保持簡潔）
-        document.querySelectorAll('.accordion-item').forEach(el => {
-            el.classList.remove('active');
-            el.querySelector('.accordion-content').style.maxHeight = null;
+      // 關閉所有其他已打開的冊數
+      document.querySelectorAll('.accordion-item').forEach(el => {
+        el.classList.remove('active');
+        el.querySelector('.accordion-content').style.maxHeight = null;
+      });
+
+      if (!isOpen) {
+        // 展開當前冊數
+        item.classList.add('active');
+        content.style.maxHeight = content.scrollHeight + "px";
+
+        // 核心延遲載入：點開時建立 iframe
+        const lazyContainers = content.querySelectorAll('.canva-container[data-src]');
+        lazyContainers.forEach(container => {
+          const realSrc = container.getAttribute('data-src');
+          if (realSrc) {
+            container.innerHTML = `
+              <iframe loading="lazy" src="${realSrc}" allowfullscreen="allowfullscreen" allow="fullscreen"></iframe>
+            `;
+            container.removeAttribute('data-src');
+          }
         });
-
-        if (!isOpen) {
-            // 展開當前冊數
-            item.classList.add('active');
-            content.style.maxHeight = content.scrollHeight + "px";
-
-            // ⚡ 核心優化：當該冊被點開時，立刻將該冊裡面的 5 個 Canva 簡報載入（Lazy Loading）
-            const lazyContainers = content.querySelectorAll('.canva-container[data-src]');
-            lazyContainers.forEach(container => {
-                const realSrc = container.getAttribute('data-src');
-                if (realSrc) {
-                    // 建立 iframe
-                    container.innerHTML = `
-                        <iframe loading="lazy" src="${realSrc}" allowfullscreen="allowfullscreen" allow="fullscreen"></iframe>
-                    `;
-                    // 載入後移除 data-src 屬性，避免重複載入
-                    container.removeAttribute('data-src');
-                }
-            });
-        }
+      }
     }
-</script>
+  </script>
 </body>
 </html>
