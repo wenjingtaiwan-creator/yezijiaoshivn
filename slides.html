@@ -255,16 +255,19 @@
     // 預設 Canva 嵌入網址
     const defaultCanvaUrl = "https://www.canva.com/design/DAGUBnyWbm8/JmpSMyPEsMM3fXBzOUUOPA/view?embed";
 
-    // 專屬簡報資料庫：格式為 "第幾冊-第幾課"
-    const slideConfig = {
-      "1-1": {
-        embedUrl: "https://www.canva.com/design/DAHSdsZ-Ib8/1ISUZaTe8z7W9odXNNIGMA/view?embed",
-        shareUrl: "https://www.canva.com/design/DAHSdsZ-Ib8/1ISUZaTe8z7W9odXNNIGMA/view?utm_content=DAHSdsZ-Ib8&utm_campaign=designshare&utm_medium=embeds&utm_source=link",
-        title: "國小PPT-01"
-      }
-      // 未來新增其他課時，只需在此添加，例如：
-      // "1-2": { embedUrl: "...", shareUrl: "...", title: "國小PPT-02" }
-    };
+// 專屬簡報資料庫：格式為 "第幾冊-第幾課"
+const slideConfig = {
+  "1-1": {
+    embedUrl: "https://www.canva.com/design/DAHSdsZ-Ib8/1ISUZaTe8z7W9odXNNIGMA/view?embed",
+    shareUrl: "https://www.canva.com/design/DAHSdsZ-Ib8/1ISUZaTe8z7W9odXNNIGMA/view?utm_content=DAHSdsZ-Ib8&utm_campaign=designshare&utm_medium=embeds&utm_source=link",
+    title: "國小PPT-01"
+  },
+  "1-2": {
+    embedUrl: "https://www.canva.com/design/DAHShlVOqHY/VVaINeCU7z16eBTOnZb1JQ/view?embed",
+    shareUrl: "https://www.canva.com/design/DAHShlVOqHY/VVaINeCU7z16eBTOnZb1JQ/view?utm_content=DAHShlVOqHY&utm_campaign=designshare&utm_medium=embeds&utm_source=link",
+    title: "Vietnamese_Politeness_Quest.pdf"
+  }
+};
 
     // 動態生成 1 至 18 冊的 HTML
     const accordionGroup = document.getElementById('accordion-group');
