@@ -137,7 +137,7 @@
         nav a.roll-call-nav {
             color: #2E7D32;
             font-weight: bold;
-            cursor: pointer;
+            text-decoration: none;
         }
 
         .hero {
@@ -414,7 +414,7 @@
                 <a href="#learning">學習資源</a>
                 <a href="#contact">聯絡我們</a>
                 <a href="https://harmonica80.github.io/interactive-whiteboard-2026/?dbUrl=https%3A%2F%2Fsaiyaclass-default-rtdb.asia-southeast1.firebasedatabase.app%2F" target="_blank" class="highlight-nav">📋 線上白板</a>
-                <a href="javascript:void(0);" onclick="checkRollCallPassword()" class="roll-call-nav">📝 老師點名</a>
+                <a href="https://pos-775650670978.asia-southeast1.run.app" target="_blank" rel="noopener noreferrer" class="roll-call-nav">📝 老師點名</a>
             </nav>
         </div>
     </header>
@@ -566,16 +566,6 @@
 
     <!-- 腳本區域 -->
     <script>
-    // 老師點名密碼驗證
-    function checkRollCallPassword() {
-        const password = prompt("請輸入老師點名系統密碼：");
-        if (password === "cothuan") {
-            window.open("https://pos-775650670978.asia-southeast1.run.app", "_blank");
-        } else if (password !== null) {
-            alert("密碼錯誤，無法開啟頁面！");
-        }
-    }
-
     // 地圖縮放與拖曳腳本
     const zoomLevels = [
         { scale: 0.6, label: "Level 1 (60%)" },
