@@ -78,7 +78,7 @@
 
     /* 3. 首頁大橫幅 */
     .hero {
-      background-image: url('ChatGPT Image 2026年7月17日 上午09_43_39.png');
+      background-image: url('ChatGPT Image 2026年7月17日 上父09_43_39.png');
       background-size: cover;
       background-position: center center;
       background-repeat: no-repeat;
@@ -261,9 +261,6 @@
       box-sizing: border-box;
       transition: background 0.2s;
     }
-    .slide-placeholder:hover .play-btn-circle {
-      transform: scale(1.1);
-    }
     .slide-placeholder:hover {
       background: linear-gradient(135deg, #DCEDC8 0%, #C8E6C9 100%);
     }
@@ -279,6 +276,9 @@
       font-size: 1.3rem;
       box-shadow: 0 4px 10px rgba(46, 125, 50, 0.3);
       transition: transform 0.2s;
+    }
+    .slide-placeholder:hover .play-btn-circle {
+      transform: scale(1.1);
     }
     .placeholder-text {
       font-size: 0.9rem;
@@ -347,6 +347,37 @@
       opacity: 0.9;
     }
 
+    /* 回到頂部按鈕 */
+    #back-to-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 50px;
+      height: 50px;
+      background-color: var(--primary-color);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      font-size: 22px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.2s ease, background-color 0.2s ease;
+      z-index: 999;
+    }
+    #back-to-top:hover {
+      background-color: #1B5E20;
+      transform: translateY(-4px);
+    }
+    #back-to-top.show {
+      opacity: 1;
+      visibility: visible;
+    }
+
     footer {
       background-color: #2C3E50;
       color: #A0AAB5;
@@ -358,7 +389,7 @@
   </style>
 </head>
 <body>
-  <header>
+  <header id="top">
     <div class="nav-container">
       <a href="index.html" class="logo">🍃 葉子教室越南語</a>
       <nav>
@@ -400,6 +431,9 @@
     <!-- 各冊一層容器 -->
     <div id="volumes-container"></div>
   </div>
+
+  <!-- 回到頂部按鈕 -->
+  <button id="back-to-top" title="回到頂端" onclick="scrollToTop()">⬆</button>
 
   <footer>
     <p>&copy; 2026 葉子教室越南語. All rights reserved.</p>
@@ -667,6 +701,24 @@
           <iframe src="${embedUrl}" allowfullscreen="allowfullscreen" allow="fullscreen" loading="lazy"></iframe>
         `;
       }
+    }
+
+    // 回到頂部按鈕控制
+    const backToTopBtn = document.getElementById('back-to-top');
+
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) {
+        backToTopBtn.classList.add('show');
+      } else {
+        backToTopBtn.classList.remove('show');
+      }
+    });
+
+    function scrollToTop() {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
     }
   </script>
 </body>
