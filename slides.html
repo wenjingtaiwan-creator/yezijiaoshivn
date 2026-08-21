@@ -220,7 +220,7 @@
       padding-left: 8px;
     }
 
-    /* Canva 內嵌框架容器 */
+    /* Canva 內嵌框架容器 (點擊前為預覽佔位框) */
     .canva-container {
       position: relative;
       width: 100%;
@@ -240,6 +240,52 @@
       left: 0;
       border: none;
     }
+
+    /* 點擊載入覆蓋層與按鈕樣式 */
+    .slide-placeholder {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, #F1F8E9 0%, #E8F5E9 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      cursor: pointer;
+      border: none;
+      outline: none;
+      padding: 15px;
+      box-sizing: border-box;
+      transition: background 0.2s;
+    }
+    .slide-placeholder:hover {
+      background: linear-gradient(135deg, #DCEDC8 0%, #C8E6C9 100%);
+    }
+    .play-btn-circle {
+      width: 48px;
+      height: 48px;
+      background-color: var(--primary-color);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      box-shadow: 0 4px 10px rgba(46, 125, 50, 0.3);
+      transition: transform 0.2s;
+    }
+    .slide-placeholder:hover .play-btn-circle {
+      transform: scale(1.1);
+    }
+    .placeholder-text {
+      font-size: 0.9rem;
+      color: #2E7D32;
+      font-weight: bold;
+    }
+
     .canva-credits {
       font-size: 0.82rem;
       color: #777;
@@ -344,7 +390,7 @@
     </div>
 
     <h1>📚 1-18冊 越南語互動簡報與評量專區</h1>
-    <p class="subtitle">每冊獨立層級展示，收錄 5~6 個互動單元簡報與期中、期末評量資源。</p>
+    <p class="subtitle">每冊獨立層級展示，點擊卡片即可即時載入該單元 Canva 簡報。</p>
 
     <!-- 頂部快速跳轉導覽列 -->
     <div class="volume-nav" id="volume-quick-nav">
@@ -424,10 +470,8 @@
       }
     };
 
-    // 評量連結配置 (可自訂各冊網址，未設定則帶入預設搜尋或佔位頁)
-    const assessmentConfig = {
-      // 範例： "1": { midtermUrl: "https://...", finalUrl: "https://..." }
-    };
+    // 評量連結配置
+    const assessmentConfig = {};
 
     const totalVolumes = 18;
     const volumesContainer = document.getElementById('volumes-container');
@@ -435,13 +479,12 @@
 
     // 動態生成 1 至 18 冊「一層一冊」內容
     for (let volume = 1; volume <= totalVolumes; volume++) {
-      // 生成頂部快速導覽標籤
+      // 頂部導覽標籤
       const navLink = document.createElement('a');
       navLink.href = `#volume-${volume}`;
       navLink.textContent = `第 ${volume} 冊`;
       quickNav.appendChild(navLink);
 
-      // 第 9 冊為 6 課，其餘預設可設定為 5 或 6 課
       const lessonCount = (volume === 9) ? 6 : 5;
 
       let slidesHTML = '';
@@ -456,15 +499,17 @@
         slidesHTML += `
           <div class="slide-box">
             <h4>第 ${lesson} 單元 互動簡報</h4>
-            <div class="canva-container">
-              <iframe loading="lazy" src="${targetEmbed}" allowfullscreen="allowfullscreen" allow="fullscreen"></iframe>
+            <div class="canva-container" id="container-${volume}-${lesson}">
+              <button class="slide-placeholder" onclick="loadSlide('${volume}-${lesson}', '${targetEmbed}')">
+                <div class="play-btn-circle">▶</div>
+                <span class="placeholder-text">點擊載入簡報</span>
+              </button>
             </div>
             ${shareLinkHTML}
           </div>
         `;
       }
 
-      // 評量按鈕連結
       const midtermLink = (assessmentConfig[volume] && assessmentConfig[volume].midtermUrl) || "#";
       const finalLink = (assessmentConfig[volume] && assessmentConfig[volume].finalUrl) || "#";
 
@@ -477,12 +522,10 @@
             </div>
           </div>
 
-          <!-- 簡報卡片網格 -->
           <div class="slides-grid">
             ${slidesHTML}
           </div>
 
-          <!-- 期中與期末評量層 -->
           <div class="assessment-bar">
             <div class="assessment-title">
               📊 <strong>第 ${volume} 冊 學習評量專區</strong>
@@ -500,6 +543,16 @@
       `;
 
       volumesContainer.innerHTML += floorHTML;
+    }
+
+    // 點擊即時載入 iframe 函式
+    function loadSlide(id, embedUrl) {
+      const container = document.getElementById(`container-${id}`);
+      if (container) {
+        container.innerHTML = `
+          <iframe src="${embedUrl}" allowfullscreen="allowfullscreen" allow="fullscreen" loading="lazy"></iframe>
+        `;
+      }
     }
   </script>
 </body>
