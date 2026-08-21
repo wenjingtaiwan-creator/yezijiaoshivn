@@ -8,20 +8,30 @@
     /* 1. 基礎設定 & 色彩系統 */
     :root {
       --primary-color: #2E7D32; /* 品牌葉子綠 */
+      --primary-light: #E8F5E9;
       --secondary-color: #81C784; /* 淺綠 */
       --accent-color: #FFB300; /* 亮眼芒果黃 */
+      --accent-blue: #1976D2;
       --text-color: #2C3E50;
-      --bg-light: #F9FBFA; /* 舒服的淺米綠底色 */
+      --bg-light: #F4F7F5;
+      --card-bg: #FFFFFF;
+      --border-color: #E0E7E3;
     }
+    
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       font-family: 'PingFang TC', 'Microsoft JhengHei', sans-serif;
-      line-height: 1.8;
+      line-height: 1.7;
       margin: 0;
       padding: 0;
       color: var(--text-color);
       background-color: var(--bg-light);
     }
-    /* 2. 上方選項 (導覽列) 樣式 */
+
+    /* 2. 導覽列 */
     header {
       background-color: rgba(255, 255, 255, 0.95);
       box-shadow: 0 2px 10px rgba(0,0,0,0.05);
@@ -31,7 +41,7 @@
       backdrop-filter: blur(5px);
     }
     .nav-container {
-      max-width: 1100px;
+      max-width: 1200px;
       margin: auto;
       display: flex;
       justify-content: space-between;
@@ -49,43 +59,40 @@
     nav {
       display: flex;
       align-items: center;
+      flex-wrap: wrap;
     }
     nav a {
       color: var(--text-color);
       text-decoration: none;
-      margin-left: 25px;
+      margin-left: 20px;
       font-weight: 500;
       transition: color 0.3s;
     }
     nav a:hover {
       color: var(--primary-color);
     }
-    /* 導覽列專用強調樣式 */
     nav a.highlight-nav {
       color: #e91e63;
       font-weight: bold;
     }
-    nav a.highlight-nav:hover {
-      color: #c2185b;
-    }
-    /* 3. 首頁大橫幅 (Hero Section) 樣式 */
+
+    /* 3. 首頁大橫幅 */
     .hero {
       background-image: url('ChatGPT Image 2026年7月17日 上午09_43_39.png');
       background-size: cover;
       background-position: center center;
       background-repeat: no-repeat;
-      height: 55vw;
-      max-height: 500px;
-      min-height: 250px;
+      height: 40vw;
+      max-height: 400px;
+      min-height: 200px;
       width: 100%;
-      margin: 0;
-      padding: 0;
     }
-    /* 4. 簡報頁面專屬 CSS 樣式 */
+
+    /* 4. 主要版面 */
     .container {
-      max-width: 900px;
+      max-width: 1200px;
       margin: 0 auto;
-      padding: 60px 20px;
+      padding: 40px 20px;
     }
     .back-link {
       text-decoration: none;
@@ -109,84 +116,121 @@
       color: #666;
       margin-bottom: 30px;
     }
-    /* 下拉式手風琴外殼 */
-    .accordion-item {
-      background-color: white;
-      border-radius: 8px;
-      margin-bottom: 15px;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.03);
-      border-left: 5px solid var(--primary-color);
-      overflow: hidden;
-      transition: box-shadow 0.2s;
+
+    /* 快速跳轉錨點選單 */
+    .volume-nav {
+      background: white;
+      padding: 16px 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+      margin-bottom: 35px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--border-color);
     }
-    .accordion-item:hover {
-      box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-    }
-    /* 每一冊的標題欄 (按鈕) */
-    .accordion-header {
-      width: 100%;
-      background: none;
-      border: none;
-      padding: 20px 25px;
-      text-align: left;
-      font-size: 1.15rem;
+    .volume-nav-title {
       font-weight: bold;
-      color: var(--text-color);
-      cursor: pointer;
+      color: var(--primary-color);
+      margin-right: 8px;
+      font-size: 0.95rem;
+    }
+    .volume-nav a {
+      display: inline-block;
+      padding: 5px 12px;
+      border-radius: 20px;
+      background-color: var(--primary-light);
+      color: var(--primary-color);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 600;
+      transition: all 0.2s;
+    }
+    .volume-nav a:hover {
+      background-color: var(--primary-color);
+      color: white;
+      transform: translateY(-2px);
+    }
+
+    /* 一冊一層 (Volume Section) 卡片架構 */
+    .volume-floor {
+      background: var(--card-bg);
+      border-radius: 16px;
+      margin-bottom: 45px;
+      padding: 30px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.04);
+      border: 1px solid var(--border-color);
+      scroll-margin-top: 90px;
+    }
+    .volume-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      outline: none;
+      border-bottom: 2px solid var(--primary-light);
+      padding-bottom: 15px;
+      margin-bottom: 25px;
+      flex-wrap: wrap;
+      gap: 10px;
     }
-    /* 右側旋轉箭頭 */
-    .accordion-header::after {
-      content: '▼';
-      font-size: 0.8rem;
+    .volume-title {
+      font-size: 1.5rem;
+      font-weight: bold;
       color: var(--primary-color);
-      transition: transform 0.3s;
+      display: flex;
+      align-items: center;
+      gap: 10px;
     }
-    .accordion-item.active .accordion-header::after {
-      transform: rotate(180deg);
+    .volume-badge {
+      background: var(--accent-color);
+      color: #2C3E50;
+      font-size: 0.85rem;
+      padding: 3px 10px;
+      border-radius: 12px;
+      font-weight: bold;
     }
-    /* 下拉收合內容區區塊 */
-    .accordion-content {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.4s ease-out;
-      background-color: #FCFDFD;
-      border-top: 1px solid #f0f3f1;
+
+    /* 簡報網格排列 (每層 5~6 個簡報) */
+    .slides-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 20px;
+      margin-bottom: 25px;
     }
-    .slides-wrapper {
-      padding: 25px;
-    }
-    /* 單個簡報的容器樣式 */
     .slide-box {
-      margin-bottom: 35px;
-      background: white;
-      border: 1px solid #eef2f0;
-      border-radius: 8px;
+      background: #FAFCFA;
+      border: 1px solid #E3EBE6;
+      border-radius: 12px;
       padding: 15px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .slide-box:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.06);
     }
     .slide-box h4 {
-      margin: 0 0 15px 0;
+      margin: 0 0 10px 0;
       color: var(--primary-color);
       font-size: 1.05rem;
       border-left: 4px solid var(--accent-color);
-      padding-left: 10px;
+      padding-left: 8px;
     }
+
     /* Canva 內嵌框架容器 */
     .canva-container {
       position: relative;
       width: 100%;
       height: 0;
-      padding-top: 55.8342%;
+      padding-top: 56.25%;
       overflow: hidden;
       border-radius: 8px;
-      background: #f0f0f0;
-      box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16);
-      margin-top: 1em;
-      margin-bottom: 0.5em;
+      background: #eef2ef;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+      margin: 8px 0;
     }
     .canva-container iframe {
       position: absolute;
@@ -195,12 +239,10 @@
       top: 0;
       left: 0;
       border: none;
-      padding: 0;
-      margin: 0;
     }
     .canva-credits {
-      font-size: 0.85rem;
-      color: #666;
+      font-size: 0.82rem;
+      color: #777;
       margin-top: 6px;
     }
     .canva-credits a {
@@ -208,16 +250,64 @@
       text-decoration: none;
       font-weight: bold;
     }
-    .canva-credits a:hover {
-      text-decoration: underline;
+
+    /* 期中與期末評量專區 */
+    .assessment-bar {
+      background: #F8FBFD;
+      border: 1px dashed #B0BEC5;
+      border-radius: 12px;
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 15px;
     }
+    .assessment-title {
+      font-weight: bold;
+      color: #37474F;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .assessment-buttons {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .assessment-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 7px 16px;
+      border-radius: 20px;
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: bold;
+      transition: transform 0.2s, opacity 0.2s;
+    }
+    .assessment-btn.midterm {
+      background-color: #E3F2FD;
+      color: #1565C0;
+      border: 1px solid #BBDEFB;
+    }
+    .assessment-btn.final {
+      background-color: #FFF3E0;
+      color: #E65100;
+      border: 1px solid #FFE0B2;
+    }
+    .assessment-btn:hover {
+      transform: translateY(-2px);
+      opacity: 0.9;
+    }
+
     footer {
       background-color: #2C3E50;
       color: #A0AAB5;
       text-align: center;
-      padding: 20px;
+      padding: 25px;
       font-size: 0.9rem;
-      margin-top: 80px;
+      margin-top: 60px;
     }
   </style>
 </head>
@@ -248,16 +338,21 @@
 
     <!-- 第一冊 學習單下載按鈕 -->
     <div style="margin-bottom: 2rem; text-align: left;">
-      <a href="https://drive.google.com/file/d/1hRD77ouJphGq1wVnT49Sl2L3ynGFc8mE/view?usp=drive_link" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 6px; background-color: #ffb300; color: #2c3e50; font-size: 0.9rem; font-weight: bold; padding: 6px 14px; border-radius: 20px; text-decoration: none; box-shadow: 0 2px 4px rgba(0,0,0,0.1); transition: transform 0.2s ease;">
+      <a href="https://drive.google.com/file/d/1hRD77ouJphGq1wVnT49Sl2L3ynGFc8mE/view?usp=drive_link" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 6px; background-color: #ffb300; color: #2c3e50; font-size: 0.9rem; font-weight: bold; padding: 7px 16px; border-radius: 20px; text-decoration: none; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
         📝 下載第一冊學習單
       </a>
     </div>
 
-    <h1>📚 1-18冊 越南語互動簡報全集</h1>
-    <p class="subtitle">點擊下方各冊標題即可展開瀏覽。為了維持載入流暢，簡報將於展開時自動載入。</p>
+    <h1>📚 1-18冊 越南語互動簡報與評量專區</h1>
+    <p class="subtitle">每冊獨立層級展示，收錄 5~6 個互動單元簡報與期中、期末評量資源。</p>
 
-    <!-- 手風琴容器 -->
-    <div id="accordion-group"></div>
+    <!-- 頂部快速跳轉導覽列 -->
+    <div class="volume-nav" id="volume-quick-nav">
+      <span class="volume-nav-title">快速前往：</span>
+    </div>
+
+    <!-- 各冊一層容器 -->
+    <div id="volumes-container"></div>
   </div>
 
   <footer>
@@ -268,7 +363,7 @@
     // 預設 Canva 嵌入網址
     const defaultCanvaUrl = "https://www.canva.com/design/DAGUBnyWbm8/JmpSMyPEsMM3fXBzOUUOPA/view?embed";
 
-    // 專屬簡報資料庫：格式為 "第幾冊-第幾課"
+    // 專屬簡報資料庫
     const slideConfig = {
       "1-1": {
         embedUrl: "https://www.canva.com/design/DAHSdsZ-Ib8/1ISUZaTe8z7W9odXNNIGMA/view?embed",
@@ -321,85 +416,90 @@
         embedUrl: "https://www.canva.com/design/DAHSoonfHII/u2EOQ56vrkrZqlJ_--4ZdQ/view?embed",
         shareUrl: "https://www.canva.com/design/DAHSoonfHII/u2EOQ56vrkrZqlJ_--4ZdQ/view?utm_content=DAHSoonfHII&utm_campaign=designshare&utm_medium=embeds&utm_source=link",
         title: "國小PPT-9-04"
-      }
+      },
       "9-6": {
-  embedUrl: "https://www.canva.com/design/DAHSydKkDQw/Im94eBsMWgB_wfVi8ZzB3w/view?embed",
-  shareUrl: "https://www.canva.com/design/DAHSydKkDQw/Im94eBsMWgB_wfVi8ZzB3w/view?utm_content=DAHSydKkDQw&utm_campaign=designshare&utm_medium=embeds&utm_source=link",
-  title: "國小PPT-9-on tap 2"
-}
-    }; // 補上分號
+        embedUrl: "https://www.canva.com/design/DAHSydKkDQw/Im94eBsMWgB_wfVi8ZzB3w/view?embed",
+        shareUrl: "https://www.canva.com/design/DAHSydKkDQw/Im94eBsMWgB_wfVi8ZzB3w/view?utm_content=DAHSydKkDQw&utm_campaign=designshare&utm_medium=embeds&utm_source=link",
+        title: "國小PPT-9-on tap 2"
+      }
+    };
 
-    // 動態生成 1 至 18 冊的 HTML
-    const accordionGroup = document.getElementById('accordion-group');
-    for (let volume = 1; volume <= 18; volume++) {
-      let itemHTML = `
-        <div class="accordion-item" id="vol-${volume}">
-          <button class="accordion-header" onclick="toggleAccordion(${volume})">
-            📖 第 ${volume} 冊 越南語教學簡報
-          </button>
-          <div class="accordion-content" id="content-${volume}">
-            <div class="slides-wrapper">
-      `;
+    // 評量連結配置 (可自訂各冊網址，未設定則帶入預設搜尋或佔位頁)
+    const assessmentConfig = {
+      // 範例： "1": { midtermUrl: "https://...", finalUrl: "https://..." }
+    };
 
-      // 每一冊動態塞入 5 個簡報區塊
-      for (let lesson = 1; lesson <= 5; lesson++) {
+    const totalVolumes = 18;
+    const volumesContainer = document.getElementById('volumes-container');
+    const quickNav = document.getElementById('volume-quick-nav');
+
+    // 動態生成 1 至 18 冊「一層一冊」內容
+    for (let volume = 1; volume <= totalVolumes; volume++) {
+      // 生成頂部快速導覽標籤
+      const navLink = document.createElement('a');
+      navLink.href = `#volume-${volume}`;
+      navLink.textContent = `第 ${volume} 冊`;
+      quickNav.appendChild(navLink);
+
+      // 第 9 冊為 6 課，其餘預設可設定為 5 或 6 課
+      const lessonCount = (volume === 9) ? 6 : 5;
+
+      let slidesHTML = '';
+      for (let lesson = 1; lesson <= lessonCount; lesson++) {
         const key = `${volume}-${lesson}`;
         const slideData = slideConfig[key];
         const targetEmbed = slideData ? slideData.embedUrl : defaultCanvaUrl;
         const shareLinkHTML = slideData 
           ? `<div class="canva-credits">葉文靜 設計的 <a href="${slideData.shareUrl}" target="_blank" rel="noopener">${slideData.title}</a></div>`
-          : '';
+          : `<div class="canva-credits"><span style="color:#999;">單元簡報建置中</span></div>`;
 
-        itemHTML += `
+        slidesHTML += `
           <div class="slide-box">
             <h4>第 ${lesson} 單元 互動簡報</h4>
-            <div class="canva-container" data-src="${targetEmbed}">
-              <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: #888;">
-                ⏳ 點擊展開此冊後將載入簡報...
-              </div>
+            <div class="canva-container">
+              <iframe loading="lazy" src="${targetEmbed}" allowfullscreen="allowfullscreen" allow="fullscreen"></iframe>
             </div>
             ${shareLinkHTML}
           </div>
         `;
       }
 
-      itemHTML += `
+      // 評量按鈕連結
+      const midtermLink = (assessmentConfig[volume] && assessmentConfig[volume].midtermUrl) || "#";
+      const finalLink = (assessmentConfig[volume] && assessmentConfig[volume].finalUrl) || "#";
+
+      const floorHTML = `
+        <section class="volume-floor" id="volume-${volume}">
+          <div class="volume-header">
+            <div class="volume-title">
+              <span>📖 第 ${volume} 冊 越南語教學專區</span>
+              <span class="volume-badge">共 ${lessonCount} 單元</span>
             </div>
           </div>
-        </div>
+
+          <!-- 簡報卡片網格 -->
+          <div class="slides-grid">
+            ${slidesHTML}
+          </div>
+
+          <!-- 期中與期末評量層 -->
+          <div class="assessment-bar">
+            <div class="assessment-title">
+              📊 <strong>第 ${volume} 冊 學習評量專區</strong>
+            </div>
+            <div class="assessment-buttons">
+              <a href="${midtermLink}" class="assessment-btn midterm" target="_blank" rel="noopener">
+                📝 期中評量測驗
+              </a>
+              <a href="${finalLink}" class="assessment-btn final" target="_blank" rel="noopener">
+                🎯 期末評量測驗
+              </a>
+            </div>
+          </div>
+        </section>
       `;
-      accordionGroup.innerHTML += itemHTML;
-    }
 
-    // 手風琴展開與收合 + 智慧延遲載入控制
-    function toggleAccordion(volNum) {
-      const item = document.getElementById(`vol-${volNum}`);
-      const content = document.getElementById(`content-${volNum}`);
-      const isOpen = item.classList.contains('active');
-
-      // 關閉所有其他已打開的冊數
-      document.querySelectorAll('.accordion-item').forEach(el => {
-        el.classList.remove('active');
-        el.querySelector('.accordion-content').style.maxHeight = null;
-      });
-
-      if (!isOpen) {
-        // 展開當前冊數
-        item.classList.add('active');
-        content.style.maxHeight = content.scrollHeight + "px";
-
-        // 核心延遲載入：點開時建立 iframe
-        const lazyContainers = content.querySelectorAll('.canva-container[data-src]');
-        lazyContainers.forEach(container => {
-          const realSrc = container.getAttribute('data-src');
-          if (realSrc) {
-            container.innerHTML = `
-              <iframe loading="lazy" src="${realSrc}" allowfullscreen="allowfullscreen" allow="fullscreen"></iframe>
-            `;
-            container.removeAttribute('data-src');
-          }
-        });
-      }
+      volumesContainer.innerHTML += floorHTML;
     }
   </script>
 </body>
