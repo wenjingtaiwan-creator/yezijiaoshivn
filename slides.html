@@ -261,6 +261,9 @@
       box-sizing: border-box;
       transition: background 0.2s;
     }
+    .slide-placeholder:hover .play-btn-circle {
+      transform: scale(1.1);
+    }
     .slide-placeholder:hover {
       background: linear-gradient(135deg, #DCEDC8 0%, #C8E6C9 100%);
     }
@@ -276,9 +279,6 @@
       font-size: 1.3rem;
       box-shadow: 0 4px 10px rgba(46, 125, 50, 0.3);
       transition: transform 0.2s;
-    }
-    .slide-placeholder:hover .play-btn-circle {
-      transform: scale(1.1);
     }
     .placeholder-text {
       font-size: 0.9rem;
@@ -411,6 +411,7 @@
 
     // 專屬簡報資料庫
     const slideConfig = {
+      // 第一冊
       "1-1": {
         embedUrl: "https://www.canva.com/design/DAHSdsZ-Ib8/1ISUZaTe8z7W9odXNNIGMA/view?embed",
         shareUrl: "https://www.canva.com/design/DAHSdsZ-Ib8/1ISUZaTe8z7W9odXNNIGMA/view?utm_content=DAHSdsZ-Ib8&utm_campaign=designshare&utm_medium=embeds&utm_source=link",
@@ -438,89 +439,90 @@
       },
 
       // 第三冊
-    "3-1": {
-      embedUrl: "https://www.canva.com/design/DAHSydwLAQ0/Lnk8xNuYoCxJvLneLZIMDQ/view?embed",
-      shareUrl: "https://www.canva.com/design/DAHSydwLAQ0/Lnk8xNuYoCxJvLneLZIMDQ/view?utm_content=DAHSydwLAQ0&utm_campaign=designshare&utm_medium=embeds&utm_source=link",
-      title: "國小PPT3-01"
-    },
-    "3-2": {
-      embedUrl: "https://www.canva.com/design/DAHSyr2iUQU/a45x2DcGaqxcZCy88fuMMQ/view?embed",
-      shareUrl: "https://www.canva.com/design/DAHSyr2iUQU/a45x2DcGaqxcZCy88fuMMQ/view?utm_content=DAHSyr2iUQU&utm_campaign=designshare&utm_medium=embeds&utm_source=link",
-      title: "國小PPT-3-02"
-    },
-    "3-3": {
-      embedUrl: "https://www.canva.com/design/DAHSzFyTlcc/hupMKQH4cyZrTupiZjOfNA/view?embed",
-      shareUrl: "https://www.canva.com/design/DAHSzFyTlcc/hupMKQH4cyZrTupiZjOfNA/view?utm_content=DAHSzFyTlcc&utm_campaign=designshare&utm_medium=embeds&utm_source=link",
-      title: "國小PPT-3-03"
-    },
-    "3-4": {
-      embedUrl: "https://www.canva.com/design/DAHSzNdSi6k/XsywtQ9g4YZBzItSKvpGnQ/view?embed",
-      shareUrl: "https://www.canva.com/design/DAHSzNdSi6k/XsywtQ9g4YZBzItSKvpGnQ/view?utm_content=DAHSzNdSi6k&utm_campaign=designshare&utm_medium=embeds&utm_source=link",
-      title: "國小PPT-3-04"
-    },
-    "3-5": {
-      embedUrl: "https://www.canva.com/design/DAHSzO84ioE/rmLgP325v8mB2ssFd0TVww/view?embed",
-      shareUrl: "https://www.canva.com/design/DAHSzO84ioE/rmLgP325v8mB2ssFd0TVww/view?utm_content=DAHSzO84ioE&utm_campaign=designshare&utm_medium=embeds&utm_source=link",
-      title: "PPT-3-on tap.pdf"
-    },
+      "3-1": {
+        embedUrl: "https://www.canva.com/design/DAHSydwLAQ0/Lnk8xNuYoCxJvLneLZIMDQ/view?embed",
+        shareUrl: "https://www.canva.com/design/DAHSydwLAQ0/Lnk8xNuYoCxJvLneLZIMDQ/view?utm_content=DAHSydwLAQ0&utm_campaign=designshare&utm_medium=embeds&utm_source=link",
+        title: "國小PPT3-01"
+      },
+      "3-2": {
+        embedUrl: "https://www.canva.com/design/DAHSyr2iUQU/a45x2DcGaqxcZCy88fuMMQ/view?embed",
+        shareUrl: "https://www.canva.com/design/DAHSyr2iUQU/a45x2DcGaqxcZCy88fuMMQ/view?utm_content=DAHSyr2iUQU&utm_campaign=designshare&utm_medium=embeds&utm_source=link",
+        title: "國小PPT-3-02"
+      },
+      "3-3": {
+        embedUrl: "https://www.canva.com/design/DAHSzFyTlcc/hupMKQH4cyZrTupiZjOfNA/view?embed",
+        shareUrl: "https://www.canva.com/design/DAHSzFyTlcc/hupMKQH4cyZrTupiZjOfNA/view?utm_content=DAHSzFyTlcc&utm_campaign=designshare&utm_medium=embeds&utm_source=link",
+        title: "國小PPT-3-03"
+      },
+      "3-4": {
+        embedUrl: "https://www.canva.com/design/DAHSzNdSi6k/XsywtQ9g4YZBzItSKvpGnQ/view?embed",
+        shareUrl: "https://www.canva.com/design/DAHSzNdSi6k/XsywtQ9g4YZBzItSKvpGnQ/view?utm_content=DAHSzNdSi6k&utm_campaign=designshare&utm_medium=embeds&utm_source=link",
+        title: "國小PPT-3-04"
+      },
+      "3-5": {
+        embedUrl: "https://www.canva.com/design/DAHSzO84ioE/rmLgP325v8mB2ssFd0TVww/view?embed",
+        shareUrl: "https://www.canva.com/design/DAHSzO84ioE/rmLgP325v8mB2ssFd0TVww/view?utm_content=DAHSzO84ioE&utm_campaign=designshare&utm_medium=embeds&utm_source=link",
+        title: "PPT-3-on tap.pdf"
+      },
 
-       // 第五冊
-    "5-1": {
-      embedUrl: "https://www.canva.com/design/DAHS5wz-daw/xyArvG1CTKHIOmEwSnYSAA/view?embed",
-      shareUrl: "https://www.canva.com/design/DAHS5wz-daw/xyArvG1CTKHIOmEwSnYSAA/view?utm_content=DAHS5wz-daw&utm_campaign=designshare&utm_medium=embeds&utm_source=link",
-      title: "PPT-5-01.pdf"
-    },
-    "5-2": {
-      embedUrl: "https://www.canva.com/design/DAHS52RJq9o/_Ajb8dgs5-ICktNfaI19Bw/view?embed",
-      shareUrl: "https://www.canva.com/design/DAHS52RJq9o/_Ajb8dgs5-ICktNfaI19Bw/view?utm_content=DAHS52RJq9o&utm_campaign=designshare&utm_medium=embeds&utm_source=link",
-      title: "PPT-5-02.pdf"
-    },
-    "5-3": {
-      embedUrl: "https://www.canva.com/design/DAHS5_TIJVQ/zzSKAigDYk00msridR99TA/view?embed",
-      shareUrl: "https://www.canva.com/design/DAHS5_TIJVQ/zzSKAigDYk00msridR99TA/view?utm_content=DAHS5_TIJVQ&utm_campaign=designshare&utm_medium=embeds&utm_source=link",
-      title: "PPT-5-03.pdf"
-    },
-    "5-4": {
-      embedUrl: "https://www.canva.com/design/DAHS5w0zibo/Ev046iVd__ZW63PdevbrIw/view?embed",
-      shareUrl: "https://www.canva.com/design/DAHS5w0zibo/Ev046iVd__ZW63PdevbrIw/view?utm_content=DAHS5w0zibo&utm_campaign=designshare&utm_medium=embeds&utm_source=link",
-      title: "PPT-5-04.pdf"
-    },
-    "5-5": {
-      embedUrl: "https://www.canva.com/design/DAHS52dU0dI/pO6MI-VMXKnH_35ZioHnyw/view?embed",
-      shareUrl: "https://www.canva.com/design/DAHS52dU0dI/pO6MI-VMXKnH_35ZioHnyw/view?utm_content=DAHS52dU0dI&utm_campaign=designshare&utm_medium=embeds&utm_source=link",
-      title: "PPT-5-on tap.pdf"
-    },
-// 第七冊
-    "7-1": {
-      embedUrl: "https://www.canva.com/design/DAHSzBM5sa0/izYK-MA5hwmgIvm5Qbp4eg/view?embed",
-      shareUrl: "https://www.canva.com/design/DAHSzBM5sa0/izYK-MA5hwmgIvm5Qbp4eg/view?utm_content=DAHSzBM5sa0&utm_campaign=designshare&utm_medium=embeds&utm_source=link",
-      title: "PPT-7-01.pdf"
-    },
-    "7-2": {
-      embedUrl: "https://www.canva.com/design/DAHSzXleH1E/5Sy70X1h4UGw9L4H5PvZZg/view?embed",
-      shareUrl: "https://www.canva.com/design/DAHSzXleH1E/5Sy70X1h4UGw9L4H5PvZZg/view?utm_content=DAHSzXleH1E&utm_campaign=designshare&utm_medium=embeds&utm_source=link",
-      title: "國小PPT-7-02"
-    },
-    "7-3": {
-      embedUrl: "https://www.canva.com/design/DAHSzlqnKRA/Rkdw9rlaHvp0IFBUtEgg_w/view?embed",
-      shareUrl: "https://www.canva.com/design/DAHSzlqnKRA/Rkdw9rlaHvp0IFBUtEgg_w/view?utm_content=DAHSzlqnKRA&utm_campaign=designshare&utm_medium=embeds&utm_source=link",
-      title: "國小PPT-7-03"
-    },
-    "7-4": {
-      embedUrl: "https://www.canva.com/design/DAHSznq2HWs/ST8BftOg43mupCzu4c1pzQ/view?embed",
-      shareUrl: "https://www.canva.com/design/DAHSznq2HWs/ST8BftOg43mupCzu4c1pzQ/view?utm_content=DAHSznq2HWs&utm_campaign=designshare&utm_medium=embeds&utm_source=link",
-      title: "國小PPT-7-04"
-    },
-    "7-5": {
-      embedUrl: "https://www.canva.com/design/DAHSzewzH3I/Cv7r_kQ0ugiRJMvS4kyS-g/view?embed",
-      shareUrl: "https://www.canva.com/design/DAHSzewzH3I/Cv7r_kQ0ugiRJMvS4kyS-g/view?utm_content=DAHSzewzH3I&utm_campaign=designshare&utm_medium=embeds&utm_source=link",
-      title: "國小PPT-7-on tap 1"
-    },
-    "7-6": {
-      embedUrl: "https://www.canva.com/design/DAHS5xES67E/9Dq1KwKGhb20hTvHE0Sa9A/view?embed",
-      shareUrl: "https://www.canva.com/design/DAHS5xES67E/9Dq1KwKGhb20hTvHE0Sa9A/view?utm_content=DAHS5xES67E&utm_campaign=designshare&utm_medium=embeds&utm_source=link",
-      title: "PPT-7-on tap 2.pdf"
-    },
+      // 第五冊
+      "5-1": {
+        embedUrl: "https://www.canva.com/design/DAHS5wz-daw/xyArvG1CTKHIOmEwSnYSAA/view?embed",
+        shareUrl: "https://www.canva.com/design/DAHS5wz-daw/xyArvG1CTKHIOmEwSnYSAA/view?utm_content=DAHS5wz-daw&utm_campaign=designshare&utm_medium=embeds&utm_source=link",
+        title: "PPT-5-01.pdf"
+      },
+      "5-2": {
+        embedUrl: "https://www.canva.com/design/DAHS52RJq9o/_Ajb8dgs5-ICktNfaI19Bw/view?embed",
+        shareUrl: "https://www.canva.com/design/DAHS52RJq9o/_Ajb8dgs5-ICktNfaI19Bw/view?utm_content=DAHS52RJq9o&utm_campaign=designshare&utm_medium=embeds&utm_source=link",
+        title: "PPT-5-02.pdf"
+      },
+      "5-3": {
+        embedUrl: "https://www.canva.com/design/DAHS5_TIJVQ/zzSKAigDYk00msridR99TA/view?embed",
+        shareUrl: "https://www.canva.com/design/DAHS5_TIJVQ/zzSKAigDYk00msridR99TA/view?utm_content=DAHS5_TIJVQ&utm_campaign=designshare&utm_medium=embeds&utm_source=link",
+        title: "PPT-5-03.pdf"
+      },
+      "5-4": {
+        embedUrl: "https://www.canva.com/design/DAHS5w0zibo/Ev046iVd__ZW63PdevbrIw/view?embed",
+        shareUrl: "https://www.canva.com/design/DAHS5w0zibo/Ev046iVd__ZW63PdevbrIw/view?utm_content=DAHS5w0zibo&utm_campaign=designshare&utm_medium=embeds&utm_source=link",
+        title: "PPT-5-04.pdf"
+      },
+      "5-5": {
+        embedUrl: "https://www.canva.com/design/DAHS52dU0dI/pO6MI-VMXKnH_35ZioHnyw/view?embed",
+        shareUrl: "https://www.canva.com/design/DAHS52dU0dI/pO6MI-VMXKnH_35ZioHnyw/view?utm_content=DAHS52dU0dI&utm_campaign=designshare&utm_medium=embeds&utm_source=link",
+        title: "PPT-5-on tap.pdf"
+      },
+
+      // 第七冊
+      "7-1": {
+        embedUrl: "https://www.canva.com/design/DAHSzBM5sa0/izYK-MA5hwmgIvm5Qbp4eg/view?embed",
+        shareUrl: "https://www.canva.com/design/DAHSzBM5sa0/izYK-MA5hwmgIvm5Qbp4eg/view?utm_content=DAHSzBM5sa0&utm_campaign=designshare&utm_medium=embeds&utm_source=link",
+        title: "PPT-7-01.pdf"
+      },
+      "7-2": {
+        embedUrl: "https://www.canva.com/design/DAHSzXleH1E/5Sy70X1h4UGw9L4H5PvZZg/view?embed",
+        shareUrl: "https://www.canva.com/design/DAHSzXleH1E/5Sy70X1h4UGw9L4H5PvZZg/view?utm_content=DAHSzXleH1E&utm_campaign=designshare&utm_medium=embeds&utm_source=link",
+        title: "國小PPT-7-02"
+      },
+      "7-3": {
+        embedUrl: "https://www.canva.com/design/DAHSzlqnKRA/Rkdw9rlaHvp0IFBUtEgg_w/view?embed",
+        shareUrl: "https://www.canva.com/design/DAHSzlqnKRA/Rkdw9rlaHvp0IFBUtEgg_w/view?utm_content=DAHSzlqnKRA&utm_campaign=designshare&utm_medium=embeds&utm_source=link",
+        title: "國小PPT-7-03"
+      },
+      "7-4": {
+        embedUrl: "https://www.canva.com/design/DAHSznq2HWs/ST8BftOg43mupCzu4c1pzQ/view?embed",
+        shareUrl: "https://www.canva.com/design/DAHSznq2HWs/ST8BftOg43mupCzu4c1pzQ/view?utm_content=DAHSznq2HWs&utm_campaign=designshare&utm_medium=embeds&utm_source=link",
+        title: "國小PPT-7-04"
+      },
+      "7-5": {
+        embedUrl: "https://www.canva.com/design/DAHSzewzH3I/Cv7r_kQ0ugiRJMvS4kyS-g/view?embed",
+        shareUrl: "https://www.canva.com/design/DAHSzewzH3I/Cv7r_kQ0ugiRJMvS4kyS-g/view?utm_content=DAHSzewzH3I&utm_campaign=designshare&utm_medium=embeds&utm_source=link",
+        title: "國小PPT-7-on tap 1"
+      },
+      "7-6": {
+        embedUrl: "https://www.canva.com/design/DAHS5xES67E/9Dq1KwKGhb20hTvHE0Sa9A/view?embed",
+        shareUrl: "https://www.canva.com/design/DAHS5xES67E/9Dq1KwKGhb20hTvHE0Sa9A/view?utm_content=DAHS5xES67E&utm_campaign=designshare&utm_medium=embeds&utm_source=link",
+        title: "PPT-7-on tap 2.pdf"
+      },
       
       // 第九冊
       "9-1": {
@@ -552,35 +554,35 @@
         embedUrl: "https://www.canva.com/design/DAHSydKkDQw/Im94eBsMWgB_wfVi8ZzB3w/view?embed",
         shareUrl: "https://www.canva.com/design/DAHSydKkDQw/Im94eBsMWgB_wfVi8ZzB3w/view?utm_content=DAHSydKkDQw&utm_campaign=designshare&utm_medium=embeds&utm_source=link",
         title: "國小PPT-9-on tap 2"
+      },
+
+      // 第十一冊
+      "11-1": {
+        embedUrl: "https://www.canva.com/design/DAHS6izQiEY/XlntFctYO-9aP9iJk-nDrg/view?embed",
+        shareUrl: "https://www.canva.com/design/DAHS6izQiEY/XlntFctYO-9aP9iJk-nDrg/view?utm_content=DAHS6izQiEY&utm_campaign=designshare&utm_medium=embeds&utm_source=link",
+        title: "PPT-11-01.pdf"
+      },
+      "11-2": {
+        embedUrl: "https://www.canva.com/design/DAHS6vBQ0Pg/mZdnRVxkoo6MVHh6omq5IA/view?embed",
+        shareUrl: "https://www.canva.com/design/DAHS6vBQ0Pg/mZdnRVxkoo6MVHh6omq5IA/view?utm_content=DAHS6vBQ0Pg&utm_campaign=designshare&utm_medium=embeds&utm_source=link",
+        title: "PPT-11-02.pdf"
+      },
+      "11-3": {
+        embedUrl: "https://www.canva.com/design/DAHS6nXA9CA/4oLHNoS5zlDjFj1mCVG1NQ/view?embed",
+        shareUrl: "https://www.canva.com/design/DAHS6nXA9CA/4oLHNoS5zlDjFj1mCVG1NQ/view?utm_content=DAHS6nXA9CA&utm_campaign=designshare&utm_medium=embeds&utm_source=link",
+        title: "PPT-11-03.pdf"
+      },
+      "11-4": {
+        embedUrl: "https://www.canva.com/design/DAHS7ZwqW6g/u1BJxDjcx65NgptiWinZCA/view?embed",
+        shareUrl: "https://www.canva.com/design/DAHS7ZwqW6g/u1BJxDjcx65NgptiWinZCA/view?utm_content=DAHS7ZwqW6g&utm_campaign=designshare&utm_medium=embeds&utm_source=link",
+        title: "PPT-11-04.pdf"
+      },
+      "11-5": {
+        embedUrl: "https://www.canva.com/design/DAHS7d7Yifc/1Dr4UC0GTHzoXll_oPLgWA/view?embed",
+        shareUrl: "https://www.canva.com/design/DAHS7d7Yifc/1Dr4UC0GTHzoXll_oPLgWA/view?utm_content=DAHS7d7Yifc&utm_campaign=designshare&utm_medium=embeds&utm_source=link",
+        title: "PPT-11-on tap .pdf"
       }
     };
-
-    // 第十一冊
-    "11-1": {
-      embedUrl: "https://www.canva.com/design/DAHS6izQiEY/XlntFctYO-9aP9iJk-nDrg/view?embed",
-      shareUrl: "https://www.canva.com/design/DAHS6izQiEY/XlntFctYO-9aP9iJk-nDrg/view?utm_content=DAHS6izQiEY&utm_campaign=designshare&utm_medium=embeds&utm_source=link",
-      title: "PPT-11-01.pdf"
-    },
-    "11-2": {
-      embedUrl: "https://www.canva.com/design/DAHS6vBQ0Pg/mZdnRVxkoo6MVHh6omq5IA/view?embed",
-      shareUrl: "https://www.canva.com/design/DAHS6vBQ0Pg/mZdnRVxkoo6MVHh6omq5IA/view?utm_content=DAHS6vBQ0Pg&utm_campaign=designshare&utm_medium=embeds&utm_source=link",
-      title: "PPT-11-02.pdf"
-    },
-    "11-3": {
-      embedUrl: "https://www.canva.com/design/DAHS6nXA9CA/4oLHNoS5zlDjFj1mCVG1NQ/view?embed",
-      shareUrl: "https://www.canva.com/design/DAHS6nXA9CA/4oLHNoS5zlDjFj1mCVG1NQ/view?utm_content=DAHS6nXA9CA&utm_campaign=designshare&utm_medium=embeds&utm_source=link",
-      title: "PPT-11-03.pdf"
-    },
-    "11-4": {
-      embedUrl: "https://www.canva.com/design/DAHS7ZwqW6g/u1BJxDjcx65NgptiWinZCA/view?embed",
-      shareUrl: "https://www.canva.com/design/DAHS7ZwqW6g/u1BJxDjcx65NgptiWinZCA/view?utm_content=DAHS7ZwqW6g&utm_campaign=designshare&utm_medium=embeds&utm_source=link",
-      title: "PPT-11-04.pdf"
-    },
-    "11-5": {
-      embedUrl: "https://www.canva.com/design/DAHS7d7Yifc/1Dr4UC0GTHzoXll_oPLgWA/view?embed",
-      shareUrl: "https://www.canva.com/design/DAHS7d7Yifc/1Dr4UC0GTHzoXll_oPLgWA/view?utm_content=DAHS7d7Yifc&utm_campaign=designshare&utm_medium=embeds&utm_source=link",
-      title: "PPT-11-on tap .pdf"
-    },
 
     // 評量連結配置
     const assessmentConfig = {};
@@ -597,7 +599,7 @@
       navLink.textContent = `第 ${volume} 冊`;
       quickNav.appendChild(navLink);
 
-      const lessonCount = (volume === 9) ? 6 : 5;
+      const lessonCount = (volume === 7 || volume === 9) ? 6 : 5;
 
       let slidesHTML = '';
       for (let lesson = 1; lesson <= lessonCount; lesson++) {
