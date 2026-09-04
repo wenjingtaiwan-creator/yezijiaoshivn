@@ -413,14 +413,7 @@
       <img src="越南字母表-B1海報-01.jpg" alt="越南字母表 B1 海報" style="width: 100%; max-width: 900px; height: auto; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); display: inline-block;">
     </div>
 
-    <!-- 第一冊 學習單下載按鈕 -->
-    <div style="margin-bottom: 2rem; text-align: left;">
-      <a href="https://drive.google.com/file/d/1hRD77ouJphGq1wVnT49Sl2L3ynGFc8mE/view?usp=drive_link" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 6px; background-color: #ffb300; color: #2c3e50; font-size: 0.9rem; font-weight: bold; padding: 7px 16px; border-radius: 20px; text-decoration: none; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
-        📝 下載第一冊學習單
-      </a>
-    </div>
-
-    <div style="position: relative; width: 100%; max-width: 800px; margin: 20px auto; aspect-ratio: 16 / 9; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+   <div style="position: relative; width: 100%; max-width: 800px; margin: 20px auto; aspect-ratio: 16 / 9; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
   <iframe 
     src="https://www.youtube.com/embed/yqsux6Y1D1M" 
     title="YouTube video player" 
@@ -788,7 +781,11 @@
     };
     
     // 評量連結配置
-    const assessmentConfig = {};
+    const assessmentConfig = {
+  1: {
+    finalUrl: "https://drive.google.com/file/d/1hRD77ouJphGq1wVnT49Sl2L3ynGFc8mE/view?usp=drive_link"
+  }
+};
 
     const totalVolumes = 18;
     const volumesContainer = document.getElementById('volumes-container');
