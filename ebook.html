@@ -128,6 +128,7 @@
             border-radius: 8px;
         }
 
+        /* 簡報容器 */
         .canva-wrapper {
             position: relative;
             width: 100%;
@@ -151,19 +152,35 @@
             margin: 0;
         }
 
-        .canva-credits {
+        /* Scratch 遊戲容器 */
+        .scratch-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 1em;
+            margin-bottom: 0.9em;
+        }
+
+        .scratch-wrapper iframe {
+            max-width: 100%;
+            border: none;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16);
+        }
+
+        .card-credits {
             font-size: 0.9rem;
             color: #666;
             margin-top: 8px;
         }
 
-        .canva-credits a {
+        .card-credits a {
             color: var(--primary-color);
             text-decoration: none;
             font-weight: bold;
         }
 
-        .canva-credits a:hover {
+        .card-credits a:hover {
             text-decoration: underline;
         }
 
@@ -179,7 +196,7 @@
 </head>
 <body>
 
-    <!-- 頂部導覽列（已移除線上白板與老師點名） -->
+    <!-- 頂部導覽列 -->
     <header>
         <div class="nav-container">
             <a href="index.html" class="logo">🍃 葉子教室越南語</a>
@@ -192,27 +209,38 @@
         </div>
     </header>
 
-    <!-- 與首頁完全相同的橫幅區塊 -->
+    <!-- 橫幅區塊 -->
     <section class="hero"></section>
 
     <!-- 內容展示區 -->
     <div class="container">
         <h3 class="section-title">自編教材與電子書</h3>
 
-        <!-- 電子書卡片 -->
+        <!-- 1. 電子書卡片 -->
         <div class="card">
             <h4>📖 線上越南語翻頁電子書</h4>
             <iframe allowfullscreen="allowfullscreen" allow="autoplay; fullscreen; clipboard-write" scrolling="no" class="fp-iframe" src="https://heyzine.com/flip-book/2fd1bc3435.html"></iframe>
         </div>
 
-        <!-- 拼讀簡報卡片 -->
+        <!-- 2. 拼讀簡報卡片 -->
         <div class="card" style="border-top-color: #FFB300;">
             <h4>📑 拼讀教學簡報</h4>
             <div class="canva-wrapper">
                 <iframe loading="lazy" src="https://www.canva.com/design/DAHUkb84nVg/h1AfA9tK6kJuo7A82i6bIw/view?embed" allowfullscreen="allowfullscreen" allow="fullscreen"></iframe>
             </div>
-            <div class="canva-credits">
+            <div class="card-credits">
                 葉文靜 設計的 <a href="https://www.canva.com/design/DAHUkb84nVg/h1AfA9tK6kJuo7A82i6bIw/view?utm_content=DAHUkb84nVg&amp;utm_campaign=designshare&amp;utm_medium=embeds&amp;utm_source=link" target="_blank" rel="noopener">2-字母與拼讀法.pptx</a>
+            </div>
+        </div>
+
+        <!-- 3. Scratch 互動遊戲卡片 -->
+        <div class="card" style="border-top-color: #4CAF50;">
+            <h4>🎮 互動學習遊戲</h4>
+            <div class="scratch-wrapper">
+                <iframe src="https://scratch.mit.edu/projects/1132958403/embed" allowtransparency="true" width="485" height="402" frameborder="0" scrolling="no" allowfullscreen></iframe>
+            </div>
+            <div class="card-credits">
+                點擊綠旗即可開始遊玩；若無法載入，可直接前往 <a href="https://scratch.mit.edu/projects/1132958403" target="_blank" rel="noopener">Scratch 遊戲頁面</a>。
             </div>
         </div>
     </div>
