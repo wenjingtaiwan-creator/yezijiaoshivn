@@ -1,109 +1,211 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>教學資源與電子書</title>
-  <style>
-    body {
-      margin: 0;
-      padding: 32px 16px;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans TC", sans-serif;
-      background-color: #f8fafc;
-      color: #1e293b;
-      line-height: 1.6;
-    }
-    .container {
-      max-width: 960px;
-      margin: 0 auto;
-    }
-    .back-link {
-      display: inline-flex;
-      align-items: center;
-      margin-bottom: 24px;
-      color: #2563eb;
-      text-decoration: none;
-      font-weight: 500;
-    }
-    .back-link:hover {
-      text-decoration: underline;
-    }
-    .card {
-      background: #ffffff;
-      border-radius: 12px;
-      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.08);
-      padding: 24px;
-      margin-bottom: 32px;
-    }
-    h2 {
-      margin-top: 0;
-      margin-bottom: 16px;
-      font-size: 1.5rem;
-      border-bottom: 2px solid #e2e8f0;
-      padding-bottom: 8px;
-    }
-    .fp-iframe {
-      width: 100%;
-      height: 550px;
-      border: 1px solid #e2e8f0;
-      border-radius: 8px;
-    }
-    .canva-wrapper {
-      position: relative;
-      width: 100%;
-      height: 0;
-      padding-top: 75%;
-      box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16);
-      margin-top: 1.2em;
-      margin-bottom: 0.9em;
-      overflow: hidden;
-      border-radius: 8px;
-    }
-    .canva-wrapper iframe {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      top: 0;
-      left: 0;
-      border: none;
-      padding: 0;
-      margin: 0;
-    }
-    .caption {
-      font-size: 0.95rem;
-      color: #64748b;
-    }
-    .caption a {
-      color: #2563eb;
-      text-decoration: none;
-    }
-    .caption a:hover {
-      text-decoration: underline;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>自編教材與電子書 - 葉子老師的越南語教學網</title>
+    <style>
+        :root {
+            --primary-color: #2E7D32;
+            --secondary-color: #81C784;
+            --accent-color: #FFB300;
+            --dark-color: #1E293B;
+            --light-color: #F8FAFC;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans TC", sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--light-color);
+            color: var(--dark-color);
+            line-height: 1.6;
+        }
+
+        /* 頂部導覽列 */
+        header {
+            background-color: #ffffff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 20px;
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 1.25rem;
+            color: var(--primary-color);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        nav a {
+            color: #4B5563;
+            text-decoration: none;
+            margin-left: 20px;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        /* 橫幅 Banner */
+        .hero-banner {
+            background: linear-gradient(135deg, #2E7D32 0%, #1B5E20 100%);
+            color: #ffffff;
+            text-align: center;
+            padding: 48px 20px;
+            box-shadow: inset 0 -2px 10px rgba(0,0,0,0.1);
+        }
+
+        .hero-banner h1 {
+            margin: 0 0 12px 0;
+            font-size: 2rem;
+            letter-spacing: 0.5px;
+        }
+
+        .hero-banner p {
+            margin: 0 auto;
+            max-width: 600px;
+            font-size: 1.05rem;
+            color: #E8F5E9;
+        }
+
+        /* 內容容器與卡片 */
+        .container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .card {
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            padding: 28px;
+            margin-bottom: 36px;
+            border-top: 4px solid var(--primary-color);
+        }
+
+        .card h2 {
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-size: 1.4rem;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .fp-iframe {
+            width: 100%;
+            height: 600px;
+            border: 1px solid #E2E8F0;
+            border-radius: 8px;
+        }
+
+        .canva-wrapper {
+            position: relative;
+            width: 100%;
+            height: 0;
+            padding-top: 56.25%; /* 16:9 比例展示簡報 */
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            margin: 16px 0;
+            overflow: hidden;
+            border-radius: 8px;
+        }
+
+        .canva-wrapper iframe {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            border: none;
+        }
+
+        .caption {
+            font-size: 0.95rem;
+            color: #64748B;
+            margin-top: 8px;
+        }
+
+        .caption a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .caption a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            text-align: center;
+            padding: 24px;
+            color: #94A3B8;
+            font-size: 0.9rem;
+        }
+    </style>
 </head>
 <body>
 
-  <div class="container">
-    <a href="index.html" class="back-link">← 返回首頁</a>
+    <!-- 主頁樣式導覽列 -->
+    <header>
+        <div class="nav-container">
+            <a href="index.html" class="logo">🌿 葉子老師的越南語教學網</a>
+            <nav>
+                <a href="index.html">首頁</a>
+                <a href="index.html#teaching">教學資源</a>
+                <a href="index.html#learning">學習資源</a>
+                <a href="ebook.html" class="active">自編教材</a>
+            </nav>
+        </div>
+    </header>
 
-    <!-- 電子書展示區塊 -->
-    <div class="card">
-      <h2>電子書教材</h2>
-      <iframe allowfullscreen="allowfullscreen" allow="autoplay; fullscreen; clipboard-write" scrolling="no" class="fp-iframe" src="https://heyzine.com/flip-book/2fd1bc3435.html"></iframe>
+    <!-- 頂部綠色主題橫幅 -->
+    <div class="hero-banner">
+        <h1>📖 自編教材與教學簡報</h1>
+        <p>提供線上互動翻頁電子書與課程簡報，助您輕鬆掌握越南語拼讀與日常實用對話。</p>
     </div>
 
-    <!-- 教學簡報區塊 -->
-    <div class="card">
-      <h2>教學簡報</h2>
-      <div class="canva-wrapper">
-        <iframe loading="lazy" src="https://www.canva.com/design/DAHUkb84nVg/h1AfA9tK6kJuo7A82i6bIw/view?embed" allowfullscreen="allowfullscreen" allow="fullscreen"></iframe>
-      </div>
-      <div class="caption">
-        葉文靜 設計的 <a href="https://www.canva.com/design/DAHUkb84nVg/h1AfA9tK6kJuo7A82i6bIw/view?utm_content=DAHUkb84nVg&amp;utm_campaign=designshare&amp;utm_medium=embeds&amp;utm_source=link" target="_blank" rel="noopener">2-字母與拼讀法.pptx</a>
-      </div>
+    <!-- 主要內容區 -->
+    <div class="container">
+        <!-- 電子書展示 -->
+        <div class="card">
+            <h2>📚 線上翻頁電子書</h2>
+            <iframe allowfullscreen="allowfullscreen" allow="autoplay; fullscreen; clipboard-write" scrolling="no" class="fp-iframe" src="https://heyzine.com/flip-book/2fd1bc3435.html"></iframe>
+        </div>
+
+        <!-- 教學簡報展示 -->
+        <div class="card" style="border-top-color: var(--accent-color);">
+            <h2>📑 拼讀教學簡報</h2>
+            <div class="canva-wrapper">
+                <iframe loading="lazy" src="https://www.canva.com/design/DAHUkb84nVg/h1AfA9tK6kJuo7A82i6bIw/view?embed" allowfullscreen="allowfullscreen" allow="fullscreen"></iframe>
+            </div>
+            <div class="caption">
+                葉文靜 設計的 <a href="https://www.canva.com/design/DAHUkb84nVg/h1AfA9tK6kJuo7A82i6bIw/view?utm_content=DAHUkb84nVg&amp;utm_campaign=designshare&amp;utm_medium=embeds&amp;utm_source=link" target="_blank" rel="noopener">2-字母與拼讀法.pptx</a>
+            </div>
+        </div>
     </div>
-  </div>
+
+    <footer>
+        <p>© 葉子老師越南語教學 版權所有</p>
+    </footer>
 
 </body>
 </html>
