@@ -128,6 +128,7 @@
         nav a.highlight-nav {
             color: #e91e63;
             font-weight: bold;
+            cursor: pointer;
         }
 
         nav a.highlight-nav:hover {
@@ -244,6 +245,7 @@
             transition: 0.3s;
             text-align: center;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            cursor: pointer;
         }
 
         .card-action-btn:hover {
@@ -413,7 +415,7 @@
                 <a href="#teaching">教學資源</a>
                 <a href="#learning">學習資源</a>
                 <a href="#contact">聯絡我們</a>
-                <a href="https://hudongzuoye-2026.ai.studio/" target="_blank" class="highlight-nav">📝 互動作業區</a>
+                <a href="javascript:void(0)" onclick="openHomework()" class="highlight-nav">📝 作業區</a>
                 <a href="https://pos-775650670978.asia-southeast1.run.app" target="_blank" rel="noopener noreferrer" class="roll-call-nav">📝 老師點名</a>
             </nav>
         </div>
@@ -479,14 +481,14 @@
                     </div>
                 </div>
 
-                <!-- 第四區塊：互動作業區卡片 -->
+                <!-- 第四區塊：作業區卡片 -->
                 <div class="card" style="border-top-color: #e91e63;">
                     <div>
-                        <h4 style="margin-top: 0; color: #e91e63;">📝 互動作業區</h4>
+                        <h4 style="margin-top: 0; color: #e91e63;">📝 作業區</h4>
                         <p>課堂作業與線上互動專區</p>
                     </div>
                     <div>
-                        <a href="https://hudongzuoye-2026.ai.studio/" target="_blank" class="card-action-btn" style="background-color: #e91e63;">開啟互動作業區 ➔</a>
+                        <a href="javascript:void(0)" onclick="openHomework()" class="card-action-btn" style="background-color: #e91e63;">開啟作業區 ➔</a>
                     </div>
                 </div>
 
@@ -575,6 +577,19 @@
 
     <!-- 腳本區域 -->
     <script>
+    // 作業區密碼驗證
+    function openHomework() {
+        const pwd = prompt("請輸入作業區密碼：");
+        if (pwd === null) {
+            return;
+        }
+        if (pwd === "nehs") {
+            window.open("https://hudongzuoye-2026.ai.studio/", "_blank");
+        } else {
+            alert("密碼錯誤，請重新輸入！");
+        }
+    }
+
     // 地圖縮放與拖曳腳本
     const zoomLevels = [
         { scale: 0.6, label: "Level 1 (60%)" },
