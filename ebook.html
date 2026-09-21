@@ -10,7 +10,7 @@
             --secondary-color: #81C784;  /* 淺綠 */
             --accent-color: #FFB300;     /* 亮眼芒果黃 */
             --text-color: #2C3E50;
-            --bg-light: #F9FBFA;         /* 舒服的淺米綠底色 */
+            --bg-light: #F9FBFA;         /* 淺米綠底色 */
         }
 
         body {
@@ -68,7 +68,7 @@
 
         /* 頁面主體容器 */
         .container {
-            max-width: 900px;
+            max-width: 1000px;
             margin: 40px auto;
             padding: 0 20px;
         }
@@ -104,20 +104,43 @@
             margin: 0;
         }
 
+        /* 分區外框 */
+        .section-box {
+            margin-bottom: 60px;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 8px;
+        }
+
+        .section-desc {
+            color: #666;
+            margin-top: 0;
+            margin-bottom: 24px;
+            font-size: 0.95rem;
+        }
+
         /* 內容卡片共用樣式 */
         .card {
             background: #ffffff;
             border-radius: 12px;
-            padding: 30px;
-            margin-bottom: 40px;
+            padding: 28px;
+            margin-bottom: 30px;
             box-shadow: 0 8px 24px rgba(0,0,0,0.04);
             border-top: 4px solid var(--primary-color);
         }
 
-        .card h3, .card h4 {
+        .card h3 {
             color: var(--primary-color);
             margin-top: 0;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
             display: flex;
             align-items: center;
             gap: 8px;
@@ -152,7 +175,7 @@
 
         /* Canva 註腳來源 */
         .card-credits {
-            margin-top: 12px;
+            margin-top: 10px;
             text-align: right;
             font-size: 0.85rem;
             color: #888;
@@ -167,19 +190,32 @@
             text-decoration: underline;
         }
 
-        /* 音樂分享一排3個網格版面 */
+        /* 音樂分享一排3個卡片網格 */
         .music-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 20px;
         }
 
-        .music-item {
+        .music-item-card {
+            background: #ffffff;
+            border-radius: 10px;
+            padding: 16px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.04);
+            border-top: 3px solid #E91E63;
             display: flex;
             flex-direction: column;
+            justify-content: space-between;
         }
 
-        @media (max-width: 768px) {
+        .music-item-card h4 {
+            margin-top: 0;
+            margin-bottom: 12px;
+            color: #333;
+            font-size: 1rem;
+        }
+
+        @media (max-width: 820px) {
             .music-grid {
                 grid-template-columns: 1fr;
             }
@@ -208,53 +244,61 @@
 
     <div class="container">
         <div class="page-header">
-            <h2>自編教材與簡報</h2>
-            <p>點擊可直接全螢幕瀏覽數位簡報與教學內容</p>
+            <h2>教學教材與音樂分享</h2>
+            <p>點擊可直接全螢幕瀏覽數位簡報與影音內容</p>
         </div>
 
-        <!-- 1. 高中01 簡報卡片 -->
-        <div class="card">
-            <h3>📖 高中01 自編教材</h3>
-            <p>本教材針對高中初學者設計，搭配生動圖文與日常實用語句練習。</p>
-            <div class="canva-wrapper" style="padding-top: 55.8342%;">
-                <iframe loading="lazy" src="https://www.canva.com/design/DAHSdb_lg-s/imWyVi1cEBB2sRBogq-8kg/view?embed" allowfullscreen="allowfullscreen" allow="fullscreen"></iframe>
-            </div>
-            <div class="card-credits">
-                葉文靜 設計的 <a href="https://www.canva.com/design/DAHSdb_lg-s/imWyVi1cEBB2sRBogq-8kg/view?utm_content=DAHSdb_lg-s&amp;utm_campaign=designshare&amp;utm_medium=embeds&amp;utm_source=link" target="_blank" rel="noopener">高中01</a>
-            </div>
-        </div>
+        <!-- ================= 第一區：教學簡報 ================= -->
+        <section class="section-box">
+            <h3 class="section-title">📚 教學教材簡報</h3>
+            <p class="section-desc">包含高中初學自編教材、進階語句演練與在地文化分享。</p>
 
-        <!-- 2. 越南網事 簡報卡片 -->
-        <div class="card" style="border-top-color: #0288D1;">
-            <h3>🌐 越南網事</h3>
-            <p>探索越南在地網路生活、文化趨勢與流行用語。</p>
-            <div class="canva-wrapper" style="padding-top: 56.25%;">
-                <iframe loading="lazy" src="https://www.canva.com/design/DAHCkg9O8cw/h_lf6mXy86TfL4qV2PBMYA/view?embed" allowfullscreen="allowfullscreen" allow="fullscreen"></iframe>
+            <!-- 1. 高中01 簡報卡片 -->
+            <div class="card">
+                <h3>📖 高中01 自編教材</h3>
+                <p>本教材針對高中初學者設計，搭配生動圖文與日常實用語句練習。</p>
+                <div class="canva-wrapper" style="padding-top: 55.8342%;">
+                    <iframe loading="lazy" src="https://www.canva.com/design/DAHSdb_lg-s/imWyVi1cEBB2sRBogq-8kg/view?embed" allowfullscreen="allowfullscreen" allow="fullscreen"></iframe>
+                </div>
+                <div class="card-credits">
+                    葉文靜 設計的 <a href="https://www.canva.com/design/DAHSdb_lg-s/imWyVi1cEBB2sRBogq-8kg/view?utm_content=DAHSdb_lg-s&amp;utm_campaign=designshare&amp;utm_medium=embeds&amp;utm_source=link" target="_blank" rel="noopener">高中01</a>
+                </div>
             </div>
-            <div class="card-credits">
-                葉文靜 設計的 <a href="https://www.canva.com/design/DAHCkg9O8cw/h_lf6mXy86TfL4qV2PBMYA/view?utm_content=DAHCkg9O8cw&amp;utm_campaign=designshare&amp;utm_medium=embeds&amp;utm_source=link" target="_blank" rel="noopener">越南網事</a>
-            </div>
-        </div>
 
-        <!-- 3. 115 B1 簡報卡片 -->
-        <div class="card" style="border-top-color: #FFB300;">
-            <h3>📘 115 B1 電子教材</h3>
-            <p>深入的進階會話與句型演練教材簡報。</p>
-            <div class="canva-wrapper" style="padding-top: 56.25%;">
-                <iframe loading="lazy" src="https://www.canva.com/design/DAHD01sU7hI/2Rvh7c81l00Y6gR2Vj14Xw/view?embed" allowfullscreen="allowfullscreen" allow="fullscreen"></iframe>
+            <!-- 2. 越南網事 簡報卡片 -->
+            <div class="card" style="border-top-color: #0288D1;">
+                <h3>🌐 越南網事</h3>
+                <p>探索越南在地網路生活、文化趨勢與流行用語。</p>
+                <div class="canva-wrapper" style="padding-top: 56.25%;">
+                    <iframe loading="lazy" src="https://www.canva.com/design/DAHCkg9O8cw/h_lf6mXy86TfL4qV2PBMYA/view?embed" allowfullscreen="allowfullscreen" allow="fullscreen"></iframe>
+                </div>
+                <div class="card-credits">
+                    葉文靜 設計的 <a href="https://www.canva.com/design/DAHCkg9O8cw/h_lf6mXy86TfL4qV2PBMYA/view?utm_content=DAHCkg9O8cw&amp;utm_campaign=designshare&amp;utm_medium=embeds&amp;utm_source=link" target="_blank" rel="noopener">越南網事</a>
+                </div>
             </div>
-            <div class="card-credits">
-                葉文靜 設計的 <a href="https://www.canva.com/design/DAHD01sU7hI/2Rvh7c81l00Y6gR2Vj14Xw/view?utm_content=DAHD01sU7hI&amp;utm_campaign=designshare&amp;utm_medium=embeds&amp;utm_source=link" target="_blank" rel="noopener">115 B1</a>
-            </div>
-        </div>
 
-        <!-- 4. 音樂分享簡報卡片 (一排3個) -->
-        <div class="card" style="border-top-color: #E91E63;">
-            <h4>🎵 音樂分享簡報</h4>
+            <!-- 3. 115 B1 簡報卡片 -->
+            <div class="card" style="border-top-color: #FFB300;">
+                <h3>📘 115 B1 電子教材</h3>
+                <p>深入的進階會話與句型演練教材簡報。</p>
+                <div class="canva-wrapper" style="padding-top: 56.25%;">
+                    <iframe loading="lazy" src="https://www.canva.com/design/DAHD01sU7hI/2Rvh7c81l00Y6gR2Vj14Xw/view?embed" allowfullscreen="allowfullscreen" allow="fullscreen"></iframe>
+                </div>
+                <div class="card-credits">
+                    葉文靜 設計的 <a href="https://www.canva.com/design/DAHD01sU7hI/2Rvh7c81l00Y6gR2Vj14Xw/view?utm_content=DAHD01sU7hI&amp;utm_campaign=designshare&amp;utm_medium=embeds&amp;utm_source=link" target="_blank" rel="noopener">115 B1</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= 第二區：音樂分享 ================= -->
+        <section class="section-box">
+            <h3 class="section-title">🎵 音樂分享專區</h3>
+            <p class="section-desc">精選越南流行歌曲與音樂簡報分享（一排 3 個呈現）。</p>
+
             <div class="music-grid">
-                
                 <!-- 第一個 -->
-                <div class="music-item">
+                <div class="music-item-card">
+                    <h4>高中01 音樂分享</h4>
                     <div class="canva-wrapper" style="padding-top: 55.8342%;">
                         <iframe loading="lazy" src="https://www.canva.com/design/DAHSdb_lg-s/imWyVi1cEBB2sRBogq-8kg/view?embed" allowfullscreen="allowfullscreen" allow="fullscreen"></iframe>
                     </div>
@@ -264,7 +308,8 @@
                 </div>
 
                 <!-- 第二個 -->
-                <div class="music-item">
+                <div class="music-item-card">
+                    <h4>越南網事 音樂分享</h4>
                     <div class="canva-wrapper" style="padding-top: 56.25%;">
                         <iframe loading="lazy" src="https://www.canva.com/design/DAHCkg9O8cw/h_lf6mXy86TfL4qV2PBMYA/view?embed" allowfullscreen="allowfullscreen" allow="fullscreen"></iframe>
                     </div>
@@ -274,7 +319,8 @@
                 </div>
 
                 <!-- 第三個 -->
-                <div class="music-item">
+                <div class="music-item-card">
+                    <h4>Giận Mà Thương / Giận Đang Yêu Không</h4>
                     <div class="canva-wrapper" style="padding-top: 75%;">
                         <iframe loading="lazy" src="https://www.canva.com/design/DAHV0y98S2o/m3f32hEsyB3tq_glold0XQ/view?embed" allowfullscreen="allowfullscreen" allow="fullscreen"></iframe>
                     </div>
@@ -282,9 +328,8 @@
                         葉文靜 設計的 <a href="https://www.canva.com/design/DAHV0y98S2o/m3f32hEsyB3tq_glold0XQ/view?utm_content=DAHV0y98S2o&amp;utm_campaign=designshare&amp;utm_medium=embeds&amp;utm_source=link" target="_blank" rel="noopener">音樂分享-Gian dang yeu ko</a>
                     </div>
                 </div>
-
             </div>
-        </div>
+        </section>
 
     </div>
 
