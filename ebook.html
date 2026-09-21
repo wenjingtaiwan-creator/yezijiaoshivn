@@ -22,7 +22,7 @@
             background-color: var(--bg-light);
         }
 
-        /* 頂部導覽列（比照首頁） */
+        /* 頂部導覽列 */
         header {
             background-color: rgba(255, 255, 255, 0.95);
             box-shadow: 0 2px 10px rgba(0,0,0,0.05);
@@ -34,11 +34,11 @@
 
         .nav-container {
             max-width: 1100px;
-            margin: auto;
+            margin: 0 auto;
+            padding: 1rem 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 20px;
         }
 
         .logo {
@@ -48,97 +48,95 @@
             text-decoration: none;
             display: flex;
             align-items: center;
+            gap: 8px;
         }
 
-        nav {
+        .back-link {
+            text-decoration: none;
+            color: var(--primary-color);
+            font-weight: 500;
+            transition: all 0.2s;
             display: flex;
             align-items: center;
+            gap: 5px;
         }
 
-        nav a {
-            color: var(--text-color);
-            text-decoration: none;
-            margin-left: 25px;
-            font-weight: 500;
-            transition: color 0.3s;
+        .back-link:hover {
+            color: #1b5e20;
+            transform: translateX(-3px);
         }
 
-        nav a:hover {
-            color: var(--primary-color);
-        }
-
-        /* 首頁完全相同橫幅大圖 */
-        .hero {
-            background-image: url('ChatGPT Image 2026年7月17日 上午09_43_39.png');
-            background-size: cover;
-            background-position: center center;
-            background-repeat: no-repeat;
-            height: 55vw;
-            max-height: 500px;
-            min-height: 250px;
-            width: 100%;
-            margin: 0;
-            padding: 0;
-        }
-
-        /* 內容容器與卡片 */
+        /* 頁面主體容器 */
         .container {
-            max-width: 1000px;
+            max-width: 900px;
             margin: 40px auto;
             padding: 0 20px;
         }
 
-        .section-title {
+        .page-header {
             text-align: center;
-            font-size: 2rem;
+            margin-bottom: 50px;
+        }
+
+        .page-header h2 {
+            font-size: 2.2rem;
             color: var(--primary-color);
-            margin-bottom: 40px;
+            margin-bottom: 12px;
             position: relative;
+            display: inline-block;
         }
 
-        .section-title::after {
+        .page-header h2::after {
             content: '';
-            display: block;
-            width: 50px;
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
             height: 3px;
-            background-color: #FFB300;
-            margin: 10px auto 0 auto;
+            background: var(--accent-color);
+            border-radius: 2px;
         }
 
+        .page-header p {
+            color: #666;
+            font-size: 1.1rem;
+            margin: 0;
+        }
+
+        /* 內容卡片共用樣式 */
         .card {
-            background: white;
-            padding: 30px;
+            background: #ffffff;
             border-radius: 12px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+            padding: 30px;
+            margin-bottom: 40px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.04);
             border-top: 4px solid var(--primary-color);
-            margin-bottom: 35px;
         }
 
-        .card h4 {
-            margin-top: 0;
-            margin-bottom: 18px;
+        .card h3, .card h4 {
             color: var(--primary-color);
-            font-size: 1.3rem;
+            margin-top: 0;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
 
-        .fp-iframe {
-            width: 100%;
-            height: 580px;
-            border: 1px solid #E2E8F0;
-            border-radius: 8px;
+        .card p {
+            color: #555;
+            margin-bottom: 20px;
         }
 
-        /* 簡報容器 */
+        /* Canva 簡報外層響應式容器 */
         .canva-wrapper {
             position: relative;
             width: 100%;
             height: 0;
-            padding-top: 56.25%;
-            box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16);
-            margin-top: 1em;
-            margin-bottom: 0.9em;
-            overflow: hidden;
+            padding-bottom: 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
             border-radius: 8px;
+            overflow: hidden;
         }
 
         .canva-wrapper iframe {
@@ -152,102 +150,146 @@
             margin: 0;
         }
 
-        /* Scratch 遊戲容器 */
-        .scratch-wrapper {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-top: 1em;
-            margin-bottom: 0.9em;
-        }
-
-        .scratch-wrapper iframe {
-            max-width: 100%;
-            border: none;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16);
-        }
-
+        /* Canva 註腳來源 */
         .card-credits {
-            font-size: 0.9rem;
-            color: #666;
-            margin-top: 8px;
+            margin-top: 12px;
+            text-align: right;
+            font-size: 0.85rem;
+            color: #888;
         }
 
         .card-credits a {
             color: var(--primary-color);
             text-decoration: none;
-            font-weight: bold;
         }
 
         .card-credits a:hover {
             text-decoration: underline;
         }
 
+        /* 音樂分享一排3個網格版面 */
+        .music-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .music-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        @media (max-width: 768px) {
+            .music-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* 頁尾 */
         footer {
-            background-color: #2C3E50;
-            color: #A0AAB5;
             text-align: center;
-            padding: 20px;
+            padding: 40px 20px;
+            color: #888;
             font-size: 0.9rem;
+            border-top: 1px solid #e0e0e0;
+            background: #fff;
             margin-top: 60px;
         }
     </style>
 </head>
 <body>
 
-    <!-- 頂部導覽列 -->
     <header>
         <div class="nav-container">
-            <a href="index.html" class="logo">🍃 葉子教室越南語</a>
-            <nav>
-                <a href="index.html#home">首頁</a>
-                <a href="index.html#teaching">教學資源</a>
-                <a href="index.html#learning">學習資源</a>
-                <a href="index.html#contact">聯絡我們</a>
-            </nav>
+            <a href="index.html" class="logo">🌿 葉子教室越南語</a>
+            <a href="index.html" class="back-link">← 回首頁</a>
         </div>
     </header>
 
-    <!-- 橫幅區塊 -->
-    <section class="hero"></section>
-
-    <!-- 內容展示區 -->
     <div class="container">
-        <h3 class="section-title">自編教材與電子書</h3>
-
-        <!-- 1. 電子書卡片 -->
-        <div class="card">
-            <h4>📖 線上越南語翻頁電子書</h4>
-            <iframe allowfullscreen="allowfullscreen" allow="autoplay; fullscreen; clipboard-write" scrolling="no" class="fp-iframe" src="https://heyzine.com/flip-book/2fd1bc3435.html"></iframe>
+        <div class="page-header">
+            <h2>自編教材與簡報</h2>
+            <p>點擊可直接全螢幕瀏覽數位簡報與教學內容</p>
         </div>
 
-        <!-- 2. 拼讀簡報卡片 -->
-        <div class="card" style="border-top-color: #FFB300;">
-            <h4>📑 拼讀教學簡報</h4>
-            <div class="canva-wrapper">
-                <iframe loading="lazy" src="https://www.canva.com/design/DAHUkb84nVg/h1AfA9tK6kJuo7A82i6bIw/view?embed" allowfullscreen="allowfullscreen" allow="fullscreen"></iframe>
+        <!-- 1. 高中01 簡報卡片 -->
+        <div class="card">
+            <h3>📖 高中01 自編教材</h3>
+            <p>本教材針對高中初學者設計，搭配生動圖文與日常實用語句練習。</p>
+            <div class="canva-wrapper" style="padding-top: 55.8342%;">
+                <iframe loading="lazy" src="https://www.canva.com/design/DAHSdb_lg-s/imWyVi1cEBB2sRBogq-8kg/view?embed" allowfullscreen="allowfullscreen" allow="fullscreen"></iframe>
             </div>
             <div class="card-credits">
-                葉文靜 設計的 <a href="https://www.canva.com/design/DAHUkb84nVg/h1AfA9tK6kJuo7A82i6bIw/view?utm_content=DAHUkb84nVg&amp;utm_campaign=designshare&amp;utm_medium=embeds&amp;utm_source=link" target="_blank" rel="noopener">2-字母與拼讀法.pptx</a>
+                葉文靜 設計的 <a href="https://www.canva.com/design/DAHSdb_lg-s/imWyVi1cEBB2sRBogq-8kg/view?utm_content=DAHSdb_lg-s&amp;utm_campaign=designshare&amp;utm_medium=embeds&amp;utm_source=link" target="_blank" rel="noopener">高中01</a>
+            </div>
+        </div>
+
+        <!-- 2. 越南網事 簡報卡片 -->
+        <div class="card" style="border-top-color: #0288D1;">
+            <h3>🌐 越南網事</h3>
+            <p>探索越南在地網路生活、文化趨勢與流行用語。</p>
+            <div class="canva-wrapper" style="padding-top: 56.25%;">
+                <iframe loading="lazy" src="https://www.canva.com/design/DAHCkg9O8cw/h_lf6mXy86TfL4qV2PBMYA/view?embed" allowfullscreen="allowfullscreen" allow="fullscreen"></iframe>
+            </div>
+            <div class="card-credits">
+                葉文靜 設計的 <a href="https://www.canva.com/design/DAHCkg9O8cw/h_lf6mXy86TfL4qV2PBMYA/view?utm_content=DAHCkg9O8cw&amp;utm_campaign=designshare&amp;utm_medium=embeds&amp;utm_source=link" target="_blank" rel="noopener">越南網事</a>
             </div>
         </div>
 
         <!-- 3. 115 B1 簡報卡片 -->
-        <div class="card" style="border-top-color: #4CAF50;">
-            <h4>📑 115 B1 教學簡報</h4>
-            <div class="canva-wrapper">
-                <iframe loading="lazy" src="https://www.canva.com/design/DAHVt1m_EMM/_SM8XxqDNxletY0440rePg/view?embed" allowfullscreen="allowfullscreen" allow="fullscreen"></iframe>
+        <div class="card" style="border-top-color: #FFB300;">
+            <h3>📘 115 B1 電子教材</h3>
+            <p>深入的進階會話與句型演練教材簡報。</p>
+            <div class="canva-wrapper" style="padding-top: 56.25%;">
+                <iframe loading="lazy" src="https://www.canva.com/design/DAHD01sU7hI/2Rvh7c81l00Y6gR2Vj14Xw/view?embed" allowfullscreen="allowfullscreen" allow="fullscreen"></iframe>
             </div>
             <div class="card-credits">
-                葉文靜 設計的 <a href="https://www.canva.com/design/DAHVt1m_EMM/_SM8XxqDNxletY0440rePg/view?utm_content=DAHVt1m_EMM&amp;utm_campaign=designshare&amp;utm_medium=embeds&amp;utm_source=link" target="_blank" rel="noopener">115 B1 PPT</a>
+                葉文靜 設計的 <a href="https://www.canva.com/design/DAHD01sU7hI/2Rvh7c81l00Y6gR2Vj14Xw/view?utm_content=DAHD01sU7hI&amp;utm_campaign=designshare&amp;utm_medium=embeds&amp;utm_source=link" target="_blank" rel="noopener">115 B1</a>
             </div>
         </div>
-      
-         
-        
-        <footer>
-        <p>&copy; 2026 葉子教室越南語. All rights reserved.</p>
+
+        <!-- 4. 音樂分享簡報卡片 (一排3個) -->
+        <div class="card" style="border-top-color: #E91E63;">
+            <h4>🎵 音樂分享簡報</h4>
+            <div class="music-grid">
+                
+                <!-- 第一個 -->
+                <div class="music-item">
+                    <div class="canva-wrapper" style="padding-top: 55.8342%;">
+                        <iframe loading="lazy" src="https://www.canva.com/design/DAHSdb_lg-s/imWyVi1cEBB2sRBogq-8kg/view?embed" allowfullscreen="allowfullscreen" allow="fullscreen"></iframe>
+                    </div>
+                    <div class="card-credits">
+                        葉文靜 設計的 <a href="https://www.canva.com/design/DAHSdb_lg-s/imWyVi1cEBB2sRBogq-8kg/view?utm_content=DAHSdb_lg-s&amp;utm_campaign=designshare&amp;utm_medium=embeds&amp;utm_source=link" target="_blank" rel="noopener">高中01</a>
+                    </div>
+                </div>
+
+                <!-- 第二個 -->
+                <div class="music-item">
+                    <div class="canva-wrapper" style="padding-top: 56.25%;">
+                        <iframe loading="lazy" src="https://www.canva.com/design/DAHCkg9O8cw/h_lf6mXy86TfL4qV2PBMYA/view?embed" allowfullscreen="allowfullscreen" allow="fullscreen"></iframe>
+                    </div>
+                    <div class="card-credits">
+                        葉文靜 設計的 <a href="https://www.canva.com/design/DAHCkg9O8cw/h_lf6mXy86TfL4qV2PBMYA/view?utm_content=DAHCkg9O8cw&amp;utm_campaign=designshare&amp;utm_medium=embeds&amp;utm_source=link" target="_blank" rel="noopener">越南網事</a>
+                    </div>
+                </div>
+
+                <!-- 第三個 -->
+                <div class="music-item">
+                    <div class="canva-wrapper" style="padding-top: 75%;">
+                        <iframe loading="lazy" src="https://www.canva.com/design/DAHV0y98S2o/m3f32hEsyB3tq_glold0XQ/view?embed" allowfullscreen="allowfullscreen" allow="fullscreen"></iframe>
+                    </div>
+                    <div class="card-credits">
+                        葉文靜 設計的 <a href="https://www.canva.com/design/DAHV0y98S2o/m3f32hEsyB3tq_glold0XQ/view?utm_content=DAHV0y98S2o&amp;utm_campaign=designshare&amp;utm_medium=embeds&amp;utm_source=link" target="_blank" rel="noopener">音樂分享-Gian dang yeu ko</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2024 葉子教室越南語. All rights reserved.</p>
     </footer>
 
 </body>
