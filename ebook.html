@@ -8,7 +8,7 @@
         :root {
             --primary-color: #2E7D32;    /* 品牌葉子綠 */
             --secondary-color: #81C784;  /* 淺綠 */
-            --accent-color: #FFB300;     /* 亮眼芒果黃 */
+            --accent-color: #FFB300;     /* 芒果黃 */
             --text-color: #2C3E50;
             --bg-light: #F9FBFA;         /* 淺米綠底色 */
         }
@@ -104,7 +104,7 @@
             margin: 0;
         }
 
-        /* 分區外框 */
+        /* 分區區塊外框 */
         .section-box {
             margin-bottom: 60px;
         }
@@ -151,7 +151,7 @@
             margin-bottom: 20px;
         }
 
-        /* Canva 簡報外層響應式容器 */
+        /* Canva 外層響應式容器 */
         .canva-wrapper {
             position: relative;
             width: 100%;
@@ -173,7 +173,7 @@
             margin: 0;
         }
 
-        /* Canva 註腳來源 */
+        /* 註腳來源 */
         .card-credits {
             margin-top: 10px;
             text-align: right;
@@ -190,7 +190,7 @@
             text-decoration: underline;
         }
 
-        /* 音樂分享一排3個卡片網格 */
+        /* 音樂分享一排 3 個網格 */
         .music-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -244,16 +244,15 @@
 
     <div class="container">
         <div class="page-header">
-            <h2>教學教材與音樂分享</h2>
-            <p>點擊可直接全螢幕瀏覽數位簡報與影音內容</p>
+            <h2>自編教材與影音專區</h2>
+            <p>點擊可直接全螢幕瀏覽電子書教材、教學簡報與音樂分享</p>
         </div>
 
-        <!-- ================= 第一區：教學簡報 ================= -->
+        <!-- ================= 區塊 1：自編教材電子書 ================= -->
         <section class="section-box">
-            <h3 class="section-title">📚 教學教材簡報</h3>
-            <p class="section-desc">包含高中初學自編教材、進階語句演練與在地文化分享。</p>
+            <h3 class="section-title">📚 1. 自編教材電子書</h3>
+            <p class="section-desc">系統化自編課本教材，搭配日常語句練習與情境對話。</p>
 
-            <!-- 1. 高中01 簡報卡片 -->
             <div class="card">
                 <h3>📖 高中01 自編教材</h3>
                 <p>本教材針對高中初學者設計，搭配生動圖文與日常實用語句練習。</p>
@@ -264,8 +263,14 @@
                     葉文靜 設計的 <a href="https://www.canva.com/design/DAHSdb_lg-s/imWyVi1cEBB2sRBogq-8kg/view?utm_content=DAHSdb_lg-s&amp;utm_campaign=designshare&amp;utm_medium=embeds&amp;utm_source=link" target="_blank" rel="noopener">高中01</a>
                 </div>
             </div>
+        </section>
 
-            <!-- 2. 越南網事 簡報卡片 -->
+        <!-- ================= 區塊 2：教學簡報 ================= -->
+        <section class="section-box">
+            <h3 class="section-title">📊 2. 教學簡報</h3>
+            <p class="section-desc">課堂教學投影簡報、在地文化探索與進階句型演練。</p>
+
+            <!-- 越南網事 簡報 -->
             <div class="card" style="border-top-color: #0288D1;">
                 <h3>🌐 越南網事</h3>
                 <p>探索越南在地網路生活、文化趨勢與流行用語。</p>
@@ -277,9 +282,9 @@
                 </div>
             </div>
 
-            <!-- 3. 115 B1 簡報卡片 -->
+            <!-- 115 B1 簡報 -->
             <div class="card" style="border-top-color: #FFB300;">
-                <h3>📘 115 B1 電子教材</h3>
+                <h3>📘 115 B1 電子教材簡報</h3>
                 <p>深入的進階會話與句型演練教材簡報。</p>
                 <div class="canva-wrapper" style="padding-top: 56.25%;">
                     <iframe loading="lazy" src="https://www.canva.com/design/DAHD01sU7hI/2Rvh7c81l00Y6gR2Vj14Xw/view?embed" allowfullscreen="allowfullscreen" allow="fullscreen"></iframe>
@@ -290,13 +295,13 @@
             </div>
         </section>
 
-        <!-- ================= 第二區：音樂分享 ================= -->
+        <!-- ================= 區塊 3：音樂分享簡報 (一排 3 個) ================= -->
         <section class="section-box">
-            <h3 class="section-title">🎵 音樂分享專區</h3>
-            <p class="section-desc">精選越南流行歌曲與音樂簡報分享（一排 3 個呈現）。</p>
+            <h3 class="section-title">🎵 3. 音樂分享簡報</h3>
+            <p class="section-desc">精選越南流行與經典歌曲賞析簡報。</p>
 
             <div class="music-grid">
-                <!-- 第一個 -->
+                <!-- 第一個音樂簡報 -->
                 <div class="music-item-card">
                     <h4>高中01 音樂分享</h4>
                     <div class="canva-wrapper" style="padding-top: 55.8342%;">
@@ -307,7 +312,7 @@
                     </div>
                 </div>
 
-                <!-- 第二個 -->
+                <!-- 第二個音樂簡報 -->
                 <div class="music-item-card">
                     <h4>越南網事 音樂分享</h4>
                     <div class="canva-wrapper" style="padding-top: 56.25%;">
@@ -318,9 +323,9 @@
                     </div>
                 </div>
 
-                <!-- 第三個 -->
+                <!-- 第三個音樂簡報 -->
                 <div class="music-item-card">
-                    <h4>Giận Mà Thương / Giận Đang Yêu Không</h4>
+                    <h4>Giận Đang Yêu Không</h4>
                     <div class="canva-wrapper" style="padding-top: 75%;">
                         <iframe loading="lazy" src="https://www.canva.com/design/DAHV0y98S2o/m3f32hEsyB3tq_glold0XQ/view?embed" allowfullscreen="allowfullscreen" allow="fullscreen"></iframe>
                     </div>
