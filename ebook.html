@@ -1,14 +1,21 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>自編教材與電子書 | 葉子教室越南語</title>
 
-    <meta name="description" content="葉子教室越南語自編教材、電子書、越南語教學簡報與越南音樂分享。">
+    <meta name="description"
+          content="葉子教室越南語自編電子書、越南語教學簡報與越南音樂分享簡報。">
 
     <style>
+
+        /* =====================================================
+           基本設定
+        ===================================================== */
+
         :root {
             --primary-color: #2E7D32;
             --secondary-color: #81C784;
@@ -34,12 +41,13 @@
             background-color: var(--bg-light);
         }
 
-        /* =========================
-           頂部導覽列
-        ========================= */
+
+        /* =====================================================
+           導覽列
+        ===================================================== */
 
         header {
-            background-color: rgba(255, 255, 255, 0.95);
+            background-color: rgba(255,255,255,0.95);
             box-shadow: 0 2px 10px rgba(0,0,0,0.05);
             position: sticky;
             top: 0;
@@ -89,65 +97,65 @@
             font-weight: bold;
         }
 
-        nav a.highlight-nav:hover {
-            color: #c2185b;
-        }
-
         nav a.roll-call-nav {
             color: #2E7D32;
             font-weight: bold;
         }
 
 
-        /* =========================
-           主頁同款橫幅
-        ========================= */
+        /* =====================================================
+           首頁同款 Hero
+        ===================================================== */
 
         .hero {
-            background-image: url('ChatGPT Image 2026年7月17日 上午09_43_39.png');
+            background-image:
+                url('ChatGPT Image 2026年7月17日 上午09_43_39.png');
+
             background-size: cover;
             background-position: center center;
             background-repeat: no-repeat;
+
             height: 55vw;
             max-height: 500px;
             min-height: 250px;
             width: 100%;
+
             margin: 0;
             padding: 0;
         }
 
 
-        /* =========================
-           頁面介紹
-        ========================= */
+        /* =====================================================
+           頁面標題
+        ===================================================== */
 
         .page-intro {
             text-align: center;
-            padding: 60px 20px 25px;
+            padding: 55px 20px 25px;
         }
 
         .page-intro h1 {
             color: var(--primary-color);
             font-size: 2.2rem;
-            margin: 0 0 12px;
+            margin: 0 0 10px;
         }
 
         .page-intro p {
             color: #666;
-            font-size: 1.05rem;
             margin: 0;
+            font-size: 1.05rem;
         }
 
 
-        /* =========================
-           共用內容區
-        ========================= */
+        /* =====================================================
+           區塊
+        ===================================================== */
 
         .content-section {
             padding: 55px 20px 70px;
         }
 
-        .content-section.alt-bg {
+        .alt-bg {
             background-color: #F0F4F1;
         }
 
@@ -160,12 +168,11 @@
             text-align: center;
             font-size: 2rem;
             color: var(--primary-color);
-            margin: 0 0 12px;
-            position: relative;
+            margin: 0 0 10px;
         }
 
         .section-title::after {
-            content: '';
+            content: "";
             display: block;
             width: 50px;
             height: 3px;
@@ -176,20 +183,20 @@
         .section-desc {
             text-align: center;
             color: #666;
-            margin: 0 auto 35px;
             max-width: 700px;
+            margin: 0 auto 35px;
         }
 
 
-        /* =========================
+        /* =====================================================
            電子書
-        ========================= */
+        ===================================================== */
 
         .ebook-card {
             max-width: 950px;
-            margin: 0 auto;
-            background: white;
-            padding: 25px;
+            margin: auto;
+            background: #ffffff;
+            padding: 22px;
             border-radius: 16px;
             box-shadow: 0 5px 20px rgba(0,0,0,0.07);
             border-top: 4px solid var(--primary-color);
@@ -198,7 +205,7 @@
         .ebook-card h3 {
             text-align: center;
             color: var(--primary-color);
-            margin: 0 0 20px;
+            margin: 0 0 18px;
             font-size: 1.3rem;
         }
 
@@ -211,24 +218,27 @@
         }
 
 
-        /* =========================
-           簡報網格
-        ========================= */
+        /* =====================================================
+           3 欄簡報網格
+        ===================================================== */
 
         .presentation-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(3, minmax(0, 1fr));
             gap: 24px;
         }
 
         .presentation-card {
-            background: white;
+            min-width: 0;
+            background: #ffffff;
             border-radius: 14px;
-            padding: 18px;
+            padding: 16px;
             box-shadow: 0 5px 18px rgba(0,0,0,0.06);
             border-top: 4px solid var(--primary-color);
-            transition: transform 0.25s ease, box-shadow 0.25s ease;
-            min-width: 0;
+
+            transition:
+                transform 0.25s ease,
+                box-shadow 0.25s ease;
         }
 
         .presentation-card:hover {
@@ -237,38 +247,47 @@
         }
 
         .presentation-card h3 {
-            font-size: 1.1rem;
-            color: var(--primary-color);
-            margin: 0 0 12px;
             text-align: center;
+            color: var(--primary-color);
+            font-size: 1.08rem;
+            margin: 0 0 13px;
         }
 
-        .presentation-wrapper {
+
+        /* =====================================================
+           Canva
+        ===================================================== */
+
+        .canva-wrapper {
             position: relative;
             width: 100%;
             height: 0;
             overflow: hidden;
+
             border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(63,69,81,0.16);
-            background: #f5f5f5;
+            background-color: #f5f5f5;
+
+            box-shadow:
+                0 2px 8px rgba(63,69,81,0.16);
         }
 
-        .presentation-wrapper iframe {
+        .canva-wrapper iframe {
             position: absolute;
             width: 100%;
             height: 100%;
             top: 0;
             left: 0;
+
             border: none;
             padding: 0;
             margin: 0;
         }
 
         .presentation-credit {
-            margin-top: 10px;
-            font-size: 0.82rem;
-            color: #888;
             text-align: center;
+            margin-top: 10px;
+            color: #888;
+            font-size: 0.8rem;
         }
 
         .presentation-credit a {
@@ -282,31 +301,35 @@
         }
 
 
-        /* =========================
-           敬請期待卡片
-        ========================= */
+        /* =====================================================
+           敬請期待
+        ===================================================== */
 
         .coming-soon {
             aspect-ratio: 16 / 9;
+
+            border: 2px dashed #C8E6C9;
+            border-radius: 9px;
+
             background:
                 linear-gradient(
                     135deg,
-                    #f1f8e9,
+                    #F1F8E9,
                     #ffffff
                 );
-            border: 2px dashed #C8E6C9;
-            border-radius: 10px;
+
             display: flex;
             flex-direction: column;
-            align-items: center;
             justify-content: center;
+            align-items: center;
+
+            color: #7A8B7C;
             text-align: center;
-            color: #7a8b7c;
         }
 
         .coming-soon .icon {
             font-size: 2rem;
-            margin-bottom: 5px;
+            margin-bottom: 4px;
         }
 
         .coming-soon strong {
@@ -315,211 +338,46 @@
         }
 
         .coming-soon span {
-            font-size: 0.85rem;
+            font-size: 0.78rem;
             margin-top: 2px;
         }
 
-        <!-- ==================================================
-     第三區：越南音樂分享簡報
-================================================== -->
 
-<section class="content-section">
+        /* =====================================================
+           音樂簡報
+        ===================================================== */
 
-    <div class="container">
+        .music-card {
+            border-top-color: #E91E63;
+        }
 
-        <h2 class="section-title">
-            🎵 越南音樂分享簡報
-        </h2>
+        .music-card h3 {
+            color: #C2185B;
+        }
 
-        <p class="section-desc">
-            從越南流行音樂認識生活用語、歌詞與文化，
-            讓學習越南語也可以跟著音樂一起進行。
-        </p>
+        .music-card .presentation-credit a {
+            color: #C2185B;
+        }
 
+        .music-coming {
+            background:
+                linear-gradient(
+                    135deg,
+                    #FCE4EC,
+                    #ffffff
+                );
 
-        <div class="presentation-grid">
+            border-color: #F8BBD0;
+        }
 
+        .music-coming strong {
+            color: #C2185B;
+        }
 
-            <!-- ========================================
-                 音樂分享一
-            ========================================= -->
 
-            <div class="presentation-card music-card">
-
-                <h3>音樂分享一</h3>
-
-                <div class="presentation-wrapper"
-                     style="padding-top:55.8342%;">
-
-                    <iframe
-                        loading="lazy"
-                        src="https://www.canva.com/design/DAHSdb_lg-s/imWyVi1cEBB2sRBogq-8kg/view?embed"
-                        allowfullscreen="allowfullscreen"
-                        allow="fullscreen">
-                    </iframe>
-
-                </div>
-
-                <div class="presentation-credit">
-
-                    葉文靜 設計的
-
-                    <a
-                        href="https://www.canva.com/design/DAHSdb_lg-s/imWyVi1cEBB2sRBogq-8kg/view?utm_content=DAHSdb_lg-s&amp;utm_campaign=designshare&amp;utm_medium=embeds&amp;utm_source=link"
-                        target="_blank"
-                        rel="noopener">
-
-                        高中01 音樂分享
-
-                    </a>
-
-                </div>
-
-            </div>
-
-
-
-            <!-- ========================================
-                 音樂分享二
-            ========================================= -->
-
-            <div class="presentation-card music-card">
-
-                <h3>音樂分享二</h3>
-
-                <div class="presentation-wrapper"
-                     style="padding-top:56.25%;">
-
-                    <iframe
-                        loading="lazy"
-                        src="https://www.canva.com/design/DAHCkg9O8cw/h_lf6mXy86TfL4qV2PBMYA/view?embed"
-                        allowfullscreen="allowfullscreen"
-                        allow="fullscreen">
-                    </iframe>
-
-                </div>
-
-                <div class="presentation-credit">
-
-                    葉文靜 設計的
-
-                    <a
-                        href="https://www.canva.com/design/DAHCkg9O8cw/h_lf6mXy86TfL4qV2PBMYA/view?utm_content=DAHCkg9O8cw&amp;utm_campaign=designshare&amp;utm_medium=embeds&amp;utm_source=link"
-                        target="_blank"
-                        rel="noopener">
-
-                        越南網事 音樂分享
-
-                    </a>
-
-                </div>
-
-            </div>
-
-
-
-            <!-- ========================================
-                 音樂分享三
-            ========================================= -->
-
-            <div class="presentation-card music-card">
-
-                <h3>音樂分享三</h3>
-
-                <div class="presentation-wrapper"
-                     style="padding-top:75%;">
-
-                    <iframe
-                        loading="lazy"
-                        src="https://www.canva.com/design/DAHV0y98S2o/m3f32hEsyB3tq_glold0XQ/view?embed"
-                        allowfullscreen="allowfullscreen"
-                        allow="fullscreen">
-                    </iframe>
-
-                </div>
-
-                <div class="presentation-credit">
-
-                    葉文靜 設計的
-
-                    <a
-                        href="https://www.canva.com/design/DAHV0y98S2o/m3f32hEsyB3tq_glold0XQ/view?utm_content=DAHV0y98S2o&amp;utm_campaign=designshare&amp;utm_medium=embeds&amp;utm_source=link"
-                        target="_blank"
-                        rel="noopener">
-
-                        Gián Đang Yêu Không
-
-                    </a>
-
-                </div>
-
-            </div>
-
-
-
-            <!-- ========================================
-                 音樂分享四
-            ========================================= -->
-
-            <div class="presentation-card music-card">
-
-                <h3>音樂分享四</h3>
-
-                <div class="coming-soon music-coming">
-                    <div class="icon">🎵</div>
-                    <strong>敬請期待</strong>
-                    <span>COMING SOON</span>
-                </div>
-
-            </div>
-
-
-
-            <!-- ========================================
-                 音樂分享五
-            ========================================= -->
-
-            <div class="presentation-card music-card">
-
-                <h3>音樂分享五</h3>
-
-                <div class="coming-soon music-coming">
-                    <div class="icon">🎧</div>
-                    <strong>敬請期待</strong>
-                    <span>COMING SOON</span>
-                </div>
-
-            </div>
-
-
-
-            <!-- ========================================
-                 音樂分享六
-            ========================================= -->
-
-            <div class="presentation-card music-card">
-
-                <h3>音樂分享六</h3>
-
-                <div class="coming-soon music-coming">
-                    <div class="icon">🎶</div>
-                    <strong>敬請期待</strong>
-                    <span>COMING SOON</span>
-                </div>
-
-            </div>
-
-
-        </div>
-
-    </div>
-
-</section>
-
-       
-        /* =========================
-           頁尾
-        ========================= */
+        /* =====================================================
+           Footer
+        ===================================================== */
 
         footer {
             background-color: #2C3E50;
@@ -534,13 +392,14 @@
         }
 
 
-        /* =========================
+        /* =====================================================
            平板
-        ========================= */
+        ===================================================== */
 
         @media (max-width: 900px) {
+
             .presentation-grid {
-                grid-template-columns: repeat(2, 1fr);
+                grid-template-columns: repeat(2, minmax(0, 1fr));
             }
 
             .nav-container {
@@ -555,17 +414,22 @@
             nav a {
                 margin: 5px 10px;
             }
+
         }
 
 
-        /* =========================
+        /* =====================================================
            手機
-        ========================= */
+        ===================================================== */
 
         @media (max-width: 600px) {
 
             .presentation-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .page-intro {
+                padding-top: 40px;
             }
 
             .page-intro h1 {
@@ -576,12 +440,16 @@
                 font-size: 1.6rem;
             }
 
+            .content-section {
+                padding: 45px 15px 55px;
+            }
+
             .ebook-card {
-                padding: 15px;
+                padding: 12px;
             }
 
             .ebook-card iframe {
-                height: 430px;
+                height: 400px;
             }
 
             .hero {
@@ -595,20 +463,23 @@
             nav a {
                 margin: 4px 7px;
             }
+
         }
 
     </style>
+
 </head>
 
 
 <body>
 
 
-<!-- ==================================================
-     頂部導覽列
-================================================== -->
+<!-- =========================================================
+     HEADER
+========================================================= -->
 
 <header>
+
     <div class="nav-container">
 
         <a href="index.html" class="logo">
@@ -616,45 +487,63 @@
         </a>
 
         <nav>
-            <a href="index.html#home">首頁</a>
-            <a href="index.html#teaching">教學資源</a>
-            <a href="index.html#learning">學習資源</a>
-            <a href="index.html#contact">聯絡我們</a>
 
-            <a href="javascript:void(0)"
-               onclick="openHomework()"
-               class="highlight-nav">
+            <a href="index.html#home">
+                首頁
+            </a>
+
+            <a href="index.html#teaching">
+                教學資源
+            </a>
+
+            <a href="index.html#learning">
+                學習資源
+            </a>
+
+            <a href="index.html#contact">
+                聯絡我們
+            </a>
+
+            <a
+                href="javascript:void(0)"
+                onclick="openHomework()"
+                class="highlight-nav">
                 📝 作業區
             </a>
 
-            <a href="https://pos-775650670978.asia-southeast1.run.app"
-               target="_blank"
-               rel="noopener noreferrer"
-               class="roll-call-nav">
+            <a
+                href="https://pos-775650670978.asia-southeast1.run.app"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="roll-call-nav">
                 📝 老師點名
             </a>
+
         </nav>
 
     </div>
+
 </header>
 
 
 
-<!-- ==================================================
-     主頁同款橫幅
-================================================== -->
+<!-- =========================================================
+     HERO
+========================================================= -->
 
 <section class="hero"></section>
 
 
 
-<!-- ==================================================
+<!-- =========================================================
      頁面標題
-================================================== -->
+========================================================= -->
 
 <div class="page-intro">
 
-    <h1>📚 自編教材與教學簡報</h1>
+    <h1>
+        📚 自編教材與教學簡報
+    </h1>
 
     <p>
         越南語電子書、課堂教學簡報與越南音樂分享
@@ -664,9 +553,9 @@
 
 
 
-<!-- ==================================================
-     第一區：電子書
-================================================== -->
+<!-- =========================================================
+     01 電子書
+========================================================= -->
 
 <section class="content-section">
 
@@ -677,7 +566,7 @@
         </h2>
 
         <p class="section-desc">
-            葉老師自編越南語教材，點擊電子書即可線上翻閱。
+            葉老師自編越南語教材，可直接在線上翻閱。
         </p>
 
 
@@ -702,9 +591,9 @@
 
 
 
-<!-- ==================================================
-     第二區：教學簡報
-================================================== -->
+<!-- =========================================================
+     02 教學簡報
+========================================================= -->
 
 <section class="content-section alt-bg">
 
@@ -715,23 +604,24 @@
         </h2>
 
         <p class="section-desc">
-            課堂教學使用的越南語簡報，點擊簡報即可直接瀏覽。
+            越南語課堂教學簡報，可直接在線上瀏覽。
         </p>
 
 
         <div class="presentation-grid">
 
 
-            <!-- =========================
+            <!-- =================================================
                  教學簡報一
-            ========================== -->
+            ================================================== -->
 
             <div class="presentation-card">
 
                 <h3>教學簡報一</h3>
 
-                <div class="presentation-wrapper"
-                     style="padding-top:55.8342%;">
+                <div
+                    class="canva-wrapper"
+                    style="padding-top:55.8342%;">
 
                     <iframe
                         loading="lazy"
@@ -750,7 +640,9 @@
                         href="https://www.canva.com/design/DAHSdb_lg-s/imWyVi1cEBB2sRBogq-8kg/view?utm_content=DAHSdb_lg-s&amp;utm_campaign=designshare&amp;utm_medium=embeds&amp;utm_source=link"
                         target="_blank"
                         rel="noopener">
+
                         W1－高中
+
                     </a>
 
                 </div>
@@ -759,16 +651,17 @@
 
 
 
-            <!-- =========================
+            <!-- =================================================
                  教學簡報二
-            ========================== -->
+            ================================================== -->
 
             <div class="presentation-card">
 
                 <h3>教學簡報二</h3>
 
-                <div class="presentation-wrapper"
-                     style="padding-top:75%;">
+                <div
+                    class="canva-wrapper"
+                    style="padding-top:75%;">
 
                     <iframe
                         loading="lazy"
@@ -787,7 +680,9 @@
                         href="https://www.canva.com/design/DAHUkb84nVg/h1AfA9tK6kJuo7A82i6bIw/view?utm_content=DAHUkb84nVg&amp;utm_campaign=designshare&amp;utm_medium=embeds&amp;utm_source=link"
                         target="_blank"
                         rel="noopener">
+
                         高中－字母與拼讀法
+
                     </a>
 
                 </div>
@@ -796,16 +691,17 @@
 
 
 
-            <!-- =========================
+            <!-- =================================================
                  教學簡報三
-            ========================== -->
+            ================================================== -->
 
             <div class="presentation-card">
 
                 <h3>教學簡報三</h3>
 
-                <div class="presentation-wrapper"
-                     style="padding-top:56.25%;">
+                <div
+                    class="canva-wrapper"
+                    style="padding-top:56.25%;">
 
                     <iframe
                         loading="lazy"
@@ -824,7 +720,9 @@
                         href="https://www.canva.com/design/DAHVt1m_EMM/_SM8XxqDNxletY0440rePg/view?utm_content=DAHVt1m_EMM&amp;utm_campaign=designshare&amp;utm_medium=embeds&amp;utm_source=link"
                         target="_blank"
                         rel="noopener">
+
                         W4 高中 B1
+
                     </a>
 
                 </div>
@@ -833,18 +731,24 @@
 
 
 
-            <!-- =========================
-                 教學簡報四
-            ========================== -->
+            <!-- 教學簡報四 -->
 
             <div class="presentation-card">
 
                 <h3>教學簡報四</h3>
 
                 <div class="coming-soon">
+
                     <div class="icon">🌱</div>
-                    <strong>敬請期待</strong>
-                    <span>COMING SOON</span>
+
+                    <strong>
+                        敬請期待
+                    </strong>
+
+                    <span>
+                        COMING SOON
+                    </span>
+
                 </div>
 
             </div>
@@ -858,9 +762,17 @@
                 <h3>教學簡報五</h3>
 
                 <div class="coming-soon">
+
                     <div class="icon">🌱</div>
-                    <strong>敬請期待</strong>
-                    <span>COMING SOON</span>
+
+                    <strong>
+                        敬請期待
+                    </strong>
+
+                    <span>
+                        COMING SOON
+                    </span>
+
                 </div>
 
             </div>
@@ -874,9 +786,17 @@
                 <h3>教學簡報六</h3>
 
                 <div class="coming-soon">
+
                     <div class="icon">🌱</div>
-                    <strong>敬請期待</strong>
-                    <span>COMING SOON</span>
+
+                    <strong>
+                        敬請期待
+                    </strong>
+
+                    <span>
+                        COMING SOON
+                    </span>
+
                 </div>
 
             </div>
@@ -890,9 +810,17 @@
                 <h3>教學簡報七</h3>
 
                 <div class="coming-soon">
+
                     <div class="icon">🌱</div>
-                    <strong>敬請期待</strong>
-                    <span>COMING SOON</span>
+
+                    <strong>
+                        敬請期待
+                    </strong>
+
+                    <span>
+                        COMING SOON
+                    </span>
+
                 </div>
 
             </div>
@@ -906,9 +834,17 @@
                 <h3>教學簡報八</h3>
 
                 <div class="coming-soon">
+
                     <div class="icon">🌱</div>
-                    <strong>敬請期待</strong>
-                    <span>COMING SOON</span>
+
+                    <strong>
+                        敬請期待
+                    </strong>
+
+                    <span>
+                        COMING SOON
+                    </span>
+
                 </div>
 
             </div>
@@ -922,9 +858,17 @@
                 <h3>教學簡報九</h3>
 
                 <div class="coming-soon">
+
                     <div class="icon">🌱</div>
-                    <strong>敬請期待</strong>
-                    <span>COMING SOON</span>
+
+                    <strong>
+                        敬請期待
+                    </strong>
+
+                    <span>
+                        COMING SOON
+                    </span>
+
                 </div>
 
             </div>
@@ -938,9 +882,17 @@
                 <h3>教學簡報十</h3>
 
                 <div class="coming-soon">
+
                     <div class="icon">🌱</div>
-                    <strong>敬請期待</strong>
-                    <span>COMING SOON</span>
+
+                    <strong>
+                        敬請期待
+                    </strong>
+
+                    <span>
+                        COMING SOON
+                    </span>
+
                 </div>
 
             </div>
@@ -954,9 +906,17 @@
                 <h3>教學簡報十一</h3>
 
                 <div class="coming-soon">
+
                     <div class="icon">🌱</div>
-                    <strong>敬請期待</strong>
-                    <span>COMING SOON</span>
+
+                    <strong>
+                        敬請期待
+                    </strong>
+
+                    <span>
+                        COMING SOON
+                    </span>
+
                 </div>
 
             </div>
@@ -970,9 +930,17 @@
                 <h3>教學簡報十二</h3>
 
                 <div class="coming-soon">
+
                     <div class="icon">🌱</div>
-                    <strong>敬請期待</strong>
-                    <span>COMING SOON</span>
+
+                    <strong>
+                        敬請期待
+                    </strong>
+
+                    <span>
+                        COMING SOON
+                    </span>
+
                 </div>
 
             </div>
@@ -986,9 +954,9 @@
 
 
 
-<!-- ==================================================
-     第三區：越南音樂分享簡報
-================================================== -->
+<!-- =========================================================
+     03 越南音樂分享簡報
+========================================================= -->
 
 <section class="content-section">
 
@@ -999,103 +967,226 @@
         </h2>
 
         <p class="section-desc">
-            從越南流行音樂認識生活用語、歌詞與文化。
+            透過越南歌曲認識生活用語、歌詞與文化。
         </p>
 
 
         <div class="presentation-grid">
 
 
-            <!-- 音樂分享一 -->
+            <!-- =================================================
+                 音樂分享一
+                 原 ebook：高中01
+            ================================================== -->
 
             <div class="presentation-card music-card">
 
-                <h3>音樂分享一</h3>
+                <h3>
+                    高中01 音樂分享
+                </h3>
 
-                <div class="coming-soon music-coming">
-                    <div class="icon">🎵</div>
-                    <strong>敬請期待</strong>
-                    <span>COMING SOON</span>
+                <div
+                    class="canva-wrapper"
+                    style="padding-top:55.8342%;">
+
+                    <iframe
+                        loading="lazy"
+                        src="https://www.canva.com/design/DAHSdb_lg-s/imWyVi1cEBB2sRBogq-8kg/view?embed"
+                        allowfullscreen="allowfullscreen"
+                        allow="fullscreen">
+                    </iframe>
+
+                </div>
+
+                <div class="presentation-credit">
+
+                    葉文靜 設計的
+
+                    <a
+                        href="https://www.canva.com/design/DAHSdb_lg-s/imWyVi1cEBB2sRBogq-8kg/view?utm_content=DAHSdb_lg-s&amp;utm_campaign=designshare&amp;utm_medium=embeds&amp;utm_source=link"
+                        target="_blank"
+                        rel="noopener">
+
+                        高中01
+
+                    </a>
+
                 </div>
 
             </div>
 
 
 
-            <!-- 音樂分享二 -->
+            <!-- =================================================
+                 音樂分享二
+                 原 ebook：越南網事
+            ================================================== -->
 
             <div class="presentation-card music-card">
 
-                <h3>音樂分享二</h3>
+                <h3>
+                    越南網事 音樂分享
+                </h3>
 
-                <div class="coming-soon music-coming">
-                    <div class="icon">🎧</div>
-                    <strong>敬請期待</strong>
-                    <span>COMING SOON</span>
+                <div
+                    class="canva-wrapper"
+                    style="padding-top:56.25%;">
+
+                    <iframe
+                        loading="lazy"
+                        src="https://www.canva.com/design/DAHCkg9O8cw/h_lf6mXy86TfL4qV2PBMYA/view?embed"
+                        allowfullscreen="allowfullscreen"
+                        allow="fullscreen">
+                    </iframe>
+
+                </div>
+
+                <div class="presentation-credit">
+
+                    葉文靜 設計的
+
+                    <a
+                        href="https://www.canva.com/design/DAHCkg9O8cw/h_lf6mXy86TfL4qV2PBMYA/view?utm_content=DAHCkg9O8cw&amp;utm_campaign=designshare&amp;utm_medium=embeds&amp;utm_source=link"
+                        target="_blank"
+                        rel="noopener">
+
+                        越南網事
+
+                    </a>
+
                 </div>
 
             </div>
 
 
 
-            <!-- 音樂分享三 -->
+            <!-- =================================================
+                 音樂分享三
+                 原 ebook：Giận Đang Yêu Không
+            ================================================== -->
 
             <div class="presentation-card music-card">
 
-                <h3>音樂分享三</h3>
+                <h3>
+                    Giận Đang Yêu Không
+                </h3>
 
-                <div class="coming-soon music-coming">
-                    <div class="icon">🎶</div>
-                    <strong>敬請期待</strong>
-                    <span>COMING SOON</span>
+                <div
+                    class="canva-wrapper"
+                    style="padding-top:75%;">
+
+                    <iframe
+                        loading="lazy"
+                        src="https://www.canva.com/design/DAHV0y98S2o/m3f32hEsyB3tq_glold0XQ/view?embed"
+                        allowfullscreen="allowfullscreen"
+                        allow="fullscreen">
+                    </iframe>
+
+                </div>
+
+                <div class="presentation-credit">
+
+                    葉文靜 設計的
+
+                    <a
+                        href="https://www.canva.com/design/DAHV0y98S2o/m3f32hEsyB3tq_glold0XQ/view?utm_content=DAHV0y98S2o&amp;utm_campaign=designshare&amp;utm_medium=embeds&amp;utm_source=link"
+                        target="_blank"
+                        rel="noopener">
+
+                        音樂分享－Giận Đang Yêu Không
+
+                    </a>
+
                 </div>
 
             </div>
 
 
 
-            <!-- 音樂分享四 -->
+            <!-- =================================================
+                 音樂分享四
+            ================================================== -->
 
             <div class="presentation-card music-card">
 
-                <h3>音樂分享四</h3>
+                <h3>
+                    音樂分享四
+                </h3>
 
                 <div class="coming-soon music-coming">
-                    <div class="icon">🎵</div>
-                    <strong>敬請期待</strong>
-                    <span>COMING SOON</span>
+
+                    <div class="icon">
+                        🎵
+                    </div>
+
+                    <strong>
+                        敬請期待
+                    </strong>
+
+                    <span>
+                        COMING SOON
+                    </span>
+
                 </div>
 
             </div>
 
 
 
-            <!-- 音樂分享五 -->
+            <!-- =================================================
+                 音樂分享五
+            ================================================== -->
 
             <div class="presentation-card music-card">
 
-                <h3>音樂分享五</h3>
+                <h3>
+                    音樂分享五
+                </h3>
 
                 <div class="coming-soon music-coming">
-                    <div class="icon">🎧</div>
-                    <strong>敬請期待</strong>
-                    <span>COMING SOON</span>
+
+                    <div class="icon">
+                        🎧
+                    </div>
+
+                    <strong>
+                        敬請期待
+                    </strong>
+
+                    <span>
+                        COMING SOON
+                    </span>
+
                 </div>
 
             </div>
 
 
 
-            <!-- 音樂分享六 -->
+            <!-- =================================================
+                 音樂分享六
+            ================================================== -->
 
             <div class="presentation-card music-card">
 
-                <h3>音樂分享六</h3>
+                <h3>
+                    音樂分享六
+                </h3>
 
                 <div class="coming-soon music-coming">
-                    <div class="icon">🎶</div>
-                    <strong>敬請期待</strong>
-                    <span>COMING SOON</span>
+
+                    <div class="icon">
+                        🎶
+                    </div>
+
+                    <strong>
+                        敬請期待
+                    </strong>
+
+                    <span>
+                        COMING SOON
+                    </span>
+
                 </div>
 
             </div>
@@ -1109,48 +1200,55 @@
 
 
 
-<!-- ==================================================
-     頁尾
-================================================== -->
+<!-- =========================================================
+     FOOTER
+========================================================= -->
 
 <footer>
+
     <p>
         &copy; 2026 葉子教室越南語. All rights reserved.
     </p>
+
 </footer>
 
 
 
-<!-- ==================================================
-     作業區密碼
-================================================== -->
+<!-- =========================================================
+     JS
+========================================================= -->
 
 <script>
 
-function openHomework() {
+    function openHomework() {
 
-    const pwd = prompt("請輸入作業區密碼：");
+        const pwd =
+            prompt("請輸入作業區密碼：");
 
-    if (pwd === null) {
-        return;
+        if (pwd === null) {
+            return;
+        }
+
+        if (pwd === "nehs") {
+
+            window.open(
+                "https://hudongzuoye-2026.ai.studio/",
+                "_blank"
+            );
+
+        } else {
+
+            alert(
+                "密碼錯誤，請重新輸入！"
+            );
+
+        }
+
     }
-
-    if (pwd === "nehs") {
-
-        window.open(
-            "https://hudongzuoye-2026.ai.studio/",
-            "_blank"
-        );
-
-    } else {
-
-        alert("密碼錯誤，請重新輸入！");
-
-    }
-}
 
 </script>
 
 
 </body>
+
 </html>
