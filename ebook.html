@@ -22,7 +22,7 @@
             background-color: var(--bg-light);
         }
 
-        /* 頂部導覽列 */
+        /* 頂部導覽列（與首頁一致） */
         header {
             background-color: rgba(255, 255, 255, 0.95);
             box-shadow: 0 2px 10px rgba(0,0,0,0.05);
@@ -34,11 +34,11 @@
 
         .nav-container {
             max-width: 1100px;
-            margin: 0 auto;
-            padding: 1rem 2rem;
+            margin: auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding: 15px 20px;
         }
 
         .logo {
@@ -51,19 +51,51 @@
             gap: 8px;
         }
 
-        .back-link {
-            text-decoration: none;
-            color: var(--primary-color);
-            font-weight: 500;
-            transition: all 0.2s;
+        nav {
             display: flex;
             align-items: center;
-            gap: 5px;
         }
 
-        .back-link:hover {
-            color: #1b5e20;
-            transform: translateX(-3px);
+        nav a {
+            color: var(--text-color);
+            text-decoration: none;
+            margin-left: 25px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--primary-color);
+        }
+
+        nav a.highlight-nav {
+            color: #e91e63;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        nav a.highlight-nav:hover {
+            color: #c2185b;
+        }
+
+        nav a.roll-call-nav {
+            color: #2E7D32;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        /* 橫幅 Hero 區塊 */
+        .hero {
+            background-image: url('ChatGPT Image 2026年7月17日 上午09_43_39.png');
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+            height: 55vw;
+            max-height: 500px;
+            min-height: 250px;
+            width: 100%;
+            margin: 0;
+            padding: 0;
         }
 
         /* 頁面主體容器 */
@@ -219,29 +251,47 @@
             .music-grid {
                 grid-template-columns: 1fr;
             }
+            nav {
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+            nav a {
+                margin-left: 10px;
+            }
         }
 
         /* 頁尾 */
         footer {
+            background-color: #2C3E50;
+            color: #A0AAB5;
             text-align: center;
-            padding: 40px 20px;
-            color: #888;
+            padding: 25px 20px;
             font-size: 0.9rem;
-            border-top: 1px solid #e0e0e0;
-            background: #fff;
             margin-top: 60px;
         }
     </style>
 </head>
 <body>
 
+    <!-- 頂部導覽列 -->
     <header>
         <div class="nav-container">
-            <a href="index.html" class="logo">🌿 葉子教室越南語</a>
-            <a href="index.html" class="back-link">← 回首頁</a>
+            <a href="index.html" class="logo">🍃 葉子教室越南語</a>
+            <nav>
+                <a href="index.html#home">首頁</a>
+                <a href="index.html#teaching">教學資源</a>
+                <a href="index.html#learning">學習資源</a>
+                <a href="index.html#contact">聯絡我們</a>
+                <a href="javascript:void(0)" onclick="openHomework()" class="highlight-nav">📝 作業區</a>
+                <a href="https://pos-775650670978.asia-southeast1.run.app" target="_blank" rel="noopener noreferrer" class="roll-call-nav">📝 老師點名</a>
+            </nav>
         </div>
     </header>
 
+    <!-- 橫幅區塊 -->
+    <section id="home" class="hero"></section>
+
+    <!-- 頁面主體內容 -->
     <div class="container">
         <div class="page-header">
             <h2>自編教材與影音專區</h2>
@@ -253,16 +303,17 @@
             <h3 class="section-title">📚 1. 自編教材電子書</h3>
             <p class="section-desc">系統化自編課本教材，搭配日常語句練習與情境對話。</p>
 
-            <div class="ebook-container" style="margin: 30px auto; max-width: 900px; background: #fff; padding: 20px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
-    <h2 style="color: var(--primary-color); margin-top: 0;">電子書試閱</h2>
-    <iframe 
-        allowfullscreen 
-        allow="autoplay; fullscreen; clipboard-write" 
-        scrolling="no" 
-        style="width: 100%; height: 500px; border: 1px solid #E0E0E0; border-radius: 8px;" 
-        src="https://heyzine.com/flip-book/2fd1bc3435.html">
-    </iframe>
-</div>
+            <div class="card" style="border-top-color: var(--primary-color);">
+                <h3>📖 電子書試閱</h3>
+                <p>線上翻頁互動教材，支援全螢幕閱讀。</p>
+                <iframe 
+                    allowfullscreen 
+                    allow="autoplay; fullscreen; clipboard-write" 
+                    scrolling="no" 
+                    style="width: 100%; height: 500px; border: 1px solid #E0E0E0; border-radius: 8px;" 
+                    src="https://heyzine.com/flip-book/2fd1bc3435.html">
+                </iframe>
+            </div>
             
             <div class="card">
                 <h3>📖 高中01 自編教材</h3>
@@ -280,6 +331,18 @@
         <section class="section-box">
             <h3 class="section-title">📊 2. 教學簡報</h3>
             <p class="section-desc">課堂教學投影簡報、在地文化探索與進階句型演練。</p>
+
+            <!-- 越南咖啡 簡報 -->
+            <div class="card" style="border-top-color: #6D4C41;">
+                <h3>☕ 探索越南咖啡文化</h3>
+                <p>認識滴漏咖啡、蛋咖啡與越南獨特的街頭咖啡文化。</p>
+                <div class="canva-wrapper" style="padding-top: 56.25%;">
+                    <iframe loading="lazy" src="https://www.canva.com/design/DAGf4TlWXkE/GA1NvCE6yoXr7_x7zGlRaw/view?embed" allowfullscreen="allowfullscreen" allow="fullscreen"></iframe>
+                </div>
+                <div class="card-credits">
+                    葉文靜 設計的 <a href="https://www.canva.com/design/DAGf4TlWXkE/GA1NvCE6yoXr7_x7zGlRaw/view?utm_content=DAGf4TlWXkE&amp;utm_campaign=designshare&amp;utm_medium=embeds&amp;utm_source=link" target="_blank" rel="noopener">越南咖啡</a>
+                </div>
+            </div>
 
             <!-- 越南網事 簡報 -->
             <div class="card" style="border-top-color: #0288D1;">
@@ -306,7 +369,7 @@
             </div>
         </section>
 
-        <!-- ================= 區塊 3：音樂分享簡報 (一排 3 個) ================= -->
+        <!-- ================= 區塊 3：音樂分享簡報 ================= -->
         <section class="section-box">
             <h3 class="section-title">🎵 3. 音樂分享簡報</h3>
             <p class="section-desc">精選越南流行與經典歌曲賞析簡報。</p>
@@ -349,9 +412,23 @@
 
     </div>
 
+    <!-- 頁尾 -->
     <footer>
-        <p>&copy; 2024 葉子教室越南語. All rights reserved.</p>
+        <p>&copy; 2026 葉子教室越南語. All rights reserved.</p>
     </footer>
+
+    <!-- 作業區密碼驗證腳本 -->
+    <script>
+        function openHomework() {
+            const pwd = prompt("請輸入作業區密碼：");
+            if (pwd === null) return;
+            if (pwd === "nehs") {
+                window.open("https://hudongzuoye-2026.ai.studio/", "_blank");
+            } else {
+                alert("密碼錯誤，請重新輸入！");
+            }
+        }
+    </script>
 
 </body>
 </html>
