@@ -782,10 +782,24 @@
     
     // 評量連結配置
     const assessmentConfig = {
-  1: {
-    finalUrl: "https://drive.google.com/file/d/1hRD77ouJphGq1wVnT49Sl2L3ynGFc8mE/view?usp=drive_link"
-  }
-};
+      1: { finalUrl: "https://drive.google.com/file/d/1hRD77ouJphGq1wVnT49Sl2L3ynGFc8mE/view?usp=drive_link" },
+      2: { finalUrl: "https://drive.google.com/file/d/1XaTizGOax0jr_FbV3z08YSd5c7ulylW7/view?usp=drive_link" },
+      3: { finalUrl: "https://drive.google.com/file/d/1JDi9WRnmrAwBEsK4uDoe4dwcuyhjSboX/view?usp=drive_link" },
+      4: { finalUrl: "https://drive.google.com/file/d/1mJTNCJu_AJiujZ_49TbcYQI5K0eu6Ngj/view?usp=drive_link" },
+      5: { finalUrl: "https://drive.google.com/file/d/16hKb_rZ1QdZgpiKHoM05q5dWj9w6dKOZ/view?usp=drive_link" },
+      6: { finalUrl: "https://drive.google.com/file/d/1_LpHZxwtQLqYYPh51wXaq6F94eQrzGnl/view?usp=drive_link" },
+      7: { finalUrl: "https://drive.google.com/file/d/1LtN_MUJkZa6xrl_4hdsLAFAxXufcvxyP/view?usp=drive_link" },
+      8: { finalUrl: "https://drive.google.com/file/d/1RTRUC1Tu_fxvEL2pNL6bny8OgylQgczG/view?usp=drive_link" },
+      9: {
+        midtermUrl: "https://drive.google.com/file/d/1NVhmi5uvkWUuLmEGlu3OnakvlqPvDL9C/view?usp=drive_link",
+        finalUrl: "https://drive.google.com/file/d/1XnhqmXtjlAb6F9EvYKgn8uGv3M5frHor/view?usp=drive_link"
+      },
+      11: {
+        midtermUrl: "https://drive.google.com/file/d/1zdJdYa2RzYcvvGpM80DtLWu8BhUCvozT/view?usp=drive_link",
+        finalUrl: "https://drive.google.com/file/d/1ZFvX9zlHaqIxNMWHE9QqcDxi5Pt_n41-/view?usp=drive_link"
+      },
+      13: { finalUrl: "https://drive.google.com/file/d/1ZLHE4Z1iUISALY6mtKjdFYoM5Q2NX3M-/view?usp=drive_link" }
+    };
 
     const totalVolumes = 18;
     const volumesContainer = document.getElementById('volumes-container');
@@ -824,8 +838,11 @@
         `;
       }
 
-      const midtermLink = (assessmentConfig[volume] && assessmentConfig[volume].midtermUrl) || "#";
-      const finalLink = (assessmentConfig[volume] && assessmentConfig[volume].finalUrl) || "#";
+      const assessment = assessmentConfig[volume] || {};
+      const assessmentButtonsHTML = [
+        assessment.midtermUrl && `<a href="${assessment.midtermUrl}" class="assessment-btn midterm" target="_blank" rel="noopener noreferrer">📝 期中評量測驗</a>`,
+        assessment.finalUrl && `<a href="${assessment.finalUrl}" class="assessment-btn final" target="_blank" rel="noopener noreferrer">🎯 期末評量測驗</a>`
+      ].filter(Boolean).join('');
 
       const floorHTML = `
         <section class="volume-floor" id="volume-${volume}">
@@ -840,19 +857,14 @@
             ${slidesHTML}
           </div>
 
-          <div class="assessment-bar">
+          ${assessmentButtonsHTML ? `<div class="assessment-bar">
             <div class="assessment-title">
               📊 <strong>第 ${volume} 冊 學習評量專區</strong>
             </div>
             <div class="assessment-buttons">
-              <a href="${midtermLink}" class="assessment-btn midterm" target="_blank" rel="noopener">
-                📝 期中評量測驗
-              </a>
-              <a href="${finalLink}" class="assessment-btn final" target="_blank" rel="noopener">
-                🎯 期末評量測驗
-              </a>
+              ${assessmentButtonsHTML}
             </div>
-          </div>
+          </div>` : ''}
         </section>
       `;
 
