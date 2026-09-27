@@ -190,6 +190,28 @@
       border-radius: 12px;
       font-weight: bold;
     }
+    .volume-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .volume-icon-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      font-size: 1.3rem;
+      text-decoration: none;
+      background: var(--primary-light);
+      border: 1px solid var(--border-color);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .volume-icon-link:hover, .volume-icon-link:focus-visible {
+      transform: translateY(-2px);
+      box-shadow: 0 3px 8px rgba(0,0,0,0.12);
+    }
 
     /* 簡報網格排列 (每層 5~6 個簡報) */
     .slides-grid {
@@ -801,6 +823,23 @@
       13: { finalUrl: "https://drive.google.com/file/d/1ZLHE4Z1iUISALY6mtKjdFYoM5Q2NX3M-/view?usp=drive_link" }
     };
 
+    // 各冊電子書與教材下載連結
+    const materialIds = {
+      1: "1oFkMxnwvW4_eLwtdYB8_dNAlEoRKupXu",
+      2: "1TwQVW9APXZ2L5nwXGl5WoOrucBh9tjnU",
+      3: "1XAMPLtlE8RbaeYWB__qpV-wPvnabKQq4",
+      4: "1IhY4XmH4llmWdhABsdbgGfGCe6hxIK6o",
+      5: "1lwDDBcVOtl9ku5dneVHy5mTfulHVKC2B",
+      6: "1k0SnXsovmrgB_GMwltAZ1y7m4bv-U87D",
+      7: "1jtsi9CBEaect3IJXkq0RG9xl_5VoSckv",
+      8: "11tKEex8AR6ORb2alloPnRQckYcJiuCpg",
+      9: "1wz87IyqLyVctGM7Cxe_DFm8ve6ew7DHw",
+      10: "1e3h8Kfk9TqT6K43f-haNOmxJMap-xN-4",
+      11: "1cDVdSHN8k4iLc-2ptT0fNRHEDKiz8i8G",
+      12: "1DAdUCWDa-lO2ElEG2A-NVYLICNYUxK11",
+      13: "1rC9ATE1K84_kNuFQ55VXVrjlSaXuumAn"
+    };
+
     const totalVolumes = 18;
     const volumesContainer = document.getElementById('volumes-container');
     const quickNav = document.getElementById('volume-quick-nav');
@@ -843,6 +882,11 @@
         assessment.midtermUrl && `<a href="${assessment.midtermUrl}" class="assessment-btn midterm" target="_blank" rel="noopener noreferrer">📝 期中評量測驗</a>`,
         assessment.finalUrl && `<a href="${assessment.finalUrl}" class="assessment-btn final" target="_blank" rel="noopener noreferrer">🎯 期末評量測驗</a>`
       ].filter(Boolean).join('');
+      const materialButtonsHTML = materialIds[volume] ? `
+        <div class="volume-actions">
+          <a class="volume-icon-link" href="https://mkm.k12ea.gov.tw/upload/ebook_app/Vietnam/${volume}/index.html" target="_blank" rel="noopener noreferrer" aria-label="第 ${volume} 冊電子書" title="第 ${volume} 冊電子書">📖</a>
+          <a class="volume-icon-link" href="https://drive.google.com/file/d/${materialIds[volume]}/view?usp=drive_link" target="_blank" rel="noopener noreferrer" aria-label="第 ${volume} 冊教材下載" title="第 ${volume} 冊教材下載">📥</a>
+        </div>` : '';
 
       const floorHTML = `
         <section class="volume-floor" id="volume-${volume}">
@@ -851,6 +895,7 @@
               <span>📖 第 ${volume} 冊 越南語教學專區</span>
               <span class="volume-badge">共 ${lessonCount} 單元</span>
             </div>
+            ${materialButtonsHTML}
           </div>
 
           <div class="slides-grid">
