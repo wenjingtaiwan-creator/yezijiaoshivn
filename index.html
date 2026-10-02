@@ -1,75 +1,43 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <!-- 1. 網頁標題 -->
-  <title>葉子教室越南語 | 越南語教學、基礎發音與學習資源分享</title>
-  
-  <!-- 2. 搜尋結果摘要 (Meta Description) -->
-  <meta name="description" content="歡迎來到葉子教室越南語！提供系統化越南語教學、基礎發音教材、教育部電子書資源、打字練習網與情境式互動，帶您輕鬆自學並掌握道地越南語。">
-  
-  <!-- 3. 關鍵字標籤 (Meta Keywords) -->
-  <meta name="keywords" content="葉子教室越南語, 葉子越語, 越南語教學, 越語發音, 越語字母, 越南語自學, 越南語課程, 教育部新住民語文, 越南語教材, 越南文化, 越南語打字練習">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- 4. 社群分享預覽 (Open Graph) -->
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="葉子教室越南語 | 越南語教學與互動資源">
-  <meta property="og:description" content="探索豐富的越南語教材、發音課程與教學遊戲。">
-  <meta property="og:image" content="https://wenjingtaiwan-creator.github.io/yezijiaoshivn/topic1-chaohoi.png">
-  <meta property="og:url" content="https://wenjingtaiwan-creator.github.io/yezijiaoshivn/">
+    <!-- SEO -->
+    <title>葉子教室越南語 | 越南語教學、基礎發音與學習資源分享</title>
+
+    <meta name="description"
+        content="歡迎來到葉子教室越南語！提供系統化越南語教學、基礎發音教材、教育部電子書資源、打字練習網與情境式互動，帶您輕鬆自學並掌握道地越南語。">
+
+    <meta name="keywords"
+        content="葉子教室越南語, 葉子越語, 越南語教學, 越語發音, 越語字母, 越南語自學, 越南語課程, 教育部新住民語文, 越南語教材, 越南文化, 越南語打字練習">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="葉子教室越南語 | 越南語教學與互動資源">
+    <meta property="og:description" content="探索豐富的越南語教材、發音課程與教學遊戲。">
+    <meta property="og:image"
+        content="https://wenjingtaiwan-creator.github.io/yezijiaoshivn/topic1-chaohoi.png">
+    <meta property="og:url"
+        content="https://wenjingtaiwan-creator.github.io/yezijiaoshivn/">
+
     <style>
-        /* 置中與吸睛動態效果按鈕 */
-        .typing-btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(135deg, #2E7D32, #4CAF50); /* 質感綠色漸層 */
-            color: white;
-            padding: 14px 32px;
-            font-size: 1.2rem;
-            font-weight: bold;
-            text-decoration: none;
-            border-radius: 50px;
-            box-shadow: 0 6px 15px rgba(46, 125, 50, 0.3);
-            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            animation: pulse-glow 2.5s infinite; /* 呼吸脈衝效果 */
-            position: relative;
-            overflow: hidden;
-        }
-
-        /* 滑鼠移上去時的滑順放大與提升效果 */
-        .typing-btn:hover {
-            background: linear-gradient(135deg, #1B5E20, #388E3C);
-            transform: translateY(-4px) scale(1.05);
-            box-shadow: 0 10px 25px rgba(46, 125, 50, 0.5);
-        }
-
-        /* 按下時的反饋 */
-        .typing-btn:active {
-            transform: translateY(-1px) scale(0.98);
-        }
-
-        /* 🌟 吸引目光的柔和脈衝光芒動畫 */
-        @keyframes pulse-glow {
-            0% {
-                box-shadow: 0 0 0 0 rgba(76, 175, 80, 0.6);
-            }
-            70% {
-                box-shadow: 0 0 0 18px rgba(76, 175, 80, 0);
-            }
-            100% {
-                box-shadow: 0 0 0 0 rgba(76, 175, 80, 0);
-            }
-        }
-
         :root {
-            --primary-color: #2E7D32;    /* 品牌葉子綠 */
-            --secondary-color: #81C784;  /* 淺綠 */
-            --accent-color: #FFB300;     /* 亮眼芒果黃 */
+            --primary-color: #2E7D32;
+            --secondary-color: #81C784;
+            --accent-color: #FFB300;
             --text-color: #2C3E50;
-            --bg-light: #F9FBFA;         /* 舒服的淺米綠底色 */
+            --bg-light: #F9FBFA;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
@@ -81,9 +49,13 @@
             background-color: var(--bg-light);
         }
 
+        /* =========================
+           導覽列
+        ========================= */
+
         header {
             background-color: rgba(255, 255, 255, 0.95);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
             position: sticky;
             top: 0;
             z-index: 1000;
@@ -106,11 +78,13 @@
             text-decoration: none;
             display: flex;
             align-items: center;
+            white-space: nowrap;
         }
 
         nav {
             display: flex;
             align-items: center;
+            flex-wrap: wrap;
         }
 
         nav a {
@@ -123,6 +97,11 @@
 
         nav a:hover {
             color: var(--primary-color);
+        }
+
+        nav a.ye-assistant-nav {
+            color: #2E7D32;
+            font-weight: bold;
         }
 
         nav a.highlight-nav {
@@ -141,6 +120,10 @@
             text-decoration: none;
         }
 
+        /* =========================
+           首頁 Hero
+        ========================= */
+
         .hero {
             background-image: url('ChatGPT Image 2026年7月17日 上午09_43_39.png');
             background-size: cover;
@@ -154,7 +137,65 @@
             padding: 0;
         }
 
-        /* 🌟 Canva 嵌入專屬區塊樣式 */
+        /* =========================
+           🌟 葉助理跑馬燈
+        ========================= */
+
+        .marquee-container {
+            background: linear-gradient(90deg, #2E7D32, #4CAF50);
+            color: #ffffff;
+            padding: 10px 0;
+            overflow: hidden;
+            white-space: nowrap;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .marquee-content {
+            display: inline-block;
+            padding-left: 100%;
+            animation: marquee-scroll 25s linear infinite;
+        }
+
+        .marquee-container:hover .marquee-content {
+            animation-play-state: paused;
+        }
+
+        .marquee-link {
+            color: #FFEB3B;
+            font-weight: bold;
+            text-decoration: none;
+            font-size: 1.05rem;
+            margin: 0 15px;
+            display: inline-flex;
+            align-items: center;
+            transition: opacity 0.2s;
+        }
+
+        .marquee-link:hover {
+            text-decoration: underline;
+            opacity: 0.9;
+        }
+
+        .marquee-divider {
+            color: rgba(255, 255, 255, 0.7);
+            margin: 0 10px;
+        }
+
+        @keyframes marquee-scroll {
+            0% {
+                transform: translate(0, 0);
+            }
+
+            100% {
+                transform: translate(-100%, 0);
+            }
+        }
+
+        /* =========================
+           Canva / Genially
+        ========================= */
+
         .canva-section {
             max-width: 900px;
             margin: 0 auto;
@@ -184,8 +225,16 @@
             text-decoration: underline;
         }
 
+        /* =========================
+           通用 Section
+        ========================= */
+
         section {
             padding: 80px 20px;
+        }
+
+        .hero {
+            padding: 0;
         }
 
         .container {
@@ -210,6 +259,10 @@
             margin: 10px auto 0 auto;
         }
 
+        /* =========================
+           教學資源卡片
+        ========================= */
+
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -220,7 +273,7 @@
             background: white;
             padding: 30px;
             border-radius: 12px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
             border-top: 4px solid var(--primary-color);
             transition: transform 0.3s, box-shadow 0.3s;
             display: flex;
@@ -230,7 +283,7 @@
 
         .card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
         }
 
         .card-action-btn {
@@ -244,56 +297,18 @@
             display: inline-block;
             transition: 0.3s;
             text-align: center;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             cursor: pointer;
         }
 
         .card-action-btn:hover {
             background-color: #1B5E20;
+            transform: translateY(-2px);
         }
 
-        .resource-list {
-            list-style: none;
-            padding: 0;
-        }
-
-        .resource-list li {
-            background: white;
-            margin-bottom: 15px;
-            padding: 15px 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.02);
-        }
-
-        .resource-list a {
-            color: var(--text-color);
-            text-decoration: none;
-            font-weight: bold;
-            display: flex;
-            justify-content: space-between;
-        }
-
-        .resource-list a:hover {
-            color: var(--primary-color);
-        }
-
-        .contact-info {
-            background: white;
-            padding: 40px;
-            border-radius: 12px;
-            text-align: center;
-            max-width: 600px;
-            margin: auto;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.03);
-        }
-
-        footer {
-            background-color: #2C3E50;
-            color: #A0AAB5;
-            text-align: center;
-            padding: 20px;
-            font-size: 0.9rem;
-        }
+        /* =========================
+           學習資源
+        ========================= */
 
         .resource-card {
             background-color: #f1f8e9;
@@ -310,13 +325,43 @@
             background-color: #e8f5e9;
         }
 
-        /* 地圖控制按鈕樣式 */
+        .resource-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .resource-list li {
+            background: white;
+            margin-bottom: 15px;
+            padding: 15px 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.02);
+        }
+
+        .resource-list a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+        }
+
+        .resource-list a:hover {
+            color: var(--primary-color);
+        }
+
+        /* =========================
+           地圖
+        ========================= */
+
         .map-controls {
             margin-bottom: 15px;
             display: flex;
             justify-content: center;
             align-items: center;
             gap: 12px;
+            flex-wrap: wrap;
         }
 
         .zoom-btn-icon {
@@ -333,7 +378,7 @@
             align-items: center;
             justify-content: center;
             transition: all 0.2s ease;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
 
         .zoom-btn-icon:hover {
@@ -368,7 +413,6 @@
             background-color: #424242;
         }
 
-        /* 地圖檢視區域 */
         .map-viewport {
             width: 100%;
             height: 600px;
@@ -376,7 +420,7 @@
             border: 2px solid #81C784;
             border-radius: 12px;
             background-color: #f4f4f4;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
             position: relative;
             cursor: grab;
         }
@@ -403,277 +447,964 @@
             display: block;
             user-select: none;
         }
+
+        /* =========================
+           聯絡我們
+        ========================= */
+
+        .contact-info {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            text-align: center;
+            max-width: 600px;
+            margin: auto;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
+        }
+
+        footer {
+            background-color: #2C3E50;
+            color: #A0AAB5;
+            text-align: center;
+            padding: 20px;
+            font-size: 0.9rem;
+        }
+
+        /* =========================
+           手機版
+        ========================= */
+
+        @media (max-width: 768px) {
+
+            .nav-container {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            nav {
+                justify-content: center;
+                gap: 8px 14px;
+            }
+
+            nav a {
+                margin-left: 0;
+                font-size: 0.9rem;
+            }
+
+            .logo {
+                font-size: 1.25rem;
+            }
+
+            .hero {
+                height: 55vw;
+                min-height: 200px;
+            }
+
+            section {
+                padding: 55px 15px;
+            }
+
+            .canva-section {
+                padding: 35px 15px 10px;
+            }
+
+            .canva-section h3 {
+                font-size: 1.5rem;
+            }
+
+            .section-title {
+                font-size: 1.7rem;
+            }
+
+            .marquee-link {
+                font-size: 0.95rem;
+            }
+
+            .map-viewport {
+                height: 450px;
+            }
+        }
     </style>
 </head>
+
 <body>
+
+    <!-- =========================
+         頂部導覽列
+    ========================== -->
 
     <header>
         <div class="nav-container">
-            <a href="#" class="logo">🍃 葉子教室越南語</a>
+
+            <a href="#home" class="logo">
+                🍃 葉子教室越南語
+            </a>
+
             <nav>
                 <a href="#home">首頁</a>
+
+                <a href="zhuly-ye.html" class="ye-assistant-nav">
+                    👾 葉助理介紹
+                </a>
+
                 <a href="#teaching">教學資源</a>
                 <a href="#learning">學習資源</a>
                 <a href="#contact">聯絡我們</a>
-                <a href="javascript:void(0)" onclick="openHomework()" class="highlight-nav">📝 作業區</a>
-                <a href="https://pos-775650670978.asia-southeast1.run.app" target="_blank" rel="noopener noreferrer" class="roll-call-nav">📝 老師點名</a>
+
+                <a href="javascript:void(0)"
+                    onclick="openHomework()"
+                    class="highlight-nav">
+                    📝 作業區
+                </a>
+
+                <a href="https://pos-775650670978.asia-southeast1.run.app"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="roll-call-nav">
+                    📝 老師點名
+                </a>
             </nav>
+
         </div>
     </header>
 
-    <!-- 首頁橫幅區塊 -->
+
+    <!-- =========================
+         首頁橫幅
+    ========================== -->
+
     <section id="home" class="hero"></section>
 
-    <!-- 🌟 Canva 越南文化簡報介紹區塊 -->
+
+    <!-- =========================
+         🌟 葉助理最新消息跑馬燈
+    ========================== -->
+
+    <div class="marquee-container">
+
+        <div class="marquee-content">
+
+            <a href="zhuly-ye.html" class="marquee-link">
+                📢 【全新推出】葉助理軟體介紹與使用教學上線囉！點擊此處立即查看 ➔
+            </a>
+
+            <span class="marquee-divider">|</span>
+
+            <a href="zhuly-ye.html" class="marquee-link">
+                💡 想了解葉助理有哪些便利功能？點我觀看教學簡報 ➔
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         Canva 越南文化
+    ========================== -->
+
     <div class="canva-section">
+
         <h3>🇻🇳 探索越南文化</h3>
-        <div style="position: relative; width: 100%; height: 0; padding-top: 56.2500%; padding-bottom: 0; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden; border-radius: 8px; will-change: transform;">
-            <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0; margin: 0;" src="https://www.canva.com/design/DAHPnq4Wpwo/8WvypBFb6gkZYgK-DOXSqg/view?embed" allowfullscreen="allowfullscreen" allow="fullscreen"></iframe>
+
+        <div style="
+            position: relative;
+            width: 100%;
+            height: 0;
+            padding-top: 56.25%;
+            box-shadow: 0 2px 8px rgba(63,69,81,0.16);
+            margin-top: 1.6em;
+            margin-bottom: 0.9em;
+            overflow: hidden;
+            border-radius: 8px;
+        ">
+
+            <iframe
+                loading="lazy"
+                style="
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                    top: 0;
+                    left: 0;
+                    border: none;
+                "
+                src="https://www.canva.com/design/DAHPnq4Wpwo/8WvypBFb6gkZYgK-DOXSqg/view?embed"
+                allowfullscreen>
+            </iframe>
+
         </div>
+
         <div class="canva-credits">
-            葉文靜 設計的 <a href="https://www.canva.com/design/DAHPnq4Wpwo/8WvypBFb6gkZYgK-DOXSqg/view?utm_content=DAHPnq4Wpwo&amp;utm_campaign=designshare&amp;utm_medium=embeds&amp;utm_source=link" target="_blank" rel="noopener">介紹越南</a>
+            葉文靜 設計的
+            <a href="https://www.canva.com/design/DAHPnq4Wpwo/8WvypBFb6gkZYgK-DOXSqg/view?utm_content=DAHPnq4Wpwo&utm_campaign=designshare&utm_medium=embeds&utm_source=link"
+                target="_blank"
+                rel="noopener">
+                介紹越南
+            </a>
         </div>
+
     </div>
 
-  <!-- 🌟 Canva 越南咖啡簡報介紹區塊 -->
-<div class="canva-section">
-  <h3>☕ 探索越南咖啡文化</h3>
-  <div style="position: relative; width: 100%; height: 0; padding-top: 56.2500%; padding-bottom: 0; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden; border-radius: 8px; will-change: transform;">
-    <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0; margin: 0;" src="https://www.canva.com/design/DAGf4TlWXkE/GA1NvCE6yoXr7_x7zGlRaw/view?embed" allowfullscreen="allowfullscreen" allow="fullscreen"></iframe>
-  </div>
-  <div class="canva-credits">
-    葉文靜 設計的 <a href="https://www.canva.com/design/DAGf4TlWXkE/GA1NvCE6yoXr7_x7zGlRaw/view?utm_content=DAGf4TlWXkE&amp;utm_campaign=designshare&amp;utm_medium=embeds&amp;utm_source=link" target="_blank" rel="noopener">越南咖啡</a>
-  </div>
-</div>
 
-  <!-- 🌟 Genially 拼音教學簡報區塊 -->
-<div class="canva-section">
-  <h3>🔤 越南語拼音練習 (Đánh vần)</h3>
-  <div style="width: 100%; margin-top: 1.6em;">
-    <div style="position: relative; padding-bottom: 56.25%; padding-top: 0; height: 0; box-shadow: 0 2px 8px rgba(0,0,0,0.15); border-radius: 8px; overflow: hidden;">
-      <iframe title="Đánh vần" frameborder="0" width="1200" height="675" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://view.genially.com/67b1a99b8ffe7cad1b765fec" type="text/html" allowscriptaccess="always" allowfullscreen="true" scrolling="yes" allownetworking="all"></iframe>
+    <!-- =========================
+         Canva 越南咖啡
+    ========================== -->
+
+    <div class="canva-section">
+
+        <h3>☕ 探索越南咖啡文化</h3>
+
+        <div style="
+            position: relative;
+            width: 100%;
+            height: 0;
+            padding-top: 56.25%;
+            box-shadow: 0 2px 8px rgba(63,69,81,0.16);
+            margin-top: 1.6em;
+            margin-bottom: 0.9em;
+            overflow: hidden;
+            border-radius: 8px;
+        ">
+
+            <iframe
+                loading="lazy"
+                style="
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                    top: 0;
+                    left: 0;
+                    border: none;
+                "
+                src="https://www.canva.com/design/DAGf4TlWXkE/GA1NvCE6yoXr7_x7zGlRaw/view?embed"
+                allowfullscreen>
+            </iframe>
+
+        </div>
+
+        <div class="canva-credits">
+            葉文靜 設計的
+            <a href="https://www.canva.com/design/DAGf4TlWXkE/GA1NvCE6yoXr7_x7zGlRaw/view?utm_content=DAGf4TlWXkE&utm_campaign=designshare&utm_medium=embeds&utm_source=link"
+                target="_blank"
+                rel="noopener">
+                越南咖啡
+            </a>
+        </div>
+
     </div>
-  </div>
-</div>
- 
-    <!-- 教學資源區塊 -->
+
+
+    <!-- =========================
+         Genially 拼音教學
+    ========================== -->
+
+    <div class="canva-section">
+
+        <h3>🔤 越南語拼音練習 (Đánh vần)</h3>
+
+        <div style="width: 100%; margin-top: 1.6em;">
+
+            <div style="
+                position: relative;
+                padding-bottom: 56.25%;
+                height: 0;
+                box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+                border-radius: 8px;
+                overflow: hidden;
+            ">
+
+                <iframe
+                    title="Đánh vần"
+                    frameborder="0"
+                    style="
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                    "
+                    src="https://view.genially.com/67b1a99b8ffe7cad1b765fec"
+                    allowfullscreen
+                    scrolling="yes">
+                </iframe>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         教學資源
+    ========================== -->
+
     <section id="teaching">
+
         <div class="container">
+
             <h3 class="section-title">教學資源</h3>
+
             <div class="grid">
-                <!-- 新住民語文教學資源卡片 -->
+
+                <!-- 教育部資源 -->
                 <div class="card">
+
                     <div>
-                        <h4 style="margin-top: 0; color: var(--primary-color);">💡 教育部新住民語文教學資源</h4>
-                        <p>「如果您或您的小孩想學習越南語，歡迎透過國小、國中或高中的學校管道報名校內越南語課程喔！」</p>
+                        <h4 style="margin-top: 0; color: var(--primary-color);">
+                            💡 教育部新住民語文教學資源
+                        </h4>
+
+                        <p>
+                            如果您或您的小孩想學習越南語，歡迎透過國小、國中或高中的學校管道報名校內越南語課程喔！
+                        </p>
                     </div>
-                    <div style="margin-top: 15px; border-top: 1px dashed #ddd; padding-top: 10px;">
-                        <strong style="color: #555; font-size: 0.9rem;">📌 相關新聞稿與資源：</strong>
-                        <ul style="list-style: none; padding: 0; margin: 5px 0 0 0; font-size: 0.95rem;">
+
+                    <div style="
+                        margin-top: 15px;
+                        border-top: 1px dashed #ddd;
+                        padding-top: 10px;
+                    ">
+
+                        <strong style="color: #555; font-size: 0.9rem;">
+                            📌 相關新聞稿與資源：
+                        </strong>
+
+                        <ul style="
+                            list-style: none;
+                            padding: 0;
+                            margin: 5px 0 0 0;
+                            font-size: 0.95rem;
+                        ">
+
                             <li style="margin-bottom: 5px;">
-                                📰 <a href="https://www.edu.tw/News_Content.aspx?n=9E7AC85F1954DDA8&s=46C45499669496FF" target="_blank" style="color: #2E7D32; text-decoration: underline;">教育部全球資訊網 - 新住民語文選課資源說明</a>
+                                📰
+                                <a href="https://www.edu.tw/News_Content.aspx?n=9E7AC85F1954DDA8&s=46C45499669496FF"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    style="
+                                        color: #2E7D32;
+                                        text-decoration: underline;
+                                    ">
+                                    教育部全球資訊網 - 新住民語文選課資源說明
+                                </a>
                             </li>
+
                         </ul>
+
                         <div style="margin-top: 25px;">
-                            <a href="learning-resources.html" target="_blank" style="background-color: #2e7d32; color: white; padding: 12px 24px; text-decoration: none; border-radius: 30px; display: inline-block; font-weight: bold; box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: 0.3s;">電子書 ➔</a>
+
+                            <a href="learning-resources.html"
+                                target="_blank"
+                                class="card-action-btn">
+                                電子書 ➔
+                            </a>
+
                         </div>
+
                     </div>
+
                 </div>
 
-                <!-- 第二區塊：葉老師教學資源 -->
+
+                <!-- 葉老師教學資源 -->
                 <div class="card">
+
                     <div>
-                        <h4 style="margin-top: 0; color: var(--primary-color);">📚 葉老師教學資源</h4>
-                        <p>教學簡報、課程海報以及實用補充教材。</p>
+                        <h4 style="margin-top: 0; color: var(--primary-color);">
+                            📚 葉老師教學資源
+                        </h4>
+
+                        <p>
+                            教學簡報、課程海報以及實用補充教材。
+                        </p>
                     </div>
+
                     <div>
-                        <a href="teacher-resources.html" class="card-action-btn">開始上課 ➔</a>
+                        <a href="teacher-resources.html"
+                            class="card-action-btn">
+                            開始上課 ➔
+                        </a>
                     </div>
+
                 </div>
 
-                <!-- 自編書卡片 -->
+
+                <!-- 自編電子書 -->
                 <div class="card" style="border-top-color: #FFB300;">
+
                     <div>
-                        <h4 style="margin-top: 0; color: #2E7D32;">📖 葉老師自編電子書</h4>
-                        <p>收錄自編越南語教材與拼讀教學簡報，支援線上翻閱與即時預覽。</p>
+
+                        <h4 style="margin-top: 0; color: #2E7D32;">
+                            📖 葉老師自編電子書
+                        </h4>
+
+                        <p>
+                            收錄自編越南語教材與拼讀教學簡報，支援線上翻閱與即時預覽。
+                        </p>
+
                     </div>
+
                     <div>
-                        <a href="ebook.html" class="card-action-btn" style="background-color: #FFB300; color: #2C3E50;">閱讀電子書 ➔</a>
+
+                        <a href="ebook.html"
+                            class="card-action-btn"
+                            style="
+                                background-color: #FFB300;
+                                color: #2C3E50;
+                            ">
+                            閱讀電子書 ➔
+                        </a>
+
                     </div>
+
                 </div>
 
-                <!-- 第四區塊：作業區卡片 -->
+
+                <!-- 作業區 -->
                 <div class="card" style="border-top-color: #e91e63;">
+
                     <div>
-                        <h4 style="margin-top: 0; color: #e91e63;">📝 作業區</h4>
-                        <p>課堂作業與線上互動專區</p>
+
+                        <h4 style="margin-top: 0; color: #e91e63;">
+                            📝 作業區
+                        </h4>
+
+                        <p>
+                            課堂作業與線上互動專區
+                        </p>
+
                     </div>
+
                     <div>
-                        <a href="javascript:void(0)" onclick="openHomework()" class="card-action-btn" style="background-color: #e91e63;">開啟作業區 ➔</a>
+
+                        <a href="javascript:void(0)"
+                            onclick="openHomework()"
+                            class="card-action-btn"
+                            style="background-color: #e91e63;">
+                            開啟作業區 ➔
+                        </a>
+
                     </div>
+
                 </div>
 
-                <!-- 第五區塊：情境式互動 -->
+
+                <!-- 情境互動 -->
                 <div class="card">
+
                     <div>
-                        <h4 style="margin-top: 0; color: var(--primary-color);">🎯 情境式互動</h4>
-                        <p>提供您邊玩邊學的小天地。</p>
+
+                        <h4 style="margin-top: 0; color: var(--primary-color);">
+                            🎯 情境式互動
+                        </h4>
+
+                        <p>
+                            提供您邊玩邊學的小天地。
+                        </p>
+
                     </div>
+
                     <div>
-                        <a href="game-resources.html" class="card-action-btn">一起玩 ➔</a>
+
+                        <a href="game-resources.html"
+                            class="card-action-btn">
+                            一起玩 ➔
+                        </a>
+
                     </div>
+
                 </div>
+
             </div>
+
         </div>
+
     </section>
 
-    <section id="learning" style="background-color: #F0F4F1;">
+
+    <!-- =========================
+         學習資源
+    ========================== -->
+
+    <section id="learning"
+        style="background-color: #F0F4F1;">
+
         <div class="container">
-            <h3 class="section-title">學習資源</h3>
+
+            <h3 class="section-title">
+                學習資源
+            </h3>
+
             <div class="resource-card">
-                <h3 style="margin-top: 0; color: #2E7D32;">🌱 基礎越南語發音</h3>
-                <p style="margin-bottom: 0;">從最簡單的聲調與字母開始學起，打好越南語基本功！</p>
-            </div>
-            <ul class="resource-list">
-                <!-- ⌨️ 打字練習放在學習資源 -->
-                <li>
-                    <a href="https://viettype-vui-h-c-ti-ng-vi-t.ai.studio/" target="_blank" rel="noopener noreferrer">
-                        <span>⌨️ 練習工具：越南語打字練習網 (線上鍵盤輸入)</span> 
-                        <span>➔</span>
-                    </a>
-                </li>
-                <li><a href="pronunciation.html"><span>📚 基礎篇：越南語字母與發音小秘笈</span> <span>➔</span></a></li>
-                <li><a href="#"><span>🗣 實用篇：日常必備 50 句實用會話</span> <span>➔</span></a></li>
-                <li><a href="#"><span>✈️ 文化篇：越南旅遊必知的小常識與禁忌</span> <span>➔</span></a></li>
-                <!-- 🌟 外部學習網站連結 -->
-                <li>
-                    <a href="https://emhoctiengviet.vn/lesson" target="_blank" rel="noopener noreferrer">
-                        <span>🌐 推薦外網：Em Học Tiếng Việt (線上越南語課程資源)</span> 
-                        <span>➔</span>
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </section>
 
-    <!-- 🇻🇳 越南地圖區塊 -->
-    <section id="vietnam-map" style="background-color: #ffffff; padding: 50px 20px; text-align: center;">
-        <div style="max-width: 1000px; margin: 0 auto;">
-            <h2 style="color: #2E7D32; margin-bottom: 20px;">🇻🇳 越南行政區劃地圖</h2>
-            <!-- 簡潔的 - / + 控制列 -->
-            <div class="map-controls">
-                <button type="button" onclick="changeZoom(-1)" class="zoom-btn-icon" title="縮小">➖</button>
-                <span id="zoomLevelText" class="zoom-level-tag">Level 3 (100%)</span>
-                <button type="button" onclick="changeZoom(1)" class="zoom-btn-icon" title="放大">➕</button>
-                <button type="button" onclick="resetMap()" class="zoom-btn-reset" title="重設地圖">🔄 重設</button>
-            </div>
+                <h3 style="
+                    margin-top: 0;
+                    color: #2E7D32;
+                ">
+                    🌱 基礎越南語發音
+                </h3>
 
-            <!-- 可拖曳與捲動的地圖視窗容器 -->
-            <div id="mapViewport" class="map-viewport">
-                <div id="mapContainer" class="map-container">
-                    <img id="mapImage" src="map%20png%20ro%20net.png" alt="越南行政區劃地圖" draggable="false">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 聯絡我們區塊 -->
-    <section id="contact">
-        <div class="container">
-            <h3 class="section-title">聯絡我們</h3>
-            <div class="contact-info">
-                <p>有任何課程疑問，歡迎隨時與我們聯繫！</p>
-                <p style="font-size: 1.1rem; margin: 20px 0;">
-                    📧 電子郵件：<a href="mailto:wenjingtaiwan@gmail.com" style="color: var(--primary-color);">wenjingtaiwan@gmail.com</a><br><br>
-                    📱 官方 LINE：<strong style="color: var(--primary-color);">@133huelw</strong>
+                <p style="margin-bottom: 0;">
+                    從最簡單的聲調與字母開始學起，打好越南語基本功！
                 </p>
-                <p style="color: #888; font-size: 0.9rem;">（我們會盡快回覆您）</p>
+
             </div>
+
+
+            <ul class="resource-list">
+
+                <li>
+
+                    <a href="https://viettype-vui-h-c-ti-ng-vi-t.ai.studio/"
+                        target="_blank"
+                        rel="noopener noreferrer">
+
+                        <span>
+                            ⌨️ 練習工具：越南語打字練習網 (線上鍵盤輸入)
+                        </span>
+
+                        <span>➔</span>
+
+                    </a>
+
+                </li>
+
+
+                <li>
+
+                    <a href="pronunciation.html">
+
+                        <span>
+                            📚 基礎篇：越南語字母與發音小秘笈
+                        </span>
+
+                        <span>➔</span>
+
+                    </a>
+
+                </li>
+
+
+                <li>
+
+                    <a href="#">
+
+                        <span>
+                            🗣 實用篇：日常必備 50 句實用會話
+                        </span>
+
+                        <span>➔</span>
+
+                    </a>
+
+                </li>
+
+
+                <li>
+
+                    <a href="#">
+
+                        <span>
+                            ✈️ 文化篇：越南旅遊必知的小常識與禁忌
+                        </span>
+
+                        <span>➔</span>
+
+                    </a>
+
+                </li>
+
+
+                <li>
+
+                    <a href="https://emhoctiengviet.vn/lesson"
+                        target="_blank"
+                        rel="noopener noreferrer">
+
+                        <span>
+                            🌐 推薦外網：Em Học Tiếng Việt (線上越南語課程資源)
+                        </span>
+
+                        <span>➔</span>
+
+                    </a>
+
+                </li>
+
+            </ul>
+
         </div>
+
     </section>
+
+
+    <!-- =========================
+         越南地圖
+    ========================== -->
+
+    <section id="vietnam-map"
+        style="
+            background-color: #ffffff;
+            padding: 50px 20px;
+            text-align: center;
+        ">
+
+        <div style="
+            max-width: 1000px;
+            margin: 0 auto;
+        ">
+
+            <h2 style="
+                color: #2E7D32;
+                margin-bottom: 20px;
+            ">
+                🇻🇳 越南行政區劃地圖
+            </h2>
+
+
+            <div class="map-controls">
+
+                <button
+                    type="button"
+                    onclick="changeZoom(-1)"
+                    class="zoom-btn-icon"
+                    title="縮小">
+                    ➖
+                </button>
+
+                <span
+                    id="zoomLevelText"
+                    class="zoom-level-tag">
+                    Level 3 (100%)
+                </span>
+
+                <button
+                    type="button"
+                    onclick="changeZoom(1)"
+                    class="zoom-btn-icon"
+                    title="放大">
+                    ➕
+                </button>
+
+                <button
+                    type="button"
+                    onclick="resetMap()"
+                    class="zoom-btn-reset"
+                    title="重設地圖">
+                    🔄 重設
+                </button>
+
+            </div>
+
+
+            <div
+                id="mapViewport"
+                class="map-viewport">
+
+                <div
+                    id="mapContainer"
+                    class="map-container">
+
+                    <img
+                        id="mapImage"
+                        src="map%20png%20ro%20net.png"
+                        alt="越南行政區劃地圖"
+                        draggable="false">
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         聯絡我們
+    ========================== -->
+
+    <section id="contact">
+
+        <div class="container">
+
+            <h3 class="section-title">
+                聯絡我們
+            </h3>
+
+            <div class="contact-info">
+
+                <p>
+                    有任何課程疑問，歡迎隨時與我們聯繫！
+                </p>
+
+                <p style="
+                    font-size: 1.1rem;
+                    margin: 20px 0;
+                ">
+
+                    📧 電子郵件：
+                    <a href="mailto:wenjingtaiwan@gmail.com"
+                        style="color: var(--primary-color);">
+                        wenjingtaiwan@gmail.com
+                    </a>
+
+                    <br><br>
+
+                    📱 官方 LINE：
+                    <strong style="color: var(--primary-color);">
+                        @133huelw
+                    </strong>
+
+                </p>
+
+                <p style="
+                    color: #888;
+                    font-size: 0.9rem;
+                ">
+                    （我們會盡快回覆您）
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         Footer
+    ========================== -->
 
     <footer>
-        <p>&copy; 2026 葉子教室越南語. All rights reserved.</p>
+        <p>
+            &copy; 2026 葉子教室越南語. All rights reserved.
+        </p>
     </footer>
 
-    <!-- 腳本區域 -->
+
+    <!-- =========================
+         JavaScript
+    ========================== -->
+
     <script>
-    // 作業區密碼驗證
-    function openHomework() {
-        const pwd = prompt("請輸入作業區密碼：");
-        if (pwd === null) {
-            return;
+
+        /* =====================================
+           作業區密碼
+        ====================================== */
+
+        function openHomework() {
+
+            const pwd = prompt("請輸入作業區密碼：");
+
+            if (pwd === null) {
+                return;
+            }
+
+            if (pwd === "nehs") {
+
+                window.open(
+                    "https://hudongzuoye-2026.ai.studio/",
+                    "_blank"
+                );
+
+            } else {
+
+                alert("密碼錯誤，請重新輸入！");
+
+            }
         }
-        if (pwd === "nehs") {
-            window.open("https://hudongzuoye-2026.ai.studio/", "_blank");
-        } else {
-            alert("密碼錯誤，請重新輸入！");
+
+
+        /* =====================================
+           地圖縮放
+        ====================================== */
+
+        const zoomLevels = [
+            {
+                scale: 0.6,
+                label: "Level 1 (60%)"
+            },
+            {
+                scale: 0.8,
+                label: "Level 2 (80%)"
+            },
+            {
+                scale: 1.0,
+                label: "Level 3 (100%)"
+            },
+            {
+                scale: 1.3,
+                label: "Level 4 (130%)"
+            },
+            {
+                scale: 1.6,
+                label: "Level 5 (160%)"
+            }
+        ];
+
+
+        let currentLevelIndex = 2;
+
+
+        function updateMapZoom() {
+
+            const img =
+                document.getElementById('mapImage');
+
+            const labelText =
+                document.getElementById('zoomLevelText');
+
+            const current =
+                zoomLevels[currentLevelIndex];
+
+            if (!img || !labelText) {
+                return;
+            }
+
+            img.style.transform =
+                `scale(${current.scale})`;
+
+            labelText.innerText =
+                current.label;
         }
-    }
 
-    // 地圖縮放與拖曳腳本
-    const zoomLevels = [
-        { scale: 0.6, label: "Level 1 (60%)" },
-        { scale: 0.8, label: "Level 2 (80%)" },
-        { scale: 1.0, label: "Level 3 (100%)" },
-        { scale: 1.3, label: "Level 4 (130%)" },
-        { scale: 1.6, label: "Level 5 (160%)" }
-    ];
 
-    let currentLevelIndex = 2; // 預設為 Level 3 (100%)
+        function changeZoom(direction) {
 
-    function updateMapZoom() {
-        const img = document.getElementById('mapImage');
-        const labelText = document.getElementById('zoomLevelText');
-        const current = zoomLevels[currentLevelIndex];
-        img.style.transform = `scale(${current.scale})`;
-        labelText.innerText = current.label;
-    }
+            const newIndex =
+                currentLevelIndex + direction;
 
-    function changeZoom(direction) {
-        const newIndex = currentLevelIndex + direction;
-        if (newIndex >= 0 && newIndex < zoomLevels.length) {
-            currentLevelIndex = newIndex;
+            if (
+                newIndex >= 0 &&
+                newIndex < zoomLevels.length
+            ) {
+
+                currentLevelIndex =
+                    newIndex;
+
+                updateMapZoom();
+            }
+        }
+
+
+        function resetMap() {
+
+            currentLevelIndex = 2;
+
             updateMapZoom();
+
+            const viewport =
+                document.getElementById('mapViewport');
+
+            if (viewport) {
+
+                viewport.scrollTop = 0;
+                viewport.scrollLeft = 0;
+
+            }
         }
-    }
 
-    function resetMap() {
-        currentLevelIndex = 2;
+
+        /* =====================================
+           滑鼠拖曳地圖
+        ====================================== */
+
+        const viewport =
+            document.getElementById('mapViewport');
+
+        let isDown = false;
+
+        let startX;
+        let startY;
+
+        let scrollLeft;
+        let scrollTop;
+
+
+        if (viewport) {
+
+            viewport.addEventListener(
+                'mousedown',
+                (e) => {
+
+                    isDown = true;
+
+                    startX =
+                        e.pageX -
+                        viewport.offsetLeft;
+
+                    startY =
+                        e.pageY -
+                        viewport.offsetTop;
+
+                    scrollLeft =
+                        viewport.scrollLeft;
+
+                    scrollTop =
+                        viewport.scrollTop;
+                }
+            );
+
+
+            viewport.addEventListener(
+                'mouseleave',
+                () => {
+                    isDown = false;
+                }
+            );
+
+
+            viewport.addEventListener(
+                'mouseup',
+                () => {
+                    isDown = false;
+                }
+            );
+
+
+            viewport.addEventListener(
+                'mousemove',
+                (e) => {
+
+                    if (!isDown) {
+                        return;
+                    }
+
+                    e.preventDefault();
+
+                    const x =
+                        e.pageX -
+                        viewport.offsetLeft;
+
+                    const y =
+                        e.pageY -
+                        viewport.offsetTop;
+
+                    const walkX =
+                        (x - startX) * 1.5;
+
+                    const walkY =
+                        (y - startY) * 1.5;
+
+                    viewport.scrollLeft =
+                        scrollLeft - walkX;
+
+                    viewport.scrollTop =
+                        scrollTop - walkY;
+                }
+            );
+
+        }
+
+
+        /* 初始化地圖 */
         updateMapZoom();
-        const viewport = document.getElementById('mapViewport');
-        viewport.scrollTop = 0;
-        viewport.scrollLeft = 0;
-    }
 
-    // 滑鼠拖曳查看地圖
-    const viewport = document.getElementById('mapViewport');
-    let isDown = false;
-    let startX, startY, scrollLeft, scrollTop;
-
-    if (viewport) {
-        viewport.addEventListener('mousedown', (e) => {
-            isDown = true;
-            startX = e.pageX - viewport.offsetLeft;
-            startY = e.pageY - viewport.offsetTop;
-            scrollLeft = viewport.scrollLeft;
-            scrollTop = viewport.scrollTop;
-        });
-
-        viewport.addEventListener('mouseleave', () => { isDown = false; });
-        viewport.addEventListener('mouseup', () => { isDown = false; });
-
-        viewport.addEventListener('mousemove', (e) => {
-            if (!isDown) return;
-            e.preventDefault();
-            const x = e.pageX - viewport.offsetLeft;
-            const y = e.pageY - viewport.offsetTop;
-            const walkX = (x - startX) * 1.5;
-            const walkY = (y - startY) * 1.5;
-            viewport.scrollLeft = scrollLeft - walkX;
-            viewport.scrollTop = scrollTop - walkY;
-        });
-    }
     </script>
+
 </body>
+
 </html>
