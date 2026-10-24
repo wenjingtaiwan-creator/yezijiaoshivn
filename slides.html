@@ -213,14 +213,6 @@
       box-shadow: 0 3px 8px rgba(0,0,0,0.12);
     }
 
-    // 在 18 冊按鈕後面追加「課文影片」按鈕
-  const videoNavLink = document.createElement('a');
-  videoNavLink.href = '#video-collection';
-  videoNavLink.textContent = '🎬 課文影片';
-  videoNavLink.style.backgroundColor = 'var(--accent-color)';
-  videoNavLink.style.color = '#2C3E50';
-  quickNav.appendChild(videoNavLink);
-    
     /* 簡報網格排列 (每層 5~6 個簡報) */
     .slides-grid {
       display: grid;
@@ -463,6 +455,35 @@
 
     <!-- 各冊一層容器 -->
     <div id="volumes-container"></div>
+
+    <!-- 課文影片合輯專區 -->
+    <section class="volume-floor" id="video-collection">
+      <div class="volume-header">
+        <div class="volume-title">
+          <span>🎬 越南語課文影片合輯專區</span>
+          <span class="volume-badge">精選資源</span>
+        </div>
+      </div>
+      
+      <div style="max-width: 900px; margin: 0 auto;">
+        <div class="canva-container" style="box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+          <iframe 
+            src="https://www.canva.com/design/DAHY59LSCFU/4UiZhcMO5bH52k1KrekGrA/view?embed" 
+            allowfullscreen="allowfullscreen" 
+            allow="fullscreen" 
+            loading="lazy">
+          </iframe>
+        </div>
+        <div class="canva-credits" style="text-align: center; margin-top: 10px; font-size: 0.9rem;">
+          葉文靜 設計的 
+          <a href="https://www.canva.com/design/DAHY59LSCFU/4UiZhcMO5bH52k1KrekGrA/view?utm_content=DAHY59LSCFU&amp;utm_campaign=designshare&amp;utm_medium=embeds&amp;utm_source=link" target="_blank" rel="noopener">
+            AI 生成課文影片合輯
+          </a>
+        </div>
+      </div>
+    </section>
+
+
   </div>
 
   <!-- 回到頂部按鈕 -->
@@ -924,6 +945,14 @@
       volumesContainer.innerHTML += floorHTML;
     }
 
+    // 課文影片快速跳轉按鈕
+    const videoNavLink = document.createElement('a');
+    videoNavLink.href = '#video-collection';
+    videoNavLink.textContent = '🎬 課文影片';
+    videoNavLink.style.backgroundColor = 'var(--accent-color)';
+    videoNavLink.style.color = '#2C3E50';
+    quickNav.appendChild(videoNavLink);
+
     // 點擊即時載入 iframe 函式
     function loadSlide(id, embedUrl) {
       const container = document.getElementById(`container-${id}`);
@@ -933,34 +962,6 @@
         `;
       }
     }
-
-    <!-- 課文影片合輯專區 -->
-    <section class="volume-floor" id="video-collection">
-      <div class="volume-header">
-        <div class="volume-title">
-          <span>🎬 越南語課文影片合輯專區</span>
-          <span class="volume-badge">精選資源</span>
-        </div>
-      </div>
-      
-      <div style="max-width: 900px; margin: 0 auto;">
-        <div class="canva-container" style="box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
-          <iframe 
-            src="https://www.canva.com/design/DAHY59LSCFU/4UiZhcMO5bH52k1KrekGrA/view?embed" 
-            allowfullscreen="allowfullscreen" 
-            allow="fullscreen" 
-            loading="lazy">
-          </iframe>
-        </div>
-        <div class="canva-credits" style="text-align: center; margin-top: 10px; font-size: 0.9rem;">
-          葉文靜 設計的 
-          <a href="https://www.canva.com/design/DAHY59LSCFU/4UiZhcMO5bH52k1KrekGrA/view?utm_content=DAHY59LSCFU&amp;utm_campaign=designshare&amp;utm_medium=embeds&amp;utm_source=link" target="_blank" rel="noopener">
-            AI 生成課文影片合輯
-          </a>
-        </div>
-      </div>
-    </section>
-  </div> <!-- 結束 .container -->
 
      // 回到頂部按鈕控制
     const backToTopBtn = document.getElementById('back-to-top');
