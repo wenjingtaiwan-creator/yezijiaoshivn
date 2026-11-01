@@ -14,7 +14,7 @@
 <div class="fullscreen" id="fullscreen"><div class="fullbar"><strong id="fullTitle">歌曲電子書</strong><button class="btn secondary" id="closeFull">✕ 關閉</button></div><iframe id="fullBook" title="全螢幕歌曲電子書" allowfullscreen allow="autoplay; fullscreen; clipboard-write"></iframe></div>
 <script>
 'use strict';
-const initial=[{id:'first-song',title:'Chỉ Muốn Bên Em',artist:'愛情、思念與離別｜第一首歌曲',category:'抒情歌曲',url:'https://heyzine.com/flip-book/e2f1bac346.html'}];
+const initial=[{id:'first-song',title:'Chỉ Muốn Bên Em',artist:'愛情、思念與離別｜第一首歌曲',category:'抒情歌曲',url:'https://heyzine.com/flip-book/e2f1bac346.html'},{id:'second-song',title:'Gián Đáng Yêu Không?',artist:'蟑螂可愛嗎？｜第二首歌曲',category:'流行歌曲',url:'https://heyzine.com/flip-book/60f85f0d46.html'}];
 const key='viet-song-classroom-v1';let saved=[];try{const data=JSON.parse(localStorage.getItem(key)||'[]');if(Array.isArray(data))saved=data.filter(x=>x&&typeof x.title==='string'&&typeof x.url==='string')}catch(e){}
 let songs=[...initial,...saved],selected=initial[0].id;
 const $=id=>document.getElementById(id);
