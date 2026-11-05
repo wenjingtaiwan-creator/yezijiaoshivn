@@ -43,7 +43,7 @@
       background-color: #219150;
     }
 
-    /* 4 欄網格排版 (4x3 = 12 格) */
+    /* 4 欄網格排版 (4x6 = 24 格) */
     .game-container {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -119,6 +119,9 @@
         grid-template-columns: 1fr;
       }
     }
+    .placeholder-cover { width:100%; aspect-ratio:16/9; border-radius:8px; margin-bottom:12px; background:linear-gradient(135deg,#e4f6ed,#dcebf9); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:8px; font-size:2rem; color:#4a7b69; }
+    .placeholder-cover span { font-size:0.95rem; font-weight:bold; letter-spacing:1px; }
+    .play-btn.pending { background:#9aa8a2; cursor:not-allowed; }
   </style>
 </head>
 <body>
@@ -211,6 +214,90 @@
       <img src="https://via.placeholder.com/600x338?text=Game+12" alt="遊戲 12 封面">
       <h3>遊戲標題 12<small>Tên trò chơi 12</small></h3>
       <a href="#" target="_blank" rel="noopener noreferrer" class="play-btn">開始遊戲</a>
+    </div>
+
+    <!-- 遊戲 13：預留位置 -->
+    <div class="game-card">
+      <div class="placeholder-cover" role="img" aria-label="遊戲 13 封面待新增">🎮<span>GAME 13</span></div>
+      <h3>遊戲標題 13<small>Tên trò chơi 13</small></h3>
+      <span class="play-btn pending" aria-disabled="true">即將推出</span>
+    </div>
+
+    <!-- 遊戲 14：預留位置 -->
+    <div class="game-card">
+      <div class="placeholder-cover" role="img" aria-label="遊戲 14 封面待新增">🎮<span>GAME 14</span></div>
+      <h3>遊戲標題 14<small>Tên trò chơi 14</small></h3>
+      <span class="play-btn pending" aria-disabled="true">即將推出</span>
+    </div>
+
+    <!-- 遊戲 15：預留位置 -->
+    <div class="game-card">
+      <div class="placeholder-cover" role="img" aria-label="遊戲 15 封面待新增">🎮<span>GAME 15</span></div>
+      <h3>遊戲標題 15<small>Tên trò chơi 15</small></h3>
+      <span class="play-btn pending" aria-disabled="true">即將推出</span>
+    </div>
+
+    <!-- 遊戲 16：預留位置 -->
+    <div class="game-card">
+      <div class="placeholder-cover" role="img" aria-label="遊戲 16 封面待新增">🎮<span>GAME 16</span></div>
+      <h3>遊戲標題 16<small>Tên trò chơi 16</small></h3>
+      <span class="play-btn pending" aria-disabled="true">即將推出</span>
+    </div>
+
+    <!-- 遊戲 17：預留位置 -->
+    <div class="game-card">
+      <div class="placeholder-cover" role="img" aria-label="遊戲 17 封面待新增">🎮<span>GAME 17</span></div>
+      <h3>遊戲標題 17<small>Tên trò chơi 17</small></h3>
+      <span class="play-btn pending" aria-disabled="true">即將推出</span>
+    </div>
+
+    <!-- 遊戲 18：預留位置 -->
+    <div class="game-card">
+      <div class="placeholder-cover" role="img" aria-label="遊戲 18 封面待新增">🎮<span>GAME 18</span></div>
+      <h3>遊戲標題 18<small>Tên trò chơi 18</small></h3>
+      <span class="play-btn pending" aria-disabled="true">即將推出</span>
+    </div>
+
+    <!-- 遊戲 19：預留位置 -->
+    <div class="game-card">
+      <div class="placeholder-cover" role="img" aria-label="遊戲 19 封面待新增">🎮<span>GAME 19</span></div>
+      <h3>遊戲標題 19<small>Tên trò chơi 19</small></h3>
+      <span class="play-btn pending" aria-disabled="true">即將推出</span>
+    </div>
+
+    <!-- 遊戲 20：預留位置 -->
+    <div class="game-card">
+      <div class="placeholder-cover" role="img" aria-label="遊戲 20 封面待新增">🎮<span>GAME 20</span></div>
+      <h3>遊戲標題 20<small>Tên trò chơi 20</small></h3>
+      <span class="play-btn pending" aria-disabled="true">即將推出</span>
+    </div>
+
+    <!-- 遊戲 21：預留位置 -->
+    <div class="game-card">
+      <div class="placeholder-cover" role="img" aria-label="遊戲 21 封面待新增">🎮<span>GAME 21</span></div>
+      <h3>遊戲標題 21<small>Tên trò chơi 21</small></h3>
+      <span class="play-btn pending" aria-disabled="true">即將推出</span>
+    </div>
+
+    <!-- 遊戲 22：預留位置 -->
+    <div class="game-card">
+      <div class="placeholder-cover" role="img" aria-label="遊戲 22 封面待新增">🎮<span>GAME 22</span></div>
+      <h3>遊戲標題 22<small>Tên trò chơi 22</small></h3>
+      <span class="play-btn pending" aria-disabled="true">即將推出</span>
+    </div>
+
+    <!-- 遊戲 23：預留位置 -->
+    <div class="game-card">
+      <div class="placeholder-cover" role="img" aria-label="遊戲 23 封面待新增">🎮<span>GAME 23</span></div>
+      <h3>遊戲標題 23<small>Tên trò chơi 23</small></h3>
+      <span class="play-btn pending" aria-disabled="true">即將推出</span>
+    </div>
+
+    <!-- 遊戲 24：預留位置 -->
+    <div class="game-card">
+      <div class="placeholder-cover" role="img" aria-label="遊戲 24 封面待新增">🎮<span>GAME 24</span></div>
+      <h3>遊戲標題 24<small>Tên trò chơi 24</small></h3>
+      <span class="play-btn pending" aria-disabled="true">即將推出</span>
     </div>
   </main>
 </body>
