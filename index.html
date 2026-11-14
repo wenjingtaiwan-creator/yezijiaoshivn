@@ -216,17 +216,62 @@
       100% { transform: translateX(-100%); }
     }
 
-    .canva-section {
-      max-width: 900px;
+    .media-section {
+      max-width: 1200px;
       margin: 0 auto;
-      padding: 50px 20px 20px 20px;
+      padding: 36px 20px 0;
       text-align: center;
     }
 
-    .canva-section h3 {
+    .media-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .media-item {
+      display: grid;
+      grid-template-rows: subgrid;
+      grid-row: span 3;
+      gap: 8px;
+      min-width: 0;
+    }
+
+    .media-item h3, .media-section h2 {
       color: var(--primary-color);
-      font-size: 1.8rem;
-      margin-bottom: 5px;
+      font-size: 1.15rem;
+      margin: 0;
+    }
+
+    .media-section h2 { margin-bottom: 14px; }
+
+    .media-frame {
+      display: block;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border: 0;
+      border-radius: 8px;
+      background: #F0F4F1;
+      box-shadow: 0 2px 8px rgba(63, 69, 81, 0.16);
+    }
+
+    .video-placeholder {
+      display: grid;
+      place-content: center;
+      gap: 5px;
+      color: #45624a;
+      border: 1px dashed #9db7a2;
+      box-shadow: none;
+    }
+
+    .video-placeholder span[aria-hidden="true"] { font-size: 1.5rem; }
+
+    @media (max-width: 850px) {
+      .media-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+
+    @media (max-width: 560px) {
+      .media-grid { grid-template-columns: minmax(0, 1fr); }
     }
 
     .canva-credits {
@@ -493,11 +538,7 @@
 
       section { padding: 55px 15px; }
 
-      .canva-section {
-        padding: 35px 15px 10px;
-      }
-
-      .canva-section h3 { font-size: 1.5rem; }
+      .media-section { padding: 28px 15px 0; }
       .section-title { font-size: 1.7rem; }
       .map-viewport { height: 450px; }
     }
@@ -544,39 +585,50 @@
     </div>
   </div>
 
-  <!-- Canva 越南文化 -->
-  <div class="canva-section">
-    <h3>🇻🇳 探索越南文化</h3>
-    <div style="position:relative;width:100%;height:0;padding-top:56.25%;box-shadow:0 2px 8px rgba(63,69,81,0.16);margin-top:1.6em;margin-bottom:.9em;overflow:hidden;border-radius:8px;">
-      <iframe loading="lazy" style="position:absolute;width:100%;height:100%;top:0;left:0;border:none;padding:0;margin:0;" src="https://www.canva.com/design/DAHPnq4Wpwo/8WvypBFb6gkZYgK-DOXSqg/view?embed" allowfullscreen></iframe>
-    </div>
-    <div class="canva-credits">
+  <section class="media-section" id="presentations" aria-label="互動簡報">
+    <div class="media-grid">
+      <article class="media-item">
+        <h3>🇻🇳 探索越南文化</h3>
+        <iframe class="media-frame" title="🇻🇳 探索越南文化" loading="lazy" src="https://www.canva.com/design/DAHPnq4Wpwo/8WvypBFb6gkZYgK-DOXSqg/view?embed" allowfullscreen></iframe>
+        <div class="canva-credits">
       葉文靜 設計的
       <a href="https://www.canva.com/design/DAHPnq4Wpwo/8WvypBFb6gkZYgK-DOXSqg/view?utm_content=DAHPnq4Wpwo&utm_campaign=designshare&utm_medium=embeds&utm_source=link" target="_blank" rel="noopener">介紹越南</a>
     </div>
-  </div>
-
-  <!-- Canva 越南咖啡 -->
-  <div class="canva-section">
-    <h3>☕ 探索越南咖啡文化</h3>
-    <div style="position:relative;width:100%;height:0;padding-top:56.25%;box-shadow:0 2px 8px rgba(63,69,81,0.16);margin-top:1.6em;margin-bottom:.9em;overflow:hidden;border-radius:8px;">
-      <iframe loading="lazy" style="position:absolute;width:100%;height:100%;top:0;left:0;border:none;padding:0;margin:0;" src="https://www.canva.com/design/DAGf4TlWXkE/GA1NvCE6yoXr7_x7zGlRaw/view?embed" allowfullscreen></iframe>
-    </div>
-    <div class="canva-credits">
+      </article>
+      <article class="media-item">
+        <h3>☕ 探索越南咖啡文化</h3>
+        <iframe class="media-frame" title="☕ 探索越南咖啡文化" loading="lazy" src="https://www.canva.com/design/DAGf4TlWXkE/GA1NvCE6yoXr7_x7zGlRaw/view?embed" allowfullscreen></iframe>
+        <div class="canva-credits">
       葉文靜 設計的
       <a href="https://www.canva.com/design/DAGf4TlWXkE/GA1NvCE6yoXr7_x7zGlRaw/view?utm_content=DAGf4TlWXkE&utm_campaign=designshare&utm_medium=embeds&utm_source=link" target="_blank" rel="noopener">越南咖啡</a>
     </div>
-  </div>
+      </article>
+      <article class="media-item">
+        <h3>🔤 越南語拼讀練習（Đánh vần）</h3>
+        <iframe class="media-frame" title="🔤 越南語拼讀練習（Đánh vần）" loading="lazy" src="https://view.genially.com/67b1a99b8ffe7cad1b765fec" allowfullscreen></iframe>
+        <div class="canva-credits"><a href="https://view.genially.com/67b1a99b8ffe7cad1b765fec" target="_blank" rel="noopener noreferrer">開啟拼讀練習 ↗</a></div>
+      </article>
+    </div>
+  </section>
 
-  <!-- Genially 拼音教學 -->
-  <div class="canva-section">
-    <h3>🔤 越南語拼音練習 (Đánh vần)</h3>
-    <div style="width:100%;margin-top:1.6em;">
-      <div style="position:relative;padding-bottom:56.25%;height:0;box-shadow:0 2px 8px rgba(0,0,0,0.15);border-radius:8px;overflow:hidden;">
-        <iframe title="Đánh vần" frameborder="0" style="position:absolute;top:0;left:0;width:100%;height:100%;" src="https://view.genially.com/67b1a99b8ffe7cad1b765fec" allowfullscreen scrolling="yes"></iframe>
+  <section class="media-section" id="youtube-videos" aria-labelledby="youtube-title">
+    <h2 id="youtube-title">YouTube 影片</h2>
+    <div class="media-grid">
+      <!-- 新增影片時，以 class="media-frame" 的 YouTube 嵌入 iframe 取代對應的預留欄位。 -->
+      <div class="media-frame video-placeholder">
+        <span aria-hidden="true">▷</span>
+        <span>影片 1・待加入</span>
+      </div>
+      <div class="media-frame video-placeholder">
+        <span aria-hidden="true">▷</span>
+        <span>影片 2・待加入</span>
+      </div>
+      <div class="media-frame video-placeholder">
+        <span aria-hidden="true">▷</span>
+        <span>影片 3・待加入</span>
       </div>
     </div>
-  </div>
+  </section>
 
   <!-- 教學資源 -->
   <section id="teaching">
