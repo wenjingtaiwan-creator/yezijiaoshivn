@@ -299,6 +299,8 @@
             font-size: 0.9rem;
             margin-top: 60px;
         }
+        #featuredPhonics:fullscreen { width: 100%; height: 100%; padding: 0; border-radius: 0; background: #000; }
+    #featuredPhonics:fullscreen iframe { width: 100%; height: 100%; }
     </style>
 </head>
 <body>
@@ -370,55 +372,66 @@
                 </div>
             </div>
 
+            <div class="featured-phonics" style="margin: 0 auto 32px; max-width: 1050px;">
+                <div class="presentation-header" style="margin-bottom: 12px;">
+                    <h3 style="margin: 0; color: var(--primary-color);">實體字卡版</h3>
+                    <button type="button" class="card-action-btn" style="border: 0; cursor: pointer; margin: 0;" onclick="openPhonicsFullscreen()">⛶ 全螢幕簡報</button>
+                </div>
+                <div class="embed-container" id="featuredPhonics">
+                    <iframe title="實體字卡版" loading="eager" src="https://www.canva.com/design/DAHQUGPUPCQ/Fmxov_aZgipQJSJkCtA0Jw/view?embed" allowfullscreen="allowfullscreen" allow="fullscreen"></iframe>
+                </div>
+                <div class="presentation-caption">葉文靜 設計的 <a href="https://www.canva.com/design/DAHQUGPUPCQ/Fmxov_aZgipQJSJkCtA0Jw/view" target="_blank" rel="noopener">實體字卡版（在 Canva 開啟）</a></div>
+            </div>
+
             <div class="presentation-grid" id="presentationGrid">
                 
                 <!-- 1. Aa -->
                 <div class="presentation-item">
                     <div class="embed-container">
-                        <iframe loading="lazy" src="https://www.canva.com/design/DAHQOULxUZA/YiiJ2Bwql6LJDRetrFZYtA/watch?embed" allowfullscreen="allowfullscreen" allow="fullscreen"></iframe>
+                        <iframe loading="lazy" src="https://www.canva.com/design/DAHQOULxUZA/YiiJ2Bwql6LJDRetrFZYtA/view?embed" allowfullscreen="allowfullscreen" allow="fullscreen"></iframe>
                     </div>
                     <div class="presentation-caption">
-                        <a href="https://www.canva.com/design/DAHQOULxUZA/YiiJ2Bwql6LJDRetrFZYtA/watch?utm_content=DAHQOULxUZA&amp;utm_campaign=designshare&amp;utm_medium=embeds&amp;utm_source=link" target="_blank" rel="noopener">Aa 拼讀-教學簡報</a>
+                        <a href="https://www.canva.com/design/DAHQOULxUZA/YiiJ2Bwql6LJDRetrFZYtA/view?utm_content=DAHQOULxUZA&amp;utm_campaign=designshare&amp;utm_medium=embeds&amp;utm_source=link" target="_blank" rel="noopener">Aa 拼讀-教學簡報</a>
                     </div>
                 </div>
 
                 <!-- 2. Ăă -->
                 <div class="presentation-item">
                     <div class="embed-container">
-                        <iframe loading="lazy" src="https://www.canva.com/design/DAHQUcmdmwU/nyueVimM_Bz3jZVFdfCg5g/watch?embed" allowfullscreen="allowfullscreen" allow="fullscreen"></iframe>
+                        <iframe loading="lazy" src="https://www.canva.com/design/DAHQUcmdmwU/nyueVimM_Bz3jZVFdfCg5g/view?embed" allowfullscreen="allowfullscreen" allow="fullscreen"></iframe>
                     </div>
                     <div class="presentation-caption">
-                        <a href="https://www.canva.com/design/DAHQUcmdmwU/nyueVimM_Bz3jZVFdfCg5g/watch?utm_content=DAHQUcmdmwU&amp;utm_campaign=designshare&amp;utm_medium=embeds&amp;utm_source=link" target="_blank" rel="noopener">Ăă 拼讀-教學簡報</a>
+                        <a href="https://www.canva.com/design/DAHQUcmdmwU/nyueVimM_Bz3jZVFdfCg5g/view?utm_content=DAHQUcmdmwU&amp;utm_campaign=designshare&amp;utm_medium=embeds&amp;utm_source=link" target="_blank" rel="noopener">Ăă 拼讀-教學簡報</a>
                     </div>
                 </div>
 
                 <!-- 3. Ââ -->
                 <div class="presentation-item">
                     <div class="embed-container">
-                        <iframe loading="lazy" src="https://www.canva.com/design/DAHQXzbSTjM/W4CQxqpKOxwhmRyxlu0HPA/watch?embed" allowfullscreen="allowfullscreen" allow="fullscreen"></iframe>
+                        <iframe loading="lazy" src="https://www.canva.com/design/DAHQXzbSTjM/W4CQxqpKOxwhmRyxlu0HPA/view?embed" allowfullscreen="allowfullscreen" allow="fullscreen"></iframe>
                     </div>
                     <div class="presentation-caption">
-                        <a href="https://www.canva.com/design/DAHQXzbSTjM/W4CQxqpKOxwhmRyxlu0HPA/watch?utm_content=DAHQXzbSTjM&amp;utm_campaign=designshare&amp;utm_medium=embeds&amp;utm_source=link" target="_blank" rel="noopener">Ââ 拼讀-教學簡報</a>
+                        <a href="https://www.canva.com/design/DAHQXzbSTjM/W4CQxqpKOxwhmRyxlu0HPA/view?utm_content=DAHQXzbSTjM&amp;utm_campaign=designshare&amp;utm_medium=embeds&amp;utm_source=link" target="_blank" rel="noopener">Ââ 拼讀-教學簡報</a>
                     </div>
                 </div>
 
                 <!-- 4. Bb -->
                 <div class="presentation-item">
                     <div class="embed-container">
-                        <iframe loading="lazy" src="https://www.canva.com/design/DAHQOHonsJM/_GfUdMTz2yOWbJBlsV0FUA/watch?embed" allowfullscreen="allowfullscreen" allow="fullscreen"></iframe>
+                        <iframe loading="lazy" src="https://www.canva.com/design/DAHQOHonsJM/_GfUdMTz2yOWbJBlsV0FUA/view?embed" allowfullscreen="allowfullscreen" allow="fullscreen"></iframe>
                     </div>
                     <div class="presentation-caption">
-                        <a href="https://www.canva.com/design/DAHQOHonsJM/_GfUdMTz2yOWbJBlsV0FUA/watch?utm_content=DAHQOHonsJM&amp;utm_campaign=designshare&amp;utm_medium=embeds&amp;utm_source=link" target="_blank" rel="noopener">Bb 拼讀-教學簡報</a>
+                        <a href="https://www.canva.com/design/DAHQOHonsJM/_GfUdMTz2yOWbJBlsV0FUA/view?utm_content=DAHQOHonsJM&amp;utm_campaign=designshare&amp;utm_medium=embeds&amp;utm_source=link" target="_blank" rel="noopener">Bb 拼讀-教學簡報</a>
                     </div>
                 </div>
 
                 <!-- 5. Cc -->
                 <div class="presentation-item">
                     <div class="embed-container">
-                        <iframe loading="lazy" src="https://www.canva.com/design/DAHQrKK1_lk/Sb6Xfq7UsclsuRrXBn2vRw/watch?embed" allowfullscreen="allowfullscreen" allow="fullscreen"></iframe>
+                        <iframe loading="lazy" src="https://www.canva.com/design/DAHQrKK1_lk/Sb6Xfq7UsclsuRrXBn2vRw/view?embed" allowfullscreen="allowfullscreen" allow="fullscreen"></iframe>
                     </div>
                     <div class="presentation-caption">
-                        <a href="https://www.canva.com/design/DAHQrKK1_lk/Sb6Xfq7UsclsuRrXBn2vRw/watch?utm_content=DAHQrKK1_lk&amp;utm_campaign=designshare&amp;utm_medium=embeds&amp;utm_source=link" target="_blank" rel="noopener">Cc 拼讀-教學簡報</a>
+                        <a href="https://www.canva.com/design/DAHQrKK1_lk/Sb6Xfq7UsclsuRrXBn2vRw/view?utm_content=DAHQrKK1_lk&amp;utm_campaign=designshare&amp;utm_medium=embeds&amp;utm_source=link" target="_blank" rel="noopener">Cc 拼讀-教學簡報</a>
                     </div>
                 </div>
 
@@ -630,6 +643,16 @@
 
     <!-- 🔍 JavaScript 搜尋即時篩選腳本 -->
     <script>
+        async function openPhonicsFullscreen() {
+            const panel = document.getElementById('featuredPhonics');
+            try {
+                if (!panel.requestFullscreen) throw new Error('Fullscreen unavailable');
+                await panel.requestFullscreen();
+            } catch (error) {
+                window.open('https://www.canva.com/design/DAHQUGPUPCQ/Fmxov_aZgipQJSJkCtA0Jw/view', '_blank', 'noopener');
+            }
+        }
+
         function filterPresentations() {
             const input = document.getElementById('presentationSearch');
             const filter = input.value.toLowerCase().trim();
